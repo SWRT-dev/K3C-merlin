@@ -1,0 +1,13 @@
+gpg_error-strerror-sym.o: strerror-sym.c ../config.h \
+ /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stddef.h \
+ gpg-error.h err-codes-sym.h errnos-sym.h
+
+../config.h:
+
+/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stddef.h:
+
+gpg-error.h:
+
+err-codes-sym.h:
+
+errnos-sym.h:

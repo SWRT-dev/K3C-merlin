@@ -1,0 +1,10 @@
+Package: busybox
+Version: 1.17.1-1
+Depends: libc, libssp, librpc
+Source: /media/intel160g/2asuswrt/UGW-7.2.1.22_05.04.00.61.8_AE_OOM_patch/ugw/feeds_opensrc/packages/busybox
+Section: base
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: lantiq
+Installed-Size: 258624
+Description:  The Swiss Army Knife of embedded Linux.
+ It slices, it dices, it makes Julian Fries.

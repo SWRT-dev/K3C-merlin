@@ -1,0 +1,2 @@
+#! /bin/sh
+exec '/media/intel160g/3asuswrt/UGW-7.2MR1/UGW-7.2.1.20-SW-CD/Sources/UGW-7.2.1.20/staging_dir/host/bin/bison' -y "$@"

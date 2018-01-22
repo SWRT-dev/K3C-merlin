@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/etc
+includedir=${prefix}/include
+
+Name: Samba libwbclient
+Description: A library to access winbindd
+Version: 0
+URL: http://www.samba.org/
+#Libs: -L/etc -lwbclient
+Libs: -lwbclient
+Libs.private: -lwbclient
+Cflags: -I${prefix}/include

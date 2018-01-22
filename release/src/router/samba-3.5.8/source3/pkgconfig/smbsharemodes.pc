@@ -1,0 +1,14 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/etc
+includedir=${prefix}/include
+
+Name: Samba libsmbsharemodes
+Description: A library
+Version: 0
+URL: http://www.samba.org/
+#Libs: -L/etc -lsmbsharemodes
+Libs: -lsmbsharemodes
+Libs.private: -lsmbsharemodes   
+Cflags: -I${prefix}/include
+

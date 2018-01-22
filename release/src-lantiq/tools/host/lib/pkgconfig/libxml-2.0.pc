@@ -1,0 +1,13 @@
+prefix=/media/intel160g/3asuswrt/UGW-7.2MR1/UGW-7.2.1.20-SW-CD/Sources/UGW-7.2.1.20/staging_dir/host
+exec_prefix=/media/intel160g/3asuswrt/UGW-7.2MR1/UGW-7.2.1.20-SW-CD/Sources/UGW-7.2.1.20/staging_dir/host
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.9.3
+Description: libXML library version2.
+Requires:
+Libs: -L${libdir} -lxml2
+Libs.private:   -lz   -lm  
+Cflags: -I${includedir}/libxml2 

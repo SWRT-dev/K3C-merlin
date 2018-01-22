@@ -1,0 +1,11 @@
+prefix=
+exec_prefix=
+libdir=/home/paldier/asuswrt/release/src-lantiq/router/json-c
+includedir=/home/paldier/asuswrt/release/src-lantiq/router/json-c
+
+Name: json
+Description: JSON implementation in C
+Version: 0.12.1
+Requires:
+Libs:  -L/home/paldier/asuswrt/release/src-lantiq/router/json-c -ljson-c
+Cflags: -I/home/paldier/asuswrt/release/src-lantiq/router/json-c

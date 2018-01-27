@@ -661,6 +661,7 @@ config.status:716: creating vorbis-uninstalled.pc
 config.status:716: creating vorbisenc-uninstalled.pc
 config.status:716: creating vorbisfile-uninstalled.pc
 config.status:716: creating config.h
+config.status:945: config.h is unchanged
 config.status:992: executing depfiles commands
 
 ## ---------------- ##

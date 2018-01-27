@@ -2113,6 +2113,7 @@ config.status:878: creating ../gui/Makefile
 config.status:981: WARNING:  '../gui/Makefile.in' seems to ignore the --datarootdir setting
 config.status:878: creating ../gui/tkpppoe
 config.status:878: creating config.h
+config.status:1052: config.h is unchanged
 configure:6025: result: On this platform, the following targets will be built:
 configure:6027: result: pppoe pppoe-server pppoe-sniff pppoe-relay rp-pppoe.so
 configure:6029: result: Type 'make' to compile the software.

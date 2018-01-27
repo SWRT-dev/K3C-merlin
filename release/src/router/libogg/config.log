@@ -1535,6 +1535,7 @@ config.status:688: creating libogg.spec
 config.status:688: creating ogg.pc
 config.status:688: creating ogg-uninstalled.pc
 config.status:688: creating config.h
+config.status:920: config.h is unchanged
 config.status:967: executing depfiles commands
 
 ## ---------------- ##

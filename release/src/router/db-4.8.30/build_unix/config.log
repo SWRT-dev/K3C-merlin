@@ -4077,7 +4077,7 @@ configure:18648: $? = 0
 configure:18655: result: yes
 configure:18663: checking for getopt optreset variable
 configure:18680: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  >&5
-/tmp/ccMUNYTz.o: In function `main':
+/tmp/ccyUZcZg.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `optreset'
 conftest.c:(.text.startup+0x8): undefined reference to `optreset'
 collect2: error: ld returned 1 exit status
@@ -4811,7 +4811,7 @@ configure:20634: $? = 0
 configure:20634: result: yes
 configure:20662: checking for _fstati64
 configure:20662: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  -lpthread >&5
-/tmp/cczhRv5p.o: In function `main':
+/tmp/ccz1Hdrd.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `_fstati64'
 collect2: error: ld returned 1 exit status
 configure:20662: $? = 1
@@ -4931,7 +4931,7 @@ configure: failed program was:
 configure:20662: result: no
 configure:20662: checking for backtrace
 configure:20662: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  -lpthread >&5
-/tmp/ccXDWcDt.o: In function `main':
+/tmp/ccUS5Bd7.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `backtrace'
 collect2: error: ld returned 1 exit status
 configure:20662: $? = 1
@@ -5051,7 +5051,7 @@ configure: failed program was:
 configure:20662: result: no
 configure:20662: checking for backtrace_symbols
 configure:20662: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  -lpthread >&5
-/tmp/ccc0SLVv.o: In function `main':
+/tmp/cc2xeet9.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `backtrace_symbols'
 collect2: error: ld returned 1 exit status
 configure:20662: $? = 1
@@ -5171,7 +5171,7 @@ configure: failed program was:
 configure:20662: result: no
 configure:20662: checking for directio
 configure:20662: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  -lpthread >&5
-/tmp/cc30LmQw.o: In function `main':
+/tmp/cckFth2c.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `directio'
 collect2: error: ld returned 1 exit status
 configure:20662: $? = 1
@@ -5346,7 +5346,7 @@ configure:20662: $? = 0
 configure:20662: result: yes
 configure:20662: checking for pstat_getdynamic
 configure:20662: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  -lpthread >&5
-/tmp/ccCkzGUc.o: In function `main':
+/tmp/ccl68Zog.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `pstat_getdynamic'
 collect2: error: ld returned 1 exit status
 configure:20662: $? = 1
@@ -5533,7 +5533,7 @@ configure:20662: $? = 0
 configure:20662: result: yes
 configure:20662: checking for yield
 configure:20662: mips-openwrt-linux-uclibc-gcc -o conftest -Os   -D_GNU_SOURCE -D_REENTRANT  conftest.c  -lpthread >&5
-/tmp/ccCv5dsF.o: In function `main':
+/tmp/ccPiERIR.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `yield'
 collect2: error: ld returned 1 exit status
 configure:20662: $? = 1
@@ -6180,6 +6180,7 @@ config.status:1287: creating clib_port.h
 config.status:1287: creating include.tcl
 config.status:1287: creating db.h
 config.status:1287: creating db_config.h
+config.status:1446: db_config.h is unchanged
 config.status:1460: executing libtool commands
 
 ## ---------------- ##

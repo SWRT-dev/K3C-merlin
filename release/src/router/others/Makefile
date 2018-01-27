@@ -28,6 +28,9 @@ endif
 # chpasswd script
 	install -m 0700 chpasswd.sh $(INSTALLDIR)/usr/sbin
 
+# K3C nvram
+	install -m 0700 k3cnvram.sh $(INSTALLDIR)/usr/sbin
+
 # OpenVPN
 ifeq ($(RTCONFIG_OPENVPN),y)
 	install -m 0700 setuprsa.sh $(INSTALLDIR)/usr/sbin

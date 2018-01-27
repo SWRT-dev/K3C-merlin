@@ -1,0 +1,35 @@
+/* config.h.  Generated from config.h.in by configure.  */
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to 1 if clock_gettime supports CLOCK_MONOTONIC. */
+#define HAVE_CLOCK_MONOTONIC 1
+
+/* Define to 1 if `sin_len' is a member of `struct sockaddr_in'. */
+/* #undef HAVE_STRUCT_SOCKADDR_IN_SIN_LEN */
+
+/* Define to 1 if `sa_len' is a member of `struct sockaddr'. */
+/* #undef HAVE_STRUCT_SOCKADDR_SA_LEN */
+
+/* Name of package */
+#define PACKAGE "igmpproxy"
+
+/* Define to the address where bug reports for this package should be sent. */
+#define PACKAGE_BUGREPORT ""
+
+/* Define to the full name of this package. */
+#define PACKAGE_NAME "igmpproxy"
+
+/* Define to the full name and version of this package. */
+#define PACKAGE_STRING "igmpproxy 0.1.2"
+
+/* Define to the one symbol short name of this package. */
+#define PACKAGE_TARNAME "igmpproxy"
+
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
+
+/* Define to the version of this package. */
+#define PACKAGE_VERSION "0.1.2"
+
+/* Version number of package */
+#define VERSION "0.1.2"

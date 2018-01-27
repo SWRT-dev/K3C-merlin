@@ -19,10 +19,11 @@
 //	#define TEST_INTEGRITY
 
 #ifdef RTCONFIG_JFFSV1
-#define JFFS_NAME	"jffs"
+#define JFFS_NAME	"jffs2"
 #else
 #define JFFS_NAME	"jffs2"
 #endif
+#define JFFS_V	"yaffs2"
 
 #ifdef RTCONFIG_BRCM_NAND_JFFS2
 #ifdef HND_ROUTER
@@ -230,7 +231,7 @@ void start_jffs2(void)
 
 	model = get_model();
 	jffs2_fail = 0;
-	_dprintf("start jffs2: %d, %d\n", part, size);
+	_dprintf("start yaffs2: %d, %d\n", part, size);
 
 	if (nvram_match("jffs2_format", "1")) {
 		nvram_set("jffs2_format", "0");
@@ -267,7 +268,7 @@ void start_jffs2(void)
 	modprobe(JFFS_NAME);
 	sprintf(s, MTD_BLKDEV(%d), part);
 
-	if (mount(s, "/jffs", JFFS_NAME, MS_NOATIME, "") != 0) {
+	if (mount(s, "/jffs", JFFS_V, MS_NOATIME, "tags-ecc-off") != 0) {
 		if ((model==MODEL_RTAC56U || model==MODEL_RTAC56S || model==MODEL_RTAC3200 || model==MODEL_RTAC68U || model==MODEL_DSLAC68U || model==MODEL_RTAC87U || model==MODEL_RTAC88U || model==MODEL_RTAC86U || model==MODEL_RTAC3100 || model==MODEL_RTAC5300 || model==MODEL_GTAC5300 || model==MODEL_RTN18U || model==MODEL_RTAC1200G || model==MODEL_RTAC1200GP) ^ (!mtd_erase(JFFS2_MTD_NAME))){
 			jffs2_fail = 1;
 			error("formatting");
@@ -275,8 +276,8 @@ void start_jffs2(void)
 		}
 
 		format = 1;
-		if (mount(s, "/jffs", JFFS_NAME, MS_NOATIME, "") != 0) {
-			_dprintf("*** jffs2 2-nd mount error\n");
+		if (mount(s, "/jffs", JFFS_V, MS_NOATIME, "tags-ecc-off") != 0) {
+			_dprintf("*** yaffs2 2-nd mount error\n");
 			//modprobe_r(JFFS_NAME);
 			error("mounting");
 			jffs2_fail = 1;
@@ -290,7 +291,7 @@ void start_jffs2(void)
 	}
 
 	if (nvram_match("force_erase_jffs2", "1")) {
-		_dprintf("\n*** force erase jffs2 ***\n");
+		_dprintf("\n*** force erase yaffs2 ***\n");
 		mtd_erase(JFFS2_MTD_NAME);
 		nvram_set("jffs2_clean_fs", "1");
 		nvram_commit();

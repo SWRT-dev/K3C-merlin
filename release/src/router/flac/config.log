@@ -1417,6 +1417,7 @@ config.status:858: creating obj/release/Makefile
 config.status:858: creating obj/release/bin/Makefile
 config.status:858: creating obj/release/lib/Makefile
 config.status:962: creating config.h
+config.status:1090: config.h is unchanged
 config.status:1270: executing depfiles commands
 
 ## ---------------- ##

@@ -1,0 +1,3 @@
+pselect.lo: pselect.c ../../config.h
+
+../../config.h:

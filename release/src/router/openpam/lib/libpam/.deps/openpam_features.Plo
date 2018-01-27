@@ -1,0 +1,35 @@
+openpam_features.lo: openpam_features.c ../../config.h \
+ ../../include/security/pam_appl.h ../../include/security/pam_types.h \
+ /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stddef.h \
+ ../../include/security/pam_constants.h \
+ ../../include/security/openpam_version.h \
+ ../../include/security/openpam_attr.h openpam_impl.h \
+ ../../include/security/openpam.h \
+ /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stdarg.h \
+ openpam_constants.h openpam_debug.h openpam_features.h
+
+../../config.h:
+
+../../include/security/pam_appl.h:
+
+../../include/security/pam_types.h:
+
+/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stddef.h:
+
+../../include/security/pam_constants.h:
+
+../../include/security/openpam_version.h:
+
+../../include/security/openpam_attr.h:
+
+openpam_impl.h:
+
+../../include/security/openpam.h:
+
+/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stdarg.h:
+
+openpam_constants.h:
+
+openpam_debug.h:
+
+openpam_features.h:

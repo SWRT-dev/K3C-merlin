@@ -862,8 +862,8 @@ configure:20597: $? = 0
 configure:20609: result: yes
 configure:20616: checking for _doprnt
 configure:20673: mips-openwrt-linux-uclibc-g++ -o conftest -g -O2   conftest.cc -lpthread -ldl >&5
-/tmp/cc91dJq3.o:(.data+0x0): undefined reference to `_doprnt'
-/tmp/cc91dJq3.o: In function `main':
+/tmp/ccEokmyH.o:(.data+0x0): undefined reference to `_doprnt'
+/tmp/ccEokmyH.o: In function `main':
 /home/paldier/asuswrt/release/src/router/libusb-0.1.12/conftest.cc:75: undefined reference to `_doprnt'
 /home/paldier/asuswrt/release/src/router/libusb-0.1.12/conftest.cc:75: undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
@@ -1052,6 +1052,7 @@ config.status:754: creating INSTALL.libusb
 config.status:754: creating usb.h
 config.status:754: creating Doxyfile
 config.status:858: creating config.h
+config.status:996: config.h is unchanged
 config.status:1176: executing depfiles commands
 config.status:1176: executing default commands
 

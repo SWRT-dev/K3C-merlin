@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Netatalk 3.0.5 daemons.
+#
+
+echo -n 'starting netatalk daemons:'
+
+if [ -x /usr/sbin/netatalk ]; then
+    /usr/sbin/netatalk
+    echo -n ' netatalk'
+fi
+
+echo '.'

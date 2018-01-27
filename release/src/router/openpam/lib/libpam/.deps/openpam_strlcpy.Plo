@@ -1,0 +1,3 @@
+openpam_strlcpy.lo: openpam_strlcpy.c ../../config.h
+
+../../config.h:

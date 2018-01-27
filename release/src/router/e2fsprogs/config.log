@@ -559,7 +559,7 @@ configure:7857: result: yes
 configure:7857: checking for pthread.h
 configure:7857: result: yes
 configure:7885: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccVIoAeB.o: In function `main':
+/tmp/ccW7fvyE.o: In function `main':
 conftest.c:(.text.startup.main+0x10): undefined reference to `pthread_mutexattr_init'
 collect2: error: ld returned 1 exit status
 configure:7885: $? = 1
@@ -1045,7 +1045,7 @@ configure:9538: $? = 0
 configure:9538: result: yes
 configure:9538: checking for uselocale
 configure:9538: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccvsGxzo.o: In function `main':
+/tmp/cc07mAZu.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `uselocale'
 collect2: error: ld returned 1 exit status
 configure:9538: $? = 1
@@ -1153,7 +1153,7 @@ configure: failed program was:
 configure:9538: result: no
 configure:9538: checking for argz_count
 configure:9538: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/cc006FYq.o: In function `main':
+/tmp/ccY2Nyix.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `argz_count'
 collect2: error: ld returned 1 exit status
 configure:9538: $? = 1
@@ -1261,7 +1261,7 @@ configure: failed program was:
 configure:9538: result: no
 configure:9538: checking for argz_stringify
 configure:9538: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/cc0C17vt.o: In function `main':
+/tmp/ccxevkLz.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `argz_stringify'
 collect2: error: ld returned 1 exit status
 configure:9538: $? = 1
@@ -1369,7 +1369,7 @@ configure: failed program was:
 configure:9538: result: no
 configure:9538: checking for argz_next
 configure:9538: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccSIQECu.o: In function `main':
+/tmp/ccGIZrcC.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `argz_next'
 collect2: error: ld returned 1 exit status
 configure:9538: $? = 1
@@ -1865,7 +1865,7 @@ configure:10304: $? = 0
 configure:10304: result: yes
 configure:10304: checking for newlocale
 configure:10304: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/cceCaIq2.o: In function `main':
+/tmp/cc7OfIva.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `newlocale'
 collect2: error: ld returned 1 exit status
 configure:10304: $? = 1
@@ -4361,7 +4361,7 @@ configure:12374: $? = 0
 configure:12374: result: yes
 configure:12380: checking for _doprnt
 configure:12380: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/cc1GKUu3.o: In function `main':
+/tmp/ccpN0kH9.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:12380: $? = 1
@@ -8794,7 +8794,7 @@ configure: failed program was:
 configure:12937: result: no
 configure:13009: checking for __secure_getenv
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccuSD6Hf.o: In function `main':
+/tmp/ccCYoXJf.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `__secure_getenv'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -8985,7 +8985,7 @@ configure: failed program was:
 configure:13009: result: no
 configure:13009: checking for backtrace
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccGpIx2i.o: In function `main':
+/tmp/cc0rgchi.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `backtrace'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -9176,7 +9176,7 @@ configure: failed program was:
 configure:13009: result: no
 configure:13009: checking for blkid_probe_get_topology
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccqnUbjl.o: In function `main':
+/tmp/ccQMIbTn.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `blkid_probe_get_topology'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -9367,7 +9367,7 @@ configure: failed program was:
 configure:13009: result: no
 configure:13009: checking for blkid_probe_enable_partitions
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccClV1xn.o: In function `main':
+/tmp/ccBRpCgq.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `blkid_probe_enable_partitions'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -9558,7 +9558,7 @@ configure: failed program was:
 configure:13009: result: no
 configure:13009: checking for chflags
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccsdeKfq.o: In function `main':
+/tmp/cc6QE2ug.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `chflags'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -9749,7 +9749,7 @@ configure: failed program was:
 configure:13009: result: no
 configure:13009: checking for fadvise64
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccYvjeus.o: In function `main':
+/tmp/ccKB8W2i.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `fadvise64'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -9964,7 +9964,7 @@ configure:13009: $? = 0
 configure:13009: result: yes
 configure:13009: checking for futimes
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccXLomFP.o: In function `main':
+/tmp/ccGxzs0D.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `futimes'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -10167,7 +10167,7 @@ configure:13009: $? = 0
 configure:13009: result: yes
 configure:13009: checking for getmntinfo
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccGOY74S.o: In function `main':
+/tmp/ccqdiRHJ.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `getmntinfo'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -10382,7 +10382,7 @@ configure:13009: $? = 0
 configure:13009: result: yes
 configure:13009: checking for llseek
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccE73b94.o: In function `main':
+/tmp/ccu34YGU.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `llseek'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -10655,7 +10655,7 @@ configure:13009: $? = 0
 configure:13009: result: yes
 configure:13009: checking for secure_getenv
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/cc6YOzVK.o: In function `main':
+/tmp/ccpoUH8w.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `secure_getenv'
 collect2: error: ld returned 1 exit status
 configure:13009: $? = 1
@@ -10922,7 +10922,7 @@ configure:13009: $? = 0
 configure:13009: result: yes
 configure:13009: checking for utime
 configure:13009: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccGqFTOb.o: In function `main':
+/tmp/ccCLseT0.o: In function `main':
 conftest.c:(.text.startup.main+0x8): warning: the use of OBSOLESCENT `utime' is discouraged, use `utimes'
 configure:13009: $? = 0
 configure:13009: result: yes
@@ -11152,7 +11152,7 @@ configure:13060: checking for optreset
 configure:13079: result: no
 configure:13088: checking for sem_init
 configure:13088: mips-openwrt-linux-uclibc-gcc -o conftest -Os -ffunction-sections -fdata-sections -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -Wl,--gc-sections --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccipqZQd.o: In function `main':
+/tmp/cc2i2Z89.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `sem_init'
 collect2: error: ld returned 1 exit status
 configure:13088: $? = 1

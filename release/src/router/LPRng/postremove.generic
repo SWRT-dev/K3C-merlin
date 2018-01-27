@@ -1,0 +1,17 @@
+#!/bin/sh
+PREFIX=/usr/local
+LPD_PATH="/usr/local/sbin/lpd"
+INSTALL="/usr/bin/install -c"
+LPD_PERMS_PATH="/usr/local/etc/lpd/lpd.perms"
+LPD_CONF_PATH="/usr/local/etc/lpd/lpd.conf"
+PRINTCAP_PATH="/usr/local/etc/printcap"
+SYSCONFDIR=/usr/local/etc
+SBINDIR=/usr/local/sbin
+FILTER_DIR=/usr/local/libexec/filters
+LOCKFILE="/var/run/lpd"
+PSHOWALL="-ax"
+VERSION=3.8.22
+INIT=
+MANDIR=/usr/local/man
+#!/bin/sh
+# postremove.generic.sh - nothing to do

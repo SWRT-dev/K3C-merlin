@@ -418,6 +418,7 @@ config.status:1093: creating Makefile
 config.status:1093: creating msvc++/Makefile
 config.status:1093: creating libid3tag.list
 config.status:1093: creating config.h
+config.status:1274: config.h is unchanged
 config.status:1322: executing depfiles commands
 config.status:1322: executing libtool commands
 

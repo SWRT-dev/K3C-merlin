@@ -1,0 +1,3 @@
+generic_cjk.lo: generic_cjk.c ../../../config.h
+
+../../../config.h:

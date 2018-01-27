@@ -1,0 +1,3 @@
+getusershell.lo: getusershell.c ../../config.h
+
+../../config.h:

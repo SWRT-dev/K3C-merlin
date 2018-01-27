@@ -4111,7 +4111,7 @@ configure:6541: SSL support enabled, using OpenSSL (0.9.7 or later)
 configure:6550: checking for CRYPTO_set_idptr_callback
 configure:6550: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/libxml2/include  -D_LARGEFILE64_SOURCE -DNE_LFS    -L/home/paldier/asuswrt/release/src-lantiq/router/openssl/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lxml2 -lssl -lcrypto -lpthread -ldl -lm  -lssl -lcrypto   >&5
 /home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccHaUyUq.o: In function `main':
+/tmp/ccqd0FJy.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `CRYPTO_set_idptr_callback'
 collect2: error: ld returned 1 exit status
 configure:6550: $? = 1
@@ -4246,7 +4246,7 @@ configure:6550: result: no
 configure:6550: checking for SSL_SESSION_cmp
 configure:6550: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/libxml2/include  -D_LARGEFILE64_SOURCE -DNE_LFS    -L/home/paldier/asuswrt/release/src-lantiq/router/openssl/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lxml2 -lssl -lcrypto -lpthread -ldl -lm  -lssl -lcrypto   >&5
 /home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccLllStu.o: In function `main':
+/tmp/ccXneQCE.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `SSL_SESSION_cmp'
 collect2: error: ld returned 1 exit status
 configure:6550: $? = 1
@@ -5596,6 +5596,7 @@ config.status:1166: creating test/Makefile
 config.status:1166: creating neon.pc
 config.status:1166: creating test/makekeys
 config.status:1166: creating config.h
+config.status:1340: config.h is unchanged
 config.status:1354: executing libtool commands
 configure:17628: Configured to build neon 0.29.6:
 

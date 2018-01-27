@@ -488,6 +488,7 @@ config.status:1123: creating binary/Makefile
 config.status:1123: creating contrib/Makefile
 config.status:1123: creating contrib/examples/Makefile
 config.status:1123: creating config.h
+config.status:1295: config.h is unchanged
 config.status:1343: executing depfiles commands
 config.status:1343: executing libtool commands
 config.status:1343: executing default-1 commands

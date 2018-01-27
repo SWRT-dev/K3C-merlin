@@ -2983,10 +2983,15 @@ config.status:665: creating pjsip/build/os-auto.mak
 config.status:665: creating third_party/build/os-auto.mak
 config.status:665: creating third_party/build/portaudio/os-auto.mak
 config.status:665: creating pjlib/include/pj/compat/os_auto.h
+config.status:947: pjlib/include/pj/compat/os_auto.h is unchanged
 config.status:665: creating pjlib/include/pj/compat/m_auto.h
+config.status:947: pjlib/include/pj/compat/m_auto.h is unchanged
 config.status:665: creating pjmedia/include/pjmedia/config_auto.h
+config.status:947: pjmedia/include/pjmedia/config_auto.h is unchanged
 config.status:665: creating pjmedia/include/pjmedia-codec/config_auto.h
+config.status:947: pjmedia/include/pjmedia-codec/config_auto.h is unchanged
 config.status:665: creating pjsip/include/pjsip/sip_autoconf.h
+config.status:947: pjsip/include/pjsip/sip_autoconf.h is unchanged
 aconfigure:14205: result:
 
 Configurations for current target have been written to 'build.mak', and 'os-auto.mak' in various build directories, and pjlib/include/pj/compat/os_auto.h.

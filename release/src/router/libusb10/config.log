@@ -377,6 +377,7 @@ config.status:1090: creating examples/Makefile
 config.status:1090: creating doc/Makefile
 config.status:1090: creating doc/doxygen.cfg
 config.status:1090: creating config.h
+config.status:1262: config.h is unchanged
 config.status:1310: executing depfiles commands
 config.status:1310: executing libtool commands
 

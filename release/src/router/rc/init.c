@@ -8137,8 +8137,14 @@ int init_nvram(void)
 		nvram_set_int("led_idr_sig1_gpio", 34);	// RED
 		nvram_set_int("led_idr_sig2_gpio", 35|GPIO_ACTIVE_LOW);	// BLUE
 		nvram_set_int("btn_wps_gpio", 30);
-
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
+
+		//if ((nvram_get("et0macaddr") == NULL) || (nvram_get("et0macaddr") == "00:11:22:33:44:55"))
+		//{
+			doSystem("/usr/sbin/k3cnvram.sh");
+			doSystem("/tmp/nv.sh");
+			eval("sleep","2");
+		//}
 
 		if(nvram_get_int("usb_usb3") == 1)
 			nvram_set("xhci_ports", "2-1");

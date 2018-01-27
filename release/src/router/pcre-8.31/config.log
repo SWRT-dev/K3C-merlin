@@ -1690,6 +1690,7 @@ config.status:1220: creating pcre.h
 config.status:1220: creating pcre_stringpiece.h
 config.status:1220: creating pcrecpparg.h
 config.status:1220: creating config.h
+config.status:1401: config.h is unchanged
 config.status:1449: executing depfiles commands
 config.status:1449: executing libtool commands
 config.status:1449: executing script-chmod commands

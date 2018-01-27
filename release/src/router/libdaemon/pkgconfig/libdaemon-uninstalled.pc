@@ -1,0 +1,8 @@
+libdir=/home/paldier/asuswrt/release/src/router/libdaemon/libdaemon/.libs
+includedir=/home/paldier/asuswrt/release/src/router/libdaemon
+
+Name: libdaemon
+Description: a lightweight C library that eases the writing of UNIX daemons
+Version: 0.14
+Libs: -L${libdir} -R${libdir} -ldaemon
+Cflags: -D_REENTRANT -I${includedir}

@@ -1,0 +1,3 @@
+openpam_asprintf.lo: openpam_asprintf.c ../../config.h
+
+../../config.h:

@@ -1,0 +1,17 @@
+udpxy.o: udpxy.c osdef.h mtrace.h rparse.h util.h prbuf.h ifaddr.h \
+ udpxy.h ctx.h dpkt.h mkpg.h rtp.h uopt.h netop.h
+sloop.o: sloop.c sloop_p.c osdef.h udpxy.h mtrace.h util.h ctx.h dpkt.h \
+ uopt.h netop.h
+rparse.o: rparse.c rparse.h mtrace.h
+util.o: util.c util.h uopt.h udpxy.h mtrace.h osdef.h
+prbuf.o: prbuf.c prbuf.h
+ifaddr.o: ifaddr.c osdef.h ifaddr.h
+ctx.o: ctx.c osdef.h ctx.h udpxy.h dpkt.h util.h mtrace.h
+mkpg.o: mkpg.c ctx.h udpxy.h dpkt.h prbuf.h util.h mtrace.h statpg.h \
+ mkpg.h
+rtp.o: rtp.c rtp.h mtrace.h util.h
+uopt.o: uopt.c udpxy.h uopt.h util.h
+dpkt.o: dpkt.c udpxy.h dpkt.h rtp.h util.h mtrace.h
+netop.o: netop.c udpxy.h netop.h util.h mtrace.h osdef.h
+extrn.o: extrn.c VERSION BUILD PATCH BLDTYPE
+main.o: main.c

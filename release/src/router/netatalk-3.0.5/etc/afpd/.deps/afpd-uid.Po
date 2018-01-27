@@ -1,0 +1,3 @@
+afpd-uid.o: uid.c ../../config.h
+
+../../config.h:

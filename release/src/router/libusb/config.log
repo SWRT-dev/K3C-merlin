@@ -355,6 +355,7 @@ config.status:864: creating Makefile
 config.status:864: creating libusb/Makefile
 config.status:864: creating examples/Makefile
 config.status:864: creating config.h
+config.status:1094: config.h is unchanged
 config.status:1141: executing depfiles commands
 config.status:1141: executing libtool commands
 config.status:1141: executing default commands

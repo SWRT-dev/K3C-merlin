@@ -493,7 +493,7 @@ configure:11837: result: immediate
 configure:11931: checking for shl_load
 configure:11931: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1  -L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm conftest.c -L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -lshared -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt >&5
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cctYokqs.o: In function `main':
+/tmp/ccBYLhGc.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `shl_load'
 collect2: error: ld returned 1 exit status
 configure:11931: $? = 1
@@ -2436,7 +2436,7 @@ configure:13239: result: yes
 configure:13295: checking for issetugid
 configure:13295: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1  -D_REENTRANT -D__EXTENSIONS__ -L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm conftest.c -L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -lshared -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt >&5
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccXw8mQm.o: In function `main':
+/tmp/ccgfOqRS.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `issetugid'
 collect2: error: ld returned 1 exit status
 configure:13295: $? = 1
@@ -2751,7 +2751,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccWvoBE8.o: In function `main':
+/tmp/ccnzuWfF.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `crypt_r'
 collect2: error: ld returned 1 exit status
 configure:16695: $? = 1
@@ -2851,7 +2851,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cc2U6FSd.o: In function `main':
+/tmp/ccqp3HEK.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `crypt_r'
 collect2: error: ld returned 1 exit status
 configure:16695: $? = 1
@@ -2953,7 +2953,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccDupwwk.o: In function `main':
+/tmp/ccfPouzM.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `crypt'
 collect2: error: ld returned 1 exit status
 configure:16773: $? = 1
@@ -3076,7 +3076,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccdGVzzx.o: In function `main':
+/tmp/ccI9fvAW.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `sendfilev'
 collect2: error: ld returned 1 exit status
 configure:16858: $? = 1
@@ -3573,7 +3573,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccylG0D6.o: In function `main':
+/tmp/ccnw9zGj.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `send_file'
 collect2: error: ld returned 1 exit status
 configure:16906: $? = 1
@@ -3732,7 +3732,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccyIuZgc.o: In function `main':
+/tmp/cc0xC0yD.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `kqueue'
 collect2: error: ld returned 1 exit status
 configure:16906: $? = 1
@@ -3891,7 +3891,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cc9ZyvVd.o: In function `main':
+/tmp/cchQMKNG.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `port_create'
 collect2: error: ld returned 1 exit status
 configure:16906: $? = 1
@@ -4068,7 +4068,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cczIocor.o: In function `main':
+/tmp/cc0VEoKZ.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `memset_s'
 collect2: error: ld returned 1 exit status
 configure:16906: $? = 1
@@ -4229,7 +4229,7 @@ conftest.c:67:0: warning: "HAVE_LIBSSL" redefined [enabled by default]
  ^
 <command-line>:0:0: note: this is the location of the previous definition
 /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs/libxml2.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cc2lf4Ey.o: In function `main':
+/tmp/cc2cCiaT.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `explicit_bzero'
 collect2: error: ld returned 1 exit status
 configure:16906: $? = 1
@@ -5802,6 +5802,7 @@ config.status:1237: creating Makefile
 config.status:1237: creating src/Makefile
 config.status:1237: creating distribute.sh
 config.status:1237: creating config.h
+config.status:1418: config.h is unchanged
 config.status:1466: executing depfiles commands
 config.status:1466: executing libtool commands
 

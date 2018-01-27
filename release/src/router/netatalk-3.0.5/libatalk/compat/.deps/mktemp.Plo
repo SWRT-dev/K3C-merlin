@@ -1,0 +1,3 @@
+mktemp.lo: mktemp.c ../../config.h
+
+../../config.h:

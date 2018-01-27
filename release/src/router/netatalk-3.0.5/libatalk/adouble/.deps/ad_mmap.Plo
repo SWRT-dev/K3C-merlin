@@ -1,0 +1,3 @@
+ad_mmap.lo: ad_mmap.c ../../config.h
+
+../../config.h:

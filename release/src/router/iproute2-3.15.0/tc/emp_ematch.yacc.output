@@ -1,0 +1,243 @@
+Terminals unused in grammar
+
+   ERROR
+
+
+语法
+
+    0 $accept: input $end
+
+    1 input: %empty
+    2      | expr
+    3      | expr error
+
+    4 expr: match
+    5     | match relation expr
+
+    6 match: invert ATTRIBUTE '(' args ')'
+    7      | invert '(' expr ')'
+
+    8 args: ATTRIBUTE
+    9     | ATTRIBUTE args
+
+   10 relation: AND
+   11         | OR
+
+   12 invert: %empty
+   13       | NOT
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'(' (40) 6 7
+')' (41) 6 7
+error (256) 3
+ERROR (258)
+ATTRIBUTE (259) 6 8 9
+AND (260) 10
+OR (261) 11
+NOT (262) 13
+
+
+Nonterminals, with rules where they appear
+
+$accept (10)
+    左： 0
+input (11)
+    左： 1 2 3, 右： 0
+expr (12)
+    左： 4 5, 右： 2 3 5 7
+match (13)
+    左： 6 7, 右： 4 5
+args (14)
+    左： 8 9, 右： 6 9
+relation (15)
+    左： 10 11, 右： 5
+invert (16)
+    左： 12 13, 右： 6 7
+
+
+State 0
+
+    0 $accept: . input $end
+
+    NOT  shift, and go to state 1
+
+    $end      reduce using rule 1 (input)
+    $default  reduce using rule 12 (invert)
+
+    input   转到状态 2
+    expr    转到状态 3
+    match   转到状态 4
+    invert  转到状态 5
+
+
+State 1
+
+   13 invert: NOT .
+
+    $default  reduce using rule 13 (invert)
+
+
+State 2
+
+    0 $accept: input . $end
+
+    $end  shift, and go to state 6
+
+
+State 3
+
+    2 input: expr .
+    3      | expr . error
+
+    error  shift, and go to state 7
+
+    $end  reduce using rule 2 (input)
+
+
+State 4
+
+    4 expr: match .
+    5     | match . relation expr
+
+    AND  shift, and go to state 8
+    OR   shift, and go to state 9
+
+    $default  reduce using rule 4 (expr)
+
+    relation  转到状态 10
+
+
+State 5
+
+    6 match: invert . ATTRIBUTE '(' args ')'
+    7      | invert . '(' expr ')'
+
+    ATTRIBUTE  shift, and go to state 11
+    '('        shift, and go to state 12
+
+
+State 6
+
+    0 $accept: input $end .
+
+    $default  接受
+
+
+State 7
+
+    3 input: expr error .
+
+    $default  reduce using rule 3 (input)
+
+
+State 8
+
+   10 relation: AND .
+
+    $default  reduce using rule 10 (relation)
+
+
+State 9
+
+   11 relation: OR .
+
+    $default  reduce using rule 11 (relation)
+
+
+State 10
+
+    5 expr: match relation . expr
+
+    NOT  shift, and go to state 1
+
+    $default  reduce using rule 12 (invert)
+
+    expr    转到状态 13
+    match   转到状态 4
+    invert  转到状态 5
+
+
+State 11
+
+    6 match: invert ATTRIBUTE . '(' args ')'
+
+    '('  shift, and go to state 14
+
+
+State 12
+
+    7 match: invert '(' . expr ')'
+
+    NOT  shift, and go to state 1
+
+    $default  reduce using rule 12 (invert)
+
+    expr    转到状态 15
+    match   转到状态 4
+    invert  转到状态 5
+
+
+State 13
+
+    5 expr: match relation expr .
+
+    $default  reduce using rule 5 (expr)
+
+
+State 14
+
+    6 match: invert ATTRIBUTE '(' . args ')'
+
+    ATTRIBUTE  shift, and go to state 16
+
+    args  转到状态 17
+
+
+State 15
+
+    7 match: invert '(' expr . ')'
+
+    ')'  shift, and go to state 18
+
+
+State 16
+
+    8 args: ATTRIBUTE .
+    9     | ATTRIBUTE . args
+
+    ATTRIBUTE  shift, and go to state 16
+
+    $default  reduce using rule 8 (args)
+
+    args  转到状态 19
+
+
+State 17
+
+    6 match: invert ATTRIBUTE '(' args . ')'
+
+    ')'  shift, and go to state 20
+
+
+State 18
+
+    7 match: invert '(' expr ')' .
+
+    $default  reduce using rule 7 (match)
+
+
+State 19
+
+    9 args: ATTRIBUTE args .
+
+    $default  reduce using rule 9 (args)
+
+
+State 20
+
+    6 match: invert ATTRIBUTE '(' args ')' .
+
+    $default  reduce using rule 6 (match)

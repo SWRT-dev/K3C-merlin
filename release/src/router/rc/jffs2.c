@@ -19,9 +19,9 @@
 //	#define TEST_INTEGRITY
 
 #ifdef RTCONFIG_JFFSV1
-#define JFFS_NAME	"jffs2"
+#define JFFS_NAME	"yaffs"
 #else
-#define JFFS_NAME	"jffs2"
+#define JFFS_NAME	"yaffs"
 #endif
 #define JFFS_V	"yaffs2"
 

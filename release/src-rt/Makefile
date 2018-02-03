@@ -67,6 +67,7 @@ export SRCBASEDIR := $(shell pwd | sed 's/.*release\///g')
 RELEASEDIR := $(shell (cd $(SRC_ROOT)/.. && pwd -P))
 export PATH := $(RELEASEDIR)/tools:$(SRCBASE)/ctools:$(PATH)
 
+export K3CVER := B1
 # tmp depend on busybox
 E2FSPROGS := $(if $(filter $(BUSYBOX),busybox-1.17.4),n,y)
 
@@ -120,7 +121,7 @@ export SWPJEXTENDNO := $(shell git describe --match swpj_$(SWPJNAME)_$(SWPJVERNO
 ifneq ($(SWPJEXTENDNO),)
 export EXTENDNO := $(SWPJEXTENDNO)
 else
-export EXTENDNO := 0-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")
+export EXTENDNO := K3CVER-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")
 endif
 endif
 
@@ -296,7 +297,7 @@ define build_bluecave_image
 	chmod 644 $$ONEIMAGE;
 	cp proprietary/gphy_firmware.img image/
 	cp proprietary/uImage_bootcore image/
-	cp proprietary/u-boot-nand.bin image/
+	#cp proprietary/u-boot-nand.bin image/
 	rm -f vmlinux*
 	rm -f uImage*
 	rm -f easy350_anywan_router_800m.dtb

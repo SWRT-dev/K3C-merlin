@@ -1,3 +1,0 @@
-afpd-nfsquota.o: nfsquota.c ../../config.h
-
-../../config.h:

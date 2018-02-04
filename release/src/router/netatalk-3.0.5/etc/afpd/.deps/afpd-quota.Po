@@ -1,3 +1,0 @@
-afpd-quota.o: quota.c ../../config.h
-
-../../config.h:

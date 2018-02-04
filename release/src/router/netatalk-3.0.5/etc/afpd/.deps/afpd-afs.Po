@@ -1,3 +1,0 @@
-afpd-afs.o: afs.c ../../config.h
-
-../../config.h:

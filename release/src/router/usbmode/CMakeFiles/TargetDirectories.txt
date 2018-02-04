@@ -1,1 +1,0 @@
-/home/paldier/asuswrt/release/src/router/usbmode/CMakeFiles/usbmode.dir

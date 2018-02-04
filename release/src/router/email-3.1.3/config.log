@@ -180,7 +180,7 @@ conftest.c:17:6: warning: conflicting types for built-in function 'sqrt' [enable
  char sqrt ();
       ^
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/bin/ld: /tmp/ccHfHTte.o: undefined reference to symbol 'sqrt'
+/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/bin/ld: /tmp/ccwr0Z16.o: undefined reference to symbol 'sqrt'
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/mips-openwrt-linux-uclibc/bin/../../../toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/libm.so.0: error adding symbols: DSO missing from command line
 collect2: error: ld returned 1 exit status
 configure:3172: $? = 1
@@ -218,7 +218,7 @@ configure:3172: $? = 0
 configure:3200: result: -lm
 configure:3208: checking for library containing gethostbyname
 configure:3249: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -I/home/paldier/asuswrt/release/src-lantiq/router/sqlite -DRTCONFIG_NOTIFICATION_CENTER -Wall -W  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -L/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -L/home/paldier/asuswrt/release/src-lantiq/router/sqlite/.libs conftest.c -lm -lnt -lsqlite3 -lpthread -lcrypto -lssl  >&5
-/tmp/ccztHrjk.o: In function `main':
+/tmp/ccmzjHQh.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:3255: $? = 0
 configure:3283: result: none required
@@ -768,7 +768,7 @@ configure:6073: result: yes
 configure:6080: checking for _doprnt
 configure:6136: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -I/home/paldier/asuswrt/release/src-lantiq/router/sqlite -DRTCONFIG_NOTIFICATION_CENTER -Wall -W  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -L/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -L/home/paldier/asuswrt/release/src-lantiq/router/sqlite/.libs conftest.c   -lm -lnt -lsqlite3 -lpthread -lcrypto -lssl  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cclcmxif.o: In function `main':
+/tmp/cc0arpFZ.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:6142: $? = 1
@@ -861,7 +861,7 @@ configure: failed program was:
 configure:6159: result: no
 configure:6189: checking for gethostbyname
 configure:6245: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -I/home/paldier/asuswrt/release/src-lantiq/router/sqlite -DRTCONFIG_NOTIFICATION_CENTER -Wall -W  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -L/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -L/home/paldier/asuswrt/release/src-lantiq/router/sqlite/.libs conftest.c   -lm -lnt -lsqlite3 -lpthread -lcrypto -lssl  >&5
-/tmp/ccpeDkKg.o: In function `main':
+/tmp/ccno4DO4.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:6251: $? = 0
 configure:6269: result: yes

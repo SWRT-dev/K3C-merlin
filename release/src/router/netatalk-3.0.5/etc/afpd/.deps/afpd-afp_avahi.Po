@@ -1,3 +1,0 @@
-afpd-afp_avahi.o: afp_avahi.c ../../config.h
-
-../../config.h:

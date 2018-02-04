@@ -1,3 +1,0 @@
-openpam_vasprintf.lo: openpam_vasprintf.c ../../config.h
-
-../../config.h:

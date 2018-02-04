@@ -193,7 +193,7 @@ configure:3130: $? = 0
 configure:3148: result: yes
 configure:3160: checking for gethostbyname in -lnsl
 configure:3195: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -I/home/paldier/asuswrt/release/src-lantiq/router/sqlite -DRTCONFIG_NOTIFICATION_CENTER -Wall -W -DUSE_GNU_STRFTIME -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3 -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/src -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/include -I../include -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/dlib/include -I../dlib/include -DEMAIL_VERSION='"3.1.3"' -DCOMPILE_DATE='"10/31/2010-01:13:35PM_EDT"' -DEMAIL_DIR='"/etc/email"' -Wall -W  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -L/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -L/home/paldier/asuswrt/release/src-lantiq/router/sqlite/.libs conftest.c -lnsl  -lm   -lm -lnt -lsqlite3 -lpthread -lcrypto -lssl  >&5
-/tmp/ccmoOsBa.o: In function `main':
+/tmp/ccVYjX2a.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:3201: $? = 0
 configure:3219: result: yes
@@ -764,7 +764,7 @@ configure:5979: result: yes
 configure:5986: checking for _doprnt
 configure:6042: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -I/home/paldier/asuswrt/release/src-lantiq/router/sqlite -DRTCONFIG_NOTIFICATION_CENTER -Wall -W -DUSE_GNU_STRFTIME -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3 -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/src -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/include -I../include -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/dlib/include -I../dlib/include -DEMAIL_VERSION='"3.1.3"' -DCOMPILE_DATE='"10/31/2010-01:13:35PM_EDT"' -DEMAIL_DIR='"/etc/email"' -Wall -W  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -L/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -L/home/paldier/asuswrt/release/src-lantiq/router/sqlite/.libs conftest.c -lcrypto -lcrypto -lssl -lnsl -lm   -lm -lnt -lsqlite3 -lpthread -lcrypto -lssl  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccsRJvSj.o: In function `main':
+/tmp/ccdyjE1y.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:6048: $? = 1
@@ -860,7 +860,7 @@ configure: failed program was:
 configure:6065: result: no
 configure:6095: checking for gethostbyname
 configure:6151: mips-openwrt-linux-uclibc-gcc -o conftest -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -I/home/paldier/asuswrt/release/src-lantiq/router/sqlite -DRTCONFIG_NOTIFICATION_CENTER -Wall -W -DUSE_GNU_STRFTIME -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3 -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/src -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/include -I../include -I/home/paldier/asuswrt/release/src-lantiq/router/email-3.1.3/dlib/include -I../dlib/include -DEMAIL_VERSION='"3.1.3"' -DCOMPILE_DATE='"10/31/2010-01:13:35PM_EDT"' -DEMAIL_DIR='"/etc/email"' -Wall -W  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -L/home/paldier/asuswrt/release/src-lantiq/router/nt_center/lib -L/home/paldier/asuswrt/release/src-lantiq/router/sqlite/.libs conftest.c -lcrypto -lcrypto -lssl -lnsl -lm   -lm -lnt -lsqlite3 -lpthread -lcrypto -lssl  >&5
-/tmp/ccjJ6OWp.o: In function `main':
+/tmp/ccVnPiND.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:6157: $? = 0
 configure:6175: result: yes

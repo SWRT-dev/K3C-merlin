@@ -1,3 +1,0 @@
-libutil_la-bprint.lo: bprint.c ../../config.h
-
-../../config.h:

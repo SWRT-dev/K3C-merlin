@@ -1,5 +1,0 @@
-# Generated config based on /home/paldier/asuswrt/release/src-lantiq/router/kernel_header/include
-PKG_CONFIG:=pkg-config
-AR:=mips-openwrt-linux-uclibc-ar
-CC:=mips-openwrt-linux-uclibc-gcc
-TC_CONFIG_IPSET:=y

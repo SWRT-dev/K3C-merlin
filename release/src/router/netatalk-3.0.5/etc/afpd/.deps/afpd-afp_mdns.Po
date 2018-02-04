@@ -1,3 +1,0 @@
-afpd-afp_mdns.o: afp_mdns.c ../../config.h
-
-../../config.h:

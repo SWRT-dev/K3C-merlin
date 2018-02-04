@@ -1,3 +1,0 @@
-libacl_la-unix.lo: unix.c ../../config.h
-
-../../config.h:

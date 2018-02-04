@@ -1,1 +1,0 @@
-cmd_e2fsprogs/old_e2fsprogs/lib.a := rm -f e2fsprogs/old_e2fsprogs/lib.a; mips-openwrt-linux-uclibc-ar  rcs e2fsprogs/old_e2fsprogs/lib.a e2fsprogs/old_e2fsprogs/../e2fs_lib.o e2fsprogs/old_e2fsprogs/../fsck.o e2fsprogs/old_e2fsprogs/../tune2fs.o e2fsprogs/old_e2fsprogs/e2fsck.o e2fsprogs/old_e2fsprogs/mke2fs.o e2fsprogs/old_e2fsprogs/util.o

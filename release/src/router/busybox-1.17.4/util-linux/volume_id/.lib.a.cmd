@@ -1,1 +1,0 @@
-cmd_util-linux/volume_id/lib.a := rm -f util-linux/volume_id/lib.a; mips-openwrt-linux-uclibc-ar  rcs util-linux/volume_id/lib.a util-linux/volume_id/ext.o util-linux/volume_id/fat.o util-linux/volume_id/get_devname.o util-linux/volume_id/hfs.o util-linux/volume_id/linux_swap.o util-linux/volume_id/ntfs.o util-linux/volume_id/util.o util-linux/volume_id/volume_id.o

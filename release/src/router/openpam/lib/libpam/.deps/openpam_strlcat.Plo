@@ -1,3 +1,0 @@
-openpam_strlcat.lo: openpam_strlcat.c ../../config.h
-
-../../config.h:

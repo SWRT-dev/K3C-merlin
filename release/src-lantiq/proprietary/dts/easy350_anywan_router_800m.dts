@@ -65,13 +65,9 @@
 
                                 partition@12c0000 {
                                         label = "system_sw";
-                                        reg = <0x12c0000 0x5e00000>;
+                                        reg = <0x12c0000 0x5f00000>;
                                 };
 
-                                partition@70C0000 {
-                                        label = "nvram";
-                                        reg = <0x70c0000 0x100000>;
-                                };
                                 partition@71c0000 {
                                         label = "jffs2";
                                         reg = <0x71c0000 0xd00000>;

@@ -651,7 +651,7 @@ configure:5023: $? = 0
 configure:5023: result: yes
 configure:5029: checking for _doprnt
 configure:5029: mips-openwrt-linux-uclibc-gcc -o conftest -Os -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src-lantiq/router/shared -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -L/home/paldier/asuswrt/release/src-lantiq/router/nvram -L/home/paldier/asuswrt/release/src-lantiq/router/shared   --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c -lnvram -lshared   >&5
-/tmp/cc0Al9zx.o: In function `main':
+/tmp/ccU6QxjQ.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:5029: $? = 1
@@ -742,7 +742,7 @@ configure: failed program was:
 configure:5029: result: no
 configure:5043: checking for gethostbyname
 configure:5043: mips-openwrt-linux-uclibc-gcc -o conftest -Os -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src-lantiq/router/shared -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -L/home/paldier/asuswrt/release/src-lantiq/router/nvram -L/home/paldier/asuswrt/release/src-lantiq/router/shared   --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c -lnvram -lshared   >&5
-/tmp/ccP94K5z.o: In function `main':
+/tmp/cccF9uOS.o: In function `main':
 conftest.c:(.text.startup+0x8): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:5043: $? = 0
 configure:5043: result: yes

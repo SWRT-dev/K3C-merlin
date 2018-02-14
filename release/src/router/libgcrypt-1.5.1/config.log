@@ -2375,7 +2375,7 @@ configure:15012: $? = 0
 configure:15012: result: yes
 configure:15018: checking for _doprnt
 configure:15018: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -fvisibility=hidden  -L/home/paldier/asuswrt/release/src-lantiq/router/libgpg-error-1.10/src/.libs conftest.c  >&5
-/tmp/ccf9dLt3.o: In function `main':
+/tmp/ccQmqktR.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:15018: $? = 1
@@ -2499,7 +2499,7 @@ configure:15046: $? = 0
 configure:15046: result: yes
 configure:15046: checking for stricmp
 configure:15046: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -fvisibility=hidden  -L/home/paldier/asuswrt/release/src-lantiq/router/libgpg-error-1.10/src/.libs conftest.c  >&5
-/tmp/ccoyIqqg.o: In function `main':
+/tmp/ccfy0aA3.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `stricmp'
 collect2: error: ld returned 1 exit status
 configure:15046: $? = 1
@@ -2646,7 +2646,7 @@ configure:15071: $? = 0
 configure:15071: result: yes
 configure:15071: checking for gethrtime
 configure:15071: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -fvisibility=hidden  -L/home/paldier/asuswrt/release/src-lantiq/router/libgpg-error-1.10/src/.libs conftest.c  >&5
-/tmp/cc7ftZPJ.o: In function `main':
+/tmp/cc7WK6Sl.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `gethrtime'
 collect2: error: ld returned 1 exit status
 configure:15071: $? = 1
@@ -3017,7 +3017,7 @@ AUTOMAKE='${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/libgcrypt-1.5
 AWK='gawk'
 BUILD_FILEVERSION='1,5,1,54002'
 BUILD_REVISION='d2f2f90'
-BUILD_TIMESTAMP='2018-01-22T15:36+0000'
+BUILD_TIMESTAMP='2018-02-12T13:51+0000'
 CC='mips-openwrt-linux-uclibc-gcc'
 CCAS='mips-openwrt-linux-uclibc-gcc'
 CCASDEPMODE='depmode=gcc3'
@@ -3319,6 +3319,6 @@ target_alias=''
 #define LIBGCRYPT_PUBKEY_CIPHERS "dsa:elgamal:rsa:ecc"
 #define LIBGCRYPT_DIGESTS "crc:md4:md5:rmd160:sha1:sha256:sha512:tiger:whirlpool"
 #define BUILD_REVISION "d2f2f90"
-#define BUILD_TIMESTAMP "2018-01-22T15:36+0000"
+#define BUILD_TIMESTAMP "2018-02-12T13:51+0000"
 
 configure: exit 0

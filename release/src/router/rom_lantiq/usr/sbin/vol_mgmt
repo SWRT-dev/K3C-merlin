@@ -530,6 +530,17 @@ update_calibration ()
 	fi
 }
 
+mount_ubi_nvram_vol ()
+{
+
+	local nvram_size="1MiB"
+	local ubi_nvram_mtd="$(grep nvram /proc/mtd|cut -d: -f1)"
+	[ -n "$ubi_nvram_mtd" ] || {
+		create_vol nvram $nvram_size
+	}
+
+}
+
 # help: Give 'vol_mgmt help <function>' for more details.
 help ()
 {

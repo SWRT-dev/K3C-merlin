@@ -8138,7 +8138,9 @@ int init_nvram(void)
 		nvram_set_int("led_idr_sig2_gpio", 35|GPIO_ACTIVE_LOW);	// BLUE
 		nvram_set_int("btn_wps_gpio", 30);
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
-
+		
+		//nvram_set("wl0_ifname", "wlan0");//it worked?
+		//nvram_set("wl1_ifname", "wlan1");
 		//if ((nvram_get("et0macaddr") == NULL) || (nvram_get("et0macaddr") == "00:11:22:33:44:55"))
 		//{
 			doSystem("/usr/sbin/k3cnvram.sh");

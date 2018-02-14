@@ -88,7 +88,7 @@ RANLIB=mips-openwrt-linux-uclibc-ranlib
 STRIP=mips-openwrt-linux-uclibc-strip -R .note -R .comment
 INSTALL=install
 CPPFLAGS=-Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY
-CFLAGS+=-I. -I$(srcdir) $(CPPFLAGS) -DBLUECAVE -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__
+CFLAGS+=-I. -I$(srcdir) $(CPPFLAGS) -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__
 LIBS+=-lutil -lptcsrv
 LDFLAGS=-ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib
 

@@ -411,7 +411,7 @@ configure:4567: $? = 0
 configure:4567: result: yes
 configure:4573: checking for _doprnt
 configure:4573: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wno-error -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -Wl,--as-needed -lm conftest.c  >&5
-/tmp/ccnpZ5u5.o: In function `main':
+/tmp/ccQ4SsyR.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:4573: $? = 1

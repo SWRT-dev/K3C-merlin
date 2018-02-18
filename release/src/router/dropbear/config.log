@@ -266,7 +266,7 @@ configure:4342: result: yes
 configure:4346: Using uClibc - login() and logout() probably don't work, so we won't use them.
 configure:4352: checking for crypt
 configure:4352: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lptcsrv >&5
-/tmp/ccbe9lAH.o: In function `main':
+/tmp/ccJslVpA.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `crypt'
 collect2: error: ld returned 1 exit status
 configure:4352: $? = 1
@@ -338,7 +338,7 @@ configure:4636: Disabling PAM
 configure:4660: Using openpty if available
 configure:4662: checking for library containing openpty
 configure:4693: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lptcsrv >&5
-/tmp/ccGxMKlL.o: In function `main':
+/tmp/ccRWTjAF.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `openpty'
 collect2: error: ld returned 1 exit status
 configure:4693: $? = 1
@@ -4422,7 +4422,7 @@ configure:5824: $? = 0
 configure:5824: result: yes
 configure:5836: checking for endutxent
 configure:5836: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/cceJIoPk.o: In function `main':
+/tmp/ccb8g1Yx.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `endutxent'
 collect2: error: ld returned 1 exit status
 configure:5836: $? = 1
@@ -4545,7 +4545,7 @@ configure: failed program was:
 configure:5836: result: no
 configure:5836: checking for getutxent
 configure:5836: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/cccNJsan.o: In function `main':
+/tmp/ccGnke5z.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `getutxent'
 collect2: error: ld returned 1 exit status
 configure:5836: $? = 1
@@ -4668,7 +4668,7 @@ configure: failed program was:
 configure:5836: result: no
 configure:5836: checking for getutxid
 configure:5836: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccqwOyup.o: In function `main':
+/tmp/ccPy4wgB.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `getutxid'
 collect2: error: ld returned 1 exit status
 configure:5836: $? = 1
@@ -4791,7 +4791,7 @@ configure: failed program was:
 configure:5836: result: no
 configure:5836: checking for getutxline
 configure:5836: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccyBf8Wr.o: In function `main':
+/tmp/cceC4ORG.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `getutxline'
 collect2: error: ld returned 1 exit status
 configure:5836: $? = 1
@@ -4914,7 +4914,7 @@ configure: failed program was:
 configure:5836: result: no
 configure:5836: checking for pututxline
 configure:5836: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccswuHku.o: In function `main':
+/tmp/cc7K6QiK.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `pututxline'
 collect2: error: ld returned 1 exit status
 configure:5836: $? = 1
@@ -5037,7 +5037,7 @@ configure: failed program was:
 configure:5836: result: no
 configure:5848: checking for setutxent
 configure:5848: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccNoR2ov.o: In function `main':
+/tmp/ccrDO4mE.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `setutxent'
 collect2: error: ld returned 1 exit status
 configure:5848: $? = 1
@@ -5160,7 +5160,7 @@ configure: failed program was:
 configure:5848: result: no
 configure:5848: checking for utmpxname
 configure:5848: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccvc1uJx.o: In function `main':
+/tmp/cceOYVMG.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `utmpxname'
 collect2: error: ld returned 1 exit status
 configure:5848: $? = 1
@@ -5510,7 +5510,7 @@ configure:5873: checking for mach/mach_time.h
 configure:5873: result: no
 configure:5885: checking for mach_absolute_time
 configure:5885: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccrAF6gV.o: In function `main':
+/tmp/ccgOrMQU.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `mach_absolute_time'
 collect2: error: ld returned 1 exit status
 configure:5885: $? = 1
@@ -5636,7 +5636,7 @@ configure: failed program was:
 configure:5885: result: no
 configure:5898: checking for explicit_bzero
 configure:5898: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/cc9ON9BP.o: In function `main':
+/tmp/ccCugMaX.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `explicit_bzero'
 collect2: error: ld returned 1 exit status
 configure:5898: $? = 1
@@ -5762,7 +5762,7 @@ configure: failed program was:
 configure:5898: result: no
 configure:5898: checking for memset_s
 configure:5898: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DARGTYPE=3 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include 		-DSECURITY_NOTIFY -ffunction-sections -fdata-sections -Wl,--gc-sections -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib conftest.c -lutil -lptcsrv >&5
-/tmp/ccbu8NNR.o: In function `main':
+/tmp/ccxlfmG0.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `memset_s'
 collect2: error: ld returned 1 exit status
 configure:5898: $? = 1
@@ -6606,7 +6606,7 @@ conftest.c:89:0: warning: "DISABLE_WTMPX" redefined [enabled by default]
 conftest.c:85:0: note: this is the location of the previous definition
  #define DISABLE_WTMPX /**/
  ^
-/tmp/cc76KYXP.o: In function `main':
+/tmp/ccVvQYnV.o: In function `main':
 conftest.c:(.text.startup.main+0x8): undefined reference to `_getpty'
 collect2: error: ld returned 1 exit status
 configure:6729: $? = 1

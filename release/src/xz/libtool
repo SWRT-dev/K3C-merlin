@@ -295,7 +295,7 @@ striplib="strip --strip-unneeded"
 
 
 # The linker used to build libraries.
-LD="ld -m elf_x86_64"
+LD="ld -m elf_x86_64 -m elf_x86_64"
 
 # How to create reloadable object files.
 reload_flag=" -r"

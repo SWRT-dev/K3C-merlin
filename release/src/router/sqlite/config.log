@@ -452,7 +452,7 @@ configure:12410: $? = 0
 configure:12410: result: yes
 configure:12410: checking for fullfsync
 configure:12410: mips-openwrt-linux-uclibc-gcc -o conftest -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -ffunction-sections -fdata-sections -fPIC  -ffunction-sections -fdata-sections -Wl,--gc-sections -lpthread -ldl conftest.c  >&5
-/tmp/cc9waWmx.o: In function `main':
+/tmp/ccKeuNT3.o: In function `main':
 conftest.c:(.text.startup.main+0x10): undefined reference to `fullfsync'
 collect2: error: ld returned 1 exit status
 configure:12410: $? = 1

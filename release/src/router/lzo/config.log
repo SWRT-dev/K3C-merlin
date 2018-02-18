@@ -10854,8 +10854,8 @@ configure:30111: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LA
 conftest.c:105:6: warning: conflicting types for built-in function 'alloca' [enabled by default]
  char alloca ();
       ^
-/tmp/cc20Rwdl.o:(.data+0x0): undefined reference to `alloca'
-/tmp/cc20Rwdl.o: In function `main':
+/tmp/ccwQ9sTI.o:(.data+0x0): undefined reference to `alloca'
+/tmp/ccwQ9sTI.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `alloca'
 conftest.c:(.text.startup+0xc): undefined reference to `alloca'
 collect2: error: ld returned 1 exit status
@@ -11028,8 +11028,8 @@ configure:30129: $? = 0
 configure:30141: result: yes
 configure:30054: checking for clock_getcpuclockid
 configure:30111: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2   conftest.c  >&5
-/tmp/ccWXWwZy.o:(.data+0x0): undefined reference to `clock_getcpuclockid'
-/tmp/ccWXWwZy.o: In function `main':
+/tmp/ccbyuoG5.o:(.data+0x0): undefined reference to `clock_getcpuclockid'
+/tmp/ccbyuoG5.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `clock_getcpuclockid'
 conftest.c:(.text.startup+0xc): undefined reference to `clock_getcpuclockid'
 collect2: error: ld returned 1 exit status
@@ -11466,8 +11466,8 @@ configure:30129: $? = 0
 configure:30141: result: yes
 configure:30054: checking for stricmp
 configure:30111: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2   conftest.c  >&5
-/tmp/ccAObK1s.o:(.data+0x0): undefined reference to `stricmp'
-/tmp/ccAObK1s.o: In function `main':
+/tmp/cc5y6ORU.o:(.data+0x0): undefined reference to `stricmp'
+/tmp/cc5y6ORU.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `stricmp'
 conftest.c:(.text.startup+0xc): undefined reference to `stricmp'
 collect2: error: ld returned 1 exit status
@@ -11650,8 +11650,8 @@ configure:30129: $? = 0
 configure:30141: result: yes
 configure:30054: checking for strnicmp
 configure:30111: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2   conftest.c  >&5
-/tmp/ccEsk5AB.o:(.data+0x0): undefined reference to `strnicmp'
-/tmp/ccEsk5AB.o: In function `main':
+/tmp/ccNcFoP1.o:(.data+0x0): undefined reference to `strnicmp'
+/tmp/ccNcFoP1.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `strnicmp'
 conftest.c:(.text.startup+0xc): undefined reference to `strnicmp'
 collect2: error: ld returned 1 exit status
@@ -11862,7 +11862,7 @@ configure:30129: $? = 0
 configure:30141: result: yes
 configure:30054: checking for utime
 configure:30111: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2   conftest.c  >&5
-/tmp/ccaE0SwK.o:(.data+0x0): warning: the use of OBSOLESCENT `utime' is discouraged, use `utimes'
+/tmp/ccDi85ej.o:(.data+0x0): warning: the use of OBSOLESCENT `utime' is discouraged, use `utimes'
 configure:30117: $? = 0
 configure:30120: test -z 			 || test ! -s conftest.err
 configure:30123: $? = 0

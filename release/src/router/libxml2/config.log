@@ -1495,7 +1495,7 @@ configure:13582: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LA
 conftest.c:80:6: warning: conflicting types for built-in function 'finite' [enabled by default]
  char finite ();
       ^
-/tmp/ccPwLGNN.o: In function `main':
+/tmp/ccf8ZOZ9.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `finite'
 collect2: error: ld returned 1 exit status
 configure:13582: $? = 1
@@ -1597,7 +1597,7 @@ configure: failed program was:
 configure:13582: result: no
 configure:13582: checking for isnand
 configure:13582: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccjqhGfQ.o: In function `main':
+/tmp/ccGRYwKf.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `isnand'
 collect2: error: ld returned 1 exit status
 configure:13582: $? = 1
@@ -1699,7 +1699,7 @@ configure: failed program was:
 configure:13582: result: no
 configure:13582: checking for fp_class
 configure:13582: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/cc2vWDvS.o: In function `main':
+/tmp/ccDejtgi.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `fp_class'
 collect2: error: ld returned 1 exit status
 configure:13582: $? = 1
@@ -1801,7 +1801,7 @@ configure: failed program was:
 configure:13582: result: no
 configure:13582: checking for class
 configure:13582: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccYmIa1U.o: In function `main':
+/tmp/ccarhmHk.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `class'
 collect2: error: ld returned 1 exit status
 configure:13582: $? = 1
@@ -1903,7 +1903,7 @@ configure: failed program was:
 configure:13582: result: no
 configure:13582: checking for fpclass
 configure:13582: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccKwPrrX.o: In function `main':
+/tmp/ccm8YZZm.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `fpclass'
 collect2: error: ld returned 1 exit status
 configure:13582: $? = 1
@@ -2023,7 +2023,7 @@ configure:13606: $? = 0
 configure:13606: result: yes
 configure:13606: checking for _stat
 configure:13606: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccdlUDAc.o: In function `main':
+/tmp/cc3o5lOx.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `_stat'
 collect2: error: ld returned 1 exit status
 configure:13606: $? = 1
@@ -2232,7 +2232,7 @@ configure:14125: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LA
 conftest.c:98:6: warning: conflicting types for built-in function 'isnan' [enabled by default]
  char isnan ();
       ^
-/tmp/cchy7cbH.o: In function `main':
+/tmp/cc6xhk58.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `isnan'
 collect2: error: ld returned 1 exit status
 configure:14125: $? = 1
@@ -2355,7 +2355,7 @@ configure:14156: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LA
 conftest.c:82:6: warning: conflicting types for built-in function 'isnan' [enabled by default]
  char isnan ();
       ^
-/tmp/ccFXoruJ.o: In function `main':
+/tmp/ccpPsHIb.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `isnan'
 collect2: error: ld returned 1 exit status
 configure:14156: $? = 1
@@ -2455,7 +2455,7 @@ configure:14176: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LA
 conftest.c:98:6: warning: conflicting types for built-in function 'isinf' [enabled by default]
  char isinf ();
       ^
-/tmp/ccL6TNhM.o: In function `main':
+/tmp/ccWomh7d.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `isinf'
 collect2: error: ld returned 1 exit status
 configure:14176: $? = 1
@@ -2578,7 +2578,7 @@ configure:14207: mips-openwrt-linux-uclibc-gcc -o conftest -Os -Wall -DCONFIG_LA
 conftest.c:82:6: warning: conflicting types for built-in function 'isinf' [enabled by default]
  char isinf ();
       ^
-/tmp/ccXy8lCN.o: In function `main':
+/tmp/cc6aTOed.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `isinf'
 collect2: error: ld returned 1 exit status
 configure:14207: $? = 1
@@ -2681,7 +2681,7 @@ conftest.c:98:1: warning: function declaration isn't a prototype [-Wstrict-proto
 conftest.c:107:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp/ccPfMmaX.o: In function `main':
+/tmp/ccHj4E2i.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `shl_load'
 collect2: error: ld returned 1 exit status
 configure:14470: $? = 1
@@ -3444,7 +3444,7 @@ RDL_LIBS=''
 READER_TEST='Readertests'
 REBUILD_DOCS_FALSE=''
 REBUILD_DOCS_TRUE='#'
-RELDATE='Mon Feb 12 2018'
+RELDATE='Sun Feb 18 2018'
 RM='/bin/rm'
 SED='/bin/sed'
 SET_MAKE=''

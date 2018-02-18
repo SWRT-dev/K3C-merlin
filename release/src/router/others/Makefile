@@ -31,6 +31,9 @@ endif
 # K3C nvram
 	install -m 0700 k3cnvram.sh $(INSTALLDIR)/usr/sbin
 
+# K3C update uboot&ubootconfig tool
+	install -m 0777 mtd $(INSTALLDIR)/sbin
+
 # OpenVPN
 ifeq ($(RTCONFIG_OPENVPN),y)
 	install -m 0700 setuprsa.sh $(INSTALLDIR)/usr/sbin

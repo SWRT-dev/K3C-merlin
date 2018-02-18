@@ -438,7 +438,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/paldier/asuswrt/release/src-lantiq/xz'
+ac_pwd='/home/paldier/asuswrt/release/src/xz'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -573,7 +573,7 @@ Xsed='/bin/sed -e 1s/^X//'
 GREP='/bin/grep'
 EGREP='/bin/grep -E'
 FGREP='/bin/grep -F'
-LD='ld -m elf_x86_64'
+LD='ld -m elf_x86_64 -m elf_x86_64'
 NM='nm'
 LN_S='ln -s'
 max_cmd_len='3458764513820540925'
@@ -927,7 +927,7 @@ S["AR"]="ar"
 S["NM"]="nm"
 S["ac_ct_DUMPBIN"]=""
 S["DUMPBIN"]=""
-S["LD"]="ld -m elf_x86_64"
+S["LD"]="ld -m elf_x86_64 -m elf_x86_64"
 S["FGREP"]="/bin/grep -F"
 S["SED"]="/bin/sed"
 S["LIBTOOL"]="$(SHELL) $(top_builddir)/libtool"
@@ -980,12 +980,12 @@ S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/install-sh"
-S["MAKEINFO"]="${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing automake-1.14"
-S["AUTOCONF"]="${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoconf"
-S["ACLOCAL"]="${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing aclocal-1.14"
+S["install_sh"]="${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/install-sh"
+S["MAKEINFO"]="${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing automake-1.14"
+S["AUTOCONF"]="${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing autoconf"
+S["ACLOCAL"]="${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing aclocal-1.14"
 S["VERSION"]="5.0.3"
 S["PACKAGE"]="xz"
 S["CYGPATH_W"]="echo"

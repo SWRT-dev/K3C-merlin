@@ -2912,5 +2912,6 @@ qis_summary_description_step2=Once the new SSID is connected, go back to router.
 RemoteAccessHint=Disable Web Access from WAN will not allow you to control your router via $Apps$ from Internet. Do you want to continue?
 RemoteAccessHint_RouterApp=ASUS ROUTER app
 RemoteAccessHint_AlexaIFTTT=Alexa enabled device or IFTTT
+WanDouJia=豌豆荚
 NAT_Acceleration_ctf_fa_mode1=PPA (Protocol Processing Accelerator) ist aktiviert.
 

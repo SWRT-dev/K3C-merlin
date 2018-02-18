@@ -3042,3 +3042,4 @@ qis_summary_description_step2=当新的 SSID 重新连接后，您可以回到 h
 RemoteAccessHint=关闭从互联网设置，您将无法由互联网透过 $Apps$ 来控制您的路由器。是否继续？
 RemoteAccessHint_RouterApp=ASUS ROUTER APP
 RemoteAccessHint_AlexaIFTTT=Alexa语音或IFTTT
+WanDouJia=豌豆荚

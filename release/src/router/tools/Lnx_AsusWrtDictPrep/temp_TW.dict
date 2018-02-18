@@ -2913,5 +2913,6 @@ nt to continue?
 RemoteAccessHint=關閉從網際網路設定，您將無法由網際網路透過 $Apps$ 來控制您的路由器。是否繼續？
 RemoteAccessHint_RouterApp=ASUS ROUTER APP
 RemoteAccessHint_AlexaIFTTT=Alexa語音或IFTTT
+WanDouJia=豌豆荚
 NAT_Acceleration_ctf_fa_mode1=PPA (Protocol Processing Accelerator) 已開啟。
 

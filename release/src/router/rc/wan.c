@@ -671,6 +671,10 @@ void update_wan_state(char *prefix, int state, int reason)
 		snprintf(tmp, sizeof(tmp), "/var/run/ppp-wan%d.status", unit);
 		unlink(tmp);
 	}
+        else if (state == WAN_STATE_CONNECTED) {
+		sprintf(tmp,"%c",prefix[3]);
+                run_custom_script("wan-start", tmp);
+        }
 
 #if defined(RTCONFIG_WANRED_LED)
 	switch (state) {
@@ -2121,7 +2125,7 @@ int update_resolvconf(void)
 #endif
 	}
 #endif
-
+	fprintf(fp_servers, "server=127.0.0.1#1053\n");
 	fclose(fp);
 	fclose(fp_servers);
 	file_unlock(lock);

@@ -1455,9 +1455,9 @@ function updateVpnServerClientAccess() {
 													<div class="left" style="width:94px; float:left; cursor:pointer;" id="radio_service_enable"></div>
 													<script type="text/javascript">
 														if (openvpn_unit == '1')
-															var service_state_advanced = (<% sysinfo("pid.vpnserver1"); %> > 0);
+															var service_state_advanced = (<% asus_sysinfo("pid.vpnserver1"); %> > 0);
 														else if (openvpn_unit == '2')
-															var service_state_advanced = (<% sysinfo("pid.vpnserver2"); %> > 0);
+															var service_state_advanced = (<% asus_sysinfo("pid.vpnserver2"); %> > 0);
 														else
 															var service_state_advanced = false;
 															

@@ -1,4 +1,4 @@
-﻿/* menuTree_bwdpi_no_traffic_analyzer.js */
+/* menuTree_bwdpi_no_traffic_analyzer.js */
 define(function(){
 	var menuTree = {
 		list: [
@@ -130,6 +130,17 @@ define(function(){
 					{url: "cloud_syslog.asp", tabName: "<#Log#>"},
 					{url: "NULL", tabName: "__INHERIT__"}
 				] 
+			},
+			{
+				menuName: "Tools",
+				index: "menu_Tools",
+				tab: [
+					{url: "Tools_Sysinfo.asp", tabName: "Sysinfo"},
+					{url: "Tools_OtherSettings.asp", tabName: "Other Settings"},
+					/*{url: "Tools_SSR.asp", tabName: "<#SSR#>"},*/
+					/*{url: "Tools_Adbyby.asp", tabName: "广告过滤_"},*/
+					{url: "NULL", tabName: "__INHERIT__"}
+				]
 			},
 			/* ============================================================================================================ */
 			{
@@ -658,3 +669,4 @@ define(function(){
 
 	return menuTree;
 });
+

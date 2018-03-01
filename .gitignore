@@ -1,4 +1,5 @@
 release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2.tgz
 release/src-lantiq/image/*
-release/src/router/rom_lantiq/*
+release/src/router/rom_lantiq/
 *~
+release/src/router/httpd/sysinfo.*

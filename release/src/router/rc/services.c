@@ -1068,7 +1068,7 @@ void gen_apmode_dnsmasq(void)
 	fprintf(fp,"servers-file=/tmp/resolv.dnsmasq\n");
 	fprintf(fp,"no-poll\n");
 	fprintf(fp,"no-negcache\n");
-	fprintf(fp,"cache-size=1500\n");
+	fprintf(fp,"cache-size=5000\n");
 	fprintf(fp,"min-port=4096\n");
 	fprintf(fp,"dhcp-range=guest,%s2,%s254,%s,%ds\n",
                                         glan,glan, nvram_safe_get("lan_netmask_rt"), 86400);
@@ -1201,7 +1201,7 @@ void start_dnsmasq(void)
 				/* Faster for moving clients, if authoritative */
 				fprintf(fp, "dhcp-authoritative\n");
 				/* caching */
-				fprintf(fp, "cache-size=1500\n"
+				fprintf(fp, "cache-size=5000\n"
 					    "no-negcache\n");
 				fclose(fp);
 			}
@@ -1306,7 +1306,7 @@ void start_dnsmasq(void)
 		    "no-negcache\n"		// don't cace nxdomain
 		    "cache-size=%u\n"		// dns cache size
 		    "min-port=%u\n",		// min port used for random src port
-		dmservers, 1500, nvram_get_int("dns_minport") ? : 4096);
+		dmservers, 5000, nvram_get_int("dns_minport") ? : 4096);
 
 	/* limit number of outstanding requests */
 	{
@@ -3078,6 +3078,7 @@ start_ddns(void)
 		service = "dnsomatic";
 	else if (strcmp(server, "WWW.TUNNELBROKER.NET")==0) {
 		service = "heipv6tb";
+		eval("iptables", "-t", "filter", "-D", "INPUT", "-p", "icmp", "-s", "66.220.2.74", "-j", "ACCEPT");
 		eval("iptables", "-t", "filter", "-I", "INPUT", "1", "-p", "icmp", "-s", "66.220.2.74", "-j", "ACCEPT");
 		nvram_set("ddns_tunbkrnet", "1");
 	}
@@ -3094,7 +3095,9 @@ start_ddns(void)
 		service = "peanuthull", asus_ddns = 2;
 	} 
 	else if (strcmp(server, "WWW.3322.ORG")==0)
-		service = "qdns";
+		service = "qdns dynamic";
+        else if (strcmp(server, "CUSTOM")==0)
+                service = "";
 	else {
 		logmessage("start_ddns", "Error ddns server name: %s\n", server);
 		return 0;
@@ -3159,8 +3162,13 @@ start_ddns(void)
 		     "-u", usrstr, wild ? "-w" : "", "-e", "/sbin/ddns_updated",
 		     "-b", "/tmp/ddns.cache", NULL };
 		_eval(argv, NULL, 0, &pid);
-	}
+	} else {	// Custom DDNS
+		// Block until it completes and updates the DDNS update results in nvram
+		run_custom_script_blocking("ddns-start", wan_ip);
+		return 0;
 
+	}
+	run_custom_script("ddns-start", wan_ip);
 	return 0;
 }
 
@@ -7499,6 +7507,8 @@ stop_logger(void)
 void
 stop_services(void)
 {
+	run_custom_script("services-stop", NULL);
+
 #ifdef RTCONFIG_ADTBW
 	stop_adtbw();
 #endif
@@ -13562,6 +13572,27 @@ int service_main(int argc, char *argv[])
 	notify_rc(argv[1]);
 	printf("\nDone.\n");
 	return 0;
+}
+// Takes one argument:  0 = update failure
+//                      1 (or missing argument) = update success
+int
+ddns_custom_updated_main(int argc, char *argv[])
+{
+	if ((argc == 2 && !strcmp(argv[1], "1")) || (argc == 1)) {
+		nvram_set("ddns_status", "1");
+		nvram_set("ddns_updated", "1");
+		nvram_set("ddns_return_code", "200");
+		nvram_set("ddns_return_code_chk", "200");
+		nvram_set("ddns_server_x_old", nvram_safe_get("ddns_server_x"));
+		nvram_set("ddns_hostname_old", nvram_safe_get("ddns_hostname_x"));
+		logmessage("ddns", "Completed custom ddns update");
+	} else {
+		nvram_set("ddns_return_code", "unknown_error");
+		nvram_set("ddns_return_code_chk", "unknown_error");
+		logmessage("ddns", "Custom ddns update failed");
+	}
+
+        return 0;
 }
 
 #ifdef RTCONFIG_CAPTIVE_PORTAL

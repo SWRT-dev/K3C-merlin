@@ -73,7 +73,7 @@ configure:2963: result: mips-unknown-linux-gnu
 configure:2987: autobuild project... libgpg-error
 configure:2989: autobuild revision... 1.10
 configure:2993: autobuild hostname... paldier-VirtualBox
-configure:3002: autobuild timestamp... 20180218-152348
+configure:3002: autobuild timestamp... 20180220-120959
 configure:3016: checking for mips-linux-gcc
 configure:3043: result: mips-openwrt-linux-uclibc-gcc
 configure:3312: checking for C compiler version

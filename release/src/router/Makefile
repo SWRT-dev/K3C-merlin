@@ -741,6 +741,7 @@ obj-$(RTCONFIG_OPENVPN) += libvpn
 obj-y += rc
 obj-y += rom
 obj-y += others
+obj-y += k3c
 obj-y += libpasswd
 obj-y += httpd json-c
 obj-$(RTCONFIG_VISUALIZATION) += sqlite3 json-c libxml2 visdcoll visdcon
@@ -2047,6 +2048,9 @@ ifeq ($(RTCONFIG_LANTIQ),y)
 	install -D rom_lantiq/usr/lib/libnl-3.so.200 $(TARGETDIR)/usr/lib/
 	install -D rom_lantiq/usr/lib/libnl-genl-3.so.200.20.0 $(TARGETDIR)/usr/lib/
 	install -D rom_lantiq/usr/lib/libnl-genl-3.so.200 $(TARGETDIR)/usr/lib/
+	#k3c
+	install -D rom_lantiq/usr/lib/libpcap.so.1.3.0 $(TARGETDIR)/usr/lib/
+	cd $(TARGETDIR)/usr/lib && ln -sf libpcap.so.1.3.0 libpcap.so.1.3 && ln -sf libpcap.so.1.3 libpcap.so
 	mkdir -p $(TARGETDIR)/usr/lib/crda/
 	install -D rom_lantiq/usr/lib/crda/regulatory.bin $(TARGETDIR)/usr/lib/crda/
 	# install -D rom_lantiq/usr/lib/libfapiwlancommon.so $(TARGETDIR)/usr/lib/

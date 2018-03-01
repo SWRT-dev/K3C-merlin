@@ -127,6 +127,6 @@ rm -fr %{buildroot}
 %doc doc/python.html
 
 %changelog
-* Sun Feb 18 2018 Daniel Veillard <veillard@redhat.com>
+* Tue Feb 20 2018 Daniel Veillard <veillard@redhat.com>
 - upstream release 2.7.7 see http://xmlsoft.org/news.html
 

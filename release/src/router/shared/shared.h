@@ -1685,6 +1685,7 @@ extern char *get_wsup_drvname(int band);
 #else
 static inline char *get_wsup_drvname(__attribute__ ((unused)) int band) { return ""; }
 #endif
+extern int replace_char(char *str, const char from, const char to);
 #ifdef RTCONFIG_TRAFFIC_LIMITER
 extern unsigned int traffic_limiter_read_bit(const char *type);
 extern void traffic_limiter_set_bit(const char *type, int unit);
@@ -1697,6 +1698,15 @@ extern struct vlan_rules_s *get_vlan_rules(void);
 #if defined(HND_ROUTER) && defined(RTCONFIG_BONDING)
 extern int get_bonding_status();
 #endif
+
+/* scripts.c */
+#define xstart(args...) _xstart(args, NULL)
+extern int _xstart(const char *cmd, ...);
+extern void run_custom_script(char *name, char *args);
+extern void run_custom_script_blocking(char *name, char *args);
+extern void run_postconf(char *name, char *config);
+extern void use_custom_config(char *config, char *target);
+extern void append_custom_config(char *config, FILE *fp);
 
 /* mt7620.c */
 #if defined(RTCONFIG_RALINK_MT7620)

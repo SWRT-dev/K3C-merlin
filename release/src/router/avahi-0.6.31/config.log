@@ -1866,7 +1866,7 @@ conftest.c:111:1: warning: function declaration isn't a prototype [-Wstrict-prot
  ^
 conftest.c: In function 'main':
 conftest.c:111:1: warning: old-style function definition [-Wold-style-definition]
-/tmp/ccK5FYf4.o: In function `main':
+/tmp/ccXODCLO.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:18244: $? = 0
 configure:18244: result: yes
@@ -1904,7 +1904,7 @@ conftest.c:114:1: warning: function declaration isn't a prototype [-Wstrict-prot
  ^
 conftest.c: In function 'main':
 conftest.c:114:1: warning: old-style function definition [-Wold-style-definition]
-/tmp/ccAPRVxf.o: In function `main':
+/tmp/ccxi8EKW.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `setproctitle'
 collect2: error: ld returned 1 exit status
 configure:18244: $? = 1
@@ -2039,7 +2039,7 @@ conftest.c:114:1: warning: function declaration isn't a prototype [-Wstrict-prot
  ^
 conftest.c: In function 'main':
 conftest.c:114:1: warning: old-style function definition [-Wold-style-definition]
-/tmp/ccGJ1Xuk.o: In function `main':
+/tmp/cc7bEFIX.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `getprogname'
 collect2: error: ld returned 1 exit status
 configure:18244: $? = 1
@@ -2763,7 +2763,7 @@ conftest.c:125:1: warning: function declaration isn't a prototype [-Wstrict-prot
  ^
 conftest.c: In function 'main':
 conftest.c:125:1: warning: old-style function definition [-Wold-style-definition]
-/tmp/ccuRbXeP.o: In function `main':
+/tmp/ccXVuPLy.o: In function `main':
 conftest.c:(.text+0x10): undefined reference to `kqueue'
 collect2: error: ld returned 1 exit status
 configure:18703: $? = 1
@@ -2936,7 +2936,7 @@ conftest.c:95:1: warning: function declaration isn't a prototype [-Wstrict-proto
  ^
 conftest.c: In function 'main':
 conftest.c:95:1: warning: old-style function definition [-Wold-style-definition]
-/tmp/ccfrYbDY.o: In function `main':
+/tmp/ccuESUQM.o: In function `main':
 conftest.c:(.text+0xc): undefined reference to `_nl_msg_cat_cntr'
 conftest.c:(.text+0x10): undefined reference to `_nl_msg_cat_cntr'
 collect2: error: ld returned 1 exit status

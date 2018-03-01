@@ -17,7 +17,16 @@
 #include "shutils.h"
 #include "shared.h"
 
-
+int replace_char(char *str, const char from, const char to)
+{
+	char *p = str;
+	while (*p) {
+		if (*p == from)
+			*p = to;
+		p++;
+	}
+	return 1;
+}
 /* Transfer Char to ASCII */
 int char_to_ascii_safe(const char *output, const char *input, int outsize)
 {

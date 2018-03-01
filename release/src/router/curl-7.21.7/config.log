@@ -879,11 +879,11 @@ configure:6318: $? = 0
 configure:6397: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
 configure:6397: $? = 0
 configure:6480: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccf7UUah.o: In function `main':
+/tmp/cc2qY4M5.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyaddr_r is obsolescent, use getaddrinfo() instead.
 configure:6480: $? = 0
 configure:6559: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccn1FpUh.o: In function `main':
+/tmp/ccF8MuU9.o: In function `main':
 conftest.c:(.text+0x10): warning: gethostbyname_r is obsolescent, use getnameinfo() instead.
 configure:6559: $? = 0
 configure:6638: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
@@ -1477,7 +1477,7 @@ configure: failed program was:
 configure:17788: result: no
 configure:17792: checking for gethostbyname
 configure:17792: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 conftest.c  >&5
-/tmp/ccAxqDvA.o: In function `main':
+/tmp/ccIsyvbm.o: In function `main':
 conftest.c:(.text.startup+0x8): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:17792: $? = 0
 configure:17792: result: yes
@@ -2731,7 +2731,7 @@ configure:20589: result: yes
 configure:20589: checking for RAND_screen
 configure:20589: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccQJqpIA.o: In function `main':
+/tmp/cclsQO05.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `RAND_screen'
 collect2: error: ld returned 1 exit status
 configure:20589: $? = 1
@@ -2950,7 +2950,7 @@ configure:20742: result: unknown - 0x100020afL
 configure:20751: checking for OpenSSL library version
 configure:20819: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccZ825E8.o: In function `main':
+/tmp/cc7tgsun.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `SSL_CTX_set_not_resumable_session_callback'
 collect2: error: ld returned 1 exit status
 configure:20819: $? = 1
@@ -41146,7 +41146,7 @@ configure:26401: result: no
 configure:26420: checking if closesocket can be linked
 configure:26440: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cchNTFnl.o: In function `main':
+/tmp/ccDq1q3u.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `closesocket'
 collect2: error: ld returned 1 exit status
 configure:26440: $? = 1
@@ -41381,7 +41381,7 @@ configure:26550: result: no
 configure:26562: checking if CloseSocket can be linked
 configure:26581: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccUSM1so.o: In function `main':
+/tmp/cc3mpL7z.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `CloseSocket'
 collect2: error: ld returned 1 exit status
 configure:26581: $? = 1
@@ -41937,7 +41937,7 @@ configure:27630: result: no
 configure:27650: checking if fsetxattr can be linked
 configure:27679: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccMv7arZ.o: In function `main':
+/tmp/cc6xlVKj.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `fsetxattr'
 collect2: error: ld returned 1 exit status
 configure:27679: $? = 1
@@ -42230,7 +42230,7 @@ configure:28460: checking if gai_strerror might be used
 configure:28466: result: yes
 configure:28487: checking if gethostbyaddr can be linked
 configure:28507: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
-/tmp/ccvlvDTn.o: In function `main':
+/tmp/ccUIJcTH.o: In function `main':
 conftest.c:(.text.startup+0x10): warning: gethostbyaddr is obsolescent, use getaddrinfo() instead.
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:28507: $? = 0
@@ -42247,7 +42247,7 @@ configure:28602: checking if gethostbyaddr might be used
 configure:28608: result: yes
 configure:28630: checking if gethostbyaddr_r can be linked
 configure:28659: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
-/tmp/cchLcM2v.o: In function `main':
+/tmp/ccEZqZuW.o: In function `main':
 conftest.c:(.text.startup+0x8): warning: gethostbyaddr_r is obsolescent, use getaddrinfo() instead.
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:28659: $? = 0
@@ -42760,7 +42760,7 @@ configure:28836: checking if gethostbyaddr_r might be used
 configure:28842: result: yes
 configure:28878: checking if gethostbyname can be linked
 configure:28898: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
-/tmp/ccb8h9OG.o: In function `main':
+/tmp/cck3hxU0.o: In function `main':
 conftest.c:(.text.startup+0x8): warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:28898: $? = 0
 configure:28900: result: yes
@@ -42776,7 +42776,7 @@ configure:28993: checking if gethostbyname might be used
 configure:28999: result: yes
 configure:29021: checking if gethostbyname_r can be linked
 configure:29050: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
-/tmp/cceOXbkD.o: In function `main':
+/tmp/ccJH2KP5.o: In function `main':
 conftest.c:(.text.startup+0x8): warning: gethostbyname_r is obsolescent, use getnameinfo() instead.
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:29050: $? = 0
@@ -44233,7 +44233,7 @@ configure:31135: result: yes
 configure:31162: checking if ioctlsocket can be linked
 configure:31181: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cc5DhA0F.o: In function `main':
+/tmp/ccAtEK8o.o: In function `main':
 conftest.c:(.text.startup+0x10): undefined reference to `ioctlsocket'
 collect2: error: ld returned 1 exit status
 configure:31181: $? = 1
@@ -44514,7 +44514,7 @@ configure:31363: result: no
 configure:31375: checking if IoctlSocket can be linked
 configure:31404: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccweLH0I.o: In function `main':
+/tmp/ccB56Mbu.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `IoctlSocket'
 collect2: error: ld returned 1 exit status
 configure:31404: $? = 1
@@ -45201,7 +45201,7 @@ configure:32915: result: yes
 configure:32935: checking if sigsetjmp can be linked
 configure:32964: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccuM8YbJ.o: In function `main':
+/tmp/ccgeodid.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `sigsetjmp'
 collect2: error: ld returned 1 exit status
 configure:32964: $? = 1
@@ -45545,7 +45545,7 @@ configure:33555: result: no
 configure:33567: checking if strcmpi can be linked
 configure:33596: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccG98VqX.o: In function `main':
+/tmp/ccb91p1x.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `strcmpi'
 collect2: error: ld returned 1 exit status
 configure:33596: $? = 1
@@ -46772,7 +46772,7 @@ configure:34220: result: yes
 configure:34277: checking if stricmp can be linked
 configure:34306: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cc2QxAQo.o: In function `main':
+/tmp/ccmegrqU.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `stricmp'
 collect2: error: ld returned 1 exit status
 configure:34306: $? = 1
@@ -47103,7 +47103,7 @@ configure:34703: result: yes
 configure:34724: checking if strncmpi can be linked
 configure:34753: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccH88KsH.o: In function `main':
+/tmp/ccbM8247.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `strncmpi'
 collect2: error: ld returned 1 exit status
 configure:34753: $? = 1
@@ -47403,7 +47403,7 @@ configure:34861: result: no
 configure:34873: checking if strnicmp can be linked
 configure:34902: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccrhkzhN.o: In function `main':
+/tmp/ccDZB3gb.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `strnicmp'
 collect2: error: ld returned 1 exit status
 configure:34902: $? = 1
@@ -47783,7 +47783,7 @@ configure:35665: result: yes
 configure:35665: checking for getpass_r
 configure:35665: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccLhmmM9.o: In function `main':
+/tmp/ccQU8BHB.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `getpass_r'
 collect2: error: ld returned 1 exit status
 configure:35665: $? = 1
@@ -48087,7 +48087,7 @@ configure:35665: result: no
 configure:35677: checking deeper for getpass_r
 configure:35694: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccdWWiSc.o: In function `main':
+/tmp/ccE5co4G.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `getpass_r'
 collect2: error: ld returned 1 exit status
 configure:35694: $? = 1
@@ -48426,7 +48426,7 @@ configure:35665: result: yes
 configure:35665: checking for setmode
 configure:35665: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/cctpMF1O.o: In function `main':
+/tmp/ccQQZ4Lh.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `setmode'
 collect2: error: ld returned 1 exit status
 configure:35665: $? = 1
@@ -48739,7 +48739,7 @@ configure:35665: result: no
 configure:35677: checking deeper for setmode
 configure:35694: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
-/tmp/ccKrxOLP.o: In function `main':
+/tmp/ccc0AHKk.o: In function `main':
 conftest.c:(.text.startup+0x8): undefined reference to `setmode'
 collect2: error: ld returned 1 exit status
 configure:35694: $? = 1
@@ -49051,7 +49051,7 @@ configure:35665: $? = 0
 configure:35665: result: yes
 configure:35665: checking for utime
 configure:35665: mips-openwrt-linux-uclibc-gcc -o conftest -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -g0 -O2 -Wno-system-headers  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/openssl conftest.c -lssl -lcrypto  >&5
-/tmp/ccl35kcS.o: In function `main':
+/tmp/ccnbQVqn.o: In function `main':
 conftest.c:(.text.startup+0x8): warning: the use of OBSOLESCENT `utime' is discouraged, use `utimes'
 /home/paldier/asuswrt/release/src-lantiq/router/openssl/libcrypto.so: warning: gethostbyname is obsolescent, use getnameinfo() instead.
 configure:35665: $? = 0

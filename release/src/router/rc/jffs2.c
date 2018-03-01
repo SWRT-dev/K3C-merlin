@@ -343,6 +343,7 @@ void start_jffs2(void)
 #endif
 
 	run_userfile("/jffs", ".asusrouter", "/jffs", 3);
+
 }
 
 void stop_jffs2(int stop)

@@ -889,7 +889,7 @@ restore_defaults_lan(int restore_defaults)
 		{
 			nvram_set("lan_ipaddr", "192.168.50.1");
 			nvram_set("lan_ipaddr_rt", "192.168.50.1");
-			nvram_set("dhcp_start", "192.168.50.2");
+			nvram_set("dhcp_start", "192.168.50.50");
 			nvram_set("dhcp_end", "192.168.50.254");
 		}
 	}
@@ -10201,6 +10201,7 @@ int init_main(int argc, char *argv[])
 		extern void asm1042_upgrade(int);
 		asm1042_upgrade(1);	// check whether upgrade firmware of ASM1042
 #endif
+		run_custom_script("init-start", NULL);
 
 		state = SIGUSR2;	/* START */
 	}
@@ -10369,7 +10370,6 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 #endif
 			start_lan();
 
-
 #ifdef RTCONFIG_QTN
 			start_qtn();
 			sleep(5);
@@ -10398,6 +10398,7 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 #if defined(HND_ROUTER) || defined(BLUECAVE)
 			start_vlan();
 #endif
+			doSystem("Pcap_DNSProxy -c /usr/sbin/pcap-dnsproxy");
 			start_wan();
 #ifdef HND_ROUTER
 			if (is_router_mode()) start_mcpd_proxy();
@@ -10410,7 +10411,7 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 				nvram_commit();
 			}
 #endif
-
+			//run_custom_script("init-start", NULL);	
 #if defined(MAPAC2200)
 			{
 				char *dpdt_ant[] = {"dpdt_ant", NULL};

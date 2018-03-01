@@ -2468,7 +2468,7 @@ start_default_filter(int lanunit)
 #ifdef RTCONFIG_HTTPS
 		int en = nvram_get_int("http_enable");
 		if (en != 0)
-			https_port = nvram_get_int("https_lanport") ? : 433;
+			https_port = nvram_get_int("https_lanport") ? : 443;
 
 		if (en != 1)
 #endif
@@ -5683,6 +5683,7 @@ int start_firewall(int wanunit, int lanunit)
 #endif // RTCONFIG_MULTICAST_IPTV
 	{
 		if(wanunit != wan_primary_ifunit())
+
 			goto leave;
 
 		nat_setting(wan_if, wan_ip, wanx_if, wanx_ip, lan_if, lan_ip, logaccept, logdrop);
@@ -5899,10 +5900,9 @@ int start_firewall(int wanunit, int lanunit)
 
 leave:
 	file_unlock(lock);
-
+	run_custom_script("firewall-start", wan_if);
 	return 0;
 }
-
 
 void enable_ip_forward(void)
 {

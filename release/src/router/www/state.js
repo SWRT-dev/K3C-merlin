@@ -962,7 +962,7 @@ function show_banner(L3){// L3 = The third Level of Menu
 		banner_code +='</div>';
 		banner_code +='<div style="display:table-cell;vertical-align:middle;width:100%;text-align:center">';
 		if(is_CN){
-			Android_app_link = "https://github.com/paldier/K3C-merlin/app/ASUSRouter_Android_100322.apk";
+			Android_app_link = "https://github.com/paldier/K3C-merlin/raw/master/app/ASUSRouter_Android_100322.apk";
 			banner_code +='<div style="padding-left: 30px;"><a href="'+Android_app_link+'" target="_blank"><div style="width:172px;font-size:24px;font-weight:bold;text-decoration:underline"><#WanDouJia#></div></a></div>';
 		}
 		else{

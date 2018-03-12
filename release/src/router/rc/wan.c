@@ -1998,6 +1998,7 @@ int update_resolvconf(void)
 	if (!write_ovpn_resolv(fp))
 #endif
 	{
+		fprintf(fp_servers, "server=127.0.0.1#1053\n");
 		for (unit = WAN_UNIT_FIRST; unit < WAN_UNIT_MAX; unit++) {
 			char *wan_xdns, *wan_xdomain;
 			char wan_xdns_buf[sizeof("255.255.255.255 ")*2], wan_xdomain_buf[256];
@@ -2125,7 +2126,7 @@ int update_resolvconf(void)
 #endif
 	}
 #endif
-	fprintf(fp_servers, "server=127.0.0.1#1053\n");
+
 	fclose(fp);
 	fclose(fp_servers);
 	file_unlock(lock);

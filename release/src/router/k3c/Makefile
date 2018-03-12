@@ -37,5 +37,10 @@ install:
 	install -m 0755 usr/pcap-dnsproxy/IPFilter.conf $(INSTALLDIR)/usr/sbin/pcap-dnsproxy
 	install -m 0755 usr/pcap-dnsproxy/Routing.txt $(INSTALLDIR)/usr/sbin/pcap-dnsproxy
 	install -m 0755 usr/pcap-dnsproxy/WhiteList.txt $(INSTALLDIR)/usr/sbin/pcap-dnsproxy
+# K3C ipset
+	install -m 0777 ipset $(INSTALLDIR)/usr/sbin
+	install -m 0700 libipset.so.3.6.0 $(INSTALLDIR)/usr/lib
+	install -m 0700 libmnl.so.0.1.0 $(INSTALLDIR)/usr/lib
+	cd $(INSTALLDIR)/usr/lib && ln -sf libipset.so.3.6.0 libipset.so.3 && ln -sf libipset.so.3 libipset.so && ln -sf libmnl.so.0.1.0 libmnl.so.0
 
 clean:

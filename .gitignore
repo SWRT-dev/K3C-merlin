@@ -3,3 +3,5 @@ release/src-lantiq/image/*
 release/src/router/rom_lantiq/
 *~
 release/src/router/httpd/sysinfo.c
+release/src-lantiq/proprietary/ltq_eip97_1.2.25
+*.log

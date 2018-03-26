@@ -2774,7 +2774,7 @@ int init_nvram(void)
 	nvram_unset("led_ctl_sig2_gpio");
 	nvram_unset("led_ctl_sig3_gpio");
 	nvram_unset("led_idr_sig1_gpio");
-	nvram_unset("led_idr_sig1_gpio");
+	nvram_unset("led_idr_sig2_gpio");
 #endif
 	/* In the order of physical placement */
 	nvram_set("ehci_ports", "");
@@ -8120,21 +8120,22 @@ int init_nvram(void)
 #endif
 
 		//for k3c
+		//LED Brightness off low medium high
 		//nvram_set_int("led_ctl_sig1_gpio", 42);	// Level 1
 		//nvram_set_int("led_ctl_sig2_gpio", 8);	// Level 2
-		//nvram_set_int("led_ctl_sig3_gpio", 1);	// Level 3
+		//nvram_set_int("led_ctl_sig3_gpio", 1);	// Level 3 
 
 		//nvram_set_int("led_idr_sig1_gpio", 4);	// RED
 		//nvram_set_int("led_idr_sig2_gpio", 6);	// BLUE
 		//nvram_set_int("btn_wps_gpio", 30|GPIO_ACTIVE_LOW);
 		//nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
-		nvram_set_int("led_wan_gpio", 14);
-		nvram_set_int("led_lan1_gpio", 5);
-		nvram_set_int("led_lan2_gpio", 6);
-		nvram_set_int("led_lan3_gpio", 9);
+		//nvram_set_int("led_wan_gpio", 14);
+		//nvram_set_int("led_lan1_gpio", 5);
+		//nvram_set_int("led_lan2_gpio", 6);
+		//nvram_set_int("led_lan3_gpio", 9);
 		//nvram_set_int("led_lan4_gpio", 0xff);
-		nvram_set_int("led_wps_gpio", 36|GPIO_ACTIVE_LOW); //YELLOW
-		nvram_set_int("led_idr_sig1_gpio", 34);	// RED
+		nvram_set_int("led_idr_sig1_gpio", 36|GPIO_ACTIVE_LOW); //YELLOW 
+		nvram_set_int("led_pwr_red_gpio", 34);	// RED
 		nvram_set_int("led_idr_sig2_gpio", 35|GPIO_ACTIVE_LOW);	// BLUE
 		nvram_set_int("btn_wps_gpio", 30);
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
@@ -8498,7 +8499,14 @@ int init_nvram(void)
 #ifdef RTAC68U
 	if (!is_n66u_v2())
 #endif
+
+#ifdef RTCONFIG_LANTIQ
+	if(strcmp(nvram_safe_get("blver"), "0.0.3.12") == 0){
+		add_rc_support("bwdpi");
+	}
+#else
 	add_rc_support("bwdpi");
+#endif
 
 	/* modify logic for AiProtection switch */
 	// DON'T USE the logic of nvram_match, it's the wrong logic in this case!!
@@ -10370,6 +10378,7 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 #endif
 			start_lan();
 
+
 #ifdef RTCONFIG_QTN
 			start_qtn();
 			sleep(5);
@@ -10411,7 +10420,7 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 				nvram_commit();
 			}
 #endif
-			//run_custom_script("init-start", NULL);	
+
 #if defined(MAPAC2200)
 			{
 				char *dpdt_ant[] = {"dpdt_ant", NULL};
@@ -10828,4 +10837,3 @@ int reboothalt_main(int argc, char *argv[])
 
 	return 0;
 }
-

@@ -5,3 +5,8 @@ release/src/router/rom_lantiq/
 release/src/router/httpd/sysinfo.c
 release/src-lantiq/proprietary/ltq_eip97_1.2.25
 *.log
+release/src/xz/src/liblzma/*.o
+release/src/xz/src/xz/*.o
+release/src/xz/src/xzdec/*.o
+release/src/xz/src/liblzma/.libs/*.o
+release/src/xz/src/lzmainfo/*.o

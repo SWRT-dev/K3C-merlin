@@ -395,7 +395,7 @@ function update_sysinfo(e){
 					</tr>
 					<tr>
 						<th>Bootloader (UBOOT)</th>
-						<td><% nvram_get("blver"); %></td>
+						<td><% nvram_get("bl_ver"); %></td>
 					</tr>
 					<tr>
 						<th>Driver version</th>

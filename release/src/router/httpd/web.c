@@ -4090,6 +4090,7 @@ static int ej_update_variables(int eid, webs_t wp, int argc, char_t **argv) {
 #endif
 						{
 							nvram_set("freeze_duck", "15");
+							_dprintf("Notify_Cmd: [%s]\n", notify_cmd);
 							notify_rc(notify_cmd);
 						}
 					}
@@ -4124,6 +4125,22 @@ static int ej_update_variables(int eid, webs_t wp, int argc, char_t **argv) {
 			websWrite(wp, "<script>restart_needed_time(%d);</script>\n", atoi(action_wait));
 		}
 	}
+	else if(!strcmp(action_mode, "toolscript")){
+		nvram_set("freeze_duck", "5");
+		strncpy(notify_cmd, action_script, 128);
+		_dprintf("Scrip_Cmd: [%s]\n", notify_cmd);
+		//FILE *fp;
+		//if ((fp = fopen("/tmp/toolscript.txt", "w")) == NULL)
+		//	printf("Scrip_Temp_File: ERROR\n");
+		//fprintf(fp, fscanf(wp,"%s"));
+		//fclose(fp);
+		//_dprintf("Scrip_V: %s\n", wp);
+		//
+		validate_apply(wp, NULL);
+		strlcpy(SystemCmd, notify_cmd, sizeof(SystemCmd));
+		sys_script("syscmd.sh");
+	}
+
 #if defined(RTCONFIG_USB_SMS_MODEM) && !defined(RTCONFIG_USB_MULTIMODEM)
 	else if(!strcmp(action_script, "start_savesms")){
 		int fd;

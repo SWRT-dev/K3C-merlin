@@ -245,7 +245,7 @@ BGPD =
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -ffunction-sections -fdata-sections -fPIC
-CONFDATE = 20180306
+CONFDATE = 20180324
 CONFIG_ARGS = --host=mips-linux --build= --enable-shared=lib --disable-ripngd --disable-ospfd --disable-doc --disable-ospfclient --disable-ospf6d --disable-bgpd --disable-bgp-announce --disable-babeld --disable-silent-rules --disable-isisd
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 

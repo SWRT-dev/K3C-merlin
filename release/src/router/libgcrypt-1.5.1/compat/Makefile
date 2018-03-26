@@ -136,7 +136,7 @@ AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/libgcrypt-1.
 AWK = gawk
 BUILD_FILEVERSION = 1,5,1,54002
 BUILD_REVISION = d2f2f90
-BUILD_TIMESTAMP = 2018-03-06T13:23+0000
+BUILD_TIMESTAMP = 2018-03-23T17:48+0000
 CC = mips-openwrt-linux-uclibc-gcc
 CCAS = mips-openwrt-linux-uclibc-gcc
 CCASDEPMODE = depmode=gcc3

@@ -140,7 +140,7 @@ BGPD =
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -DBLUECAVE -DBLUECAVE -DBCMWPA2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -DBLUECAVE -DLANTIQ_BSD -D__CONFIG_EMF__ -D__CONFIG_WPS__ -Os -Wall -ffunction-sections -fdata-sections -fPIC
-CONFDATE = 20180306
+CONFDATE = 20180324
 CONFIG_ARGS = --host=mips-linux --build= --enable-shared=lib --disable-ripngd --disable-ospfd --disable-doc --disable-ospfclient --disable-ospf6d --disable-bgpd --disable-bgp-announce --disable-babeld --disable-silent-rules --disable-isisd
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
@@ -304,7 +304,7 @@ top_srcdir = ..
 # derived variables.
 pkg_names = daemons dev doc libs smf
 pkg_quagga_daemons = zebra bgpd ospfd ospf6d ripd ripngd
-pkg_name_rev = 0.99.24-20180306-linux-gnu-mips
+pkg_name_rev = 0.99.24-20180324-linux-gnu-mips
 pkg_depends = $(pkg_names:%=depend.%)
 pkg_packages = $(pkg_names:%=quagga-%-$(pkg_name_rev).pkg)
 pkg_pkginfos = $(pkg_names:%=pkginfo.%.full)
@@ -336,7 +336,7 @@ edit = $(SED) \
  	-e 's,[@]PACKAGE_TARNAME[@],quagga,g' \
  	-e 's,[@]PACKAGE_VERSION[@],0.99.24,g' \
  	-e 's,[@]PACKAGE_BUGREPORT[@],https://bugzilla.quagga.net,g' \
-  	-e 's,[@]CONFDATE[@],20180306,g' \
+  	-e 's,[@]CONFDATE[@],20180324,g' \
  	-e 's,[@]target_cpu[@],$(target_cpu),g' \
  	-e 's,[@]target_host[@],$(target_host),g' \
  	-e 's,[@]target_os[@],$(target_os),g'

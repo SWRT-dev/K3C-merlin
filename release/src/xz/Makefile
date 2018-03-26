@@ -86,9 +86,8 @@ DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(dist_examples_DATA) ABOUT-NLS AUTHORS COPYING ChangeLog \
 	INSTALL NEWS README THANKS TODO build-aux/compile \
 	build-aux/config.guess build-aux/config.rpath \
-	build-aux/config.sub build-aux/depcomp build-aux/install-sh \
-	build-aux/missing build-aux/ltmain.sh \
-	$(top_srcdir)/build-aux/compile \
+	build-aux/config.sub build-aux/install-sh build-aux/missing \
+	build-aux/ltmain.sh $(top_srcdir)/build-aux/compile \
 	$(top_srcdir)/build-aux/config.guess \
 	$(top_srcdir)/build-aux/config.rpath \
 	$(top_srcdir)/build-aux/config.sub \
@@ -246,15 +245,15 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_CFLAGS =  -pthread -fvisibility=hidden -Wall -Wextra -Wformat=2 -Winit-self -Wmissing-include-dirs -Wstrict-aliasing -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Wlogical-op -Waggregate-return -Wstrict-prototypes -Wold-style-definition -Wmissing-prototypes -Wmissing-declarations -Wmissing-noreturn -Wredundant-decls
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing automake-1.14
+AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing automake-1.14
 AWK = gawk
 CC = gcc -std=gnu99
 CCAS = gcc -std=gnu99
@@ -289,7 +288,7 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 INTLLIBS = 
 INTL_MACOSX_LIBS = 
-LD = ld -m elf_x86_64 -m elf_x86_64
+LD = ld -m elf_x86_64
 LDFLAGS = 
 LIBICONV = -liconv
 LIBINTL = 
@@ -302,7 +301,7 @@ LN_S = ln -s
 LTLIBICONV = -liconv
 LTLIBINTL = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 MSGFMT = /usr/bin/msgfmt
@@ -338,10 +337,10 @@ USE_NLS = yes
 VERSION = 5.0.3
 XGETTEXT = /usr/bin/xgettext
 XGETTEXT_015 = /usr/bin/xgettext
-abs_builddir = /home/paldier/asuswrt/release/src/xz
-abs_srcdir = /home/paldier/asuswrt/release/src/xz
-abs_top_builddir = /home/paldier/asuswrt/release/src/xz
-abs_top_srcdir = /home/paldier/asuswrt/release/src/xz
+abs_builddir = /home/paldier/asuswrt/release/src-lantiq/xz
+abs_srcdir = /home/paldier/asuswrt/release/src-lantiq/xz
+abs_top_builddir = /home/paldier/asuswrt/release/src-lantiq/xz
+abs_top_srcdir = /home/paldier/asuswrt/release/src-lantiq/xz
 ac_ct_AR = 
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -371,7 +370,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/asuswrt/release/src/xz/build-aux/install-sh
+install_sh = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

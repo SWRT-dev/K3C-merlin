@@ -886,7 +886,7 @@ cat >>"$ac_tmp/subs1.awk" <<\_ACAWK &&
 S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
-S["BUILD_TIMESTAMP"]="2018-03-06T13:23+0000"
+S["BUILD_TIMESTAMP"]="2018-03-23T17:48+0000"
 S["BUILD_FILEVERSION"]="1,5,1,54002"
 S["BUILD_REVISION"]="d2f2f90"
 S["LIBGCRYPT_DIGESTS"]="crc md4 md5 rmd160 sha1 sha256 sha512 tiger whirlpool"
@@ -1237,7 +1237,7 @@ D["LIBGCRYPT_CIPHERS"]=" \"arcfour:blowfish:cast5:des:aes:twofish:serpent:rfc226
 D["LIBGCRYPT_PUBKEY_CIPHERS"]=" \"dsa:elgamal:rsa:ecc\""
 D["LIBGCRYPT_DIGESTS"]=" \"crc:md4:md5:rmd160:sha1:sha256:sha512:tiger:whirlpool\""
 D["BUILD_REVISION"]=" \"d2f2f90\""
-D["BUILD_TIMESTAMP"]=" \"2018-03-06T13:23+0000\""
+D["BUILD_TIMESTAMP"]=" \"2018-03-23T17:48+0000\""
   for (key in D) D_is_set[key] = 1
   FS = ""
 }

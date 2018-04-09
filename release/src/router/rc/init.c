@@ -68,6 +68,9 @@
 
 #define SHELL "/bin/sh"
 
+//k3c led
+#include <k3cled.h>
+
 static int fatalsigs[] = {
 	SIGILL,
 	SIGABRT,
@@ -2775,6 +2778,7 @@ int init_nvram(void)
 	nvram_unset("led_ctl_sig3_gpio");
 	nvram_unset("led_idr_sig1_gpio");
 	nvram_unset("led_idr_sig2_gpio");
+	nvram_unset("led_idr_sig3_gpio");
 #endif
 	/* In the order of physical placement */
 	nvram_set("ehci_ports", "");
@@ -8134,15 +8138,15 @@ int init_nvram(void)
 		//nvram_set_int("led_lan2_gpio", 6);
 		//nvram_set_int("led_lan3_gpio", 9);
 		//nvram_set_int("led_lan4_gpio", 0xff);
-		nvram_set_int("led_idr_sig1_gpio", 36|GPIO_ACTIVE_LOW); //YELLOW 
-		nvram_set_int("led_pwr_red_gpio", 34);	// RED
+		nvram_set_int("led_idr_sig3_gpio", 36|GPIO_ACTIVE_LOW);	// YELLOW
+		nvram_set_int("led_idr_sig1_gpio", 34);	// RED
 		nvram_set_int("led_idr_sig2_gpio", 35|GPIO_ACTIVE_LOW);	// BLUE
 		nvram_set_int("btn_wps_gpio", 30);
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
-		
+		k3c_init_led();
 		//nvram_set("wl0_ifname", "wlan0");//it worked?
-		//nvram_set("wl1_ifname", "wlan1");
-		//if ((nvram_get("et0macaddr") == NULL) || (nvram_get("et0macaddr") == "00:11:22:33:44:55"))
+		//nvram_set("wl1_ifname", "wlan2");
+		//if (nvram_get("et0macaddr") == NULL)
 		//{
 			doSystem("/usr/sbin/k3cnvram.sh");
 			doSystem("/tmp/nv.sh");
@@ -9607,6 +9611,7 @@ static void sysinit(void)
 		"/tmp/etc/rc.d",
 #endif
 		"/tmp/var/tmp",
+		"/tmp/etc/dnsmasq.user",	// ssr and adbyby
 		NULL
 	};
 	umask(0);

@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-#fix ipset didnt insmod bug
+#载入iptables模块
 insmod /lib/modules/3.10.104/kernel/net/netfilter/nfnetlink.ko
 insmod /lib/modules/3.10.104/kernel/net/netfilter/ipset/ip_set.ko
 insmod /lib/modules/3.10.104/kernel/net/netfilter/ipset/ip_set_bitmap_ip.ko
@@ -19,7 +19,8 @@ insmod /lib/modules/3.10.104/kernel/net/netfilter/xt_set.ko
 /usr/sbin/k3c_webshell.sh &
 /usr/sbin/k3c_xunlei.sh &
 /usr/sbin/k3c_ngrok.sh
-#/usr/sbin/k3c_ssr.sh
+/usr/sbin/k3c_frpc.sh
+/usr/sbin/k3c_ssr.sh
 /usr/sbin/k3c_kms.sh
 #/usr/sbin/k3c_adbyby.sh
 #/usr/sbin/k3c_led_status

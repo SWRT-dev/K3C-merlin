@@ -127,7 +127,7 @@ document.form.webshell_enable.value = 0;
 </tr>
 <tr>
 <th>管理窗口</th>
-<td id="xunlei_status">
+<td id="webshell_status">
 <input class="button_gen" onclick="reactive();" type="button" value="打开窗口"/>
 </td>
 </tr>
@@ -136,6 +136,7 @@ document.form.webshell_enable.value = 0;
 </thead>
 <tr><td colspan="2">
 <textarea cols="63" rows="20" wrap="off" readonly="readonly" id="textarea" style="width:99%;font-family:Courier New, Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;">
+<% nvram_dump("webshell.log",""); %>
 </textarea>
 </td></tr>
 </table>

@@ -9,15 +9,11 @@ killall -q -9 ssr_mon.sh
 
 killall -q -9 ssr-redir
 killall -q -9 ss-redir
-
-#icount=`ps -w |grep pdnsd|grep -v grep|wc -l`
-#if [ $icount -gt 0 ] ;then	
-killall -q pdnsd  
+ 
 rm -f /tmp/etc/dnsmasq.user/gfw_list.conf 2>/dev/null 
 rm -f /tmp/etc/dnsmasq.user/gfw_addr.conf 2>/dev/null
 rm -f /tmp/etc/dnsmasq.user/gfw_user.conf 2>/dev/null
-/sbin/restart_dns 2>/dev/null
-#fi
+service restart_dns 2>/dev/null
 
 }
 
@@ -30,7 +26,7 @@ stop
 sleep 2
 fi
 
-sindex=`nvram get ssr_index`
+sindex=`nvram get ssr_index 2>/dev/null`
 
 mcmd="echo \"`nvram get ssr_server_ip`\"|awk -F '>' '{printf \$$sindex}'"
 mip=`echo $mcmd |sh`
@@ -116,7 +112,7 @@ fi
 
 fi
 /usr/sbin/ssr-rules  $mip  1234 &
-
+/usr/sbin/ssr-state 2>/dev/null || exit 0
 }
 
 restart() {

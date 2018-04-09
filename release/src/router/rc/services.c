@@ -1249,6 +1249,7 @@ void start_dnsmasq(void)
 	fprintf(fp, "pid-file=/var/run/dnsmasq.pid\n"
 		    "user=nobody\n"
 		    "bind-dynamic\n"		// listen only on interface & lo
+		    "conf-dir=/tmp/etc/dnsmasq.user\n"
 		);
 
 #if defined(RTCONFIG_REDIRECT_DNAME)
@@ -15109,5 +15110,17 @@ void reset_led(void)
 	if(brightness_level < 0 || brightness_level > 3)
 		brightness_level = 2;
 	setCentralLedLv(brightness_level);
+	if (nvram_get_int("bc_ledLv") == 0)
+	{
+		led_control(LED_INDICATOR_SIG1, LED_OFF); 
+		led_control(LED_INDICATOR_SIG3, LED_OFF);
+		led_control(LED_INDICATOR_SIG2, LED_OFF);
+	}
+	else if(nvram_get_int("link_internet") == 2){
+		led_control(LED_INDICATOR_SIG2, LED_ON);
+	}
+	else {
+		led_control(LED_INDICATOR_SIG3, LED_ON);
+	}
 }
 #endif

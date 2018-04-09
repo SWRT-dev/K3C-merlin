@@ -4435,14 +4435,24 @@ void bluecave_ledbh_indicator()
 
 			// Solid RED led if no internet ability
 			if((indicator_no_internet_red != indicator_no_internet_red_old) ||
-		  	   (indicator_no_internet_red && !get_gpio(nvram_get_int("led_idr_sig1_gpio")) ||
+		  	   (indicator_no_internet_red && !get_gpio(nvram_get_int("led_idr_sig3_gpio")) ||
 			   (!indicator_no_internet_red) && get_gpio(nvram_get_int("led_idr_sig2_gpio")))) // WAR for gpio was reset by mem xxx 
 			{
-				indicator_no_internet_red == 1 ? 
-					led_control(LED_INDICATOR_SIG1, LED_ON) : 
-					led_control(LED_INDICATOR_SIG1, LED_OFF);
-				led_control(LED_INDICATOR_SIG2, LED_OFF);
+				if (nvram_get_int("bc_ledLv") != 0)
+				{
+					indicator_no_internet_red == 1 ? 
+					led_control(LED_INDICATOR_SIG3, LED_ON) : 
+					led_control(LED_INDICATOR_SIG3, LED_OFF);
+					led_control(LED_INDICATOR_SIG2, LED_OFF);
+				}
 				indicator_no_internet_red_old = indicator_no_internet_red;
+			}
+			else {
+				if (nvram_get_int("bc_ledLv") != 0)
+				{
+					led_control(LED_INDICATOR_SIG2, LED_ON);
+					led_control(LED_INDICATOR_SIG3, LED_OFF);
+				}
 			}
 
 			break;

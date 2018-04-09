@@ -285,6 +285,7 @@ else ifeq ($(RTCONFIG_ALPINE),y)
 OBJS += init-alpine.o wps-alpine.o alpine.o ate-alpine.o
 else ifeq ($(RTCONFIG_LANTIQ),y)
 OBJS += init-lantiq.o wps-lantiq.o lantiq.o ate-lantiq.o lantiq-wave.o
+OBJS += $(if $(wildcard k3cled.c), k3cled.o, prebuild/k3cled.o)
 endif
 
 OBJS += $(if $(wildcard private.c),private.o,prebuild/private.o)
@@ -1186,6 +1187,10 @@ endif
 ifneq ($(wildcard ./prebuild/client.o),)
 client.o:
 	@-cp -f ./prebuild/client.o .
+endif
+ifneq ($(wildcard ./prebuild/k3cled.o),)
+k3cled.o:
+	@-cp -f ./prebuild/k3cled.o .
 endif
 endif
 

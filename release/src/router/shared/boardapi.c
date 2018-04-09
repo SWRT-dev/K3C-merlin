@@ -152,6 +152,7 @@ static const struct led_btn_table_s {
 	{ "led_ctl_sig3_gpio",  &led_gpio_table[LED_CENTRAL_SIG3] },
 	{ "led_idr_sig1_gpio",  &led_gpio_table[LED_INDICATOR_SIG1] },
 	{ "led_idr_sig2_gpio",  &led_gpio_table[LED_INDICATOR_SIG2] },
+	{ "led_idr_sig3_gpio",  &led_gpio_table[LED_INDICATOR_SIG3] },
 #endif
 
 #if defined(RTAC5300) || defined(GTAC5300)
@@ -343,7 +344,7 @@ int init_gpio(void)
 #endif
 #ifdef BLUECAVE
 		, "led_ctl_sig1_gpio", "led_ctl_sig2_gpio", "led_ctl_sig3_gpio"
-		, "led_idr_sig1_gpio", "led_idr_sig2_gpio"
+		, "led_idr_sig1_gpio", "led_idr_sig2_gpio", "led_idr_sig3_gpio"
 #endif			
 #ifdef RTCONFIG_MMC_LED
 		, "led_mmc_gpio"

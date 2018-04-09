@@ -3,6 +3,7 @@
 stop() {
 killall -9 shellinaboxd
 iptables -D INPUT -p tcp --dport 4200 -j ACCEPT
+ echo "webshell已关闭。"> /tmp/webshell.log
 }
 
 start() {
@@ -14,6 +15,7 @@ sleep 2
 fi
 /usr/sbin/webshell/shellinaboxd --css=/usr/sbin/webshell/white-on-black.css --service=/:LOGIN -b --disable-ssl
 iptables -I INPUT -p tcp --dport 4200 -j ACCEPT
+ echo "webshell已启动。"> /tmp/webshell.log
 }
 
 restart() {

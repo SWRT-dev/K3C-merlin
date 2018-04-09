@@ -351,6 +351,8 @@ document.form.ssr_server_obfspara.value = ssr_server_obfspara;
 document.form.ssr_server_protocolpara.value = ssr_server_protocolpara;
 document.form.ssr_server_type.value = ssr_server_type;
 document.form.ssr_server_ssencrypt.value = ssr_server_ssencrypt;
+document.form.save_name.disabled=true;
+document.form.save_content.disabled=true;
 showLoading();
 document.form.submit();
 }
@@ -681,7 +683,10 @@ ssr_server_enable += ">";
 <input type="hidden" name="ssr_server_protocolpara" value="<% nvram_get("ssr_server_protocolpara"); %>">
 <input type="hidden" name="ssr_server_type" value="<% nvram_get("ssr_server_type"); %>">
 <input type="hidden" name="ssr_server_ssencrypt" value="<% nvram_get("ssr_server_ssencrypt"); %>">
-
+<input type="hidden" name="ss_china_state" value="<% nvram_get("ss_china_state"); %>">
+<input type="hidden" name="ss_foreign_state" value="<% nvram_get("ss_foreign_state"); %>">
+<input type="hidden" name="save_name" value="">
+<input type="hidden" name="save_content" value="">
 <table class="content" align="center" cellpadding="0" cellspacing="0" >
 <tr>
 <td width="17">&nbsp;</td>
@@ -794,6 +799,7 @@ document.form.ssr_udp_enable.value = 0;
 <option value="0" <% nvram_match( "ssr_dnsmode", "0","selected"); %>><#SSR_dnsr_1#></option>
 <option value="1" <% nvram_match( "ssr_dnsmode", "1","selected"); %>><#SSR_dnsr_2#></option>
 </select>
+<a href="http://www.ip111.cn/" target=_blank>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【 IP111 】</a>
 </td>
 </tr>
 <tr>
@@ -802,6 +808,20 @@ document.form.ssr_udp_enable.value = 0;
 <select id="ssr_index_id" name="ssr_index" class="input_option input_15_table">
 <option value="0"><#SSR_server_none#></option>
 </select>
+</td>
+</tr>
+</table>
+</div>
+<div id="ss_status">
+<table style="margin:-1px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable" >
+<tr id="ss_state">
+<th id="mode_state" width="35%">State</th>
+<td>
+<div style="display:table-cell;float: left;margin-left:0px;">
+<span id="ss_state1"><% nvram_get("ss_foreign_state"); %></span>
+<br/>
+<span id="ss_state2"><% nvram_get("ss_china_state"); %></span>
+</div>
 </td>
 </tr>
 </table>

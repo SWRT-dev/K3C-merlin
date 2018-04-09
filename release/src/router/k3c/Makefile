@@ -7,17 +7,18 @@ install:
 	install -d $(INSTALLDIR)/usr/sbin
 	install -d $(INSTALLDIR)/lib
 	install -d $(INSTALLDIR)/usr/bin
-	install -d $(INSTALLDIR)/lib/upgrade/keep.d
 	install -d $(INSTALLDIR)/usr/sbin/ssr
 	install -d $(INSTALLDIR)/usr/sbin/pcap-dnsproxy
 	install -d $(INSTALLDIR)/usr/lib
 	install -d $(INSTALLDIR)/usr/sbin/webshell
+	install -d $(INSTALLDIR)/usr/sbin/frp
 	install -d $(INSTALLDIR)/usr/adb
 	install -d $(INSTALLDIR)/www
 	install -d $(INSTALLDIR)/usr/adbyby
 	install -d $(INSTALLDIR)/usr/adbyby/data
 	install -d $(INSTALLDIR)/usr/adbyby/doc
 	install -d $(INSTALLDIR)/usr/kms
+
 # K3C nvram
 	install -m 0755 k3cnvram.sh $(INSTALLDIR)/usr/sbin
 
@@ -25,8 +26,9 @@ install:
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
 	install -m 0755 base64 $(INSTALLDIR)/usr/bin
-	install -m 0755 ssr-redir $(INSTALLDIR)/usr/bin
-	install -m 0755 shadowsocksr-libev-alt $(INSTALLDIR)/lib/upgrade/keep.d
+	install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
+	install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
+	install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
 	install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
 	install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
 	install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
@@ -86,11 +88,6 @@ install:
 # K3C xunlei
 	install -m 0755 www/k3c_xunlei.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_xunlei.asp $(INSTALLDIR)/www
-# K3C led
-	install -m 0755 k3c_led_status $(INSTALLDIR)/usr/sbin
-	install -m 0755 phi_led.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 gpio.sh $(INSTALLDIR)/usr/sbin
-	#install -m 0755 led_status $(INSTALLDIR)/usr/bin
 # K3C kms
 	install -m 0755 www/vlmcsd.ini $(INSTALLDIR)/usr/kms
 	install -m 0755 www/kms_dns.conf $(INSTALLDIR)/usr/kms
@@ -101,5 +98,12 @@ install:
 	install -m 0755 www/Tools_aria2.asp $(INSTALLDIR)/www
 	install -m 0755 www/aria2c $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/k3c_aria2.sh $(INSTALLDIR)/usr/sbin
+	install -m 0755 libssh2.so.1.0.1 $(INSTALLDIR)/usr/lib
+	cd $(INSTALLDIR)/usr/lib && ln -sf libssh2.so.1.0.1 libssh2.so.1 && ln -sf libssh2.so.1 libssh2.so
+# K3C frp
+	install -m 0755 www/Tools_frpc.asp $(INSTALLDIR)/www
+	install -m 0755 www/frpc $(INSTALLDIR)/usr/sbin/frp
+	install -m 0755 www/frp_mon.sh $(INSTALLDIR)/usr/sbin/frp
+	install -m 0755 www/k3c_frpc.sh $(INSTALLDIR)/usr/sbin
 
 clean:

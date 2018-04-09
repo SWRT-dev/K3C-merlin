@@ -11,12 +11,14 @@
 ######################################################################
 
 start() {
-  /usr/sbin/gpio.sh yellow 0
-  sleep 40
+#  /usr/sbin/gpio.sh yellow 0
+#  sleep 40
   /usr/sbin/gpio.sh blue 0
 }
 
 stop() {
-  killall -9 led_status
+  echo 1 > /sys/class/gpio/gpio34/value
+  echo 0 > /sys/class/gpio/gpio35/value
+  echo 1 > /sys/class/gpio/gpio36/value
 }
 start

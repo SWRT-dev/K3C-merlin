@@ -18,7 +18,6 @@
 #include <rc.h>
 #include <wanduck.h>
 
-
 //#define DETECT_INTERNET_MORE
 #define NO_IOS_DETECT_INTERNET
 #ifdef RTCONFIG_LAN4WAN_LED
@@ -153,17 +152,35 @@ static int update_wan_led_and_wanred_led(int wan_unit)
 				l = get_wanports_status(wan_unit);
 
 			if (l == CONNED && state == WAN_STATE_CONNECTED) {
+#ifdef BLUECAVE
+			if (nvram_get_int("bc_ledLv") != 0)
+				led_control(LED_INDICATOR_SIG2, LED_ON); //turn on BLUE led
+				led_control(LED_INDICATOR_SIG1, LED_OFF);
+				led_control(LED_INDICATOR_SIG3, LED_OFF);
+#else
 				wan_red_led_control(LED_OFF);
 				led_control(LED_WAN, LED_ON);
+#endif
 			} else {
+#ifdef BLUECAVE
+			if (nvram_get_int("bc_ledLv") != 0)
+				led_control(LED_INDICATOR_SIG3, LED_ON); //turn on yellow led
+				led_control(LED_INDICATOR_SIG1, LED_OFF);
+				led_control(LED_INDICATOR_SIG2, LED_OFF);
+#else
 				wan_red_led_control(LED_ON);
 				led_control(LED_WAN, LED_OFF);
+#endif
 			}
 		}
 		break;
 	case SW_MODE_REPEATER:	/* fallthrough */
 	case SW_MODE_AP:
 		wan_red_led_control(LED_OFF);
+#ifdef BLUECAVE
+			if (nvram_get_int("bc_ledLv") != 0)
+				led_control(LED_INDICATOR_SIG3, LED_ON); //turn on yellow led
+#endif
 		break;
 	}
 #endif	/* RTCONFIG_WANPORT2 */

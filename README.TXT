@@ -1,7 +1,7 @@
 uboot  https://k3c.paldier.tk/uboot/beta/merlin/
 RAM: (512M √ 256M ×)
 NAND: (samsung √ others √)
-hw_version: (A1 √ B1 √)
+hw_version: (A1 √ B1 √ B1G √)
 host OS: ubuntu 14.04
 
 

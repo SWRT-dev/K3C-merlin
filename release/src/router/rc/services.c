@@ -1629,7 +1629,7 @@ void start_dnsmasq(void)
 #else
 	eval("dnsmasq", "--log-async");
 #endif
-
+	eval("Pcap_DNSProxy", "-c", "/usr/sbin/pcap-dnsproxy");
 	TRACE_PT("end\n");
 }
 
@@ -1643,7 +1643,7 @@ void stop_dnsmasq(void)
 	}
 
 	killall_tk("dnsmasq");
-
+	killall_tk("Pcap_DNSProxy");
 	TRACE_PT("end\n");
 }
 

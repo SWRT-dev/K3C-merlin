@@ -1188,10 +1188,6 @@ ifneq ($(wildcard ./prebuild/client.o),)
 client.o:
 	@-cp -f ./prebuild/client.o .
 endif
-ifneq ($(wildcard ./prebuild/k3cled.o),)
-k3cled.o:
-	@-cp -f ./prebuild/k3cled.o .
-endif
 endif
 
 ifneq ($(wildcard ./prebuild/obd.o),)

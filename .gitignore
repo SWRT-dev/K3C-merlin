@@ -3,6 +3,7 @@ release/src-lantiq/image/*
 release/src/router/rom_lantiq/
 *~
 release/src/router/httpd/sysinfo.c
+release/src/router/rc/k3cled.c
 release/src-lantiq/proprietary/ltq_eip97_1.2.25
 *.log
 release/src/xz/src/liblzma/*.o
@@ -6316,4 +6317,6 @@ release/src-lantiq/linux/linux-3.10.104/config_bluecave
 release/src-lantiq/linux/linux-3.10.104/config_current
 release/src-lantiq/linux/linux-3.10.104/save-config
 release/src-lantiq/linux/linux-3.10.104/user_headers/
-
+release/src-lantiq/linux/linux-3.10.104/.version
+release/src-lantiq/linux/linux-3.10.104/include/generated/compile.h
+release/src/router/extendno.conf

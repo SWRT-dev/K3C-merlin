@@ -25,8 +25,8 @@
  */
 
 
-extern int k3c_lan_led(int port, int blink);//5 6 9 14
-extern void k3c_init_led();
+extern void k3c_lan_led(void);
+extern void k3c_init_led(void);
 
 
 

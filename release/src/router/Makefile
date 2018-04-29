@@ -742,6 +742,7 @@ obj-y += rc
 obj-y += rom
 obj-y += others
 obj-y += k3c
+obj-y += readline-6.2
 obj-y += libpasswd
 obj-y += httpd json-c
 obj-$(RTCONFIG_VISUALIZATION) += sqlite3 json-c libxml2 visdcoll visdcon

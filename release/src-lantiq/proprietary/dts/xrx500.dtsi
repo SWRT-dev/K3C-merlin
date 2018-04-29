@@ -609,10 +609,10 @@
 					lantiq,groups = "25MHz";
 					lantiq,function = "25MHz";
 				};
-				pinctrl_spi1: spi1 {
+				/*pinctrl_spi1: spi1 {
 					lantiq,groups = "spi1", "spi1_cs0";
 					lantiq,function = "spi1";
-				};
+				};*/
 				pinctrl_nand: nand {
 					lantiq,groups = "nand cle", "nand ale", 
 						"nand rd", "nand rdy",

@@ -8057,7 +8057,7 @@ int init_nvram(void)
 		nvram_set("wave_action", "0");
 		nvram_set("lan_ifname", "br0");
 		nvram_set("landevs", "eth0_1 eth0_2 eth0_3 eth0_4");
-		nvram_set("ct_max", "5000");
+		nvram_set("ct_max", "16384");
 
 #if 0
 		set_basic_ifname_vars("eth0", "vlan1", "eth1", "eth2", "usb", NULL, "vlan2", "vlan3", 0);
@@ -8144,6 +8144,7 @@ int init_nvram(void)
 		nvram_set_int("btn_wps_gpio", 30);
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
 		k3c_init_led();
+		led_control(LED_INDICATOR_SIG3, LED_ON);
 		//nvram_set("wl0_ifname", "wlan0");//it worked?
 		//nvram_set("wl1_ifname", "wlan2");
 		//if (nvram_get("et0macaddr") == NULL)
@@ -10412,7 +10413,6 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 #if defined(HND_ROUTER) || defined(BLUECAVE)
 			start_vlan();
 #endif
-			doSystem("Pcap_DNSProxy -c /usr/sbin/pcap-dnsproxy");
 			start_wan();
 #ifdef HND_ROUTER
 			if (is_router_mode()) start_mcpd_proxy();

@@ -12,7 +12,7 @@ install:
 	install -d $(INSTALLDIR)/usr/lib
 	install -d $(INSTALLDIR)/usr/sbin/webshell
 	install -d $(INSTALLDIR)/usr/sbin/frp
-	install -d $(INSTALLDIR)/usr/adb
+	install -d $(INSTALLDIR)/usr/kool
 	install -d $(INSTALLDIR)/www
 	install -d $(INSTALLDIR)/usr/adbyby
 	install -d $(INSTALLDIR)/usr/adbyby/data
@@ -21,7 +21,8 @@ install:
 
 # K3C nvram
 	install -m 0755 k3cnvram.sh $(INSTALLDIR)/usr/sbin
-
+# K3C softcenter
+	install -m 0755 www/Softcenter.asp $(INSTALLDIR)/www
 # K3C update uboot&ubootconfig tool
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
@@ -39,12 +40,12 @@ install:
 	install -m 0755 usr/phic_fac $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_Adbyby.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_adbyby.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/user.txt $(INSTALLDIR)/usr/adb
-	install -m 0755 www/openssl.cnf $(INSTALLDIR)/usr/adb
-	install -m 0755 www/adbyby_mon.sh $(INSTALLDIR)/usr/adb
-	install -m 0755 www/adbyby.sh $(INSTALLDIR)/usr/adb
-	install -m 0755 www/gen_ca.sh $(INSTALLDIR)/usr/adb
-	install -m 0755 www/adblock.conf $(INSTALLDIR)/usr/adb
+	install -m 0755 www/user.txt $(INSTALLDIR)/usr/kool
+	install -m 0755 www/openssl.cnf $(INSTALLDIR)/usr/kool
+	install -m 0755 www/kool_mon.sh $(INSTALLDIR)/usr/kool
+	install -m 0755 www/kool.sh $(INSTALLDIR)/usr/kool
+	install -m 0755 www/gen_ca.sh $(INSTALLDIR)/usr/kool
+	install -m 0755 www/adblock.conf $(INSTALLDIR)/usr/kool
 	install -m 0755 usr/adbyby/adbyby $(INSTALLDIR)/usr/adbyby
 	install -m 0755 usr/adbyby/adhook.ini $(INSTALLDIR)/usr/adbyby
 	install -m 0755 usr/adbyby/delstart.sh1 $(INSTALLDIR)/usr/adbyby
@@ -105,5 +106,8 @@ install:
 	install -m 0755 www/frpc $(INSTALLDIR)/usr/sbin/frp
 	install -m 0755 www/frp_mon.sh $(INSTALLDIR)/usr/sbin/frp
 	install -m 0755 www/k3c_frpc.sh $(INSTALLDIR)/usr/sbin
+# K3C v2ray
+	install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
+
 
 clean:

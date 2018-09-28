@@ -1118,6 +1118,31 @@ handle_request(void)
 // _dprintf("[httpd] file: %s\n", file);
         }
 #endif
+//softcenter
+	char scPath[128];
+	if ((strncmp(file, "Main_S", 6)==0) || (strncmp(file, "Module_", 7)==0) || (strncmp(file, "softcenter.xml", 14)==0))
+	{
+	snprintf(scPath, sizeof(scPath), "/jffs/softcenter/webs/");
+	strcat(scPath, file);
+	//logmessage("[httpd] ### GET ### scPath: %s\n", scPath);
+    if(check_if_file_exist(scPath)){
+	//snprintf(scPath, 128, "/jffs/softcenter/webs/");
+	//strcat(scPath, file);
+	file = scPath;
+	}
+	}
+	if ((strncmp(file, "ss_icon_", 8)==0) || (strncmp(file, "ss_js_", 6)==0 ))
+	{
+	snprintf(scPath, sizeof(scPath), "/jffs/softcenter/res/");
+	strcat(scPath, file);
+	//logmessage("[httpd] ### GET ### scPath: %s\n", scPath);
+    if(check_if_file_exist(scPath)){
+	//snprintf(scPath, 128, "/jffs/softcenter/webs/");
+	//strcat(scPath, file);
+	file = scPath;
+	}
+	}
+//softcenter end
 	mime_exception = 0;
 	do_referer = 0;
 
@@ -1192,11 +1217,9 @@ handle_request(void)
 			nvram_set_int("httpd_handle_request_fromapp", fromapp);
 			if(login_state==3 && !fromapp) { // few pages can be shown even someone else login
 				if(!(mime_exception&MIME_EXCEPTION_MAINPAGE || (strncmp(file, "Main_Login.asp", 14)==0 && login_error_status == 9) || ((!handler->auth) && strncmp(file, "Main_Login.asp", 14) != 0))) {
-					if(strcasecmp(method, "post") == 0){
-						if (handler->input) {
-							handler->input(file, conn_fp, cl, boundary);
-						}
-					}
+					if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
+						while (cl--) (void)fgetc(conn_fp);
+
 					send_login_page(fromapp, NOLOGIN, NULL, NULL, 0, NOLOGINTRY);
 					return;
 				}
@@ -1223,11 +1246,9 @@ handle_request(void)
 					if(do_referer&CHECK_REFERER){
 						referer_result = referer_check(referer, fromapp);
 						if(referer_result != 0){
-							if(strcasecmp(method, "post") == 0){
-								if (handler->input) {
-									handler->input(file, conn_fp, cl, boundary);
-								}
-							}
+							if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
+								while (cl--) (void)fgetc(conn_fp);
+
 							send_login_page(fromapp, referer_result, NULL, NULL, 0, NOLOGINTRY);
 							//if(!fromapp) http_logout(login_ip_tmp, cookies);
 							return;
@@ -1246,21 +1267,17 @@ handle_request(void)
 								return;
 							}
 							else {
-								if(strcasecmp(method, "post") == 0){
-									if (handler->input) {
-											handler->input(file, conn_fp, cl, boundary);
-										}
-								}
+								if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
+									while (cl--) (void)fgetc(conn_fp);
+
 								send_login_page(fromapp, auth_result, url, file, auth_check_dt, add_try);
 								return;
 							}
 						}
 #endif
-						if(strcasecmp(method, "post") == 0){
-							if (handler->input) {
-									handler->input(file, conn_fp, cl, boundary);
-								}
-						}
+						if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
+							while (cl--) (void)fgetc(conn_fp);
+
 						send_login_page(fromapp, auth_result, url, file, auth_check_dt, add_try);
 						return;
 					}
@@ -1295,11 +1312,9 @@ handle_request(void)
 				if(do_referer&CHECK_REFERER){
 					referer_result = check_noauth_referrer(referer, fromapp);
 					if(referer_result != 0){
-						if(strcasecmp(method, "post") == 0){
-							if (handler->input) {
-								handler->input(file, conn_fp, cl, boundary);
-							}
-						}
+						if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
+							while (cl--) (void)fgetc(conn_fp);
+
 						send_login_page(fromapp, referer_result, NULL, NULL, 0, NOLOGINTRY);
 						//if(!fromapp) http_logout(login_ip_tmp, cookies);
 						return;

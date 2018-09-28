@@ -1,5 +1,7 @@
 #!/bin/sh 
 
+modecheck=`nvram get sw_mode`
+[ "$modecheck" != "1" ] && logger -t "软件中心" "非路由模式不支持插件！" && exit 1
 #载入iptables模块
 insmod /lib/modules/3.10.104/kernel/net/netfilter/nfnetlink.ko
 insmod /lib/modules/3.10.104/kernel/net/netfilter/ipset/ip_set.ko
@@ -19,9 +21,19 @@ insmod /lib/modules/3.10.104/kernel/net/netfilter/xt_TPROXY.ko
 
 /usr/sbin/k3c_webshell.sh &
 /usr/sbin/k3c_xunlei.sh &
-/usr/sbin/k3c_ngrok.sh
-/usr/sbin/k3c_frpc.sh
-/usr/sbin/k3c_ssr.sh
-/usr/sbin/k3c_kms.sh
-/usr/sbin/k3c_adbyby.sh
+/usr/sbin/k3c_ssr.sh &
+/usr/sbin/k3c_kms.sh &
+/usr/sbin/k3c_tools.sh &
+kenable=`nvram get k3c_enable`
+if [ "$kenable" == "1" ];then
+/usr/sbin/k3c_swap.sh &
+/usr/sbin/k3c_ngrok.sh &
+/usr/sbin/k3c_frpc.sh &
+/usr/sbin/k3c_adbyby.sh &
+/usr/sbin/softcenter_v2ray.sh &
+/usr/sbin/k3cex-start.sh &
+else
+  logger -t "软件中心" "K3C扩展设置挂载未开启！"
+fi
+
 

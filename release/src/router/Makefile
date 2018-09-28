@@ -741,7 +741,7 @@ obj-$(RTCONFIG_OPENVPN) += libvpn
 obj-y += rc
 obj-y += rom
 obj-y += others
-obj-y += k3c
+obj-y += k3c libev-4.22 skipdbv2
 obj-y += readline-6.2
 obj-y += libpasswd
 obj-y += httpd json-c
@@ -800,7 +800,7 @@ else ifeq ($(RTCONFIG_LANTIQ),y)
 obj-$(RTCONFIG_BT_CONN) += btconfig
 # obj-y += ppacmd
 obj-y += libhelper-1.4.0.2
-obj-y += fapi_wlan_common-1.0.0.1
+obj-y += fapi_wlan_common-05.04.00.131
 #obj-y += libnl-bf
 #obj-y += openssl
 #obj-y += hostapd-2.6
@@ -1992,6 +1992,7 @@ ifeq ($(RTCONFIG_ROMATECCODEFIX),y)
 endif
 ifeq ($(RTCONFIG_LANTIQ),y)
 	cp -R rom_lantiq/opt/ $(TARGETDIR)/rom/opt/
+	cd $(TARGETDIR)/rom/opt/lantiq/; tar zcf wave.tgz wave; rm -rf wave; ln -sf /tmp/lantiq_wave ./wave
 	cp rom_lantiq/etc/wave_components.ver $(TARGETDIR)/rom/opt/lantiq/etc/
 	cp rom_lantiq/etc/rc.d/config.sh $(TARGETDIR)/rom/opt/lantiq/etc/rc.d/
 	cp rom_lantiq/etc/preinit.d/load_gphy_firmware_preinit.sh $(TARGETDIR)/sbin/
@@ -2009,7 +2010,7 @@ ifeq ($(RTCONFIG_LANTIQ),y)
 	cd $(TARGETDIR)/usr/sbin && ln -sf qos_cli ./ifcfg
 	cd $(TARGETDIR)/usr/sbin && ln -sf qos_cli ./qcfg
 	cd $(TARGETDIR)/usr/sbin && ln -sf qos_cli ./classcfg
-	cp $(SRCBASE)/proprietary/sdk_7.2.1.22_05.04.00.61.12_AE/usr/lib/libncurses.so.5.9 $(TARGETDIR)/usr/lib/libncurses.so.5.9
+	cp $(SRCBASE)/proprietary/sdk_7.2.4.4_05.04.00.131/usr/lib/libncurses.so.5.9 $(TARGETDIR)/usr/lib/libncurses.so.5.9
 	cd $(TARGETDIR)/usr/lib && ln -sf libncurses.so.5.9 ./libncurses.so.5
 	# install -D rom_lantiq/opt/lantiq/lib/modules/3.10.104/directconnect_datapath.ko $(TARGETDIR)/lib/modules/3.10.104/
 	cd $(TARGETDIR)/lib/modules/3.10.104/; ln -sf ../../../rom/opt/lantiq/lib/modules/3.10.104/directconnect_datapath.ko ./directconnect_datapath.ko
@@ -5352,11 +5353,11 @@ curl-7.21.7-install: curl-7.21.7
 	install -D curl-7.21.7/lib/.libs/libcurl.so.4.2.0 $(INSTALLDIR)/curl-7.21.7/usr/lib/libcurl.so.4.2.0
 	$(STRIP) $(INSTALLDIR)/curl-7.21.7/usr/lib/libcurl.so.4.2.0
 	cd $(INSTALLDIR)/curl-7.21.7/usr/lib && ln -sf libcurl.so.4.2.0 libcurl.so && ln -sf libcurl.so.4.2.0 libcurl.so.4
-ifeq ($(RTCONFIG_SPEEDTEST),y)
+#ifeq ($(RTCONFIG_SPEEDTEST),y)
 	# for speedtest
 	install -D curl-7.21.7/src/.libs/curl $(INSTALLDIR)/curl-7.21.7/usr/sbin/curl
 	$(STRIP) $(INSTALLDIR)/curl-7.21.7/usr/sbin/curl
-endif
+#endif
 
 curl-7.21.7-clean:
 	[ ! -f curl-7.21.7/Makefile ] || $(MAKE) -C curl-7.21.7 clean
@@ -6144,7 +6145,7 @@ wget/Makefile.in: wget/Makefile.am
 
 wget/Makefile: wget/Makefile.in
 	cd wget && $(CONFIGURE) \
-		--with-ssl=openssl --with-libssl-prefix=$(TOP)/openssl \
+		--with-ssl=openssl --with-libssl-prefix=$(TOP)/openssl --sysconfdir=/etc \
 		--disable-opie --disable-ntlm --disable-debug --disable-nls --disable-rpath \
 		$(if $(RTCONFIG_IPV6),,--disable-ipv6) --disable-iri --without-included-regex  \
 		--disable-dependency-tracking \
@@ -6500,20 +6501,20 @@ libhelper-1.4.0.2-install:
 	mkdir -p $(TARGETDIR)/usr/lib
 	install -D libhelper-1.4.0.2/libhelper.so $(TARGETDIR)/usr/lib/
 
-libfapi-0.1: fapi_wlan_common-1.0.0.1
+libfapi-0.1: fapi_wlan_common-05.04.00.131
 	cd libfapi-0.1; make clean; make
 
 libfapi-0.1-install:
 	cd libfapi-0.1; make clean; make
 	install -D libfapi-0.1/libfapi.so $(TARGETDIR)/usr/lib/
 
-fapi_wlan_common-1.0.0.1: libhelper-1.4.0.2
-	cd fapi_wlan_common-1.0.0.1; make clean; make
+fapi_wlan_common-05.04.00.131: libhelper-1.4.0.2
+	cd fapi_wlan_common-05.04.00.131; make clean; make
 
-fapi_wlan_common-1.0.0.1-install:
+fapi_wlan_common-05.04.00.131-install:
 	mkdir -p $(TARGETDIR)/usr/lib
-	install -D fapi_wlan_common-1.0.0.1/libfapiwlancommon.so $(TARGETDIR)/usr/lib/
-	install -D fapi_wlan_common-1.0.0.1/ipkg-lantiq/fapi_wlan_common/usr/lib/fapi_wlan_beerock_cli $(TARGETDIR)/usr/lib/
+	install -D fapi_wlan_common-05.04.00.131/libfapiwlancommon.so $(TARGETDIR)/usr/lib/
+	install -D fapi_wlan_common-05.04.00.131/fapi_wlan_beerock_cli $(TARGETDIR)/usr/lib/
 
 hostapd-2.6: libnl-bf openssl
 	cd hostapd-2.6/hostapd;	make clean; make hostapd; make hostapd_cli
@@ -6725,6 +6726,45 @@ udev-173-install: udev-173
 	cd $(INSTALLDIR)/udev-173/usr/lib && \
 		ln -sf libudev.so.0.12.0 libudev.so.0 && \
 		ln -sf libudev.so.0.12.0 libudev.so
+
+libev-4.22/configure:
+	cd libev-4.22 && ./autogen.sh
+
+libev-4.22/Makefile: libev-4.22/configure
+	cd libev-4.22 && $(CONFIGURE)\
+		--target=mips-openwrt-linux --host=mips-openwrt-linux --build=x86_64-linux-gnu --program-prefix= --program-suffix= \
+		--prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc \
+		--datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --disable-nls --enable-shared --enable-static
+
+libev-4.22: libev-4.22/Makefile
+	$(MAKE) -C $@ && $(MAKE) $@-stage
+
+libev-4.22-clean:
+	[ ! -f libev-4.22/Makefile ] || $(MAKE) -C libev-4.22 distclean
+
+libev-4.22-install:
+	install -D $(STAGEDIR)/usr/lib/libev.so.4.0.0 $(INSTALLDIR)/libev-4.22/usr/lib/libev.so.4.0.0
+	$(STRIP) $(INSTALLDIR)/libev-4.22/usr/lib/libev.so.4.0.0
+	cd $(INSTALLDIR)/libev-4.22/usr/lib && \
+		ln -sf libev.so.4.0.0 libev.so.4 && \
+		ln -sf libev.so.4.0.0 libev.so
+
+skipdbv2/Makefile: skipdbv2/CMakeLists.txt
+	cd skipdbv2 && cmake -DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_EXE_LINKER_FLAGS="-L$(STAGEDIR)/usr/lib -lev" 
+
+skipdbv2: libev-4.22 skipdbv2/Makefile
+	$(MAKE) -C $@
+
+skipdbv2-clean:
+	[ ! -f skipdbv2/Makefile ] || $(MAKE) -C skipdbv2 distclean
+
+skipdbv2-install: skipdbv2
+	install -D skipdbv2/bin/skipd $(INSTALLDIR)/skipdbv2/usr/sbin/skipd
+	install -D skipdbv2/bin/dbus $(INSTALLDIR)/skipdbv2/usr/sbin/dbus
+	$(STRIP) $(INSTALLDIR)/skipdbv2/usr/sbin/skipd
+	$(STRIP) $(INSTALLDIR)/skipdbv2/usr/sbin/dbus
 
 libical-2.0.0/Makefile: libical-2.0.0/CMakeLists.txt
 	cd libical-2.0.0 && cmake -DCMAKE_INSTALL_PREFIX=/usr \

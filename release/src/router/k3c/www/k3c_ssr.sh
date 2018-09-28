@@ -9,18 +9,22 @@ killall -q -9 ssr_mon.sh
 
 killall -q -9 ssr-redir
 killall -q -9 ss-redir
- 
+kill $(cat /var/run/pdnsd.pid) >/dev/null 2>&1 || killall -9 pdnsd >/dev/null 2>&1
+
+[ -f /var/run/ssr-retcp.pid ] && kill -9 `cat /var/run/ssr-retcp.pid` 2>/dev/null && rm -f /var/run/ssr-retcp.pid
 rm -f /tmp/etc/dnsmasq.user/gfw_list.conf 2>/dev/null 
 rm -f /tmp/etc/dnsmasq.user/gfw_addr.conf 2>/dev/null
 rm -f /tmp/etc/dnsmasq.user/gfw_user.conf 2>/dev/null
+
 service restart_dnsmasq 2>/dev/null
-ienable= `nvram get ipv6_service`
-if [ $ienable != "disabled" ] ;then
+ienable=`nvram get ipv6_service`
+if [ "$ienable" != "disabled" ] ;then
 service stop_ipv6_tunnel
 sleep 2
 service start_ipv6_tunnel
 fi
 }
+
 
 start() {
 #不重复启动
@@ -31,7 +35,7 @@ stop
 sleep 2
 fi
 
-sindex=`nvram get ssr_index 2>/dev/null`
+sindex=`nvram get ssr_index`
 
 mcmd="echo \"`nvram get ssr_server_ip`\"|awk -F '>' '{printf \$$sindex}'"
 mip=`echo $mcmd |sh`
@@ -68,6 +72,26 @@ mssencrypt=`echo $mcmd |sh`
 
 udp_enable=`nvram get ssr_udp_enable`
 
+	serverip=`echo $mip|grep -E "([0-9]{1,3}[\.]){3}[0-9]{1,3}|:"`
+	if [ -z "$serverip" ];then
+			server_ip=`nslookup "$serverip" 8.8.8.8 | sed '1,4d' | awk '{print $3}' | grep -v :|awk 'NR==1{print}'`
+			if [ "$?" == "0" ]; then
+				logger -t "SSR" "SSR服务器的ip地址解析成功!"
+			else
+				logger -t "SSR" "SSR服务器域名解析失败！"
+				server_ip=`nslookup "$serverip" 114.114.114.114 | sed '1,4d' | awk '{print $3}' | grep -v :|awk 'NR==1{print}'`
+				if [ "$?" == "0" ]; then
+					logger -t "SSR" "SSR服务器的ip地址解析成功!"
+				else
+					logger -t "SSR" "SSR服务器域名解析失败！"
+				fi
+			fi
+
+		if [ ! -z "$server_ip" ];then
+			mip="$server_ip"
+		fi
+	fi
+
 if [ "$mtype" == "SSR" ] ;then
 #产生配置文件
 		cat <<-EOF >/tmp/shadowsocksr.json
@@ -89,9 +113,9 @@ if [ "$mtype" == "SSR" ] ;then
 EOF
 
 if [ "$udp_enable" == "1" ] ;then
-/usr/sbin/ssr-redir  -u -c /tmp/shadowsocksr.json -f /tmp/ssr-retcp.pid
+/usr/sbin/ssr-redir  -u -c /tmp/shadowsocksr.json -f /var/run/ssr-retcp.pid
 else
-/usr/sbin/ssr-redir  -c /tmp/shadowsocksr.json -f /tmp/ssr-retcp.pid
+/usr/sbin/ssr-redir  -c /tmp/shadowsocksr.json -f /var/run/ssr-retcp.pid
 fi
 
 else
@@ -110,12 +134,15 @@ else
 EOF
 
 if [ "$udp_enable" == "1" ] ;then
-/usr/sbin/ss-redir  -u -c /tmp/shadowsocks.json -f /tmp/ssr-retcp.pid
+/usr/sbin/ss-redir  -u -c /tmp/shadowsocks.json -f /var/run/ssr-retcp.pid
 else
-/usr/sbin/ss-redir  -c /tmp/shadowsocks.json -f /tmp/ssr-retcp.pid
+/usr/sbin/ss-redir  -c /tmp/shadowsocks.json -f /var/run/ssr-retcp.pid
 fi
 
 fi
+
+logger -t "SSR" "Starting!"
+
 /usr/sbin/ssr-rules  $mip  1234 &
 /usr/sbin/ssr-state 2>/dev/null || exit 0
 }

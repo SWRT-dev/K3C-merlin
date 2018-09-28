@@ -274,6 +274,7 @@ deps_config := \
 	drivers/usb/image/Kconfig \
 	drivers/usb/storage/Kconfig \
 	drivers/usb/class/Kconfig \
+	drivers/usb/ltq_dwc2/Kconfig \
 	drivers/usb/renesas_usbhs/Kconfig \
 	drivers/usb/musb/Kconfig \
 	drivers/usb/host/Kconfig \

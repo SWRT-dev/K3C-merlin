@@ -68,8 +68,8 @@
 
 #define SHELL "/bin/sh"
 
-//k3c led
-#include <k3cled.h>
+//k3c
+#include <k3c.h>
 
 static int fatalsigs[] = {
 	SIGILL,
@@ -1652,6 +1652,14 @@ misc_defaults(int restore_defaults)
 
 #ifdef RTCONFIG_TUNNEL
 	nvram_set("aae_support", "1");
+#define AAE_ENABLE_AIHOME 2
+#define AAE_EANBLE_AICLOUD 4
+#ifdef RTCONFIG_AIHOME_TUNNEL
+	nvram_set_int("aae_enable", (nvram_get_int("aae_enable") | AAE_ENABLE_AIHOME));
+#endif
+#ifdef RTCONFIG_AICLOUD_TUNNEL
+	nvram_set_int("aae_enable", (nvram_get_int("aae_enable") | AAE_EANBLE_AICLOUD));
+#endif
 #endif
 
 	nvram_unset("wps_reset");
@@ -8058,7 +8066,6 @@ int init_nvram(void)
 		nvram_set("lan_ifname", "br0");
 		nvram_set("landevs", "eth0_1 eth0_2 eth0_3 eth0_4");
 		nvram_set("ct_max", "16384");
-
 #if 0
 		set_basic_ifname_vars("eth0", "vlan1", "eth1", "eth2", "usb", NULL, "vlan2", "vlan3", 0);
 #else
@@ -8143,16 +8150,9 @@ int init_nvram(void)
 		nvram_set_int("led_idr_sig2_gpio", 35|GPIO_ACTIVE_LOW);	// BLUE
 		nvram_set_int("btn_wps_gpio", 30);
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
+		k3c_init();//Detect partition integrity, log and alert when corruption is found
 		k3c_init_led();
-		led_control(LED_INDICATOR_SIG3, LED_ON);
-		//nvram_set("wl0_ifname", "wlan0");//it worked?
-		//nvram_set("wl1_ifname", "wlan2");
-		//if (nvram_get("et0macaddr") == NULL)
-		//{
-			doSystem("/usr/sbin/k3cnvram.sh");
-			doSystem("/tmp/nv.sh");
-			eval("sleep","2");
-		//}
+		led_control(LED_INDICATOR_SIG3, LED_ON);//yellow
 
 		if(nvram_get_int("usb_usb3") == 1)
 			nvram_set("xhci_ports", "2-1");
@@ -10733,7 +10733,7 @@ dbg("boot/continue fail= %d/%d\n", nvram_get_int("Ate_boot_fail"),nvram_get_int(
 			nvram_set("success_start_service", "1");
 			force_free_caches();
 #endif
-
+			k3c_init_done();
 #ifdef RTCONFIG_REALTEK
 			if (nvram_match("Ate_power_on_off_enable", "0")) {	/* avoid run in test to let all led off */
 				if (sw_mode() == SW_MODE_REPEATER ||
@@ -10842,3 +10842,4 @@ int reboothalt_main(int argc, char *argv[])
 
 	return 0;
 }
+

@@ -1629,7 +1629,6 @@ void start_dnsmasq(void)
 #else
 	eval("dnsmasq", "--log-async");
 #endif
-	eval("Pcap_DNSProxy", "-c", "/usr/sbin/pcap-dnsproxy");
 	TRACE_PT("end\n");
 }
 
@@ -1643,7 +1642,6 @@ void stop_dnsmasq(void)
 	}
 
 	killall_tk("dnsmasq");
-	killall_tk("Pcap_DNSProxy");
 	TRACE_PT("end\n");
 }
 
@@ -3079,7 +3077,6 @@ start_ddns(void)
 		service = "dnsomatic";
 	else if (strcmp(server, "WWW.TUNNELBROKER.NET")==0) {
 		service = "heipv6tb";
-		eval("iptables", "-t", "filter", "-D", "INPUT", "-p", "icmp", "-s", "66.220.2.74", "-j", "ACCEPT");
 		eval("iptables", "-t", "filter", "-I", "INPUT", "1", "-p", "icmp", "-s", "66.220.2.74", "-j", "ACCEPT");
 		nvram_set("ddns_tunbkrnet", "1");
 	}
@@ -3165,7 +3162,7 @@ start_ddns(void)
 		_eval(argv, NULL, 0, &pid);
 	} else {	// Custom DDNS
 		// Block until it completes and updates the DDNS update results in nvram
-		run_custom_script_blocking("ddns-start", wan_ip);
+		run_custom_script_blocking("ddns-start", wan_ip, NULL);
 		return 0;
 
 	}
@@ -8507,9 +8504,11 @@ static void QOS_CONTROL()
 
 #ifdef RTCONFIG_LANTIQ
 	if (ppa_support(wan_primary_ifunit()) == 0) {
-		snprintf(ppa_cmd, sizeof(ppa_cmd), "ppacmd delwan -i %s", get_wan_ifname(wan_primary_ifunit()));
+		disable_ppa_wan(get_wan_ifname(wan_primary_ifunit()));
 		_dprintf("%s : remove ppa wan interface: %s\n", __FUNCTION__, ppa_cmd);
-		system(ppa_cmd);
+	}else{
+		enable_ppa_wan(get_wan_ifname(wan_primary_ifunit()));
+		_dprintf("%s : add ppa wan interface: %s\n", __FUNCTION__, ppa_cmd);
 	}
 #endif
 }
@@ -9858,6 +9857,10 @@ script_allnet:
 			stop_lan_port();
 
 			// free memory here
+#ifdef RTCONFIG_LANTIQ
+			/* workaround: stop_nat_rules() is skipped and then redirect IP is not LAN IP */
+			nvram_set_int("nat_state", NAT_STATE_INITIALIZING);
+#endif
 		}
 #ifdef RTCONFIG_LANTIQ
 		if((action & RC_SERVICE_STOP) && (action & RC_SERVICE_START)) {
@@ -12459,6 +12462,9 @@ start_wlcconnect(void)
 
 	if(sw_mode()!=SW_MODE_REPEATER
 #ifdef RTCONFIG_REALTEK
+		&& !mediabridge_mode()
+#endif
+#ifdef RTCONFIG_LANTIQ
 		&& !mediabridge_mode()
 #endif
 	)
@@ -15124,3 +15130,4 @@ void reset_led(void)
 	}
 }
 #endif
+

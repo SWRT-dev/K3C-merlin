@@ -290,11 +290,11 @@ code +='<th width="50%"><#SSR_servername#></th>';/*untranslated*/
 code +='<th width="20%"><#SSR_config#></th>';
 code +='<th width="20%"><#SSR_edit#></th></tr>';
 code +='<tr><td style="border-bottom:2px solid #000;" title="<#CTL_Enabled#>/<#btn_disable#>"><input type=\"checkbox\" id="newrule_Enable" checked></td>';
-code +='<td style="border-bottom:2px solid #000;"><input type="text" maxlength="17" style="margin-left:0px;width:255px;" class="input_20_table" name="Server_alias" autocorrect="off" autocapitalize="off" placeholder="请输入一个服务器别名"></td>';
+code +='<td style="border-bottom:2px solid #000;"><input type="text" maxlength="17" style="margin-left:0px;width:255px;" class="input_20_table" name="Server_alias" autocorrect="off" autocapitalize="off" placeholder="name"></td>';
 code +='<td style="border-bottom:2px solid #000;">--</td>';
-code +='<td style="border-bottom:2px solid #000;"><input class="url_btn" type="button" onClick="addRow_main(16)" value=""></td></tr>';
+code +='<td style="border-bottom:2px solid #000;"><input class="add_btn" type="button" onClick="addRow_main(16)" value=""></td></tr>';
 if(ssr_server_alias == "")
-code +='<tr><td style="color:#FFCC00;" colspan="4">目前没有数据</td>';
+code +='<tr><td style="color:#FFCC00;" colspan="4">no data</td>';
 else{
 var dispName;
 for(var i=0; i<ssr_server_alias_row.length; i++){
@@ -392,7 +392,7 @@ code +='<td align="left" style="color:#FFF">'+ ssr_server_alias_row[s_index] + '
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_type#></th>';
 code +='<td align="left" style="color:#FFF"><select id="Server_type_id" name="Server_type" onchange="hide_ssr(this.value);"></select></td></tr>';
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_ip#></th>';
-code +='<td align="left" style="color:#FFF"><input name=Server_ip onKeyPress="return validator.isIPAddr(this, event);" autocorrect="off" autocapitalize="off" value='+ ssr_server_ip_row[s_index] + '></td></tr>';
+code +='<td align="left" style="color:#FFF"><input name=Server_ip type="text" onKeyPress="return validator.isIPAddr(this, event);" maxlength="15" autocorrect="off" autocapitalize="off" value='+ ssr_server_ip_row[s_index] + '></td></tr>';
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_port#></th>';
 code +='<td align="left" style="color:#FFF"><input name=Server_port value='+ ssr_server_port_row[s_index] + '></td></tr>';
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_timeout#></th>';

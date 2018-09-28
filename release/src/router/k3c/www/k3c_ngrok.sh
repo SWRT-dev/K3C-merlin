@@ -1,11 +1,24 @@
 #!/bin/sh 
 
+mdisk=`nvram get k3c_disk 2>/dev/null`
+usb_disk="/tmp/mnt/$mdisk"
+usbmount=`ls /tmp/mnt/`
+
 stop() {
 killall -9 ngrokc
 
 }
 
 start() {
+#开机启动太早会卡？
+if [ "$usbmount" == "" ];then
+    echo " $(date "+%F %T"):""系统正在启动，等待USB设备挂载中！" >> /tmp/frpc.log
+fi
+while [ "$usbmount" == "" ]
+do
+	sleep 5s
+	usbmount=`ls /tmp/mnt/ |grep $mdisk`
+done
 #不重复启动
 icount=`ps -w|grep ngrokc|grep -v grep|wc -l`
 
@@ -57,8 +70,11 @@ restart() {
   stop
   sleep 1
   menable=`nvram get ngrok_enable`
-  if [ "$menable" == "1" ] ;then
+  kenable=`nvram get k3c_enable`
+  if [ "$menable" == "1" -a "$kenable" == "1" ] ;then
   start
+  else if [ "$menable" == "1" ]
+    logger -t "K3C""K3C扩展设置挂载未开启！"
   fi
 }
 

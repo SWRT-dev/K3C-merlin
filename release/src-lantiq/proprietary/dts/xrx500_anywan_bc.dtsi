@@ -97,7 +97,7 @@ dect-page {
 	lantiq,inbound-swap = <1>; /* 0 -- no swap, 1 -- swap */
 	lantiq,outbound-swap = <0>; /* 0 -- no swap, 1 -- swap */
 	lantiq,phy-mode = <5>; /* 0 -36Mhz, 1 - 36MHzSSC, 2 - 25Mhz, 3 - 25MHzSSC, 4 - 100MHz, 5 - 100MHz SSC */
-	reset-gpio = <&gpio0 17 0>; // default value , it can be updated on board. 
+	reset-gpio = <&gpio0 18 0>; // default value , it can be updated on board. 
 };
 
 &pcie1 {
@@ -107,7 +107,7 @@ dect-page {
 	lantiq,inbound-swap = <1>; /* 0 -- no swap, 1 -- swap */
 	lantiq,outbound-swap = <0>; /* 0 -- no swap, 1 -- swap */
 	lantiq,phy-mode = <5>; /* 0 -36Mhz, 1 - 36MHzSSC, 2 - 25Mhz, 3 - 25MHzSSC, 4 - 100MHz, 5 - 100MHz SSC */
-	reset-gpio = <&gpio0 18 0>;// default value , it can be updated on board. 
+	reset-gpio = <&gpio0 17 0>;// default value , it can be updated on board. 
 };
 
 &pcie2 {

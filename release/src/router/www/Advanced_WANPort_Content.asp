@@ -1148,7 +1148,7 @@ function remain_origins(){
 													<option value="1" <% nvram_match("wans_lanport", "1", "selected"); %>>LAN Port 1</option>
 													<option value="2" <% nvram_match("wans_lanport", "2", "selected"); %>>LAN Port 2</option>
 													<option value="3" <% nvram_match("wans_lanport", "3", "selected"); %>>LAN Port 3</option>
-													<!--option value="4" <% nvram_match("wans_lanport", "4", "selected"); %>>LAN Port 4</option-->
+													<option value="4" <% nvram_match("wans_lanport", "4", "selected"); %>>LAN Port 4</option>
 												</select>
 											</td>
 									  	</tr>
@@ -1160,7 +1160,7 @@ function remain_origins(){
 													<option value="1" <% nvram_match("wans_lanport", "1", "selected"); %>>LAN Port 1</option>
 													<option value="2" <% nvram_match("wans_lanport", "2", "selected"); %>>LAN Port 2</option>
 													<option value="3" <% nvram_match("wans_lanport", "3", "selected"); %>>LAN Port 3</option>
-													<!--option value="4" <% nvram_match("wans_lanport", "4", "selected"); %>>LAN Port 4</option-->												
+													<option value="4" <% nvram_match("wans_lanport", "4", "selected"); %>>LAN Port 4</option>												
 												</select>											
 											</td>
 									  	</tr>

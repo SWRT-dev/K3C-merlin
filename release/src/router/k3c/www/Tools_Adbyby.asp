@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<html xmlns:v>
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <meta HTTP-EQUIV="Expires" CONTENT="-1">
@@ -56,14 +55,6 @@ function(){
 document.form.koolproxy_enable.value = "0";
 }
 );
-$('#radio_koolproxy_video_mode').iphoneSwitch(document.form.koolproxy_video_mode.value,
-function(){
-document.form.koolproxy_video_mode.value = "1";
-},
-function(){
-document.form.koolproxy_video_mode.value = "0";
-}
-);
 $('#radio_koolproxy_https_mode').iphoneSwitch(document.form.koolproxy_https_mode.value,
 function(){
 document.form.koolproxy_https_mode.value = "1";
@@ -113,7 +104,6 @@ if(_value==null)
 _value=1;
 showhide("kptr1", (_value == "1"));
 showhide("kptr2", (_value == "1"));
-showhide("kptr3", (_value == "1"));
 }
 function reload_Soft_Center() {
 	location.href = "/Softcenter.asp";
@@ -150,7 +140,6 @@ function reload_Soft_Center() {
 <input type="hidden" name="first_time" value="">
 <input type="hidden" name="preferred_lang" id="preferred_lang" value="<% nvram_get("preferred_lang"); %>">
 <input type="hidden" name="koolproxy_enable" value="<% nvram_get("koolproxy_enable"); %>">
-<input type="hidden" name="koolproxy_video_mode" value="<% nvram_get("koolproxy_video_mode"); %>">
 <input type="hidden" name="koolproxy_https_mode" value="<% nvram_get("koolproxy_https_mode"); %>">
 <input type="hidden" name="koolproxy_monitor" value="<% nvram_get("koolproxy_monitor"); %>">
 <input type="hidden" name="save_name" value="">
@@ -187,12 +176,13 @@ function reload_Soft_Center() {
 <td style="font-style: italic;font-size: 14px;">
 <span id="desc_title">使用简介：</span>
 <ol>
-<li>adbyby暂时不正常</li>
-<li>winscp下载证书路径为/jffs/koolproxy/data/certs</li>
+<li>adbyby开启需要2分钟左右.</li>
+<li>证书生成需要1分钟左右.</li>
+<li>已知会造成一些网站异常，如需访问可以先关闭去广告.</li>
 </ol>
 <span id="desc_note" style="color:#FC0;">提示：</span>
 <ol style="color:#FC0;margin:-5px 0px 3px -18px;*margin-left:18px;">
-<li>开启时必须联网</li> </ol>
+<li>开启时必须联网.</li> </ol>
 </td>
 </tr>
 </table>
@@ -213,6 +203,10 @@ function reload_Soft_Center() {
 <input type="radio" name="adblock_mode" class="input" value="0" <% nvram_match("adblock_mode", "0", "checked"); %> onclick="hide_adb(this.value);">adbyby
 <input type="radio" name="adblock_mode" class="input" value="1" <% nvram_match("adblock_mode", "1", "checked"); %> onclick="hide_adb(this.value);">koolproxy
 </td>
+</tr>
+<tr>
+<th>程序版本</th>
+<td><% kool_info("version");%></td>
 </tr>
 </tbody>
 <thead><tr>
@@ -246,19 +240,13 @@ function reload_Soft_Center() {
 <a href="http://iytc.net/wordpress/?p=2046" target=_blank>【证书使用说明】</a>
 </td>
 </tr>
-<tr id="kptr3">
-<th width="30%" style="border-top: 0 none;">只过滤视频网站</th>
-<td style="border-top: 0 none;">
-<div align="center" class="left" style="width:94px; float:left; cursor:pointer;" id="radio_koolproxy_video_mode"></div>
-</td>
-</tr>
 <thead>
 <tr>
 <td colspan="2">日志信息</td>
 </tr>
 </thead>
 <tr><td colspan="2">
-<textarea cols="63" rows="25" wrap="off" readonly="readonly" id="textarea" style="width:99%;font-family:Courier New, Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;">
+<textarea cols="63" rows="20" wrap="off" readonly="readonly" id="textarea" style="width:99%;font-family:Courier New, Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;">
 <% nvram_dump("adbyby.log",""); %>
 </textarea>
 </td></tr>

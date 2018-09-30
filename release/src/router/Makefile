@@ -3179,26 +3179,6 @@ libdaemon-clean:
 	-@$(MAKE) -C libdaemon distclean
 	@rm -f libdaemon/stamp-h1
 
-lsof: lsof/Makefile
-	@$(SEP)
-	$(MAKE) -C $@
-
-lsof/Makefile:
-	( cd lsof ; \
-		LSOF_CC=$(CC) \
-		LSOF_INCLUDE=$(TOOLCHAIN)/include \
-		LSOF_VSTR="asuswrt" \
-		./Configure -n linux \
-	)
-
-lsof-install:
-	install -D lsof/lsof $(INSTALLDIR)/lsof/usr/sbin/lsof
-	$(STRIP) $(INSTALLDIR)/lsof/usr/sbin/lsof
-
-lsof-clean:
-	( cd lsof ; ./Configure -clean )
-	@rm -f lsof/Makefile
-
 mtd-utils: e2fsprogs lzo zlib
 ifeq ($(ALPINE)$(LANTIQ),y)
 	$(MAKE) CPPFLAGS="-I$(STAGEDIR)/usr/include -DWITHOUT_XATTR" \
@@ -4116,27 +4096,6 @@ sqlite-install: sqlite
 	install -D sqlite/.libs/libsqlite3.so.0 $(INSTALLDIR)/sqlite/usr/lib/libsqlite3.so.0
 	$(STRIP) $(INSTALLDIR)/sqlite/usr/lib/libsqlite3.so.0
 
-# sqlite encrpted version
-sqlCipher/stamp-h1:
-	cd sqlCipher && \
-        CC=$(CC) CFLAGS="-Os $(EXTRACFLAGS) -DSQLITE_HAS_CODEC -ffunction-sections -fdata-sections -I$(SRCBASE)/router/openssl/include  -fPIC" \
-                LDFLAGS="-ffunction-sections -fdata-sections -Wl,--gc-sections -lpthread -ldl -L$(SRCBASE)/router/openssl -lcrypto" \
-                $(CONFIGURE) --prefix=/usr --enable-shared --enable-static \
-                --disable-readline --disable-dynamic-extensions --enable-threadsafe \
-                --disable-dependency-tracking --enable-tempstore=yes --disable-tcl
-	touch $@
-
-sqlCipher: sqlCipher/stamp-h1
-	@$(MAKE) -C sqlCipher all
-
-sqlCipher-clean:
-	-@$(MAKE) -C sqlCipher clean
-	@rm -f sqlCipher/stamp-h1
-
-sqlCipher-install: sqlCipher
-	install -D sqlCipher/.libs/libsqlcipher.so.0.8.6 $(INSTALLDIR)/sqlCipher/usr/lib/libsqlcipher.so.0
-	$(STRIP) $(INSTALLDIR)/sqlCipher/usr/lib/libsqlcipher.so.0
-	@$(SEP)
 
 # commented out for mt-daapd-svn-1696
 ifneq ($(MEDIA_SERVER_STATIC),y)
@@ -6570,7 +6529,7 @@ bluez-5.41: libiconv-1.14 glib-2.37.7 udev-173 libical-2.0.0 readline-6.2 bluez-
 	$(MAKE) -C $@ && $(MAKE) $@-stage
 
 bluez-5.41-clean:
-	[ ! -f bluez-5.41/Makefile ] || $(MAKE) -C bluez-5.41 distclean
+	[ ! -f bluez-5.41/Makefile ] || $(MAKE) -C bluez-5.41 clean
 	@rm -f bluez-5.41/stamp-h1
 
 bluez-5.41-install: btconfig bluez-5.41
@@ -6758,7 +6717,13 @@ skipdbv2: libev-4.22 skipdbv2/Makefile
 	$(MAKE) -C $@
 
 skipdbv2-clean:
-	[ ! -f skipdbv2/Makefile ] || $(MAKE) -C skipdbv2 distclean
+	[ ! -f skipdbv2/Makefile ] || $(MAKE) -C skipdbv2 clean
+	@rm -rf skipdbv2/bin
+	@rm -rf skipdbv2/lib
+	@rm -rf skipdbv2/CMakeFiles
+	@rm -f skipdbv2/CMakeCache.txt
+	@rm -f skipdbv2/cmake_install.cmake
+	@rm -f skipdbv2/Makefile
 
 skipdbv2-install: skipdbv2
 	install -D skipdbv2/bin/skipd $(INSTALLDIR)/skipdbv2/usr/sbin/skipd
@@ -7152,18 +7117,6 @@ quicksec-7.0-install:
 quicksec-7.0-clean:
 	-@$(MAKE) -C quicksec-7.0/build/quicksec/linux/policymanager clean
 	
-PMS_DBapis/stamp-h1:
-	@touch $@ 
-
-PMS_DBapis:PMS_DBapis/stamp-h1
-	CC=$(CC) $(MAKE) -C PMS_DBapis
-
-PMS_DBapis-clean:
-	cd PMS_DBapis && $(MAKE) clean
-	-@rm -f PMS_DBapis/stamp-h1
-
-PMS_DBapis-install:PMS_DBapis
-	cd PMS_DBapis && CC=$(CC) && $(MAKE) install
 
 wlceventd: $(if $(RTCONFIG_NOTIFICATION_CENTER),nt_center sqlite,)
 

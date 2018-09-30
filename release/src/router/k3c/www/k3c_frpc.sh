@@ -103,7 +103,7 @@ echo "$(date "+%F %T"):" "每天5:18自动重启!" >> /tmp/frpc.log
 /usr/sbin/frp_mon.sh &
 echo "$(date "+%F %T"):" "守护进程启动!" >> /tmp/frpc.log
 
-echo "$(date "+%F %T"):" "frpc 当前版本: v`/jffs/toolscript/frp/frpc --version 2>/dev/null | head -n1 | awk '{print $1}'`" >> /tmp/frpc.log
+echo "$(date "+%F %T"):" "frpc 当前版本: v`$usb_disk/frp/frpc --version 2>/dev/null | head -n1 | awk '{print $1}'`" >> /tmp/frpc.log
 echo "$(date "+%F %T"):" "frpc 启动完毕!" >> /tmp/frpc.log
 
 exit 0
@@ -117,7 +117,7 @@ download_frp(){
 	[ "$frpc_vernum" == "3" ] && FRPCver="0.9.3"
 	[ "$frpc_vernum" == "4" ] && FRPCver="0.20.0"
 
-	[ -n "$FRPCver" ] && VER="$FRPCver"
+	[ -n "$FRPCver" ] && VER="$FRPCver" || VER="0.20.0"
 	Tmpfrp=/tmp/frpc
 	tarfile=frp_"$VER"_linux_mips.tar.gz
 	Frp_bin1=https://github.com/fatedier/frp/releases/download/v"$VER"/$tarfile
@@ -154,18 +154,18 @@ download_frp(){
 restart() {
 	menable=`nvram get frpc_enable`
 	kenable=`nvram get k3c_enable`
-	if [ "$menable" == "1" -a "$kenable" == "1" ] ;then
+	if [ "$menable" == "1" ] ;then
 		stop
-		echo "$(date "+%F %T"):"  "必须log_file = /tmp/frpc.log"
-		start
-	elif [ "$menable" == "1" ] ;then
-                logger -t "K3C""K3C扩展设置挂载未开启！"
-                echo "$(date "+%F %T"):"  "K3C扩展设置挂载未开启！" >> /tmp/frpc.log
-                stop
-		exit 0
+		if [ "$kenable" == "1" ] ;then
+			start
+		else
+			logger -t "K3C""K3C扩展设置挂载未开启！"
+			echo "$(date "+%F %T"):"  "K3C扩展设置挂载未开启！" >> /tmp/frpc.log
+			exit 0
+		fi
 	else
-                stop
-                echo "$(date "+%F %T"):"  "frpc已关闭！" >> /tmp/frpc.log
+		stop
+		echo "$(date "+%F %T"):"  "frpc已关闭！" >> /tmp/frpc.log
 	fi
 }
 

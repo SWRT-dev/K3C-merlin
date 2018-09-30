@@ -299,8 +299,8 @@ document.form.frpc_enable.value = 0;
 <tr>
 <th>自定义配置开关</th>
 <td>
-<input type="radio" name="frpc_user" class="input" value="1" <% nvram_match("frpc_user", "1", "checked"); %>><#69#>
-<input type="radio" name="frpc_user" class="input" value="0" <% nvram_match("frpc_user", "0", "checked"); %>><#68#>
+<input type="radio" name="frpc_user" class="input" value="1" <% nvram_match("frpc_user", "1", "checked"); %>>是
+<input type="radio" name="frpc_user" class="input" value="0" <% nvram_match("frpc_user", "0", "checked"); %>>否
 </td>
 </tr>
 <tr>
@@ -349,6 +349,7 @@ document.form.frpc_enable.value = 0;
 </td>
 </tr>
 </table>
+<div id="vts_rulelist_Block"></div>
 <table width="100%" border="1" align="center" cellpadding="4" cellspacing="0" class="FormTable_table">
 <thead>
 <tr>

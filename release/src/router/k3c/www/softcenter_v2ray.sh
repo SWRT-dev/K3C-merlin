@@ -72,16 +72,18 @@ download_v2ray(){
 		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ctl_softfloat /jffs/softcenter/bin/v2ctl && chmod 755 /jffs/softcenter/bin/v2ctl
 		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/geosite.dat /jffs/softcenter/bin/geosite.dat && chmod 755 /jffs/softcenter/bin/geosite.dat
 		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/geoip.dat /jffs/softcenter/bin/geoip.dat && chmod 755 /jffs/softcenter/bin/geoip.dat
+		if [ ! -e "/jffs/softcenter/bin/jq" ] ;then
 		wget --no-check-certificate --timeout=10 --tries=3 -qO /jffs/softcenter/bin/jq http://k3c.paldier.tk/tools/jq
 		wget --no-check-certificate --timeout=10 --tries=3 -qO /jffs/softcenter/bin/dns2socks http://k3c.paldier.tk/tools/dns2socks
+		chmod 755 /jffs/softcenter/bin/jq >/dev/null 2>&1
+		chmod 755 /jffs/softcenter/bin/dns2socks >/dev/null 2>&1
+		fi
 		jqmd5=`md5sum /jffs/softcenter/bin/jq |awk  '{print $1}'`
 		if [ "$jqmd5" != "91d61fbe4378a0d077109f9c9047dffa" ] ;then
 			wget --no-check-certificate --timeout=10 --tries=3 -qO /jffs/softcenter/bin/jq http://k3c.paldier.tk/tools/jq
 			[ "$?" != "0" ] && sleep 2 && wget --no-check-certificate --timeout=10 --tries=3 -qO /jffs/softcenter/bin/jq http://k3c.paldier.tk/tools/jq
 			[ "$?" != "0" ] && echo "$(date "+%F %T"): jq 下载失败" >> /tmp/v2ray.log && exit 1
 		fi
-		chmod 755 /jffs/softcenter/bin/jq >/dev/null 2>&1
-		chmod 755 /jffs/softcenter/bin/dns2socks >/dev/null 2>&1
 		logger -t "【v2ray】" "$PKG_VERSION 下载成功!"
 		echo "$(date "+%F %T"): $PKG_VERSION 下载成功" >> /tmp/v2ray.log
 		rm -rf /tmp/$tarfile /tmp/v2ray-"$PKG_VERSION"-linux-mips >/dev/null 2>&1

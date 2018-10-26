@@ -121,7 +121,7 @@ download_frp(){
 	Tmpfrp=/tmp/frpc
 	tarfile=frp_"$VER"_linux_mips.tar.gz
 	Frp_bin1=https://github.com/fatedier/frp/releases/download/v"$VER"/$tarfile
-	Frp_bin2=https://k3c.paldier.tk/tools/$tarfile
+	Frp_bin2=https://k3c.paldier.com/tools/$tarfile
 	FRP_VER=`$usb_disk/frp/frpc --version 2>/dev/null | head -n 1 | cut -d " " -f1` || 0
 	d_rule() {
 		wget --no-check-certificate --timeout=10 --tries=3 -qO $1 $2

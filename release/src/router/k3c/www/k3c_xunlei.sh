@@ -31,7 +31,7 @@ if [ ! -f "/tmp/k3copt/xunlei/portal" ] ;then
  exit 0
  fi
 
-  wget --no-check-certificate https://k3c.paldier.tk/tools/xunlei-K3C.zip -O /tmp/xunlei-K3C.zip -t 1 -T 5
+  wget --no-check-certificate https://k3c.paldier.com/tools/xunlei-K3C.zip -O /tmp/xunlei-K3C.zip -t 1 -T 5
   if [ "$?" = "0" ] ;then
   unzip -o /tmp/xunlei-K3C.zip -d /tmp/k3copt/xunlei
   rm -f /tmp/xunlei-K3C.zip

@@ -706,7 +706,7 @@ document.form.aria2_enable.value = 0;
               <th style="width:25%;">aria2ng控制台</th>
               <td>
                <div style="padding-top:5px;">
-                <a style="font-size: 16px; "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;" href="http://k3c.paldier.tk/aria2ng/" target="_blank"><i><u>http://k3c.paldier.tk/aria2ng/</u></i></a>
+                <a style="font-size: 16px; "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;" href="http://k3c.paldier.com/aria2ng/" target="_blank"><i><u>http://k3c.paldier.com/aria2ng/</u></i></a>
                </div>
               </td>
              </tr>

@@ -23,7 +23,7 @@ aria2verold=`$usb_disk/aria2c -v | grep "aria2 version" | cut -c14-20`
 
 if [ "$aria2verold" != "$aria2ver" ];then
         echo "$(date "+%F %T"):" "版本不同，下载中......" >> /tmp/aria2.log
-        wget --no-check-certificate --timeout=10 --tries=3 https://k3c.paldier.tk/tools/aria2c -O /tmp/aria2c
+        wget --no-check-certificate --timeout=10 --tries=3 https://k3c.paldier.com/tools/aria2c -O /tmp/aria2c
         [ "$?" != "0" ] && echo "$(date "+%F %T"):" "下载失败" >> /tmp/aria2.log
         mv -f /tmp/aria2c $usb_disk/aria2c
         chmod 755 $usb_disk/aria2c

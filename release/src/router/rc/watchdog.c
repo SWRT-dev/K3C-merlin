@@ -6911,7 +6911,7 @@ wdp:
 		modem_flow_check(modem_unit);
 #endif
 #endif
-	auto_firmware_check();
+	//auto_firmware_check();
 
 #ifdef RTCONFIG_BWDPI
 	auto_sig_check();		// libbwdpi.so

@@ -915,6 +915,87 @@ ej_nvram_match(int eid, webs_t wp, int argc, char_t **argv)
  * <% nvram_match("wan_proto", "static", "selected"); %> does not produce
  */
 static int
+ej_dbus_get(int eid, webs_t wp, int argc, char_t **argv)
+{
+	char *name, c[512];
+	int ret = 0;
+
+	if (ejArgs(argc, argv, "%s", &name) < 1) {
+		websError(wp, 400, "Insufficient args\n");
+		return -1;
+	}
+	doSystem("dbus get %s > /tmp/dbusxxx", name);
+	char *buffer = read_whole_file("/tmp/dbusxxx");
+	if (buffer) {
+		sscanf(buffer, "%[^\n]", c);
+		free(buffer);
+	} else {
+		strcpy(c, "");
+	}
+	unlink("/tmp/dbusxxx");
+
+	ret += websWrite(wp, c);
+
+	return ret;
+}
+
+
+static int
+ej_dbus_get_def(int eid, webs_t wp, int argc, char_t **argv)
+{
+	char *name, c[512];
+	int ret = 0;
+//	char sid_dummy = "",
+
+	if (ejArgs(argc, argv, "%s", &name) < 1) {
+		websError(wp, 400, "Insufficient args\n");
+		return -1;
+	}
+	doSystem("dbus get %s > /tmp/dbusxxx", name);
+	char *buffer = read_whole_file("/tmp/dbusxxx");
+	if (buffer) {
+		sscanf(buffer, "%[^\n]", c);
+		free(buffer);
+	} else {
+		strcpy(c, "");
+	}
+	unlink("/tmp/dbusxxx");
+	//doSystem("rm -rf /tmp/dbusxxx");
+	//for (; *c; c++) {
+			ret += websWrite(wp, c);
+	//}
+
+	return ret;
+}
+
+static int
+ej_dbus_match(int eid, webs_t wp, int argc, char_t **argv)
+{
+	char c[512], *name, *match, *output;
+
+	if (ejArgs(argc, argv, "%s %s %s", &name, &match, &output) < 3) {
+		websError(wp, 400, "Insufficient args\n");
+		return -1;
+	}
+	doSystem("dbus get %s > /tmp/dbusxxx", name);
+	char *buffer = read_whole_file("/tmp/dbusxxx");
+	if (buffer) {
+		sscanf(buffer, "%[^\n]", c);
+		free(buffer);
+	} else {
+		strcpy(c, "");
+	}
+	unlink("/tmp/dbusxxx");
+	//doSystem("rm -rf /tmp/dbusxxx");
+	if (strcmp(c,match) == 0)
+	{
+		return websWrite(wp, output);
+	}
+
+	return 0;
+}
+
+static int
 ej_nvram_match_x(int eid, webs_t wp, int argc, char_t **argv)
 {
 	char *sid, *name, *match, *output;
@@ -22247,6 +22328,9 @@ struct ej_handler ej_handlers[] = {
 #ifdef RTCONFIG_DBLOG
 	{ "generate_trans_id", ej_generate_trans_id},
 #endif
+	{ "dbus_get", ej_dbus_get},
+	{ "dbus_get_def", ej_dbus_get_def},
+	{ "dbus_match", ej_dbus_match},
 	{ NULL, NULL }
 };
 

@@ -44,7 +44,7 @@ else
 #cp -rf /usr/adbyby /root
 while [ "$wget_ok" = "0" ] 
 do 
-  wget --no-check-certificate https://k3c.paldier.tk/tools/adbyby-K3C.zip -O /tmp/adbyby-K3C.zip -t 1 -T 5
+  wget --no-check-certificate https://k3c.paldier.com/tools/adbyby-K3C.zip -O /tmp/adbyby-K3C.zip -t 1 -T 5
   if [ "$?" = "0" ] ;then
      wget_ok="1"
   else

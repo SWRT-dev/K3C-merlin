@@ -741,7 +741,7 @@ obj-$(RTCONFIG_OPENVPN) += libvpn
 obj-y += rc
 obj-y += rom
 obj-y += others
-obj-y += k3c libev-4.22 skipdbv2
+obj-y += k3c libev-4.22 skipdbv2 dbus-1.8.8
 obj-y += readline-6.2
 obj-y += libpasswd
 obj-y += httpd json-c
@@ -6740,7 +6740,7 @@ libical-2.0.0: libical-2.0.0/Makefile
 	$(MAKE) -C $@ && $(MAKE) $@-stage
 
 libical-2.0.0-clean:
-	[ ! -f libical-2.0.0/Makefile ] || $(MAKE) -C libical-2.0.0 distclean
+	[ ! -f libical-2.0.0/Makefile ] || $(MAKE) -C libical-2.0.0 clean
 
 libical-2.0.0-install:
 	install -D libical-2.0.0/lib/libical_cxx.so.2.0.0 $(INSTALLDIR)/libical-2.0.0/usr/lib/libical_cxx.so.2.0.0

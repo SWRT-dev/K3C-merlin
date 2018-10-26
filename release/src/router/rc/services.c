@@ -5300,10 +5300,6 @@ void stop_bluetooth_service(void)
 	}
 
 }
-#else
-void stop_bluetooth_service(void)
-{
-}
 #endif	/* RTCONFIG_BT_CONN */
 
 #ifdef RTCONFIG_WIFI_SON
@@ -7864,8 +7860,6 @@ stop_services_mfg(void)
 #elif defined(MAPAC1750)
 	set_rgbled(RGBLED_NORMAL_MODE);
 #endif /* RTCONFIG_LP5523 */
-	stop_bluetooth_service();
-#else
 	stop_bluetooth_service();
 #endif	/* RTCONFIG_BT_CONN */
 #if defined(RTCONFIG_CFEZ) && defined(RTCONFIG_BCMARM)

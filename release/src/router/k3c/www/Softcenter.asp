@@ -498,7 +498,7 @@ function loadxml() {
                                                 </table>
                                             <div class="KoolshareBottom">论坛技术支持： <a href="http://www.koolshare.cn" target="_blank"> <i><u>www.koolshare.cn</u></i> </a>
                                                 <br/>Github项目： <a href="https://github.com/koolshare/koolshare.github.io" target="_blank"> <i><u>github.com/koolshare</u></i> </a>
-                                            	<br/>K3C修改版 by： <a href="https://k3c.paldier.tk/merlin" target="_blank"><i><u>paldier</u></i></a>
+                                            	<br/>K3C修改版 by： <a href="https://k3c.paldier.com/merlin" target="_blank"><i><u>paldier</u></i></a>
 											</div>
                                         </td>
                                     </tr>

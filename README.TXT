@@ -1,4 +1,4 @@
-uboot  https://k3c.paldier.tk/uboot/beta/merlin/
+uboot  https://k3c.paldier.com/uboot/beta/merlin/
 RAM: (512M √ 256M ×)
 NAND: (samsung √ others √)
 hw_version: (A1 √ B1 √ B1G √ B2 √)

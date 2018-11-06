@@ -248,9 +248,9 @@ document.form.swap_enable.value = "0";
 										<div class="formfontdesc" style="padding-top:5px;margin-top:0px;float: left;" id="cmdDesc">创建虚拟内存，让路由运行更顺畅</div>
 										<div id="swap_version_status" style="padding-top:5px;margin-left:30px;margin-right:0px;margin-top:0px;float: left;"><i>当前版本：1.0</i></div>
 										<div style="padding-top:5px;margin-top:25px;margin-left:-280px;float: left;" id="NoteBox" >
-											<li style="margin-top:5px;">创建虚拟内存，你需要一个空的、已经格式化成ext2|3|4格式的U盘； </li>
+											<li style="margin-top:5px;">创建虚拟内存，你需要一个空的、已经格式化成ext2|3|4|fat|ntfs格式的U盘； </li>
 											<li style="margin-top:5px;">如果你通过其它方式创建了虚拟内存，可以不用使用该工具，或者删除后再使用本工具。</li>
-											<li style="margin-top:5px;">建议使用游戏模式V2，aria2等应用的用户开启虚拟内存！</li>					
+											<li style="margin-top:5px;">建议使用V2ray，aria2等应用的用户开启虚拟内存！</li>					
 										</div>
 																	
 										<div class="formfontdesc" id="cmdDesc"></div>

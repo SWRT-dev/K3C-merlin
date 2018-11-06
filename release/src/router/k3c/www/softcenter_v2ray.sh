@@ -67,12 +67,12 @@ download_v2ray(){
 		d_rule $tarfile $v2ray_bin
 		[ "$?" != "0" ] && sleep 2 && d_rule $tarfile $v2ray_bin2 && \
 			[ "$?" != "0" ] && logger -t "【v2ray】" "$PKG_VERSION 下载失败" && echo "$(date "+%F %T"): $PKG_VERSION 下载失败" >> /tmp/v2ray.log && exit 1
-		unzip -o /tmp/$tarfile -d /tmp
-		#mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ray_softfloat /jffs/softcenter/bin/v2ray && chmod 755 /jffs/softcenter/bin/v2ray
-		mv /tmp/v2ray_softfloat /jffs/softcenter/bin/v2ray && chmod 755 /jffs/softcenter/bin/v2ray
-		mv /tmp/v2ctl_softfloat /jffs/softcenter/bin/v2ctl && chmod 755 /jffs/softcenter/bin/v2ctl
-		mv /tmp/geosite.dat /jffs/softcenter/bin/geosite.dat && chmod 755 /jffs/softcenter/bin/geosite.dat
-		mv /tmp/geoip.dat /jffs/softcenter/bin/geoip.dat && chmod 755 /jffs/softcenter/bin/geoip.dat
+		mkdir /tmp/v2ray-"$PKG_VERSION"-linux-mips
+		unzip -o /tmp/$tarfile -d /tmp/v2ray-"$PKG_VERSION"-linux-mips
+		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ray_softfloat /jffs/softcenter/bin/v2ray && chmod 755 /jffs/softcenter/bin/v2ray
+		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ctl_softfloat /jffs/softcenter/bin/v2ctl && chmod 755 /jffs/softcenter/bin/v2ctl
+		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/geosite.dat /jffs/softcenter/bin/geosite.dat && chmod 755 /jffs/softcenter/bin/geosite.dat
+		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/geoip.dat /jffs/softcenter/bin/geoip.dat && chmod 755 /jffs/softcenter/bin/geoip.dat
 		if [ ! -e "/jffs/softcenter/bin/jq" ] ;then
 		wget --no-check-certificate --timeout=10 --tries=3 -qO /jffs/softcenter/bin/jq http://k3c.paldier.com/tools/jq
 		wget --no-check-certificate --timeout=10 --tries=3 -qO /jffs/softcenter/bin/dns2socks http://k3c.paldier.com/tools/dns2socks

@@ -122,7 +122,7 @@ function gen_server_list(){
 var code = "";
 if(ssr_server_alias=="")
 {
-code +='<option value="0">无服务器配置</option>';
+code +='<option value="0">none</option>';
 document.getElementById("ssr_index_id").innerHTML = code;
 return;
 }
@@ -392,7 +392,7 @@ code +='<td align="left" style="color:#FFF">'+ ssr_server_alias_row[s_index] + '
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_type#></th>';
 code +='<td align="left" style="color:#FFF"><select id="Server_type_id" name="Server_type" onchange="hide_ssr(this.value);"></select></td></tr>';
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_ip#></th>';
-code +='<td align="left" style="color:#FFF"><input name=Server_ip type="text" onKeyPress="return validator.isIPAddr(this, event);" maxlength="15" autocorrect="off" autocapitalize="off" value='+ ssr_server_ip_row[s_index] + '></td></tr>';
+code +='<td align="left" style="color:#FFF"><input name=Server_ip value='+ ssr_server_ip_row[s_index] + '></td></tr>';
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_port#></th>';
 code +='<td align="left" style="color:#FFF"><input name=Server_port value='+ ssr_server_port_row[s_index] + '></td></tr>';
 code +='<tr><th style="height:20px;" align="right"><#SSR_server_timeout#></th>';
@@ -423,11 +423,11 @@ function addRow_main(upper){
 var invalid_char = "";
 var rule_num = document.getElementById('mainTable_table').rows.length - 3; // remove tbody
 if(rule_num >= upper){
-alert("服务器数目超过最大限制： " + upper + " ！");
+alert("too more： " + upper + " ！");
 return false;
 }
 if(document.form.Server_alias.value == ""){
-alert("请输入服务器别名，可以使用中文");
+alert("Server name");
 document.form.Server_alias.focus();
 return false;
 }

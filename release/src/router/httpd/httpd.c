@@ -246,7 +246,7 @@ int reget_passwd = 0;
 int x_Setting = 0;
 int skip_auth = 0;
 char url[128];
-int http_port = SERVER_PORT;
+int http_port = 0;
 char *http_ifname = NULL;
 time_t login_dt=0;
 char login_url[128];
@@ -812,6 +812,7 @@ int wave_handle_flag(char *url)
 }
 #endif
 
+int auto_set_lang = 0; //Prevent to check language every request
 static void
 handle_request(void)
 {
@@ -873,96 +874,83 @@ handle_request(void)
 			break;
 		}
 #ifdef TRANSLATE_ON_FLY
-		else if ( strncasecmp( cur, "Accept-Language:",16) ==0) {
-			char *p;
-			struct language_table *pLang;
-			char lang_buf[256];
-			memset(lang_buf, 0, sizeof(lang_buf));
-			alang = &cur[16];
-			strncpy(lang_buf, alang, sizeof(lang_buf)-1);
-			p = lang_buf;
-			while (p != NULL)
-			{
-				p = strtok (p, "\r\n ,;");
-				if (p == NULL)  break;
-				//2008.11 magic{
-				int i, len=strlen(p);
+		else if ( strncasecmp( cur, "Accept-Language:", 16) == 0 ) {
+			if(change_preferred_lang()){
+				char *p;
+				struct language_table *pLang;
+				char lang_buf[256];
+				memset(lang_buf, 0, sizeof(lang_buf));
+				alang = &cur[16];
+				strncpy(lang_buf, alang, sizeof(lang_buf)-1);
+				p = lang_buf;
+				while (p != NULL)
+				{
+					p = strtok (p, "\r\n ,;");
+					if (p == NULL)  break;
+					//2008.11 magic{
+					int i, len=strlen(p);
 
-				for (i=0;i<len;++i)
-					if (isupper(p[i])) {
-						p[i]=tolower(p[i]);
+					for (i=0;i<len;++i)
+						if (isupper(p[i])) {
+							p[i]=tolower(p[i]);
+						}
+
+					//2008.11 magic}
+					for (pLang = language_tables; pLang->Lang != NULL; ++pLang)
+					{
+						if (strcasecmp(p, pLang->Lang)==0)
+						{
+							char dictname[32];
+							_dprintf("handle_request: pLang->Lang = %s\n", pLang->Lang);
+							if (!check_lang_support(pLang->Target_Lang))
+								break;
+
+							snprintf(dictname,sizeof(dictname),"%s.dict", pLang->Target_Lang);
+							if(!check_if_file_exist(dictname))
+							{
+								break;
+							}
+
+							snprintf(Accept_Language,sizeof(Accept_Language),"%s",pLang->Target_Lang);
+							break;
+						}
 					}
 
-				//2008.11 magic}
-				for (pLang = language_tables; pLang->Lang != NULL; ++pLang)
-				{
-					if (strcasecmp(p, pLang->Lang)==0)
-					{
-						char dictname[32];
-
-						if (!check_lang_support(pLang->Target_Lang))
-							continue;
-						snprintf(dictname,sizeof(dictname),"%s.dict", pLang->Target_Lang);
-						if(!check_if_file_exist(dictname))
-						{
-							//_dprintf("language(%s) is not supported!!\n", pLang->Target_Lang);
-							continue;
-						}
-						snprintf(Accept_Language,sizeof(Accept_Language),"%s",pLang->Target_Lang);
-						if (is_firsttime() && nvram_match("ui_Setting", "0")) {
-							_dprintf("%s", Accept_Language);
-							nvram_set("ui_Setting", "1");
-							nvram_set("preferred_lang", Accept_Language);
-							
-
-#if defined(RTCONFIG_TCODE)
-							if (find_word(nvram_safe_get("rc_support"), "tcode") && nvram_get("territory_code")){
-								if (!strncmp(nvram_get("territory_code"), "CN", 2))
-									nvram_set("preferred_lang", "CN");
-							}
-#endif
-						#ifdef RTCONFIG_DSL_TCLINUX
-							if(!strcmp(Accept_Language, "CZ") || !strcmp(Accept_Language, "DE")) {
-								int do_restart = 0;
-								if( nvram_match("dslx_annex", "4")
-									&& nvram_match("dsltmp_adslsyncsts", "down")
-								){
-									_dprintf("DSL: auto switch to annex b/j\n");
-									nvram_set("dslx_annex", "6");
-									do_restart = 1;
-								}
-								if(!strcmp(Accept_Language, "DE")
-									&& nvram_match("dslx_vdsl_profile", "0")) {
-									_dprintf("DSL: auto switch to 17a multi mode\n");
-									nvram_set("dslx_vdsl_profile", "1");
-									do_restart = 1;
-								}
-								if (do_restart)
-									notify_rc("restart_dsl_setting");
-							}
-						#endif
-						}
-
+					if (Accept_Language[0] != 0) {
 						break;
 					}
+					p+=strlen(p)+1;
 				}
 
 				if (Accept_Language[0] != 0) {
-					break;
+					nvram_set("preferred_lang", Accept_Language);
 				}
-				p+=strlen(p)+1;
+
+				auto_set_lang = 1; //Prevent to check language every request
 			}
 
-			if (Accept_Language[0] == 0) {
-				// If all language setting of user's browser are not supported, use English.
-				//printf ("Auto detect language failed. Use English.\n");
-				strcpy (Accept_Language, "EN");
-
-				// 2008.10 magic {
-				if (is_firsttime())
-					nvram_set("preferred_lang", "EN");
-				// 2008.10 magic }
+			#ifdef RTCONFIG_DSL_TCLINUX
+			if(is_firsttime()){
+				if(nvram_match("preferred_lang", "CZ") || nvram_match("preferred_lang", "DE")) {
+					int do_restart = 0;
+					if( nvram_match("dslx_annex", "4")
+						&& nvram_match("dsltmp_adslsyncsts", "down")
+					){
+						_dprintf("DSL: auto switch to annex b/j\n");
+						nvram_set("dslx_annex", "6");
+						do_restart = 1;
+					}
+					if(nvram_match("preferred_lang", "DE")
+						&& nvram_match("dslx_vdsl_profile", "0")) {
+						_dprintf("DSL: auto switch to 17a multi mode\n");
+						nvram_set("dslx_vdsl_profile", "1");
+						do_restart = 1;
+					}
+					if (do_restart)
+						notify_rc("restart_dsl_setting");
+				}
 			}
+			#endif
 		}
 #endif
 		else if ( strncasecmp( cur, "Authorization:", 14 ) == 0 )
@@ -1240,6 +1228,14 @@ handle_request(void)
 					send_page( 200, "OK", (char*) 0, inviteCode, 0);
 				}
 #endif
+#ifdef RTCONFIG_AMAS
+				//RD can do firmware upgrade, if re_upgrade set to 1.
+				else if(!fromapp && nvram_match("re_mode", "1") && nvram_get_int("re_upgrade") == 0 && !check_AiMesh_whitelist(file)){
+					snprintf(inviteCode, sizeof(inviteCode), "<meta http-equiv=\"refresh\" content=\"0; url=message.htm\">\r\n");
+					send_page( 200, "OK", (char*) 0, inviteCode, 0);
+					return;
+				}
+#endif
 				else if((mime_exception&MIME_EXCEPTION_NOAUTH_ALL)) {
 				}
 				else {
@@ -1258,40 +1254,12 @@ handle_request(void)
 					auth_result = auth_check(auth_realm, authorization, url, file, cookies, fromapp);
 					if (auth_result != 0)
 					{
-#ifdef RTCONFIG_AMAS
-						//RD can do firmware upgrade, if re_upgrade set to 1.
-						if(!fromapp && nvram_match("re_mode", "1") && nvram_get_int("re_upgrade") == 0){
-							if(!check_AiMesh_whitelist(file)) {
-								snprintf(inviteCode, sizeof(inviteCode), "<meta http-equiv=\"refresh\" content=\"0; url=message.htm\">\r\n");
-								send_page( 200, "OK", (char*) 0, inviteCode, 0);
-								return;
-							}
-							else {
-								if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
-									while (cl--) (void)fgetc(conn_fp);
-
-								send_login_page(fromapp, auth_result, url, file, auth_check_dt, add_try);
-								return;
-							}
-						}
-#endif
 						if(strcasecmp(method, "post") == 0 && handler->input)	//response post request
 							while (cl--) (void)fgetc(conn_fp);
 
 						send_login_page(fromapp, auth_result, url, file, auth_check_dt, add_try);
 						return;
 					}
-#ifdef RTCONFIG_AMAS
-					else {
-						if(!fromapp && nvram_match("re_mode", "1") && nvram_get_int("re_upgrade") == 0){
-							if(!check_AiMesh_whitelist(file)) {
-								snprintf(inviteCode, sizeof(inviteCode), "<meta http-equiv=\"refresh\" content=\"0; url=message.htm\">\r\n");
-								send_page( 200, "OK", (char*) 0, inviteCode, 0);
-								return;
-							}
-						}
-					}
-#endif
 				}
 
 				if(!fromapp) {
@@ -1368,6 +1336,9 @@ handle_request(void)
 					&& !strstr(file, "asustitle.png")
 #endif
 					&& !strstr(file,"cert_key.tar")
+#ifdef RTCONFIG_OPENVPN
+					&& !strstr(file, "server_ovpn.cert")
+#endif
 					&& !strstr(file, "ss_conf")
 					&& !strstr(file, "ss_status")
 					&& !strstr(file, "dbconf")
@@ -1423,7 +1394,7 @@ void http_login(unsigned int ip, char *url) {
 	char login_ipstr[32], login_timestampstr[32];
 
 	if ((http_port != SERVER_PORT
-/*	  && http_port != nvram_get_int("http_lanport")*/
+	  && http_port != nvram_get_int("http_lanport")
 #ifdef RTCONFIG_HTTPS
 	  && http_port != SERVER_PORT_SSL
 	  && http_port != nvram_get_int("https_lanport")
@@ -1453,7 +1424,7 @@ void http_login(unsigned int ip, char *url) {
 int http_login_check(void)
 {
 	if ((http_port != SERVER_PORT
-/*	  && http_port != nvram_get_int("http_lanport")*/
+	  && http_port != nvram_get_int("http_lanport")
 #ifdef RTCONFIG_HTTPS
 	  && http_port != SERVER_PORT_SSL
 	  && http_port != nvram_get_int("https_lanport")
@@ -1513,14 +1484,16 @@ void http_logout(unsigned int ip, char *cookies, int fromapp_flag)
 
 int is_auth(void)
 {
-	if (http_port==SERVER_PORT ||
-/*	    http_port==nvram_get_int("http_lanport") ||*/
+	if (http_port == SERVER_PORT ||
+	    http_port == nvram_get_int("http_lanport") ||
 #ifdef RTCONFIG_HTTPS
-	    http_port==SERVER_PORT_SSL ||
-	    http_port==nvram_get_int("https_lanport") ||
+	    http_port == SERVER_PORT_SSL ||
+	    http_port == nvram_get_int("https_lanport") ||
 #endif
-		strcmp(nvram_get_x("PrinterStatus", "usb_webhttpcheck_x"), "1")==0) return 1;
-	else return 0;
+	    strcmp(nvram_get_x("PrinterStatus", "usb_webhttpcheck_x"), "1") == 0)
+		return 1;
+	else
+		return 0;
 }
 
 int is_firsttime(void)
@@ -1547,8 +1520,12 @@ char *config_model_name(char *source, char *find,  char *rep){
    int length=strlen(source)+1;
    int gap=0;
 
+   char *result_t = NULL;
    char *result = (char*)malloc(sizeof(char) * length);
-   strcpy(result, source);
+   if(result == NULL)
+   	return NULL;
+   else
+   	strcpy(result, source);
 
    char *former=source;
    char *location= strstr(former, find);
@@ -1559,7 +1536,12 @@ char *config_model_name(char *source, char *find,  char *rep){
        result[gap]='\0';
 
        length+=(rep_L-find_L);
-       result = (char*)realloc(result, length * sizeof(char));
+       result_t = (char*)realloc(result, length * sizeof(char));
+       if(result_t == NULL){
+       	free(result);
+       	return NULL;
+       }else
+       	result = result_t;
        strcat(result, rep);
        gap+=rep_L;
 
@@ -1579,37 +1561,6 @@ char *config_model_name(char *source, char *find,  char *rep){
  *     <0:	invalid parameter.
  *     >0:	lang can be supported.
  */
-int check_lang_support(char *lang)
-{
-	int r = 1;
-
-	if (!lang)
-		return -1;
-
-#if defined(RTCONFIG_TCODE)
-	if (!find_word(nvram_safe_get("rc_support"), "tcode") || !nvram_get("territory_code"))
-		return 1;
-	if (!strncmp(nvram_get("territory_code"), "UK", 2) ||
-	    !strncmp(nvram_get("territory_code"), "NE", 2)) {
-		if (!strcmp(lang, "DA") || !strcmp(lang, "EN") ||
-		    !strcmp(lang, "FI") || !strcmp(lang, "NO") ||
-		    !strcmp(lang, "SV")) {
-			r = 1;
-		} else {
-			r = 0;
-		}
-	} else {
-		if (!strcmp(lang, "DA") || !strcmp(lang, "FI") ||
-		    !strcmp(lang, "NO") || !strcmp(lang, "SV")) {
-			r = 0;
-		} else {
-			r = 1;
-		}
-	}
-#endif
-
-	return r;
-}
 
 #ifdef RTCONFIG_AUTODICT
 int
@@ -1631,7 +1582,7 @@ load_dictionary (char *lang, pkw_t pkw)
 #endif  // RELOAD_DICT
 #ifdef RTCONFIG_DYN_DICT_NAME
 	char *dyn_dict_buf;
-	char *dyn_dict_buf_new;
+	char *dyn_dict_buf_new=NULL;
 #endif
 
 //printf ("lang=%s\n", lang);
@@ -1694,12 +1645,15 @@ load_dictionary (char *lang, pkw_t pkw)
 
 	free(dyn_dict_buf);
 
-	dict_size = sizeof(char) * strlen(dyn_dict_buf_new);
-	pkw->buf = (unsigned char *) (q = malloc (dict_size));
-	strcpy(pkw->buf, dyn_dict_buf_new);
-	free(dyn_dict_buf_new);
+	if(dyn_dict_buf_new){
+		dict_size = sizeof(char) * strlen(dyn_dict_buf_new);
+		pkw->buf = (unsigned char *) (q = malloc (dict_size));
+		strcpy(pkw->buf, dyn_dict_buf_new);
+		free(dyn_dict_buf_new);
+	}
+
 #else
-	pkw->buf = (unsigned char *) (q = malloc (dict_size));
+	pkw->buf = (char *) (q = malloc (dict_size));
 
 	fseek (dfp, 0L, SEEK_SET);
 	// skip BOM
@@ -1734,7 +1688,7 @@ load_dictionary (char *lang, pkw_t pkw)
 	// get all string start and put to pkw->idx
 	remain_dict = dict_size;
 	for (dict_item_idx = 0; dict_item_idx < dict_item; dict_item_idx++) {
-		pkw->idx[dict_item_idx] = (unsigned char *) q;
+		pkw->idx[dict_item_idx] = (char *) q;
 		while (remain_dict>0) {
 			if (*q == 0x0a) {
 				*q=0;

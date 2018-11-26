@@ -90,8 +90,8 @@ avahi_daemon-main.o: main.c ../config.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/bits/sockaddr.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/socket.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/sockios.h \
- /home/paldier/asuswrt/release/src-lantiq/include/bcmnvram.h \
- /home/paldier/asuswrt/release/src-lantiq/router/shared/rtconfig.h \
+ /home/paldier/384/release/src-lantiq/include/bcmnvram.h \
+ /home/paldier/384/release/src-lantiq/router/shared/rtconfig.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/byteorder.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/linux/byteorder/big_endian.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/linux/types.h \
@@ -106,27 +106,27 @@ avahi_daemon-main.o: main.c ../config.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm-generic/posix_types.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/linux/swab.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/swab.h \
- /home/paldier/asuswrt/release/src-lantiq/include/typedefs.h \
- /home/paldier/asuswrt/release/src-lantiq/include/bcmdefs.h \
- /home/paldier/asuswrt/release/src-lantiq/router/shared/shared.h \
+ /home/paldier/384/release/src-lantiq/include/typedefs.h \
+ /home/paldier/384/release/src-lantiq/include/bcmdefs.h \
+ /home/paldier/384/release/src-lantiq/router/shared/shared.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/netinet/in.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3/include/stdint.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/stdint.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/bits/in.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/net/if.h \
- /home/paldier/asuswrt/release/src-lantiq/router/shared/rtstate.h \
+ /home/paldier/384/release/src-lantiq/router/shared/rtstate.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/mntent.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/paths.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/ftw.h \
- /home/paldier/asuswrt/release/src-lantiq/router/shared/network_utility.h \
+ /home/paldier/384/release/src-lantiq/router/shared/network_utility.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/sys/inotify.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/bits/inotify.h \
- /home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dfork.h \
- /home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dsignal.h \
- /home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dlog.h \
+ /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dfork.h \
+ /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dsignal.h \
+ /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dlog.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/syslog.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/sys/syslog.h \
- /home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dpid.h \
+ /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dpid.h \
  ../avahi-common/malloc.h ../avahi-common/cdecl.h \
  ../avahi-common/gccmacro.h ../avahi-common/simple-watch.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/sys/poll.h \
@@ -324,9 +324,9 @@ avahi_daemon-main.o: main.c ../config.h \
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/sockios.h:
 
-/home/paldier/asuswrt/release/src-lantiq/include/bcmnvram.h:
+/home/paldier/384/release/src-lantiq/include/bcmnvram.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/shared/rtconfig.h:
+/home/paldier/384/release/src-lantiq/router/shared/rtconfig.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/byteorder.h:
 
@@ -356,11 +356,11 @@ avahi_daemon-main.o: main.c ../config.h \
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/swab.h:
 
-/home/paldier/asuswrt/release/src-lantiq/include/typedefs.h:
+/home/paldier/384/release/src-lantiq/include/typedefs.h:
 
-/home/paldier/asuswrt/release/src-lantiq/include/bcmdefs.h:
+/home/paldier/384/release/src-lantiq/include/bcmdefs.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/shared/shared.h:
+/home/paldier/384/release/src-lantiq/router/shared/shared.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/netinet/in.h:
 
@@ -372,7 +372,7 @@ avahi_daemon-main.o: main.c ../config.h \
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/net/if.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/shared/rtstate.h:
+/home/paldier/384/release/src-lantiq/router/shared/rtstate.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/mntent.h:
 
@@ -380,23 +380,23 @@ avahi_daemon-main.o: main.c ../config.h \
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/ftw.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/shared/network_utility.h:
+/home/paldier/384/release/src-lantiq/router/shared/network_utility.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/sys/inotify.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/bits/inotify.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dfork.h:
+/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dfork.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dsignal.h:
+/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dsignal.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dlog.h:
+/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dlog.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/syslog.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/sys/syslog.h:
 
-/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dpid.h:
+/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libdaemon/dpid.h:
 
 ../avahi-common/malloc.h:
 

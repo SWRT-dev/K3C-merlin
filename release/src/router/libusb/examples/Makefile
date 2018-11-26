@@ -69,17 +69,17 @@ DIST_SOURCES = $(lsusb_SOURCES) $(testlibusb_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb/missing --run aclocal-1.10
-AMTAR = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb/missing --run tar
+ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/libusb/missing --run aclocal-1.10
+AMTAR = ${SHELL} /home/paldier/384/release/src/router/libusb/missing --run tar
 AM_CFLAGS = -std=gnu99 -fgnu89-inline -Wall -Wundef -Wunused -Wstrict-prototypes -Werror-implicit-function-declaration -Wshadow
 AR = mips-openwrt-linux-uclibc-ar
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb/missing --run automake-1.10
+AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/libusb/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/libusb/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/libusb/missing --run automake-1.10
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Wall -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+CFLAGS = -Wall -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -100,20 +100,20 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = mips-openwrt-linux-uclibc-ld
-LDFLAGS = --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+LDFLAGS = 
 LIBOBJS = 
-LIBS = 
+LIBS = -lpthread -ldl -lc --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBUSB01_VERSION = 0.1.12
-LIBUSB_1_0_CFLAGS = -I/home/paldier/asuswrt/release/src-lantiq/router/libusb10/libusb
-LIBUSB_1_0_LIBS = -L/home/paldier/asuswrt/release/src-lantiq/router/libusb10/libusb/.libs -lusb-1.0 -lpthread -ldl --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2	-Wl,-R/lib:/usr/lib:/opt/usr/lib:/usr/local/share
+LIBUSB_1_0_CFLAGS = -I/home/paldier/384/release/src-lantiq/router/libusb10/libusb
+LIBUSB_1_0_LIBS = -L/home/paldier/384/release/src-lantiq/router/libusb10/libusb/.libs -lusb-1.0 	-Wl,-R/lib:/usr/lib:/opt/usr/lib:/usr/local/share
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
 LT_AGE = 4
 LT_MAJOR = 8
 LT_REVISION = 4
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/libusb/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NM = mips-openwrt-linux-uclibc-nm
 NMEDIT = 
@@ -135,10 +135,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = mips-openwrt-linux-uclibc-strip -R .note -R .comment
 VERSION = 0.1.3
-abs_builddir = /home/paldier/asuswrt/release/src/router/libusb/examples
-abs_srcdir = /home/paldier/asuswrt/release/src/router/libusb/examples
-abs_top_builddir = /home/paldier/asuswrt/release/src/router/libusb
-abs_top_srcdir = /home/paldier/asuswrt/release/src/router/libusb
+abs_builddir = /home/paldier/384/release/src/router/libusb/examples
+abs_srcdir = /home/paldier/384/release/src/router/libusb/examples
+abs_top_builddir = /home/paldier/384/release/src/router/libusb
+abs_top_srcdir = /home/paldier/384/release/src/router/libusb
 ac_ct_CC = 
 ac_ct_DUMPBIN = 
 am__include = include
@@ -166,7 +166,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = $(SHELL) /home/paldier/asuswrt/release/src/router/libusb/install-sh
+install_sh = $(SHELL) /home/paldier/384/release/src/router/libusb/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

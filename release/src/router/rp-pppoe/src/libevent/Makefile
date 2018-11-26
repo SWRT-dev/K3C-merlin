@@ -12,7 +12,7 @@
 OBJS=event.o event_tcp.o hash.o event_sig.o
 SRCS=$(OBJS:.o=.c)
 HDRS=event.h event_tcp.h eventpriv.h hash.h
-CFLAGS=-g -O2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -idirafter /home/paldier/asuswrt/release/src-lantiq/router/kernel_header/include -fno-strict-aliasing -Wall -Wstrict-prototypes -I.. $(DEFINES)
+CFLAGS=-g -O2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -idirafter /home/paldier/384/release/src-lantiq/router/kernel_header/include -fno-strict-aliasing -Wall -Wstrict-prototypes -I.. $(DEFINES)
 AR=ar
 
 all: libevent.a

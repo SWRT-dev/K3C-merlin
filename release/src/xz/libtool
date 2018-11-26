@@ -167,7 +167,7 @@ lock_old_archive_extraction=no
 LTCC="gcc -std=gnu99"
 
 # LTCC compiler flags.
-LTCFLAGS="-O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\\\"xz\\\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT"
+LTCFLAGS="-O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\\\"xz\\\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT"
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"

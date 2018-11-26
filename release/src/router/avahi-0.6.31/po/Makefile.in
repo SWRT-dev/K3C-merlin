@@ -36,7 +36,7 @@ libdir = ${exec_prefix}/lib
 DATADIRNAME = lib
 itlocaledir = $(prefix)/$(DATADIRNAME)/locale
 subdir = po
-install_sh = ${SHELL} /home/paldier/asuswrt/release/src/router/avahi-0.6.31/install-sh
+install_sh = ${SHELL} /home/paldier/384/release/src/router/avahi-0.6.31/install-sh
 # Automake >= 1.8 provides /bin/mkdir -p.
 # Until it can be supposed, use the safe fallback:
 mkdir_p = $(install_sh) -d

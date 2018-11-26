@@ -35,7 +35,7 @@ srcdir = .
 
 
 
-LDFLAGS = -L.  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/asuswrt/release/src-lantiq/router/openssl
+LDFLAGS = -L.  -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib
 LIBS = -lxml2 -lssl -lcrypto -lpthread -ldl -lm
 CC = mips-openwrt-linux-uclibc-gcc
 INSTALL_PROGRAM = ${INSTALL}

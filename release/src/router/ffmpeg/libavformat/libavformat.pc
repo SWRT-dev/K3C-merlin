@@ -10,5 +10,5 @@ Requires:
 Requires.private: libavcodec = 52.72.2
 Conflicts:
 Libs: -L${libdir} -lavformat 
-Libs.private: -L/home/paldier/asuswrt/release/src-lantiq/router/zlib -lz -lz -pthread -lm
+Libs.private: -L/home/paldier/384/release/src-lantiq/router/zlib -lz -lz -pthread -lm
 Cflags: -I${includedir}

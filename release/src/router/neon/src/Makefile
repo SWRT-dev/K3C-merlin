@@ -24,14 +24,14 @@ RANLIB = /usr/bin/ranlib
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 
 # Flags
-CPPFLAGS = -DHAVE_CONFIG_H  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/libxml2/include  -D_LARGEFILE64_SOURCE -DNE_LFS   -I/usr/include/libxml2 -I${top_builddir}
-CFLAGS = -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include
-LDFLAGS =  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/asuswrt/release/src-lantiq/router/openssl
+CPPFLAGS = -DHAVE_CONFIG_H  -I/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include  -D_LARGEFILE64_SOURCE -DNE_LFS   -I/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libxml2 -I${top_builddir}
+CFLAGS = -g -O2 -I/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include
+LDFLAGS =  -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib
 NEON_LINK_FLAGS = -version-info 29:6:2 -Wl,--version-script=$(top_srcdir)/src/neon.vers
 # Note: don't substitute -lxml2 -lssl -lcrypto -lpthread -ldl -lm in here; during a bundled
 # build of this directory, -lxml2 -lssl -lcrypto -lpthread -ldl -lm may include -lneon.
-#LIBS =  -lssl -lcrypto   -lxml2 -lm 
-#LIBS =  -lssl -lcrypto   -lxml2 -lm
+#LIBS =  -lssl -lcrypto   -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -lxml2 -lm 
+#LIBS =  -lssl -lcrypto   -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -lxml2 -lm
 #LIBS = 
 #LIBS = -L../../libxml2/.libs -lxml2 -L../../zlib -lz -lm -L../../openssl -lssl
 

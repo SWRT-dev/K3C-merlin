@@ -64,8 +64,6 @@ function QKaccount_load_body(){
 	else{
 		parent.set_step("t2");
 		hideLinkTag();
-		flash_button();
-
 		if(isSku("TW")){
 			document.getElementById("isp_TW_desc").style.display = "";
 			document.getElementById("mac_clone_field").style.display = "none";
@@ -88,14 +86,18 @@ function QKaccount_load_body(){
 		}
 		
 		if(now_flag != "auto_way_pppoe")
-			show_prev_button();		
-			
-		// document.getElementById("nextButton").focus();
+			show_prev_button();
 	}
 	
 	get_value_from_parent();
-	if(!document.getElementById('vpn_client_check').checked)
-		document.form.wan_proto.value = "pppoe";
+	if(document.form.wan_proto.value == "pptp" || document.form.wan_proto.value == "l2tp"){
+		document.getElementById('vpn_client_check').checked = true;
+		document.form.vpn_option.value = document.form.wan_proto.value;
+	}
+	else
+		document.getElementById('vpn_client_check').checked = false;
+
+	enable_vpn_client(document.form.vpn_client_check);
 
 	if( !parent.meoVoda_support ){	// MODELDEP: RT-AC3200, RT-AC87U, RT-AC68U, RT-AC66U, RT-AC51U, RT-N66U, RT-N18U
 		document.getElementById('meoOption').outerHTML = "";
@@ -211,6 +213,14 @@ function show_prev_button(){
 	}
 }
 
+function update_QKForm()
+{
+	parent.document.QKform.wan_hwaddr_x.value = document.form.wan_hwaddr_x.value;
+	parent.document.QKform.wan_pppoe_username.value = document.form.wan_pppoe_username.value;
+	parent.document.QKform.wan_pppoe_passwd.value = document.form.wan_pppoe_passwd.value;
+	parent.document.QKform.wan_proto.value = document.form.wan_proto.value;
+}
+
 function submitForm(o, s){
 	if(parent.ISMOBILE){
 		document.form.wan_pppoe_username.value = document.form.wan_pppoe_username_m.value;
@@ -250,8 +260,8 @@ function submitForm(o, s){
 		set_ISP_profile();
 	}	
 
+	update_QKForm();
 	if(now_flag == "auto_way"){
-		//parent.showLoading();
 		simple_showLoading();
 		
 		document.form.wan_ipaddr_x.disabled = false;
@@ -274,26 +284,17 @@ function submitForm(o, s){
 		document.form.submit();
 	}
 	else if(document.form.wan_proto.value == 'pppoe' || document.form.wan_proto.value == ''){
-		//parent.showLoading();
 		if(parent.flag_manual == 1){
 			document.form.action_wait.value = "0";
 		}
 		else{
 			document.form.action_wait.value = "0";
-			//simple_showLoading();
 		}
 
 		// uinfi
 		set_ISP_profile();
 
 		if(original_switch_wantag != document.form.switch_wantag.value){
-			/*
-			document.form.action_script.value	= "reboot";
-			document.form.action_wait.value	= eval("<% get_default_reboot_time(); %> + 10");
-			document.getElementById("loadHint").style.display = "";
-			document.getElementById("nextButton").style.display = "none";
-			document.getElementById("prevButton").style.display = "none";
-			*/
 			var reboot_time = eval("<% get_default_reboot_time(); %> + 10");
 			document.form.action_script.value = "saveNvram";
 			document.form.action_wait.value = "0";
@@ -321,11 +322,8 @@ function submitForm(o, s){
 				document.form.flag.value = "pppoe";
 				document.form.next_page.value = "/QIS_wireless.htm";			
 			}
-
-			//document.form.flag.value = "verify_detect";
 		}	
 
-		//document.form.next_page.value = "/QIS_wireless.htm";
 		document.form.submit();
 		if(original_switch_wantag != document.form.switch_wantag.value)
 			setTimeout(function(){
@@ -333,13 +331,7 @@ function submitForm(o, s){
 			}, 500);
 	}
 	else if(document.form.wan_proto.value == 'pptp'|| document.form.wan_proto.value == 'l2tp'){
-		document.form.next_page.value = "QIS_internet_ip.htm";
-
-		parent.document.QKform.wan_hwaddr_x.value = document.form.wan_hwaddr_x.value;
-		parent.document.QKform.wan_pppoe_username.value = document.form.wan_pppoe_username.value;
-		parent.document.QKform.wan_pppoe_passwd.value = document.form.wan_pppoe_passwd.value;
-		parent.document.QKform.wan_proto.value = document.form.wan_proto.value;
-		location.href = document.form.next_page.value;
+		location.href = "QIS_internet_ip.htm";
 		return false;	//do not submit form
 	}
 	else{
@@ -774,7 +766,7 @@ function pass_checked_iptv(obj){
 			</tr>
 		</table>
 	</div>
-	<div style="margin:5px;" id="splitLine"><img style="width: 720px; *width: 710px; height: 2px;" src="../images/New_ui/export/line_export.png"></div>
+	<div style="margin:5px;" id="splitLine"><div style="width: 720px; *width: 710px; height: 2px;" class="splitLine"></div></div>
 </div>		
 <br/>
 <div>
@@ -894,12 +886,12 @@ function pass_checked_iptv(obj){
 
 				<div id="port_settings">
 				<table class="iptvTable">
-					<tr id="wan_voip_line"><td colspan="2"><div style="margin: 5px 5px 5px 10px;" id="splitLine"><img style="width: 350px; *width: 340px; height: 2px;" src="../images/New_ui/export/line_export.png"></div></td></tr>
+					<tr id="wan_voip_line"><td colspan="2"><div style="margin: 5px 5px 5px 10px;" id="splitLine"><div style="width: 350px; *width: 340px; height: 2px;" class="splitLine"></div></div></td></tr>
 					<tr id="wan_voip_x">
 						<th><span id="voip_title">VoIP Port: </span></th>
 						<td id="voip_lan">LAN3</td>
 					</tr>
-					<tr id="wan_iptv_line"><td colspan="2"><div style="margin: 5px 5px 5px 10px;" id="splitLine"><img style="width: 350px; *width: 340px; height: 2px;" src="../images/New_ui/export/line_export.png"></div></td></tr>
+					<tr id="wan_iptv_line"><td colspan="2"><div style="margin: 5px 5px 5px 10px;" id="splitLine"><div style="width: 350px; *width: 340px; height: 2px;" class="splitLine"></div></td></tr>
 					<tr id="wan_iptv_x">
 						<th><span id="iptv_title">IPTV STB Port: </span></th>
 						<td id="iptv_lan">LAN4</td>
@@ -909,7 +901,7 @@ function pass_checked_iptv(obj){
 
 				<div id="manual_settings">
 					<table class="iptvTable">
-						<tr><td colspan="2"><div style="margin: 5px 5px 5px 10px;" id="splitLine"><img style="width: 350px; *width: 340px; height: 2px;" src="../images/New_ui/export/line_export.png"></div></td></tr>
+						<tr><td colspan="2"><div style="margin: 5px 5px 5px 10px;" id="splitLine"><div style="width: 350px; *width: 340px; height: 2px;" class="splitLine"></div></td></tr>
 						<tr>
 							<th><#Internet#>:</th>
 							<td>
@@ -935,13 +927,13 @@ function pass_checked_iptv(obj){
 				</div>
 
 				<div id="iptv_configuration">
-					<div style="margin: 5px 5px 5px 7px;" id="splitLine"><img style="width: 350px; *width: 340px; height: 2px;" src="../images/New_ui/export/line_export.png"></div>
+					<div style="margin: 5px 5px 5px 7px;" id="splitLine"><div style="width: 350px; *width: 340px; height: 2px;" class="splitLine"></div>
 					<table class="iptvTable">
 						<tr>
 							<th>VoIP Port: </th>
 							<td id="voip_triple">LAN3</td>
 						</tr>
-						<tr><td colspan="2"><div style="margin: 5px 5px 5px 11px;" id="splitLine"><img style="width: 350px; *width: 340px; height: 2px;" src="../images/New_ui/export/line_export.png"></div></td></tr>
+						<tr><td colspan="2"><div style="margin: 5px 5px 5px 11px;" id="splitLine"><div style="width: 350px; *width: 340px; height: 2px;" class="splitLine"></div></td></tr>
 						<tr>
 							<th>IPTV STB Port: </th>
 							<td id="iptv_triple">LAN4</td>

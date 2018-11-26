@@ -1,12 +1,12 @@
 prefix=
 exec_prefix=
 libdir=${pcfiledir}
-includedir=/home/paldier/asuswrt/release/src/router/ffmpeg
+includedir=/home/paldier/384/release/src/router/ffmpeg
 
 Name: libavdevice
 Description: FFmpeg device handling library
 Version: 52.2.0
 Requires: libavformat = 52.64.2
 Conflicts:
-Libs: ${libdir}/libavdevice.a  -L/home/paldier/asuswrt/release/src-lantiq/router/zlib -lz  -lz -pthread -lm
+Libs: ${libdir}/libavdevice.a  -L/home/paldier/384/release/src-lantiq/router/zlib -lz  -lz -pthread -lm
 Cflags: -I${includedir}

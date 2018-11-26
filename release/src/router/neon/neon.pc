@@ -6,6 +6,6 @@ includedir=${prefix}/include
 Name: neon
 Description: HTTP/WebDAV client library
 Version: 0.29.6
-Libs.private:  -lssl -lcrypto   -lxml2 -lm
+Libs.private:  -lssl -lcrypto   -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -lxml2 -lm
 Libs: -L${libdir} -lneon 
 Cflags: -I${includedir}/neon  -D_LARGEFILE64_SOURCE -DNE_LFS

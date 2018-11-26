@@ -16,7 +16,7 @@ GTK_LIBS  = `gtk-config --libs`
 #GTK_CFLAGS = `pkg-config gtk+-2.0 --cflags`
 #GTK_LIBS = `pkg-config gtk+-2.0 --libs`
 
-CCFLAGS =  -DNDEBUG -DSHMEM_SIZE=524288 -Dfcntl=fcntl64 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -D_LARGE_FILES=1 -Iinclude -I./include -I. -I. -I./../lib/replace -I./../lib/tevent -I./libaddns -I./librpc -I./.. -I./../lib/popt  -I../lib/zlib -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -Os -ffunction-sections -fdata-sections $(FLAGS) -D_SAMBA_BUILD_=3 $(GTK_CFLAGS) $(SAMBA_INCLUDES)
+CCFLAGS =  -DNDEBUG -DSHMEM_SIZE=524288 -Dfcntl=fcntl64 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -D_LARGE_FILES=1 -Iinclude -I./include -I. -I. -I./../lib/replace -I./../lib/tevent -I./libaddns -I./librpc -I./.. -I./../lib/popt  -I../lib/zlib -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -Os -ffunction-sections -fdata-sections $(FLAGS) -D_SAMBA_BUILD_=3 $(GTK_CFLAGS) $(SAMBA_INCLUDES)
 
 PICFLAG=-fPIC
 LDFLAGS= $(SAMBA_LIBPATH)  -Wl,--as-needed -ffunction-sections -fdata-sections -Wl,--gc-sections -ldl -L./bin

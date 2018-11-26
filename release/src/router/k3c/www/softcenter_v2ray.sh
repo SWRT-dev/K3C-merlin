@@ -52,7 +52,7 @@ download_v2ray(){
 	Tmpv2ctl=v2ctl
 	tarfile=v2ray-linux-mips.zip
 	v2ray_bin=https://github.com/v2ray/v2ray-core/releases/download/"$PKG_VERSION"/$tarfile
-	v2ray_bin2=https://k3c.paldier.com/tools/$tarfile
+	v2ray_bin2=http://k3c.paldier.com/tools/$tarfile
 	d_rule() {
 		wget --no-check-certificate --timeout=10 --tries=3 -qO $1 $2
 	}
@@ -69,8 +69,8 @@ download_v2ray(){
 			[ "$?" != "0" ] && logger -t "【v2ray】" "$PKG_VERSION 下载失败" && echo "$(date "+%F %T"): $PKG_VERSION 下载失败" >> /tmp/v2ray.log && exit 1
 		mkdir /tmp/v2ray-"$PKG_VERSION"-linux-mips
 		unzip -o /tmp/$tarfile -d /tmp/v2ray-"$PKG_VERSION"-linux-mips
-		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ray_softfloat /jffs/softcenter/bin/v2ray && chmod 755 /jffs/softcenter/bin/v2ray
-		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ctl_softfloat /jffs/softcenter/bin/v2ctl && chmod 755 /jffs/softcenter/bin/v2ctl
+		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ray /jffs/softcenter/bin/v2ray && chmod 755 /jffs/softcenter/bin/v2ray
+		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/v2ctl /jffs/softcenter/bin/v2ctl && chmod 755 /jffs/softcenter/bin/v2ctl
 		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/geosite.dat /jffs/softcenter/bin/geosite.dat && chmod 755 /jffs/softcenter/bin/geosite.dat
 		mv /tmp/v2ray-"$PKG_VERSION"-linux-mips/geoip.dat /jffs/softcenter/bin/geoip.dat && chmod 755 /jffs/softcenter/bin/geoip.dat
 		if [ ! -e "/jffs/softcenter/bin/jq" ] ;then

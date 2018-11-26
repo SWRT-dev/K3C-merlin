@@ -1,9 +1,9 @@
 # Makefile for neon test suite.
 
 SHELL = /bin/bash
-CPPFLAGS =  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/libxml2/include  -D_LARGEFILE64_SOURCE -DNE_LFS   -I/usr/include/libxml2 -I${top_builddir} -I. -I$(top_srcdir)/src -I$(top_srcdir)/test/common
-CFLAGS = -I/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include  -D_LARGEFILE64_SOURCE -DNE_LFS
-LDFLAGS =  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/asuswrt/release/src-lantiq/router/openssl
+CPPFLAGS =  -I/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include  -D_LARGEFILE64_SOURCE -DNE_LFS   -I/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include/libxml2 -I${top_builddir} -I. -I$(top_srcdir)/src -I$(top_srcdir)/test/common
+CFLAGS = -g -O2 -I/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/include  -D_LARGEFILE64_SOURCE -DNE_LFS
+LDFLAGS =  -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib
 DEFS = -DHAVE_CONFIG_H
 
 top_builddir = ..
@@ -16,7 +16,7 @@ AR = ar
 RANLIB = /usr/bin/ranlib
 LIBS = $(LIBTEST)
 CC = mips-openwrt-linux-uclibc-gcc
-OPENSSL = /usr/bin/openssl
+OPENSSL = /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/bin/openssl
 
 HELPERS =  $(SSL_HELPERS) foobar.txt
 BASIC_TESTS = uri-tests util-tests string-tests socket \

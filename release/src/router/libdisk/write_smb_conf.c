@@ -316,7 +316,7 @@ int main(int argc, char *argv[])
 		fprintf(fp, "max connections = %s\n", nvram_safe_get("st_max_user"));
 
 	if(!nvram_get_int("stop_samba_speedup")){
-#if defined(RTCONFIG_SAMBA36X) || defined(RTCONFIG_SOC_IPQ8064)
+#if defined(RTCONFIG_SOC_IPQ8064)
 		fprintf(fp, "socket options = TCP_NODELAY SO_KEEPALIVE\n");
 #elif defined(RTCONFIG_ALPINE)
 		fprintf(fp, "socket options = TCP_NODELAY IPTOS_LOWDELAY IPTOS_THROUGHPUT SO_RCVBUF=5048576 SO_SNDBUF=5048576\n");
@@ -390,24 +390,6 @@ int main(int argc, char *argv[])
 	fprintf(fp, "hosts allow = 127.0.0.1 %s/%s\n", nvram_safe_get("lan_ipaddr"), nvram_safe_get("lan_netmask"));
 #endif
 	fprintf(fp, "hosts deny = 0.0.0.0/0\n");
-
-#if defined(RTCONFIG_SAMBA36X)
-	fprintf(fp, "enable core files = no\n");
-	fprintf(fp, "deadtime = 30\n");
-	fprintf(fp, "local master = yes\n");
-	fprintf(fp, "preferred master = yes\n");
-	fprintf(fp, "load printers = no\n");
-	fprintf(fp, "printable = no\n");
-	fprintf(fp, "max protocol = SMB2\n");
-	fprintf(fp, "smb encrypt = disabled\n");
-	fprintf(fp, "min receivefile size = 16384\n");
-	fprintf(fp, "passdb backend = smbpasswd\n");
-	fprintf(fp, "smb passwd file = /etc/samba/smbpasswd\n");
-
-	/* CVE-2016-2118 */
-	// fprintf(fp, "server signing = mandatory\n");	/* heavy impact on the file server performance */
-	// fprintf(fp, "ntlm auth = no\n");
-#endif
 
 	disks_info = read_disk_data();
 	if(disks_info == NULL){

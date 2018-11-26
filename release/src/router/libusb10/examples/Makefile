@@ -93,19 +93,19 @@ DIST_SOURCES = $(dpfp_SOURCES) $(dpfp_threaded_SOURCES) \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/missing --run tar
+ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/libusb10/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/paldier/384/release/src/router/libusb10/missing --run tar
 AM_CFLAGS = -std=gnu99 -fgnu89-inline -Wall -Wundef -Wunused -Wstrict-prototypes -Werror-implicit-function-declaration -Wno-pointer-sign -Wshadow
 AM_DEFAULT_VERBOSITY = 0
 AM_LDFLAGS = 
 AR = mips-openwrt-linux-uclibc-ar
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/libusb10/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/libusb10/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/libusb10/missing --run automake-1.11
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -128,12 +128,12 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = mips-openwrt-linux-uclibc-ld
 LDFLAGS = 
 LIBOBJS = 
-LIBS = -lpthread -ldl -lc --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+LIBS = -lpthread -ldl -lc --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/libusb10/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NM = mips-openwrt-linux-uclibc-nm
 NMEDIT = 
@@ -158,10 +158,10 @@ SHELL = /bin/bash
 STRIP = mips-openwrt-linux-uclibc-strip -R .note -R .comment
 VERSION = 1.0.8
 VISIBILITY_CFLAGS = -fvisibility=hidden
-abs_builddir = /home/paldier/asuswrt/release/src/router/libusb10/examples
-abs_srcdir = /home/paldier/asuswrt/release/src/router/libusb10/examples
-abs_top_builddir = /home/paldier/asuswrt/release/src/router/libusb10
-abs_top_srcdir = /home/paldier/asuswrt/release/src/router/libusb10
+abs_builddir = /home/paldier/384/release/src/router/libusb10/examples
+abs_srcdir = /home/paldier/384/release/src/router/libusb10/examples
+abs_top_builddir = /home/paldier/384/release/src/router/libusb10
+abs_top_srcdir = /home/paldier/384/release/src/router/libusb10
 ac_ct_CC = 
 ac_ct_DUMPBIN = 
 am__include = include
@@ -189,7 +189,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/asuswrt/release/src/router/libusb10/install-sh
+install_sh = ${SHELL} /home/paldier/384/release/src/router/libusb10/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

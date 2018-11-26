@@ -171,22 +171,22 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_CFLAGS =  -pthread -fvisibility=hidden -Wall -Wextra -Wformat=2 -Winit-self -Wmissing-include-dirs -Wstrict-aliasing -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Wlogical-op -Waggregate-return -Wstrict-prototypes -Wold-style-definition -Wmissing-prototypes -Wmissing-declarations -Wmissing-noreturn -Wredundant-decls
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing automake-1.14
+AUTOCONF = ${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing automake-1.14
 AWK = gawk
 CC = gcc -std=gnu99
 CCAS = gcc -std=gnu99
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT
+CCASFLAGS = -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT
+CFLAGS = -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = gcc -std=gnu99 -E
 CPPFLAGS = 
@@ -227,7 +227,7 @@ LN_S = ln -s
 LTLIBICONV = -liconv
 LTLIBINTL = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 MSGFMT = /usr/bin/msgfmt
@@ -263,10 +263,10 @@ USE_NLS = yes
 VERSION = 5.0.3
 XGETTEXT = /usr/bin/xgettext
 XGETTEXT_015 = /usr/bin/xgettext
-abs_builddir = /home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api
-abs_srcdir = /home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api
-abs_top_builddir = /home/paldier/asuswrt/release/src-lantiq/xz
-abs_top_srcdir = /home/paldier/asuswrt/release/src-lantiq/xz
+abs_builddir = /home/paldier/384/release/src-lantiq/xz/src/liblzma/api
+abs_srcdir = /home/paldier/384/release/src-lantiq/xz/src/liblzma/api
+abs_top_builddir = /home/paldier/384/release/src-lantiq/xz
+abs_top_srcdir = /home/paldier/384/release/src-lantiq/xz
 ac_ct_AR = 
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -296,7 +296,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/install-sh
+install_sh = ${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

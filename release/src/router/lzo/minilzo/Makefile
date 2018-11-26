@@ -71,18 +71,18 @@ DIST_SOURCES = $(testmini_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/lzo/autoconf/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/lzo/autoconf/missing --run aclocal-1.9
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/paldier/asuswrt/release/src/router/lzo/autoconf/missing --run tar
+AMTAR = ${SHELL} /home/paldier/384/release/src/router/lzo/autoconf/missing --run tar
 AR = mips-openwrt-linux-uclibc-ar
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/lzo/autoconf/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/lzo/autoconf/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/lzo/autoconf/missing --run automake-1.9
+AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/lzo/autoconf/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/lzo/autoconf/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/lzo/autoconf/missing --run automake-1.9
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = -DLZO_HAVE_CONFIG_H
 CXX = mips-openwrt-linux-uclibc-g++
@@ -120,7 +120,7 @@ LZO_USE_ASM_TRUE = #
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/lzo/autoconf/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/lzo/autoconf/missing --run makeinfo
 OBJEXT = o
 PACKAGE = lzo
 PACKAGE_BUGREPORT = markus@oberhumer.com
@@ -155,7 +155,7 @@ build_alias =
 build_cpu = x86_64
 build_os = linux-gnu
 build_vendor = unknown
-configure_CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+configure_CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 configure_CPPFLAGS = -DLZO_HAVE_CONFIG_H
 datadir = ${prefix}/share
 exec_prefix = ${prefix}
@@ -166,7 +166,7 @@ host_os = linux-gnu
 host_vendor = unknown
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /home/paldier/asuswrt/release/src/router/lzo/autoconf/install-sh
+install_sh = /home/paldier/384/release/src/router/lzo/autoconf/install-sh
 libdir = /usr/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var

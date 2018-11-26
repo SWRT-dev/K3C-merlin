@@ -541,7 +541,7 @@ static inline uint32_t get_netmask(int cidr)
  */
 static int test_one_class(const struct ip_mask_s *pt, const struct ip_mask_s *pk_tbl, uint32_t *exp_ip, uint32_t exp_cidr)
 {
-	int i, c, found, s_cidr = 30, max_cidr;
+	int i, c, found, s_cidr = 30, max_cidr, ccnt = 0;
 	uint32_t start_net, s, next_s, d, delta, class_mask, m, mask, new_ip = 0;
 	const struct ip_mask_s *p;
 
@@ -595,8 +595,10 @@ static int test_one_class(const struct ip_mask_s *pt, const struct ip_mask_s *pk
 				if ((s & m) == (p->ip & m)) {
 					if (p->cidr < max_cidr)
 						max_cidr = p->cidr;
-					dbg("\t%08x/%d conflicts, max_cidr %d.\n", p->ip, p->cidr, max_cidr);
-					logmessage("", "\t%08x/%d conflicts, max_cidr %d.\n", p->ip, p->cidr, max_cidr);
+					if (++ccnt < 10) {
+						dbg("\t%08x/%d conflicts, max_cidr %d.\n", p->ip, p->cidr, max_cidr);
+						logmessage("", "\t%08x/%d conflicts, max_cidr %d.\n", p->ip, p->cidr, max_cidr);
+					}
 					c++;
 				}
 			}
@@ -756,37 +758,6 @@ static int fill_char_ip_mask_to_ip_mask_s(unsigned int *nr, struct ip_mask_s **p
 
 	(*p)->ip = ((ip[0] & 0xFF) << 24) | ((ip[1] & 0xFF) << 16) |
 	        ((ip[2] & 0xFF) << 8) | (ip[3] & 0xFF);
-	(*p)->cidr = cidr;
-	(*nr)--;
-	(*p)++;
-
-	return 0;
-}
-
-/**
- * Append an unsigned integer format IP/mask to an ip_mask_s structure to an array,
- * if IPv4 address and netmask is valid and array is not full.
- * @nr:		Number of available items in an array specified by @p.
- * @p:		Pointer to an ip_mask_s pointer.
- * @ip:		IPv4 address
- * @cidr:	IPv4 netmask in X.X.X.X or CIDR format.
- * @return:
- * 	0:	OK
- *     -1:	Invalid parameter.
- *     -2:	Out of array space.
- */
-static int fill_uint_to_ip_mask_s(unsigned int *nr, struct ip_mask_s **p, unsigned int ip, unsigned int cidr)
-{
-	if (!nr || !p || !*p || !ip || !cidr || cidr > 32) {
-		dbg("%s: invalid parameter. nr %p p %p ip %x cidr %d\n", __func__, nr, p, ip, cidr);
-		return -1;
-	}
-	if (*nr <= 0) {
-		dbg("%s: Out of array. (ip/cidr 0x%x/%d)\n", __func__, ip, cidr);
-		return -2;
-	}
-
-	(*p)->ip = ip;
 	(*p)->cidr = cidr;
 	(*nr)--;
 	(*p)++;
@@ -980,8 +951,9 @@ static int get_known_networks(unsigned int nr, struct ip_mask_s *tbl, uint32_t e
 
 	/* Exclude network used by USB modem. */
 	if (!(excl & EXCLUDE_NET_USB_MODEM)) {
-		fill_uint_to_ip_mask_s(&nr, &p, IP2UINT(192,168,0,0), 24);
-		fill_uint_to_ip_mask_s(&nr, &p, IP2UINT(192,168,100,0), 24);
+		/* FIXME: Exclude 192.168.0.x and 192.168.100.x if and only if
+		 * USB modem that need one of these networks is connected to DUT.
+		 */
 	}
 
 	/* Exclude LAN */
@@ -1143,7 +1115,7 @@ int test_and_get_free_uint_network(int t_class, uint32_t *exp_ip, uint32_t exp_c
 
 	/* TODO: Get known networks of another features. */
 	nr = ARRAY_SIZE(known_network_tbl);
-	memset(known_network_tbl, 0, nr);
+	memset(known_network_tbl, 0, sizeof(known_network_tbl));
 	get_known_networks(--nr, known_network_tbl, excl);   /* leave last elements */
 
 	for (i = 0, kn = &known_network_tbl[0];
@@ -1276,14 +1248,15 @@ int test_and_get_free_char_network(int t_class, char *ip_cidr_str, uint32_t excl
  * Return first/lowest configured and connected WAN unit.
  * @return:	WAN_UNIT_FIRST ~ WAN_UNIT_MAX
  */
-enum wan_unit_e get_first_configured_connected_wan_unit(void)
+enum wan_unit_e get_first_connected_public_wan_unit(void)
 {
 	int i, wan_unit = WAN_UNIT_MAX;
+	int wan_public = 0;
+	char wan_ip[sizeof("wanx_ipaddr")];
 	char prefix[sizeof("wanXXXXXX_")], link[sizeof("link_wanXXXXXX")];
 
 	for (i = WAN_UNIT_FIRST; i < WAN_UNIT_MAX; ++i) {
-		if (get_dualwan_by_unit(i) == WANS_DUALWAN_IF_NONE ||
-		    !is_wan_connect(i))
+		if (get_dualwan_by_unit(i) == WANS_DUALWAN_IF_NONE || !is_wan_connect(i))
 			continue;
 
 		/* If the WAN unit is configured as static IP, check link status too. */
@@ -1293,15 +1266,22 @@ enum wan_unit_e get_first_configured_connected_wan_unit(void)
 				strlcpy(link, "link_wan", sizeof(link));
 			else
 				snprintf(link, sizeof(link), "link_wan%d", i);
+
 			if (!nvram_get_int(link))
 				continue;
 		}
 
+		snprintf(wan_ip, sizeof(wan_ip), "wan%d_ipaddr", i);
+		wan_public = is_private_subnet(nvram_safe_get(wan_ip));
+		if(wan_public) // wan_public = 0 is public IP, wan_public = 1, 2, 3 is private IP.
+			continue;
 		wan_unit = i;
 		break;
 	}
-
-	return wan_unit;
+	if(WAN_UNIT_MAX == i)
+		return WAN_UNIT_NONE;
+	else
+		return wan_unit;
 }
 
 #ifdef RTCONFIG_IPV6
@@ -1465,8 +1445,7 @@ void reset_ipv6_linklocal_addr(const char *ifname, int flush)
 
 	memset(&ifr, 0, sizeof(ifr));
 	strncpy(ifr.ifr_name, ifname, sizeof(ifr.ifr_name));
-	mac = (ioctl(fd, SIOCGIFHWADDR, &ifr) < 0) ?
-		NULL : ifr.ifr_hwaddr.sa_data;
+	mac = (ioctl(fd, SIOCGIFHWADDR, &ifr) < 0) ? NULL : ifr.ifr_hwaddr.sa_data;
 	close(fd);
 
 	if (mac == NULL)
@@ -1482,8 +1461,10 @@ void reset_ipv6_linklocal_addr(const char *ifname, int flush)
 
 	if (flush)
 		eval("ip", "-6", "addr", "flush", "dev", (char *) ifname);
-	if (inet_ntop(AF_INET6, &addr, buf, sizeof(buf)))
-		eval("ip", "-6", "addr", "add", buf, "dev", (char *) ifname);
+	if (inet_ntop(AF_INET6, &addr, buf, sizeof(buf))) {
+		strlcat(buf, "/64", sizeof(buf));
+		eval("ip", "-6", "addr", "add", buf, "dev", (char *) ifname, "scope", "link");
+	}
 }
 
 int with_ipv6_linklocal_addr(const char *ifname)
@@ -1510,8 +1491,8 @@ const char *ipv6_gateway_address(void)
 	FILE *fp;
 	struct in6_addr addr;
 	char dest[41], nexthop[41], dev[17];
-	int mask, prefix, metric, flags;
-	int maxprefix, minmetric = minmetric;
+	int mask, prefix, maxprefix, flags;
+	unsigned int metric, minmetric = minmetric;
 
 	fp = fopen("/proc/net/ipv6_route", "r");
 	if (fp == NULL) {
@@ -1523,7 +1504,7 @@ const char *ipv6_gateway_address(void)
 	while (fscanf(fp, "%32s%x%*s%*x%32s%x%*x%*x%x%16s\n",
 		      &dest[7], &prefix, &nexthop[7], &metric, &flags, dev) == 6) {
 		/* Skip interfaces that are down and host routes */
-		if ((flags & (RTF_UP | RTF_HOST)) != RTF_UP)
+		if ((flags & (RTF_UP | RTF_HOST | RTF_REJECT)) != RTF_UP)
 			continue;
 
 		/* Skip dst not in "::/0 - 2000::/3" */
@@ -1545,7 +1526,7 @@ const char *ipv6_gateway_address(void)
 				continue;
 			inet_ntop(AF_INET6, &addr, buf, sizeof(buf));
 		} else
-			snprintf(buf, sizeof(buf), "::");
+			strlcpy(buf, "::", sizeof(buf));
 		maxprefix = prefix;
 		minmetric = metric;
 
@@ -1554,7 +1535,7 @@ const char *ipv6_gateway_address(void)
 	}
 	fclose(fp);
 
-	return *buf ? buf : NULL;
+	return (maxprefix < 0) ? NULL : buf;
 }
 #endif
 
@@ -1562,7 +1543,7 @@ int wl_client(int unit, int subunit)
 {
 	char *mode = nvram_safe_get(wl_nvname("mode", unit, subunit));
 
-	return ((strcmp(mode, "sta") == 0) || (strcmp(mode, "wet") == 0));
+	return ((strcmp(mode, "sta") == 0) || (strcmp(mode, "wet") == 0) || (strcmp(mode, "psta") == 0) || (strcmp(mode, "psr") == 0));
 }
 
 int foreach_wif(int include_vifs, void *param,
@@ -1861,13 +1842,24 @@ int is_intf_up(const char* ifname)
 	if (!((sfd = socket(AF_INET, SOCK_RAW, IPPROTO_RAW)) < 0))
 	{
 		strcpy(ifr.ifr_name, ifname);
-		if (!ioctl(sfd, SIOCGIFFLAGS, &ifr) && (ifr.ifr_flags & IFF_UP))
-			ret = 1;
+		if (ioctl(sfd, SIOCGIFFLAGS, &ifr))
+			ret = -1;			/* interface not exist */
+		else if((ifr.ifr_flags & IFF_UP))
+			ret = 1;			/* interface exist and up */
 
 		close(sfd);
 	}
 
 	return ret;
+}
+
+int aimesh_re_mode(void)
+{
+#ifdef RTCONFIG_LANTIQ
+	return (sw_mode() == SW_MODE_AP && nvram_get_int("wlc_psta") == 2);
+#else
+	return 0;
+#endif
 }
 
 char *wl_nvprefix(char *prefix, int prefix_size, int unit, int subunit)
@@ -1876,6 +1868,8 @@ char *wl_nvprefix(char *prefix, int prefix_size, int unit, int subunit)
 		strcpy(prefix, "wl_");
 #ifdef RTCONFIG_LANTIQ
 	else if(client_mode() && unit == nvram_get_int("wlc_band"))
+		snprintf(prefix, prefix_size, "wl%d.%d_", unit, 1);
+	else if(aimesh_re_mode())
 		snprintf(prefix, prefix_size, "wl%d.%d_", unit, 1);
 #endif
 	else if(subunit > 0)
@@ -2032,24 +2026,18 @@ char *nvram_get_r(const char *name, char *buf, size_t buflen)
  */
 char *nvram_pf_get(char *prefix, const char *name)
 {
+	char tmp[128], *t = tmp, *v;
 	size_t size;
-	char tmp[128], *t = tmp, *v = NULL;
 
 	if (!prefix || !name || *name == '\0')
 		return NULL;
 
-	if (!isprint(*prefix) || !isprint(*name)) {
-		dbg("%s: Invalid prefix 0x%x [%s] or name 0x%x [%s]?\n",
-			__func__, *prefix, prefix, *name, name);
-		return NULL;
-	}
-
 	size = strlen(prefix) + strlen(name) + 1;
-	if (size > sizeof(tmp))
+	if (size > sizeof(tmp)) {
 		t = malloc(size);
-
-	if (!t)
-		return NULL;
+		if (!t)
+			return NULL;
+	}
 
 	v = nvram_get(strcat_r(prefix, name, tmp));
 
@@ -2068,24 +2056,19 @@ char *nvram_pf_get(char *prefix, const char *name)
  */
 int nvram_pf_set(char *prefix, const char *name, const char *value)
 {
-	int r = 0;
-	size_t size;
 	char tmp[128], *t = tmp;
+	size_t size;
+	int r;
 
 	if (!prefix || !name || *name == '\0')
-		return -1;
-
-	if (!isprint(*prefix) || !isprint(*name)) {
-		dbg("%s: Invalid prefix 0x%x or name 0x%x?\n", __func__, *prefix, *name);
-		return -2;
-	}
+		return -EINVAL;
 
 	size = strlen(prefix) + strlen(name) + 1;
-	if (size > sizeof(tmp))
+	if (size > sizeof(tmp)) {
 		t = malloc(size);
-
-	if (!t)
-		return -3;
+		if (!t)
+			return -ENOMEM;
+	}
 
 	r = nvram_set(strcat_r(prefix, name, tmp), value);
 
@@ -2358,6 +2341,52 @@ char *get_productid(void)
 int backup_rx;
 int backup_tx;
 int backup_set = 0;
+
+/* Looking for a ifino_s by interface name.
+ * @ifinotbl:
+ * @ifname:
+ * @return:
+ * 	NULL		not found or invalid parameter;
+ *  otherwise		pointer to struct ifname_ino
+ */
+struct ifino_s *ifname_ino_ptr(struct ifname_ino_tbl *ifinotbl, const char *ifname)
+{
+	int i;
+	struct ifino_s *ret = NULL, *p;
+
+	if (!ifinotbl || !ifname || *ifname == '\0')
+		return NULL;
+
+	for (i = 0, p = &ifinotbl->items[0]; i < ifinotbl->nr_items; ++i, ++p) {
+		if (strcmp(p->ifname, ifname))
+			continue;
+		ret = p;
+		break;
+	}
+
+	return ret;
+}
+
+/* Get inode of a interface.
+ * @ifname:
+ * @return:
+ * 	0	error
+ *  otherwise	inode of @ifname
+ */
+ino_t get_iface_inode(const char *ifname)
+{
+	struct stat s;
+	char path[sizeof(SYS_CLASS_NET) + 1 + IFNAMSIZ + 6];
+
+	if (!ifname || *ifname == '\0')
+		return 0;
+
+	snprintf(path, sizeof(path), "%s/%s", SYS_CLASS_NET, ifname);
+	if (stat(path, &s))
+		return 0;
+
+	return s.st_ino;
+}
 
 unsigned int netdev_calc(char *ifname, char *ifname_desc, unsigned long *rx, unsigned long *tx, char *ifname_desc2, unsigned long *rx2, unsigned long *tx2, char *nv_lan_ifname, char *nv_lan_ifnames)		
 {
@@ -2710,7 +2739,7 @@ int is_dpsta(int unit)
 	char ifname[80], name[80], *next;
 	int idx = 0;
 
-	if (nvram_get_int("wlc_dpsta") == 1) {
+	if (dpsta_mode()) {
 		foreach (ifname, nvram_safe_get("wl_ifnames"), next) {
 			if (idx == unit) break;
 			idx++;
@@ -2725,16 +2754,6 @@ int is_dpsta(int unit)
 	return 0;
 }
 #endif
-
-int is_dpsr(int unit)
-{
-	if (nvram_get_int("wlc_dpsta") == 2) {
-		if ((num_of_wl_if() == 2) || !unit || unit == nvram_get_int("dpsta_band"))
-			return 1;
-	}
-
-	return 0;
-}
 
 int is_psta(int unit)
 {
@@ -2759,11 +2778,10 @@ int is_psr(int unit)
 #ifdef RTCONFIG_DPSTA
 		is_dpsta(unit) ||
 #endif
-		is_dpsr(unit) ||
 #if defined(RTCONFIG_AMAS) && defined(RTCONFIG_DPSTA)
 		dpsta_mode() ||
 #endif
-		((nvram_get_int("wlc_band") == unit) && !dpsr_mode()
+		((nvram_get_int("wlc_band") == unit)
 #ifdef RTCONFIG_DPSTA
 		&& !dpsta_mode()
 #endif
@@ -3656,12 +3674,9 @@ char *if_nametoalias(char *name, char *alias, int alias_len)
 
 			if (!strcmp(ifname, name)) {
 #if defined(CONFIG_BCMWL5) || defined(RTCONFIG_BCMARM)
-				if (nvram_get_int("sw_mode") == SW_MODE_REPEATER
-#ifdef RTCONFIG_PROXYSTA
-					|| dpsr_mode()
-#ifdef RTCONFIG_DPSTA
+				if (repeater_mode()
+#if defined(RTCONFIG_PROXYSTA) && defined(RTCONFIG_DPSTA)
 					|| dpsta_mode()
-#endif
 #endif
 					)
 					snprintf(alias, alias_len, "%s", unit ? (unit == 2 ? "5G1" : "5G") : "2G");
@@ -3805,7 +3820,9 @@ int disable_ppa_wan(char *wan_ifname)
 {
 	char ppa_cmd[255] = {0};
 
-	if(!client_mode()){
+	if(client_mode() || aimesh_re_mode()){
+		system("ppacmd setppefp -f 1");
+	}else{
 		system("ppacmd setppefp -f 0");
 	}
 	snprintf(ppa_cmd, sizeof(ppa_cmd), "ppacmd delwan -i %s", wan_ifname);

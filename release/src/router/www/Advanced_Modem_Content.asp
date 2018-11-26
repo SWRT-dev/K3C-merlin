@@ -775,7 +775,7 @@ function change_apn_mode(){
 						</tr>
 					</table>
 				</div>
-				<div style="margin:5px;"><img src="/images/New_ui/export/line_export.png"></div>
+				<div style="margin:5px;" class="splitLine"></div>
 	      		<div class="formfontdesc"><#HSDPAConfig_hsdpa_enable_hint1#></div>
 					<table  width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable" id="WANscap">
 						<thead>
@@ -787,10 +787,6 @@ function change_apn_mode(){
 							<th><#wan_type#></th>
 							<td align="left">
 								<select class="input_option" name="wan_unit" onchange="change_wan_unit(this);"></select>
-								<!--select id="dsltmp_transmode" name="dsltmp_transmode" class="input_option" style="margin-left:7px;" onChange="change_dsl_transmode(this);">
-									<option value="atm" <% nvram_match("dsltmp_transmode", "atm", "selected"); %>>ADSL WAN (ATM)</option>
-									<option value="ptm" <% nvram_match("dsltmp_transmode", "ptm", "selected"); %>>VDSL WAN (PTM)</option>
-								</select-->
 							</td>
 						</tr>
 					</table>

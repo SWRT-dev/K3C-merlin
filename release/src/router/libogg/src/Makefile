@@ -90,16 +90,16 @@ DIST_SOURCES = $(libogg_la_SOURCES) $(test_bitwise_SOURCES) \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/libogg/missing --run aclocal-1.10
-AMTAR = ${SHELL} /home/paldier/asuswrt/release/src/router/libogg/missing --run tar
+ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/libogg/missing --run aclocal-1.10
+AMTAR = ${SHELL} /home/paldier/384/release/src/router/libogg/missing --run tar
 AR = mips-openwrt-linux-uclibc-ar
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/libogg/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/libogg/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/libogg/missing --run automake-1.10
+AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/libogg/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/libogg/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/libogg/missing --run automake-1.10
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O20 -ffast-math -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
+CFLAGS = -O20 -ffast-math -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
 CXX = mips-openwrt-linux-uclibc-g++
@@ -107,7 +107,7 @@ CXXCPP = mips-openwrt-linux-uclibc-g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEBUG = -g -Wall -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
+DEBUG = -g -Wall -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 DSYMUTIL = 
@@ -136,7 +136,7 @@ LIB_REVISION = 0
 LN_S = ln -s
 LTLIBOBJS =  ${LIBOBJDIR}memcmp$U.lo
 MAINT = #
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/libogg/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/libogg/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NMEDIT = 
 OBJEXT = o
@@ -148,7 +148,7 @@ PACKAGE_STRING =
 PACKAGE_TARNAME = 
 PACKAGE_VERSION = 
 PATH_SEPARATOR = :
-PROFILE = -Wall -W -pg -g -O20 -ffast-math -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
+PROFILE = -Wall -W -pg -g -O20 -ffast-math -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
 RANLIB = mips-openwrt-linux-uclibc-ranlib
 SED = /bin/sed
 SET_MAKE = 
@@ -160,10 +160,10 @@ STRIP = mips-openwrt-linux-uclibc-strip -R .note -R .comment
 USIZE16 = unsigned short
 USIZE32 = unsigned int
 VERSION = 1.1.4
-abs_builddir = /home/paldier/asuswrt/release/src/router/libogg/src
-abs_srcdir = /home/paldier/asuswrt/release/src/router/libogg/src
-abs_top_builddir = /home/paldier/asuswrt/release/src/router/libogg
-abs_top_srcdir = /home/paldier/asuswrt/release/src/router/libogg
+abs_builddir = /home/paldier/384/release/src/router/libogg/src
+abs_srcdir = /home/paldier/384/release/src/router/libogg/src
+abs_top_builddir = /home/paldier/384/release/src/router/libogg
+abs_top_srcdir = /home/paldier/384/release/src/router/libogg
 ac_ct_CC = 
 ac_ct_CXX = 
 ac_ct_F77 = 
@@ -192,7 +192,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = $(SHELL) /home/paldier/asuswrt/release/src/router/libogg/install-sh
+install_sh = $(SHELL) /home/paldier/384/release/src/router/libogg/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -546,10 +546,10 @@ check: $(noinst_PROGRAMS)
 	./test_framing$(EXEEXT)
 
 debug:
-	$(MAKE) all CFLAGS="-g -Wall -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections"
+	$(MAKE) all CFLAGS="-g -Wall -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections"
 
 profile:
-	$(MAKE) all CFLAGS="-Wall -W -pg -g -O20 -ffast-math -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections"
+	$(MAKE) all CFLAGS="-Wall -W -pg -g -O20 -ffast-math -fsigned-char -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections"
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

@@ -209,7 +209,7 @@ function get_client_used_apps_info(client_index, used_data_array, top5_info, typ
 				if(client_index == undefined){
 					client_index = "0";
 				}
-
+				
 				document.getElementById('top_client_name').innerHTML = total_apps_array[client_index].name;
 				if(document.getElementById('traffic_option').value == "both"){
 					total_traffic = total_apps_array[client_index].rx + total_apps_array[client_index].tx;
@@ -1622,11 +1622,15 @@ function updateTrafficAnalyzer() {
 																					};
 
 																				  $.get("tm_eula.htm", function(data){
-																				  	document.getElementById('agreement_panel').innerHTML= data;
-                                            var url = "https://www.asus.com/Microsite/networks/Trend_Micro_EULA/";
-                                        		$("#eula_url").attr("href",url);
-																				  	adjust_TM_eula_height("agreement_panel");
-																				  });
+																					document.getElementById('agreement_panel').innerHTML= data;
+																						var url = "https://www.asus.com/Microsite/networks/Trend_Micro_EULA/";
+																						$("#eula_url").attr("href",url);
+																						url = "https://www.trendmicro.com/en_us/about/legal/privacy-policy-product.html"
+																						$("#tm_eula_url").attr("href",url);
+																						url = "https://success.trendmicro.com/data-collection-disclosure";
+																						$("#tm_disclosure_url").attr("href",url);
+																						adjust_TM_eula_height("agreement_panel");
+																					});
 
 																					dr_advise();
 																					cal_agreement_block();
@@ -1651,7 +1655,7 @@ function updateTrafficAnalyzer() {
 											</tr>
 										</table>
 									</div>
-									<div style="margin-left:5px;margin-bottom:10px"><img src="/images/New_ui/export/line_export.png"></div>
+									<div style="margin:0 0 10px 5px;" class="splitLine"></div>
 									<div class="formfontdesc"><#Traffic_Analyzer_desc#></div>
 									<div style="margin-left:10px;">
 										<label style="font-size:16px;"><#Statistic_last_date#>:</label>

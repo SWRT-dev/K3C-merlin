@@ -93,11 +93,9 @@ DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_emptyarray.m4 \
 	$(top_srcdir)/m4/ax_socklen_t.m4 \
-	$(top_srcdir)/m4/ax_varargs.m4 $(top_srcdir)/m4/libtool.m4 \
-	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
-	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
-	$(top_srcdir)/m4/pkg.m4 $(top_srcdir)/version.m4 \
-	$(top_srcdir)/compat.m4 $(top_srcdir)/configure.ac
+	$(top_srcdir)/m4/ax_varargs.m4 $(top_srcdir)/m4/pkg.m4 \
+	$(top_srcdir)/version.m4 $(top_srcdir)/compat.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -185,20 +183,20 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/openvpn/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/openvpn/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = mips-openwrt-linux-uclibc-ar
 AS = mips-openwrt-linux-uclibc-as
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/openvpn/missing autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/openvpn/missing autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/openvpn/missing automake-1.14
+AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/openvpn/missing autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/openvpn/missing autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/openvpn/missing automake-1.14
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -ffunction-sections -fdata-sections -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl
+CFLAGS = -Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -ffunction-sections -fdata-sections -I/home/paldier/384/release/src-lantiq/router/openssl/include/openssl 
 CPP = mips-openwrt-linux-uclibc-gcc -E
-CPPFLAGS = -I/home/paldier/asuswrt/release/src-lantiq/router/lzo/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openpam/include -I/home/paldier/asuswrt/release/src-lantiq/router/shared -I/home/paldier/asuswrt/release/src-lantiq/include
+CPPFLAGS = -I/home/paldier/384/release/src-lantiq/router/lzo/include -I/home/paldier/384/release/src-lantiq/router/openssl/include -I/home/paldier/384/release/src-lantiq/router/openpam/include -I/home/paldier/384/release/src-lantiq/router/shared -I/home/paldier/384/release/src-lantiq/include
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -222,7 +220,7 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 IPROUTE = /usr/sbin/ip
 LD = mips-openwrt-linux-uclibc-ld
-LDFLAGS = --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/asuswrt/release/src-lantiq/router/nvram  -lnvram -L/home/paldier/asuswrt/release/src-lantiq/router/shared -lshared   -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -lcrypto -lssl -L/home/paldier/asuswrt/release/src-lantiq/router/zlib -lz -lpthread -ldl -L/home/paldier/asuswrt/release/src-lantiq/router/lzo/src/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/openpam/lib/libpam/.libs -ffunction-sections -fdata-sections -Wl,--gc-sections
+LDFLAGS = --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -L/home/paldier/384/release/src-lantiq/router/nvram  -lnvram -L/home/paldier/384/release/src-lantiq/router/shared -lshared  -L/home/paldier/384/release/src-lantiq/router/openssl -lcrypto -lssl -L/home/paldier/384/release/src-lantiq/router/zlib -lz -lpthread -ldl -L/home/paldier/384/release/src-lantiq/router/lzo/src/.libs -L/home/paldier/384/release/src-lantiq/router/openpam/lib/libpam/.libs -ffunction-sections -fdata-sections -Wl,--gc-sections
 LIBOBJS = 
 LIBPAM_CFLAGS = 
 LIBPAM_LIBS = -lpam
@@ -233,7 +231,7 @@ LN_S = ln -s
 LTLIBOBJS = 
 LZO_CFLAGS = 
 LZO_LIBS = -llzo2
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/openvpn/missing makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/openvpn/missing makeinfo
 MAN2HTML = 
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
@@ -242,12 +240,12 @@ NM = mips-openwrt-linux-uclibc-nm
 NMEDIT = 
 OBJDUMP = mips-openwrt-linux-uclibc-objdump
 OBJEXT = o
-OPENSSL_CRYPTO_CFLAGS = -I/home/paldier/asuswrt/release/src-lantiq/router/openssl
-OPENSSL_CRYPTO_LIBS = -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -lcrypto
-OPENSSL_SSL_CFLAGS = -I/home/paldier/asuswrt/release/src-lantiq/router/openssl
-OPENSSL_SSL_LIBS = -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -lssl
-OPTIONAL_CRYPTO_CFLAGS =  -I/home/paldier/asuswrt/release/src-lantiq/router/openssl -I/home/paldier/asuswrt/release/src-lantiq/router/openssl
-OPTIONAL_CRYPTO_LIBS =  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -lssl -L/home/paldier/asuswrt/release/src-lantiq/router/openssl -lcrypto
+OPENSSL_CRYPTO_CFLAGS = -I/home/paldier/384/release/src-lantiq/router/openssl
+OPENSSL_CRYPTO_LIBS = -L/home/paldier/384/release/src-lantiq/router/openssl -lcrypto
+OPENSSL_SSL_CFLAGS = -I/home/paldier/384/release/src-lantiq/router/openssl
+OPENSSL_SSL_LIBS = -L/home/paldier/384/release/src-lantiq/router/openssl -lssl
+OPTIONAL_CRYPTO_CFLAGS =  -I/home/paldier/384/release/src-lantiq/router/openssl -I/home/paldier/384/release/src-lantiq/router/openssl
+OPTIONAL_CRYPTO_LIBS =  -L/home/paldier/384/release/src-lantiq/router/openssl -lssl -L/home/paldier/384/release/src-lantiq/router/openssl -lcrypto
 OPTIONAL_DL_LIBS = -ldl
 OPTIONAL_LZO_CFLAGS = 
 OPTIONAL_LZO_LIBS = -llzo2
@@ -267,8 +265,8 @@ PATH_SEPARATOR = :
 PKCS11_HELPER_CFLAGS = 
 PKCS11_HELPER_LIBS = 
 PKG_CONFIG = /usr/bin/pkg-config
-PKG_CONFIG_LIBDIR = /home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/local/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig
-PKG_CONFIG_PATH = /home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig
+PKG_CONFIG_LIBDIR = /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/local/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig
+PKG_CONFIG_PATH = /home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig
 PLUGIN_AUTH_PAM_CFLAGS = 
 PLUGIN_AUTH_PAM_LIBS = -lpam
 POLARSSL_CFLAGS = 
@@ -287,10 +285,10 @@ TAP_WIN_COMPONENT_ID = tap0901
 TAP_WIN_MIN_MAJOR = 9
 TAP_WIN_MIN_MINOR = 9
 VERSION = 2.3.2
-abs_builddir = /home/paldier/asuswrt/release/src/router/openvpn/src
-abs_srcdir = /home/paldier/asuswrt/release/src/router/openvpn/src
-abs_top_builddir = /home/paldier/asuswrt/release/src/router/openvpn
-abs_top_srcdir = /home/paldier/asuswrt/release/src/router/openvpn
+abs_builddir = /home/paldier/384/release/src/router/openvpn/src
+abs_srcdir = /home/paldier/384/release/src/router/openvpn/src
+abs_top_builddir = /home/paldier/384/release/src/router/openvpn
+abs_top_srcdir = /home/paldier/384/release/src/router/openvpn
 ac_ct_AR = 
 ac_ct_CC = 
 ac_ct_DUMPBIN = 
@@ -319,7 +317,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/asuswrt/release/src/router/openvpn/install-sh
+install_sh = ${SHELL} /home/paldier/384/release/src/router/openvpn/install-sh
 libdir = /usr/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

@@ -1,6 +1,6 @@
 
 DESTDIR=
-KERNEL_HEADERS=-I/home/paldier/asuswrt/release/src-lantiq/router/kernel_header/include
+KERNEL_HEADERS=-I/home/paldier/384/release/src-lantiq/router/kernel_header/include
 
 INSTALL=/usr/bin/install -c
 

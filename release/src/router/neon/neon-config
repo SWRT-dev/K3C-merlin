@@ -73,12 +73,12 @@ while test $# -gt 0; do
        	;;
 
     --libs)
-        LIBS="-lneon  -lssl -lcrypto   -lxml2 -lm"
+        LIBS="-lneon  -lssl -lcrypto   -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -lxml2 -lm"
 	# Don't add standard library paths
         if test "$prefix" != "/usr"; then
            LIBS="-L${libdir} ${LIBS}"
         fi
-	echo  -L/home/paldier/asuswrt/release/src-lantiq/router/openssl/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/lib -L/home/paldier/asuswrt/release/src-lantiq/router/libxml2/.libs -L/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/asuswrt/release/src-lantiq/router/openssl ${LIBS}
+	echo  -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib -L/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib ${LIBS}
 	;;
 
     --la-file)

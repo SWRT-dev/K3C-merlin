@@ -29,7 +29,7 @@ sbindir=${exec_prefix}/sbin
 
 # Plugin for pppd on Linux
 LINUX_KERNELMODE_PLUGIN=rp-pppoe.so
-PPPD_INCDIR=/home/paldier/asuswrt/release/src-lantiq/router/pppd
+PPPD_INCDIR=/home/paldier/384/release/src-lantiq/router/pppd
 
 # Licensed version
 LIC_INCDIR=
@@ -58,7 +58,7 @@ PATHS='-DPPPOE_PATH="$(PPPOE_PATH)"' '-DPPPD_PATH="$(PPPD_PATH)"' \
 	'-DPLUGIN_PATH="$(PLUGIN_PATH)"' \
 	'-DPPPOE_SERVER_OPTIONS="$(PPPOESERVER_PPPD_OPTIONS)"'
 
-CFLAGS= -g -O2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -idirafter /home/paldier/asuswrt/release/src-lantiq/router/kernel_header/include -fno-strict-aliasing -Wall -Wstrict-prototypes $(LIC_INCDIR) $(DEFINES) $(LIC_DEFINE) $(PATHS) -Ilibevent
+CFLAGS= -g -O2 -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -idirafter /home/paldier/384/release/src-lantiq/router/kernel_header/include -fno-strict-aliasing -Wall -Wstrict-prototypes $(LIC_INCDIR) $(DEFINES) $(LIC_DEFINE) $(PATHS) -Ilibevent
 TARGETS=pppoe pppoe-server pppoe-sniff pppoe-relay rp-pppoe.so
 PPPOE_SERVER_LIBS=$(LIC_LIBDIR) $(LIC_LIB)
 LDFLAGS= 

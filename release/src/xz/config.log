@@ -43,8 +43,8 @@ PATH: /projects/hnd/tools/linux/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin
 PATH: /projects/hnd/tools/linux/hndtools-arm-linux-2.6.36-uclibc-4.5.3/arm-linux/bin
 PATH: /projects/hnd/tools/linux/hndtools-arm-linux-2.6.36-uclibc-4.5.3/usr/bin
 PATH: /projects/hnd/tools/linux/hndtools-armeabi-2011.09/bin"
-PATH: /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/bin
-PATH: /home/paldier/asuswrt/release/src-lantiq/tools/host/bin
+PATH: /home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/bin
+PATH: /home/paldier/384/release/src-lantiq/tools/host/bin
 
 
 ## ----------- ##
@@ -122,31 +122,31 @@ gcc: fatal error: no input files
 compilation terminated.
 configure:5043: $? = 4
 configure:5063: checking whether the C compiler works
-configure:5085: gcc -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
+configure:5085: gcc -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:5089: $? = 0
 configure:5137: result: yes
 configure:5140: checking for C compiler default output file name
 configure:5142: result: a.out
 configure:5148: checking for suffix of executables
-configure:5155: gcc -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
+configure:5155: gcc -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:5159: $? = 0
 configure:5181: result: 
 configure:5203: checking whether we are cross compiling
-configure:5211: gcc -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
+configure:5211: gcc -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:5215: $? = 0
 configure:5222: ./conftest
 configure:5226: $? = 0
 configure:5241: result: no
 configure:5246: checking for suffix of object files
-configure:5268: gcc -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:5268: gcc -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:5272: $? = 0
 configure:5293: result: o
 configure:5297: checking whether we are using the GNU C compiler
-configure:5316: gcc -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:5316: gcc -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:5316: $? = 0
 configure:5325: result: yes
@@ -155,7 +155,7 @@ configure:5354: gcc -c -g  conftest.c >&5
 configure:5354: $? = 0
 configure:5395: result: yes
 configure:5412: checking for gcc option to accept ISO C89
-configure:5475: gcc  -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:5475: gcc  -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:5475: $? = 0
 configure:5488: result: none needed
@@ -168,7 +168,7 @@ configure:5550: result: yes
 configure:5569: checking dependency style of gcc
 configure:5680: result: gcc3
 configure:5695: checking for gcc option to accept ISO C99
-configure:5844: gcc  -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:5844: gcc  -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:89:29: error: expected ';', ',' or ')' before 'text'
  test_restrict (ccp restrict text)
@@ -372,7 +372,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:5844: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:5844: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'test_varargs':
 conftest.c:110:9: warning: variable 'fnumber' set but not used [-Wunused-but-set-variable]
@@ -491,62 +491,62 @@ configure:6207: result: /bin/grep
 configure:6212: checking for egrep
 configure:6274: result: /bin/grep -E
 configure:6279: checking for ANSI C header files
-configure:6299: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6299: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6299: $? = 0
-configure:6372: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
+configure:6372: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c  >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6372: $? = 0
 configure:6372: ./conftest
 configure:6372: $? = 0
 configure:6383: result: yes
 configure:6396: checking for sys/types.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for sys/stat.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for stdlib.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for string.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for memory.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for strings.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for inttypes.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for stdint.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6396: checking for unistd.h
-configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6396: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6396: $? = 0
 configure:6396: result: yes
 configure:6409: checking minix/config.h usability
-configure:6409: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6409: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:82:26: fatal error: minix/config.h: No such file or directory
  #include <minix/config.h>
@@ -698,12 +698,12 @@ configure:6409: result: no
 configure:6409: checking for minix/config.h
 configure:6409: result: no
 configure:6430: checking whether it is safe to define __EXTENSIONS__
-configure:6448: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:6448: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6448: $? = 0
 configure:6455: result: yes
 configure:6638: checking for the pthreads library -lpthreads
-configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT    conftest.c -lpthreads  >&5
+configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT    conftest.c -lpthreads  >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:59:22: warning: null argument where non-null required (argument 1) [-Wnonnull]
@@ -785,7 +785,7 @@ configure: failed program was:
 | }
 configure:6680: result: no
 configure:6583: checking whether pthreads work without any flags
-configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT    conftest.c   >&5
+configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT    conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:59:22: warning: null argument where non-null required (argument 1) [-Wnonnull]
@@ -798,7 +798,7 @@ conftest.c:60:22: warning: null argument where non-null required (argument 3) [-
 conftest.c:58:27: warning: 'th' is used uninitialized in this function [-Wuninitialized]
  pthread_t th; pthread_join(th, 0);
                            ^
-/tmp/cczebrBb.o: In function `main':
+/tmp/ccCixM4B.o: In function `main':
 conftest.c:(.text.startup+0x9): undefined reference to `pthread_join'
 conftest.c:(.text.startup+0x26): undefined reference to `__pthread_register_cancel'
 conftest.c:(.text.startup+0x33): undefined reference to `pthread_create'
@@ -871,7 +871,7 @@ configure: failed program was:
 | }
 configure:6680: result: no
 configure:6588: checking whether pthreads work with -Kthread
-configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Kthread   conftest.c   >&5
+configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Kthread   conftest.c   >&5
 gcc: error: unrecognized command line option '-Kthread'
 configure:6671: $? = 1
 configure: failed program was:
@@ -940,7 +940,7 @@ configure: failed program was:
 | }
 configure:6680: result: no
 configure:6588: checking whether pthreads work with -kthread
-configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -kthread   conftest.c   >&5
+configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -kthread   conftest.c   >&5
 gcc: error: unrecognized command line option '-kthread'
 configure:6671: $? = 1
 configure: failed program was:
@@ -1009,7 +1009,7 @@ configure: failed program was:
 | }
 configure:6680: result: no
 configure:6638: checking for the pthreads library -llthread
-configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT    conftest.c -llthread  >&5
+configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT    conftest.c -llthread  >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:59:22: warning: null argument where non-null required (argument 1) [-Wnonnull]
@@ -1091,7 +1091,7 @@ configure: failed program was:
 | }
 configure:6680: result: no
 configure:6588: checking whether pthreads work with -pthread
-configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -pthread   conftest.c   >&5
+configure:6671: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -pthread   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:59:22: warning: null argument where non-null required (argument 1) [-Wnonnull]
@@ -1107,7 +1107,7 @@ conftest.c:58:27: warning: 'th' is used uninitialized in this function [-Wuninit
 configure:6671: $? = 0
 configure:6680: result: yes
 configure:6699: checking for joinable pthread attribute
-configure:6714: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -pthread   conftest.c   >&5
+configure:6714: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -pthread   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:6714: $? = 0
 configure:6720: result: PTHREAD_CREATE_JOINABLE
@@ -1126,7 +1126,7 @@ configure:7189: result: yes
 configure:7201: checking for BSD- or MS-compatible name lister (nm)
 configure:7250: result: nm
 configure:7380: checking the name lister (nm) interface
-configure:7387: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:7387: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:7390: nm "conftest.o"
 configure:7393: output
@@ -1153,7 +1153,7 @@ configure:8131: result: no
 configure:8158: checking how to associate runtime and link libraries
 configure:8185: result: printf %s\n
 configure:8309: checking for archiver @FILE support
-configure:8326: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:8326: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:8326: $? = 0
 configure:8329: ar cru libconftest.a @conftest.lst >&5
@@ -1167,18 +1167,18 @@ configure:8437: result: strip
 configure:8509: checking for ranlib
 configure:8536: result: ranlib
 configure:8638: checking command to parse nm output from gcc -std=gnu99 object
-configure:8758: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:8758: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:8761: $? = 0
 configure:8765: nm conftest.o \| sed -n -e 's/^.*[ ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ ][ ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' \> conftest.nm
 configure:8768: $? = 0
-configure:8834: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c conftstm.o >&5
+configure:8834: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c conftstm.o >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:8837: $? = 0
 configure:8875: result: ok
 configure:8912: checking for sysroot
 configure:8942: result: no
-configure:9019: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:9019: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:9022: $? = 0
 configure:9211: checking for mt
@@ -1188,14 +1188,14 @@ configure:9261: checking if mt is a manifest tool
 configure:9267: mt '-?'
 configure:9275: result: no
 configure:9914: checking for dlfcn.h
-configure:9914: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:9914: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:9914: $? = 0
 configure:9914: result: yes
 configure:10418: checking for objdir
 configure:10433: result: .libs
 configure:10704: checking if gcc -std=gnu99 supports -fno-rtti -fno-exceptions
-configure:10722: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  -fno-rtti -fno-exceptions conftest.c >&5
+configure:10722: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  -fno-rtti -fno-exceptions conftest.c >&5
 cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C [enabled by default]
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:10726: $? = 0
@@ -1203,7 +1203,7 @@ configure:10739: result: no
 configure:11066: checking for gcc -std=gnu99 option to produce PIC
 configure:11073: result: -fPIC -DPIC
 configure:11081: checking if gcc -std=gnu99 PIC flag -fPIC -DPIC works
-configure:11099: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  -fPIC -DPIC -DPIC conftest.c >&5
+configure:11099: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  -fPIC -DPIC -DPIC conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:11103: $? = 0
 configure:11116: result: yes
@@ -1211,7 +1211,7 @@ configure:11145: checking if gcc -std=gnu99 static flag -static works
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:11173: result: yes
 configure:11188: checking if gcc -std=gnu99 supports -c -o file.o
-configure:11209: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  -o out/conftest2.o conftest.c >&5
+configure:11209: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  -o out/conftest2.o conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:11213: $? = 0
 configure:11235: result: yes
@@ -1220,14 +1220,14 @@ configure:11290: result: yes
 configure:11323: checking whether the gcc -std=gnu99 linker (ld -m elf_x86_64) supports shared libraries
 configure:12480: result: yes
 configure:12517: checking whether -lc should be explicitly linked in
-configure:12525: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:12525: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:12528: $? = 0
 configure:12543: gcc -std=gnu99 -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
 configure:12546: $? = 0
 configure:12560: result: no
 configure:12720: checking dynamic linker characteristics
-configure:13220: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -Wl,-rpath -Wl,/foo conftest.c   >&5
+configure:13220: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   -Wl,-rpath -Wl,/foo conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:13220: $? = 0
 configure:13454: result: GNU/Linux ld.so
@@ -1265,7 +1265,7 @@ configure:14860: result: yes
 configure:14867: checking for shared library run path origin
 configure:14880: result: done
 configure:15337: checking for CFPreferencesCopyAppValue
-configure:15355: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   -Wl,-framework -Wl,CoreFoundation >&5
+configure:15355: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   -Wl,-framework -Wl,CoreFoundation >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:57:42: fatal error: CoreFoundation/CFPreferences.h: No such file or directory
  #include <CoreFoundation/CFPreferences.h>
@@ -1339,7 +1339,7 @@ configure: failed program was:
 | }
 configure:15364: result: no
 configure:15371: checking for CFLocaleCopyCurrent
-configure:15389: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   -Wl,-framework -Wl,CoreFoundation >&5
+configure:15389: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   -Wl,-framework -Wl,CoreFoundation >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:57:37: fatal error: CoreFoundation/CFLocale.h: No such file or directory
  #include <CoreFoundation/CFLocale.h>
@@ -1413,7 +1413,7 @@ configure: failed program was:
 | }
 configure:15398: result: no
 configure:15447: checking for GNU gettext in libc
-configure:15467: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:15467: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:15467: $? = 0
 configure:15476: result: yes
@@ -1422,7 +1422,7 @@ configure:16084: result: yes
 configure:16087: checking where the gettext function comes from
 configure:16098: result: libc
 configure:16168: checking fcntl.h usability
-configure:16168: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16168: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16168: $? = 0
 configure:16168: result: yes
@@ -1433,7 +1433,7 @@ configure:16168: result: yes
 configure:16168: checking for fcntl.h
 configure:16168: result: yes
 configure:16168: checking limits.h usability
-configure:16168: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16168: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16168: $? = 0
 configure:16168: result: yes
@@ -1444,7 +1444,7 @@ configure:16168: result: yes
 configure:16168: checking for limits.h
 configure:16168: result: yes
 configure:16168: checking sys/time.h usability
-configure:16168: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16168: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16168: $? = 0
 configure:16168: result: yes
@@ -1455,7 +1455,7 @@ configure:16168: result: yes
 configure:16168: checking for sys/time.h
 configure:16168: result: yes
 configure:16187: checking for stdbool.h that conforms to C99
-configure:16254: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16254: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:112:14: warning: the address of 's' will always evaluate as 'true' [-Waddress]
@@ -1494,10 +1494,10 @@ conftest.c:117:39: warning: the address of 'p' will always evaluate as 'true' [-
 configure:16254: $? = 0
 configure:16261: result: yes
 configure:16263: checking for _Bool
-configure:16263: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16263: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16263: $? = 0
-configure:16263: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16263: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:99:20: error: expected expression before ')' token
@@ -1610,20 +1610,20 @@ configure: failed program was:
 | }
 configure:16263: result: yes
 configure:16281: checking for uint8_t
-configure:16281: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16281: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16281: $? = 0
 configure:16281: result: yes
 configure:16295: checking for uint16_t
-configure:16295: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16295: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16295: $? = 0
 configure:16295: result: yes
 configure:16307: checking for int32_t
-configure:16307: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16307: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16307: $? = 0
-configure:16307: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16307: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:103:53: warning: integer overflow in expression [-Woverflow]
@@ -1746,15 +1746,15 @@ configure: failed program was:
 | }
 configure:16307: result: yes
 configure:16318: checking for uint32_t
-configure:16318: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16318: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16318: $? = 0
 configure:16318: result: yes
 configure:16332: checking for int64_t
-configure:16332: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16332: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16332: $? = 0
-configure:16332: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16332: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:103:53: warning: integer overflow in expression [-Woverflow]
@@ -1877,15 +1877,15 @@ configure: failed program was:
 | }
 configure:16332: result: yes
 configure:16343: checking for uint64_t
-configure:16343: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16343: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16343: $? = 0
 configure:16343: result: yes
 configure:16358: checking for uintptr_t
-configure:16358: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16358: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16358: $? = 0
-configure:16358: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16358: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:101:24: error: expected expression before ')' token
@@ -2000,19 +2000,19 @@ configure: failed program was:
 | }
 configure:16358: result: yes
 configure:16399: checking size of size_t
-configure:16404: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:16404: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16404: $? = 0
 configure:16404: ./conftest
 configure:16404: $? = 0
 configure:16418: result: 8
 configure:16432: checking for struct stat.st_atim.tv_nsec
-configure:16432: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16432: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16432: $? = 0
 configure:16432: result: yes
 configure:16441: checking for struct stat.st_atimespec.tv_nsec
-configure:16441: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16441: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:12: error: 'struct stat' has no member named 'st_atimespec'
@@ -2132,7 +2132,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16441: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16441: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:19: error: 'struct stat' has no member named 'st_atimespec'
@@ -2254,7 +2254,7 @@ configure: failed program was:
 | }
 configure:16441: result: no
 configure:16450: checking for struct stat.st_atimensec
-configure:16450: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16450: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:12: error: 'struct stat' has no member named 'st_atimensec'
@@ -2374,7 +2374,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16450: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16450: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:19: error: 'struct stat' has no member named 'st_atimensec'
@@ -2496,7 +2496,7 @@ configure: failed program was:
 | }
 configure:16450: result: no
 configure:16459: checking for struct stat.st_uatime
-configure:16459: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16459: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:12: error: 'struct stat' has no member named 'st_uatime'
@@ -2616,7 +2616,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16459: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16459: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:19: error: 'struct stat' has no member named 'st_uatime'
@@ -2738,7 +2738,7 @@ configure: failed program was:
 | }
 configure:16459: result: no
 configure:16468: checking for struct stat.st_atim.st__tim.tv_nsec
-configure:16468: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16468: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:20: error: 'struct timespec' has no member named 'st__tim'
@@ -2858,7 +2858,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16468: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16468: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:105:27: error: 'struct timespec' has no member named 'st__tim'
@@ -2982,12 +2982,12 @@ configure:16468: result: no
 configure:16486: checking for special C compiler options needed for large files
 configure:16531: result: no
 configure:16537: checking for _FILE_OFFSET_BITS value needed for large files
-configure:16562: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16562: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16562: $? = 0
 configure:16594: result: no
 configure:16679: checking whether byte ordering is bigendian
-configure:16694: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16694: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:69:9: error: unknown type name 'not'
          not a universal capable compiler
@@ -3070,10 +3070,10 @@ configure: failed program was:
 | 	     #endif
 | 	     typedef int dummy;
 | 
-configure:16739: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16739: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16739: $? = 0
-configure:16757: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16757: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:75:4: error: unknown type name 'not'
@@ -3166,7 +3166,7 @@ configure: failed program was:
 | }
 configure:16885: result: no
 configure:16914: checking getopt.h usability
-configure:16914: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16914: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16914: $? = 0
 configure:16914: result: yes
@@ -3177,12 +3177,12 @@ configure:16914: result: yes
 configure:16914: checking for getopt.h
 configure:16914: result: yes
 configure:16931: checking for getopt_long
-configure:16931: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:16931: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16931: $? = 0
 configure:16931: result: yes
 configure:16945: checking whether optreset is declared
-configure:16945: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:16945: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:79:10: error: 'optreset' undeclared (first use in this function)
@@ -3278,17 +3278,17 @@ configure: failed program was:
 | }
 configure:16945: result: no
 configure:16987: checking for futimens
-configure:16987: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:16987: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:16987: $? = 0
 configure:16987: result: yes
 configure:17004: checking whether program_invocation_name is declared
-configure:17004: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17004: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17004: $? = 0
 configure:17004: result: yes
 configure:17023: checking byteswap.h usability
-configure:17023: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17023: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17023: $? = 0
 configure:17023: result: yes
@@ -3299,24 +3299,24 @@ configure:17023: result: yes
 configure:17023: checking for byteswap.h
 configure:17023: result: yes
 configure:17037: checking if bswap_16 is available
-configure:17051: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:17051: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17051: $? = 0
 configure:17056: result: yes
 configure:17067: checking if bswap_32 is available
-configure:17081: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:17081: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17081: $? = 0
 configure:17086: result: yes
 configure:17097: checking if bswap_64 is available
-configure:17111: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:17111: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17111: $? = 0
 configure:17116: result: yes
 configure:17128: checking if unaligned memory access should be used
 configure:17153: result: yes
 configure:17166: checking sys/param.h usability
-configure:17166: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17166: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17166: $? = 0
 configure:17166: result: yes
@@ -3327,7 +3327,7 @@ configure:17166: result: yes
 configure:17166: checking for sys/param.h
 configure:17166: result: yes
 configure:17177: checking how to detect the amount of physical memory
-configure:17200: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17200: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:82:1: error: unknown type name 'compile'
  compile error
@@ -3419,7 +3419,7 @@ configure: failed program was:
 | compile error
 | #endif
 | 
-configure:17221: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17221: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:79:27: fatal error: sys/systemcfg.h: No such file or directory
  #include <sys/systemcfg.h>
@@ -3514,7 +3514,7 @@ configure: failed program was:
 | 	return 0;
 | }
 | 
-configure:17240: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17240: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:83:7: warning: variable 'i' set but not used [-Wunused-but-set-variable]
@@ -3525,7 +3525,7 @@ configure:17380: result: sysconf
 configure:17427: checking for sys/param.h
 configure:17427: result: yes
 configure:17438: checking how to detect the number of available CPU cores
-configure:17467: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17467: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:89:18: error: 'CTL_HW' undeclared (first use in this function)
@@ -3632,7 +3632,7 @@ configure: failed program was:
 | 	return 0;
 | }
 | 
-configure:17491: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
+configure:17491: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c: In function 'main':
 conftest.c:85:7: warning: variable 'i' set but not used [-Wunused-but-set-variable]
@@ -3641,102 +3641,102 @@ conftest.c:85:7: warning: variable 'i' set but not used [-Wunused-but-set-variab
 configure:17491: $? = 0
 configure:17526: result: sysconf
 configure:17550: checking whether mbrtowc and mbstate_t are properly declared
-configure:17570: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:17570: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17570: $? = 0
 configure:17578: result: yes
 configure:17588: checking for wcwidth
-configure:17588: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
+configure:17588: gcc -std=gnu99 -o conftest -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT   conftest.c   >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17588: $? = 0
 configure:17588: result: yes
 configure:17616: checking for simple visibility declarations
-configure:17638: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -fvisibility=hidden  conftest.c >&5
+configure:17638: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -fvisibility=hidden  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17638: $? = 0
 configure:17647: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wall
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wall  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wall  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wextra
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wextra  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wextra  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wformat=2
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wformat=2  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wformat=2  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Winit-self
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Winit-self  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Winit-self  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wmissing-include-dirs
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-include-dirs  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-include-dirs  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wstrict-aliasing
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wstrict-aliasing  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wstrict-aliasing  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wfloat-equal
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wfloat-equal  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wfloat-equal  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wundef
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wundef  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wundef  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wshadow
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wshadow  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wshadow  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wpointer-arith
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wpointer-arith  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wpointer-arith  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wbad-function-cast
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wbad-function-cast  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wbad-function-cast  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wwrite-strings
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wwrite-strings  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wwrite-strings  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wlogical-op
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wlogical-op  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wlogical-op  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Waggregate-return
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Waggregate-return  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Waggregate-return  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wstrict-prototypes
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wstrict-prototypes  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wstrict-prototypes  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wold-style-definition
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wold-style-definition  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wold-style-definition  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wmissing-prototypes
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-prototypes  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-prototypes  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:84:6: warning: no previous prototype for 'foo' [-Wmissing-prototypes]
  void foo(void) { }
@@ -3744,7 +3744,7 @@ conftest.c:84:6: warning: no previous prototype for 'foo' [-Wmissing-prototypes]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wmissing-declarations
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-declarations  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-declarations  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 conftest.c:84:6: warning: no previous declaration for 'foo' [-Wmissing-declarations]
  void foo(void) { }
@@ -3752,12 +3752,12 @@ conftest.c:84:6: warning: no previous declaration for 'foo' [-Wmissing-declarati
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wmissing-noreturn
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-noreturn  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wmissing-noreturn  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
 configure:17701: checking if gcc -std=gnu99 accepts -Wredundant-decls
-configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wredundant-decls  conftest.c >&5
+configure:17709: gcc -std=gnu99 -c -O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT -Wredundant-decls  conftest.c >&5
 <command-line>:0:15: warning: missing terminating " character [enabled by default]
 configure:17709: $? = 0
 configure:17712: result: yes
@@ -3823,7 +3823,7 @@ ac_cv_env_CCAS_value=
 ac_cv_env_CC_set=set
 ac_cv_env_CC_value=gcc
 ac_cv_env_CFLAGS_set=set
-ac_cv_env_CFLAGS_value='-O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT'
+ac_cv_env_CFLAGS_value='-O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT'
 ac_cv_env_CPPFLAGS_set=
 ac_cv_env_CPPFLAGS_value=
 ac_cv_env_CPP_set=
@@ -3950,7 +3950,7 @@ tuklib_cv_physmem_method=sysconf
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing aclocal-1.14'
+ACLOCAL='${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing aclocal-1.14'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
@@ -3962,16 +3962,16 @@ AM_DEFAULT_VERBOSITY='1'
 AM_V='$(V)'
 AR='ar'
 AS='as'
-AUTOCONF='${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoconf'
-AUTOHEADER='${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing autoheader'
-AUTOMAKE='${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing automake-1.14'
+AUTOCONF='${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing autoconf'
+AUTOHEADER='${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing autoheader'
+AUTOMAKE='${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing automake-1.14'
 AWK='gawk'
 CC='gcc -std=gnu99'
 CCAS='gcc -std=gnu99'
 CCASDEPMODE='depmode=gcc3'
-CCASFLAGS='-O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT'
+CCASFLAGS='-O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT'
 CCDEPMODE='depmode=gcc3'
-CFLAGS='-O2  -I. -I/usr -I/home/paldier/asuswrt/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT'
+CFLAGS='-O2  -I. -I/usr -I/home/paldier/384/release/src-lantiq/xz/src/liblzma/api -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE -DCOMP_DEFAULT=\"xz\" -Wall -DGZIP_SUPPORT -DXZ_SUPPORT -DXATTR_SUPPORT -DXATTR_DEFAULT'
 CFLAG_VISIBILITY='-fvisibility=hidden'
 COND_ASM_X86_64_FALSE='#'
 COND_ASM_X86_64_TRUE=''
@@ -4111,7 +4111,7 @@ LN_S='ln -s'
 LTLIBICONV='-liconv'
 LTLIBINTL=''
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/missing makeinfo'
+MAKEINFO='${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/missing makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/bin/mkdir -p'
 MSGFMT='/usr/bin/msgfmt'
@@ -4183,7 +4183,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/paldier/asuswrt/release/src-lantiq/xz/build-aux/install-sh'
+install_sh='${SHELL} /home/paldier/384/release/src-lantiq/xz/build-aux/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'

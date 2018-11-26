@@ -1,12 +1,12 @@
 prefix=
 exec_prefix=
 libdir=${pcfiledir}
-includedir=/home/paldier/asuswrt/release/src/router/ffmpeg
+includedir=/home/paldier/384/release/src/router/ffmpeg
 
 Name: libavcodec
 Description: FFmpeg codec library
 Version: 52.72.2
 Requires: libavutil = 50.15.1
 Conflicts:
-Libs: ${libdir}/libavcodec.a  -L/home/paldier/asuswrt/release/src-lantiq/router/zlib -lz  -lz -pthread -lm
+Libs: ${libdir}/libavcodec.a  -L/home/paldier/384/release/src-lantiq/router/zlib -lz  -lz -pthread -lm
 Cflags: -I${includedir}

@@ -2,8 +2,8 @@
 
 ifeq ($(wildcard $(SRCBASE)/router/fapi_wlan_common-05.04.00.131/*.c),)
 all:
-	-cp -f prebuilt/libfapiwlancommon.so ./
-	-cp -f prebuilt/fapi_wlan_beerock_cli ./
+	-cp -f prebuild/libfapiwlancommon.so ./
+	-cp -f prebuild/fapi_wlan_beerock_cli ./
 
 install:
 

@@ -40,7 +40,7 @@ function restoreRule(_flag){
 			alert_string = "<#Setting_factorydefault_hint1#>";
 			break;
 		case "initialize" :
-			alert_string = "All current settings and data log for each functions will be erased. Router will restore to initial factory setting.\n";/* untranslated */
+			alert_string = "<#Setting_initialize_hint1#>";
 			break;
 	}
 
@@ -128,7 +128,7 @@ function detect_httpd(){
 
     		success: function(){
     				setTimeout("hideLoadingBar();",1000);
-      			location.href = '<% abs_index_page(); %>';
+    				location.href = "/";
   			}
   		});
 }
@@ -204,9 +204,8 @@ function detect_httpd(){
 			  						<td bgcolor="#4D595D" valign="top">
 				  						<div>&nbsp;</div>
 				  						<div class="formfonttitle"><#menu5_6#> - <#menu5_6_4#></div>
-										<div style="margin-left:5px;margin-top:10px;margin-bottom:10px"><img src="/images/New_ui/export/line_export.png"></div>
+										<div style="margin:10px 0 10px 5px;" class="splitLine"></div>
 										<div class="formfontdesc"><#Setting_save_upload_desc#></div>
-
 										<table width="100%" border="1" align="center" cellpadding="6" cellspacing="0" bordercolor="#6b8fa3"  class="FormTable">
 	          								<tr>
 	            								<th width="25%" align="right">

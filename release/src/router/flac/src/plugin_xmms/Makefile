@@ -57,24 +57,24 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 host_triplet = mips-unknown-linux-gnu
-ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/flac/missing --run aclocal-1.7
+ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/flac/missing --run aclocal-1.7
 ACLOCAL_AMFLAGS = -I m4
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/paldier/asuswrt/release/src/router/flac/missing --run tar
+AMTAR = ${SHELL} /home/paldier/384/release/src/router/flac/missing --run tar
 AR = mips-openwrt-linux-uclibc-ar
 AS = gas
-AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/flac/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/flac/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/flac/missing --run automake-1.7
+AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/flac/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/flac/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/flac/missing --run automake-1.7
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCAS = $(CC)
 CCASFLAGS = $(CFLAGS)
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O3 -funroll-loops -finline-functions -Wall -W -Winline -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
+CFLAGS = -O3 -funroll-loops -finline-functions -Wall -W -Winline -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -ffunction-sections -fdata-sections
 CPP = mips-openwrt-linux-uclibc-gcc -E
-CPPFLAGS = -DFLaC__INLINE=__inline__ -DNDEBUG -I$(top_builddir) -I$(srcdir)/include -I$(top_srcdir)/include -I/home/paldier/asuswrt/release/src-lantiq/router/libogg/include
+CPPFLAGS = -DFLaC__INLINE=__inline__ -DNDEBUG -I$(top_builddir) -I$(srcdir)/include -I$(top_srcdir)/include -I/home/paldier/384/release/src-lantiq/router/libogg/include
 CXX = mips-openwrt-linux-uclibc-g++
 CXXCPP = mips-openwrt-linux-uclibc-g++ -E
 CXXDEPMODE = depmode=gcc3
@@ -141,7 +141,7 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = ${SHELL} $(install_sh) -c -s
-LDFLAGS = -L/home/paldier/asuswrt/release/src-lantiq/router/libogg/src/.libs -fPIC -ffunction-sections -fdata-sections -Wl,--gc-sections
+LDFLAGS = -L/home/paldier/384/release/src-lantiq/router/libogg/src/.libs -fPIC -ffunction-sections -fdata-sections -Wl,--gc-sections
 LIBICONV = 
 LIBOBJS = 
 LIBS = 
@@ -154,7 +154,7 @@ LTLIBOBJS =
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/flac/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/flac/missing --run makeinfo
 MINGW_WINSOCK_LIBS = 
 NASM = 
 OBJEXT = o
@@ -212,7 +212,7 @@ host_os = linux-gnu
 host_vendor = unknown
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /home/paldier/asuswrt/release/src/router/flac/install-sh
+install_sh = /home/paldier/384/release/src/router/flac/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var

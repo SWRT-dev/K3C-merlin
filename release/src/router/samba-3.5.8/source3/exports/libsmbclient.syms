@@ -3,7 +3,7 @@
 #
 {
 	global:
-		# The following definitions come from /home/paldier/asuswrt/release/src/router/samba-3.5.8/source3/include/libsmbclient.h
+		# The following definitions come from /home/paldier/384/release/src/router/samba-3.5.8/source3/include/libsmbclient.h
 		smbc_getDebug;
 		smbc_setDebug;
 		smbc_getNetbiosName;

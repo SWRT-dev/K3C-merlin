@@ -57,9 +57,9 @@ download_v2ray(){
 		wget --no-check-certificate --timeout=10 --tries=3 -qO $1 $2
 	}
 	echo "$(date "+%F %T") 在线版本: $PKG_VERSION" >> /tmp/v2ray.log
-	echo "$(date "+%F %T") 本地版本: $V2RA_VER" >> /tmp/v2ray.log
+	echo "$(date "+%F %T") 本地版本: v$V2RA_VER" >> /tmp/v2ray.log
 	logger -t "【v2ray】" "在线版本 $PKG_VERSION"
-	logger -t "【v2ray】" "本地版本 $V2RA_VER"
+	logger -t "【v2ray】" "本地版本 v$V2RA_VER"
 	if [ "v$V2RA_VER" != "$PKG_VERSION" ]; then
 		logger -t "【v2ray】" "本地版本与在线版本不同，下载 $PKG_VERSION ......"
 		echo "$(date "+%F %T"): 本地版本与在线版本不同，下载 $PKG_VERSION ......" >> /tmp/v2ray.log

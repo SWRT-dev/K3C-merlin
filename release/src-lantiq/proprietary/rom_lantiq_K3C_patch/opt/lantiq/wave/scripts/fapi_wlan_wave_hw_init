@@ -17,7 +17,7 @@ mkdir -p $CONF_DIR
 mkdir -p $TEMP_DIR
 
 cp -s /opt/lantiq/wave/images/backup/cal_wlan0.bin /tmp/cal_wlan0.bin
-cp -s /opt/lantiq/wave/images/backup/cal_wlan1.bin /tmp/cal_wlan1.bin
+cp -s /opt/lantiq/wave/images/backup/cal_wlan2.bin /tmp/cal_wlan1.bin
 cp -s /opt/lantiq/wave/images/backup/cal_wlan2.bin /tmp/cal_wlan2.bin
 
 if [ -e ${USE_CURRENT_CONF}_wlan0 ]

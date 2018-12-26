@@ -108,16 +108,18 @@ if [ "$mtype" == "SSR" ] ;then
 		    "protocol_param": "$mpropara",
 		    "obfs": "$mobfs",
 		    "obfs_param": "$mobfspara",
+		    "reuse_port": true,
 		    "fast_open": false
 		}
 EOF
 
 if [ "$udp_enable" == "1" ] ;then
-/usr/sbin/ssr-redir  -u -c /tmp/shadowsocksr.json -f /var/run/ssr-retcp.pid
-else
-/usr/sbin/ssr-redir  -c /tmp/shadowsocksr.json -f /var/run/ssr-retcp.pid
+	/usr/sbin/ssr-redir  -u -c /tmp/shadowsocksr.json -f /var/run/ssr-reudp.pid >/dev/null 2>&1
 fi
-
+	for i in 1 2 3
+	do 
+		/usr/sbin/ssr-redir  -c /tmp/shadowsocksr.json -f /var/run/ssr-retcp_$i.pid >/dev/null 2>&1
+	done
 else
 		cat <<-EOF >/tmp/shadowsocks.json
 		{
@@ -129,16 +131,18 @@ else
 		    "password": "$mpasswd",
 		    "timeout": $mtimeout,
 		    "method": "$mssencrypt",
+		    "reuse_port": true,
 		    "fast_open": false
 		}
 EOF
 
 if [ "$udp_enable" == "1" ] ;then
-/usr/sbin/ss-redir  -u -c /tmp/shadowsocks.json -f /var/run/ssr-retcp.pid
-else
-/usr/sbin/ss-redir  -c /tmp/shadowsocks.json -f /var/run/ssr-retcp.pid
+		/usr/sbin/ss-redir  -u -c /tmp/shadowsocks.json -f /var/run/ssr-reudp.pid >/dev/null 2>&1
 fi
-
+	for i in 1 2 3
+	do 
+		/usr/sbin/ss-redir  -c /tmp/shadowsocks.json -f /var/run/ssr-retcp_$i.pid >/dev/null 2>&1
+	done
 fi
 
 logger -t "SSR" "Starting!"

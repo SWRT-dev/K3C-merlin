@@ -6064,7 +6064,7 @@ void cfgsync_check()
 	)))
 	{
 		_dprintf("start cfgsync\n");
-		notify_rc("start_cfgsync");
+		//notify_rc("start_cfgsync");//we are not asus,unsupport aimesh
 	}
 #endif	/* RTCONFIG_SW_HW_AUTH */
 }

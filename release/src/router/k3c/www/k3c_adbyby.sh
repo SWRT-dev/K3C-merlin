@@ -1,7 +1,6 @@
 #!/bin/sh 
 
 mdisk=`nvram get k3c_disk`
-usb_disk="/tmp/mnt/$mdisk"
 usbmount=`ls /tmp/mnt/`
 
 stop() {
@@ -43,6 +42,7 @@ do
 	sleep 5s
 	usbmount=`ls /tmp/mnt/ |grep $mdisk`
 done
+
 /usr/kool/kool.sh &
   echo " $(date "+%F %T"):""广告屏蔽已开启" >> /tmp/adbyby.log
 
@@ -57,8 +57,8 @@ restart() {
     if [ "$kenable" == "1" ] ;then
       start
     else 
-      logger -t "K3C" "K3C扩展设置挂载未开启！"
-      echo " $(date "+%F %T"):""K3C扩展设置挂载未开启！" >> /tmp/adbyby.log
+      logger -t "软件中心" "jffs扩展挂载未开启！"
+      echo " $(date "+%F %T"):""jffs扩展挂载未开启！" >> /tmp/adbyby.log
     fi
   fi
 }

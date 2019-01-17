@@ -1791,15 +1791,16 @@ function operation_mode_switch(mode){
 }
 
 function uploadSetting(){
-  var file_obj = document.getElementById("upload_setting_profile");
+	var file_obj = document.getElementById("upload_setting_profile");
+	var file_obj_name = file_obj.value.toUpperCase();
 
-	if(file_obj.value == ""){
+	if(file_obj_name == ""){
 		alert("<#JS_fieldblank#>");
 		file_obj.focus();
 	}
-	else if(file_obj.value.length < 6 ||
-					((file_obj.value.lastIndexOf(".CFG")  < 0)&&(file_obj.value.lastIndexOf(".cfg")  < 0)) ||
-					((file_obj.value.lastIndexOf(".CFG") != (file_obj.value.length)-4)&&(file_obj.value.lastIndexOf(".cfg") != (file_obj.value.length)-4))){
+	else if(file_obj_name.length < 6 ||
+				file_obj_name.lastIndexOf(".CFG")  < 0 ||
+				file_obj_name.lastIndexOf(".CFG") != (file_obj_name.length)-4){
 		alert("<#Setting_upload_hint#>");
 		file_obj.focus();
 	}
@@ -2152,7 +2153,7 @@ function genOptions(){
 	<div class="desktop_left_field">
 		<div id="login_title">
 			<div style="font-size:60px;"><#CTL_login#></div>
-			<div style="font-size:32px;"><#HSDPAConfig_Username_itemname#>/<#HSDPAConfig_Password_itemname#></div>
+			<div style="font-size:32px;"><#Username#>/<#HSDPAConfig_Password_itemname#></div>
 			<div style="font-size:32px;"><#Settings#></div>
 		</div>
 	</div>
@@ -2162,7 +2163,7 @@ function genOptions(){
 		<div id="login_field">
 			<div style="margin-left:38px;">
 				<div style="display:table;margin:18px 0 19px 30px;width:100%">
-					<div style="HelveticaNeueLT45_Light_regular,Helvetica_regular,Arial;font-size:1.5em;color:#B8D8FF;display:table-cell"><#HSDPAConfig_Username_itemname#></div>
+					<div style="HelveticaNeueLT45_Light_regular,Helvetica_regular,Arial;font-size:1.5em;color:#B8D8FF;display:table-cell"><#Username#></div>
 				</div>
 				<div style="margin:22px 55px 41px 30px">
 					<input id="http_username" type="text" maxlength="64" style="padding-left:18px;font-family:HelveticaNeueW10-45Ligh,Helvetica,Arial;font-size:1.875em;color:#DBDBDB;" value="" data-clear-btn="true"></input>

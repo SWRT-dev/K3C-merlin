@@ -131,6 +131,7 @@
 	display: none;
 	border-radius: 10px;
 }
+
 .shadow_m{
 	margin-top: -9px;
 }
@@ -158,7 +159,7 @@ var safe_count = 0;
 function initial(){
 	show_menu();
 	//	http://www.asus.com/support/FAQ/1008719/
-	httpApi.faqURL("faq", "1008719", "https://www.asus.com", "/support/FAQ/");
+	httpApi.faqURL("1008719", function(url){document.getElementById("faq").href=url;});
 	if(lyra_hide_support){
 		$("#scenario_tr").css({"visibility":"hidden"});
 		$("#scenario_img").attr({"height":"0"});
@@ -166,10 +167,11 @@ function initial(){
 		$(".AiProtection_02").hide();
 		$(".AiProtection_03").hide();
 		$(".line_1").hide();
-		if(!uiSupport("dpi_vp")){
+		if(!isSupport("dpi_vp")){
 			$("#twoWayIPS_padding").hide();
 			$("#twoWayIPS_field").hide();
 		}
+		$("#tm_logo").css("margin-left", "10px");
 	}
 
 	if(document.form.wrs_protect_enable.value == '1'){
@@ -271,6 +273,12 @@ function applyRule(){
 			document.form.action_script.value = "reboot";
 			document.form.action_wait.value = "<% nvram_get("reboot_time"); %>";
 		}
+	}
+
+	/* when qca_sfe = 1, avoid fast-classifier can't be disabled in run-time */
+	if (based_modelid == "MAP-AC1750") {
+		document.form.action_script.value = "reboot";
+		document.form.action_wait.value = "<% nvram_get("reboot_time"); %>";
 	}
 
 	if(reset_wan_to_fo(document.form, document.form.wrs_protect_enable.value)) {
@@ -818,6 +826,12 @@ function apply_alert_preference(){
 		return;
 	}
 
+	if(address_temp.indexOf("`")!=-1){
+		alert("` "+ " <#JS_validchar#>");
+		document.getElementById('mail_address').focus();
+		return;
+	}
+
 	if(authpass_temp == "") {
 		alert("Please input the mail password!");
 		return;
@@ -1176,7 +1190,7 @@ function shadeHandle(flag){
 																</div>
 															</td>
 															<td>
-																<div style="width:100px;height:48px;margin-left:-40px;background-image:url('images/New_ui/tm_logo.png');"></div>
+																<div id="tm_logo" style="width:100px;height:48px;margin-left:-40px;background-image:url('images/New_ui/tm_logo.png');"></div>
 															</td>
 														</tr>
 														<tr id="scenario_tr">
@@ -1297,7 +1311,7 @@ function shadeHandle(flag){
 													<div style="position:relative" onclick="location.href='AiProtection_MaliciousSitesBlocking.asp'">
 														<div id="mals_count_shade" class="shadow shadow_m"></div>
 														<div style="text-align:center;">
-															<div id="mali_count" style="width:45px;height:45px;margin:0 auto;line-height: 45px;font-size:38px;color:#FC0;text-shadow:1px 1px 0px black"></div>
+															<div id="mali_count" style="height:45px;margin:0 auto;line-height: 45px;font-size:38px;color:#FC0;text-shadow:1px 1px 0px black"></div>
 															<div style="font-size: 16px;"><#AiProtection_scan_rHits#></div>
 															<div id="mali_time" style="height:25px;color:#A1A7A8"></div>
 														</div>
@@ -1350,7 +1364,7 @@ function shadeHandle(flag){
 													<div style="position:relative" onclick="location.href='AiProtection_IntrusionPreventionSystem.asp'">
 														<div id="vp_count_shade" class="shadow shadow_m"></div>
 														<div style="text-align:center;">
-															<div id="vp_count" style="width:45px;height:45px;margin:0 auto;line-height: 45px;font-size:38px;color:#FC0;text-shadow:1px 1px 0px black"></div>
+															<div id="vp_count" style="height:45px;margin:0 auto;line-height: 45px;font-size:38px;color:#FC0;text-shadow:1px 1px 0px black"></div>
 															<div style="font-size: 16px;"><#AiProtection_scan_rHits#></div>
 															<div id="vp_time" style="height:25px;color:#A1A7A8"></div>
 														</div>
@@ -1400,7 +1414,7 @@ function shadeHandle(flag){
 													<div style="position:relative" onclick="location.href='AiProtection_InfectedDevicePreventBlock.asp'">
 														<div id="infected_count_shade" class="shadow shadow_m"></div>
 														<div style="text-align:center;">
-															<div id="infected_count" style="width:45px;height:45px;margin:0 auto;line-height: 45px;font-size:38px;color:#FC0;text-shadow:1px 1px 0px black"></div>
+															<div id="infected_count" style="height:45px;margin:0 auto;line-height: 45px;font-size:38px;color:#FC0;text-shadow:1px 1px 0px black"></div>
 															<div style="font-size: 16px;"><#AiProtection_scan_rHits#></div>
 															<div id="infected_time" style="height:25px;color:#A1A7A8"></div>
 														</div>

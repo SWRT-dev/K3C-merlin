@@ -158,8 +158,12 @@ function create_ISP_select(){
 
 function set_manual_items(){
 	var stb_port_list = iptv_profiles.stb_x_options;
+	var manual_settings = get_isp_settings("manual");
 	var port_name = "";
 
+	document.getElementById("wan_iptv_x").style.display = "none";
+	document.getElementById("wan_voip_x").style.display = "none";
+	document.getElementById("wan_bridge_x").style.display = "none";
 	document.getElementById("wan_internet_x").style.display = "";
 	document.form.switch_wan0tagid.disabled = false;
 	document.form.switch_wan0prio.disabled = false;
@@ -185,20 +189,17 @@ function set_manual_items(){
 		document.form.switch_wan2prio.value = "0";
 	}
 
-	if(stb_port_list.length > 0){
-		for(var i = 0; i < stb_port_list.length; i++){
-			if(stb_port_list[i].value == "4"){
-				port_name = "LAN Port " + stb_port_list[i].name.substr(3);
-				document.getElementById("wan_iptv_port4_x").style.display = "";
-				document.getElementById("iptv_port4").innerHTML = port_name;
-			}
-			else if(stb_port_list[i].value == "3"){
-				port_name = "LAN Port " + stb_port_list[i].name.substr(3);
-				document.getElementById("wan_voip_port3_x").style.display = "";
-				document.getElementById("voip_port3").innerHTML = port_name;
-			}
 
-		}
+	if(manual_settings.iptv_port != ""){
+		port_name = "LAN Port " + manual_settings.iptv_port.substr(3);
+		document.getElementById("wan_iptv_port4_x").style.display = "";
+		document.getElementById("iptv_port4").innerHTML = port_name;
+	}
+
+	if(manual_settings.voip_port != ""){
+		port_name = "LAN Port " + manual_settings.voip_port.substr(3);
+		document.getElementById("wan_voip_port3_x").style.display = "";
+		document.getElementById("voip_port3").innerHTML = port_name;
 	}
 }
 
@@ -244,64 +245,7 @@ function ISP_Profile_Selection(isp){
 	else
 		document.getElementById("wan_stb_x").style.display = "none";
 
-	if(isp_settings.iptv_port != "" || isp_settings.iptv_config == "1")
-		document.getElementById("wan_iptv_x").style.display = "";
-	else
-		document.getElementById("wan_iptv_x").style.display = "none";
 
-	if(isp_settings.iptv_port != ""){
-		document.getElementById("iptv_title").innerHTML = "IPTV STB Port";
-		document.getElementById("iptv_port").innerHTML = isp_settings.iptv_port;
-		document.getElementById("iptv_port").style.display = "";
-	}
-
-	if(isp_settings.iptv_config == "1"){
-		document.getElementById("iptv_port").style.display = "none";
-		document.getElementById("iptv_title").innerHTML = "IPTV";
-		document.getElementById("iptv_settings_btn").style.display = "";
-		document.getElementById("iptv_configure_status").style.display = "";
-		if(check_config_state("iptv"))
-			document.getElementById("iptv_configure_status").innerHTML = "<#wireless_configured#>";
-		else
-			document.getElementById("iptv_configure_status").innerHTML = "Unconfigured";
-	}
-	else{
-		document.getElementById("iptv_settings_btn").style.display = "none";
-		document.getElementById("iptv_configure_status").style.display = "none";
-	}
-
-	if(isp_settings.voip_port != "" || isp_settings.voip_config == "1")
-		document.getElementById("wan_voip_x").style.display = "";
-	else
-		document.getElementById("wan_voip_x").style.display = "none";
-
-	if(isp_settings.voip_port != ""){
-		document.getElementById("voip_title").innerHTML = "VoIP Port";
-		document.getElementById("voip_port").innerHTML = isp_settings.voip_port;
-		document.getElementById("voip_port").style.display = "";
-	}
-
-	if(isp_settings.voip_config == "1"){
-		document.getElementById("voip_port").style.display = "none";
-		document.getElementById("voip_title").innerHTML = "VoIP";
-		document.getElementById("voip_settings_btn").style.display = "";
-		document.getElementById("voip_configure_status").style.display = "";
-		if(check_config_state("voip"))
-			document.getElementById("voip_configure_status").innerHTML = "<#wireless_configured#>";
-		else
-			document.getElementById("voip_configure_status").innerHTML = "Unconfigured";
-	}
-	else{
-		document.getElementById("voip_settings_btn").style.display = "none";
-		document.getElementById("voip_configure_status").style.display = "none";
-	}
-
-	if(isp_settings.bridge_port != ""){
-		document.getElementById("wan_bridge_x").style.display = "";
-		document.getElementById("bridge_port").innerHTML = isp_settings.bridge_port;
-	}
-	else
-		document.getElementById("wan_bridge_x").style.display = "none";
 
 	if(isp == "manual"){
 		set_manual_items();
@@ -316,6 +260,64 @@ function ISP_Profile_Selection(isp){
 		document.form.switch_wan1prio.disabled = true;
 		document.form.switch_wan2tagid.disabled = true;
 		document.form.switch_wan2prio.disabled = true;
+		if(isp_settings.iptv_port != "" || isp_settings.iptv_config == "1")
+			document.getElementById("wan_iptv_x").style.display = "";
+		else
+			document.getElementById("wan_iptv_x").style.display = "none";
+
+		if(isp_settings.iptv_port != ""){
+			document.getElementById("iptv_title").innerHTML = "IPTV STB Port";
+			document.getElementById("iptv_port").innerHTML = isp_settings.iptv_port;
+			document.getElementById("iptv_port").style.display = "";
+		}
+
+		if(isp_settings.iptv_config == "1"){
+			document.getElementById("iptv_port").style.display = "none";
+			document.getElementById("iptv_title").innerHTML = "IPTV";
+			document.getElementById("iptv_settings_btn").style.display = "";
+			document.getElementById("iptv_configure_status").style.display = "";
+			if(check_config_state("iptv"))
+				document.getElementById("iptv_configure_status").innerHTML = "<#wireless_configured#>";
+			else
+				document.getElementById("iptv_configure_status").innerHTML = "Unconfigured";
+		}
+		else{
+			document.getElementById("iptv_settings_btn").style.display = "none";
+			document.getElementById("iptv_configure_status").style.display = "none";
+		}
+
+		if(isp_settings.voip_port != "" || isp_settings.voip_config == "1")
+			document.getElementById("wan_voip_x").style.display = "";
+		else
+			document.getElementById("wan_voip_x").style.display = "none";
+
+		if(isp_settings.voip_port != ""){
+			document.getElementById("voip_title").innerHTML = "VoIP Port";
+			document.getElementById("voip_port").innerHTML = isp_settings.voip_port;
+			document.getElementById("voip_port").style.display = "";
+		}
+
+		if(isp_settings.voip_config == "1"){
+			document.getElementById("voip_port").style.display = "none";
+			document.getElementById("voip_title").innerHTML = "VoIP";
+			document.getElementById("voip_settings_btn").style.display = "";
+			document.getElementById("voip_configure_status").style.display = "";
+			if(check_config_state("voip"))
+				document.getElementById("voip_configure_status").innerHTML = "<#wireless_configured#>";
+			else
+				document.getElementById("voip_configure_status").innerHTML = "Unconfigured";
+		}
+		else{
+			document.getElementById("voip_settings_btn").style.display = "none";
+			document.getElementById("voip_configure_status").style.display = "none";
+		}
+
+		if(isp_settings.bridge_port != ""){
+			document.getElementById("wan_bridge_x").style.display = "";
+			document.getElementById("bridge_port").innerHTML = isp_settings.bridge_port;
+		}
+		else
+			document.getElementById("wan_bridge_x").style.display = "none";
 	}
 
 	/* Special Applications */
@@ -1064,9 +1066,9 @@ function change_port_settings(val, changed){
 
 function show_gaming_note(val){
 	if(val == "12")
-		document.getElementById("gaming_note").innerHTML = "Gaming Ports are set up in LAN1 and LAN2. If you would like to use Gaming Ports, please choose LAN 5/ LAN 6 for your IPTV or VoIP port.";//untranslated
+		document.getElementById("gaming_note").innerHTML = "<#RouterConfig_GW_GamingPortsNote_12#>";
 	else if(val == "56")
-		document.getElementById("gaming_note").innerHTML = "Link aggregation is configured in LAN 5 and LAN6. If you would like to use link aggregation, please choose LAN 1/ LAN 2 for your IPTV or VoIP port.";//untranslated
+		document.getElementById("gaming_note").innerHTML = "<#RouterConfig_GW_GamingPortsNote_56#>";
 	document.getElementById("gaming_note_div").style.display = "";
 }
 
@@ -1314,7 +1316,7 @@ function change_mr_enable(switch_stb_x){
 					    </select></td>
 				</tr>
             	<tr>
-             	 	<th><a class="hintstyle" href="javascript:void(0);" onClick="openHint(7,4);"><#PPPConnection_UserName_itemname#></a></th>
+             	 	<th><a class="hintstyle" href="javascript:void(0);" onClick="openHint(7,4);"><#Username#></a></th>
               		<td><input type="text" maxlength="64" class="input_32_table" name="wan_pppoe_username_now" value="" onkeypress="return validator.isString(this, event)"></td>
             	</tr>
             	<tr id="tr_pppoe_password">
@@ -1413,7 +1415,7 @@ function change_mr_enable(switch_stb_x){
 			</tr>
 		</thead>
 			<tr id="port_settings" style="display:none;">
-				<th width="30%"><a class="hintstyle" href="javascript:void(0);" onClick="openHint(7,28);">IPTV/ VoIP Port Settings</a></th>
+				<th width="30%"><a class="hintstyle" href="javascript:void(0);" onClick="openHint(7,28);"><#RouterConfig_GW_LANPort_itemname#></a></th>
 				<td>
 					<select name="iptv_port_settings" class="input_option" onChange="change_port_settings(this.value, 1);" disabled>
 						<option value="12" <% nvram_match( "iptv_port_settings", "12", "selected"); %>>LAN1/ LAN2</option>
@@ -1444,18 +1446,18 @@ function change_mr_enable(switch_stb_x){
 				<div style="margin-top:2px;"><span style="color:#FFFFFF;">( <#dualwan_primary_hint#> : </span><span id="cur_primary" style="color:#FFFFFF;"></span><span style="color:#FFFFFF;"> )</span></div>
 			</td>
 		</tr>
-		<tr id="wan_iptv_x">
-	  	<th id="iptv_title" width="30%">IPTV STB Port</th>
-		<td><span id="iptv_port">LAN4 </span><span><input id="iptv_settings_btn" class="button_gen" type="button" onclick="set_connection('iptv');" value="IPTV Connection"></span><span id="iptv_configure_status" style="margin-left: 5px; display:none;">Unconfigured</span></td>
+		<tr id="wan_iptv_x" style="display:none;">
+			<th id="iptv_title" width="30%">IPTV STB Port</th>
+			<td><span id="iptv_port">LAN4 </span><span><input id="iptv_settings_btn" class="button_gen" type="button" onclick="set_connection('iptv');" value="IPTV Connection"></span><span id="iptv_configure_status" style="margin-left: 5px; display:none;">Unconfigured</span></td>
 		</tr>
-		<tr id="wan_voip_x">
-	  	<th id="voip_title" width="30%">VoIP Port</th>
-		<td><span id="voip_port">LAN3</span><span><input id="voip_settings_btn" class="button_gen" type="button" onclick="set_connection('voip');" value="VoIP Connection"><span id="voip_configure_status" style="margin-left: 5px; display:none;">Unconfigured</span></span>
-	  	</td>
+		<tr id="wan_voip_x" style="display:none;">
+			<th id="voip_title" width="30%">VoIP Port</th>
+			<td><span id="voip_port">LAN3</span><span><input id="voip_settings_btn" class="button_gen" type="button" onclick="set_connection('voip');" value="VoIP Connection"><span id="voip_configure_status" style="margin-left: 5px; display:none;">Unconfigured</span></span>
+			</td>
 		</tr>
-		<tr id="wan_bridge_x" style="display: none;">
-		<th width="30%">Bridge Port</th>
-		<td><span id="bridge_port">LAN4</span></td>
+		<tr id="wan_bridge_x" style="display:none;">
+			<th width="30%">Bridge Port</th>
+			<td><span id="bridge_port">LAN4</span></td>
 		</tr>
 		<tr id="wan_internet_x">
 			<th width="30%"><#Internet#></th>
@@ -1472,7 +1474,7 @@ function change_mr_enable(switch_stb_x){
 			</td>
 		</tr>
 		<tr id="wan_voip_port3_x">
-		<th id="voip_port3" width="30%">LAN port 3</th>
+			<th id="voip_port3" width="30%">LAN port 3</th>
 			<td>
 				VID&nbsp;<input type="text" name="switch_wan2tagid" class="input_6_table" maxlength="4" value="" onKeyPress="return validator.isNumber(this, event);" autocorrect="off" autocapitalize="off" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
 				PRIO&nbsp;<input type="text" name="switch_wan2prio" class="input_3_table" maxlength="1" value="0" onKeyPress="return validator.isNumber(this, event);" autocorrect="off" autocapitalize="off" disabled>

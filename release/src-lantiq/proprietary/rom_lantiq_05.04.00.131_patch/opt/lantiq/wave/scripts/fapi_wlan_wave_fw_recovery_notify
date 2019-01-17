@@ -122,8 +122,8 @@ handle_fw_crash()
 	
 	time_sec=`awk '{print $1}' < /proc/uptime`
 	print2log $radio_index FW_RECOVERY "$script_name: tid=$tid; created: ${dump_dir}.tar ($time_sec)"
-	echo `date` "$interface_name crash, reboot" > /jffs/wave_fw_crash_and_reboot
-	reboot
+	echo `date` "$interface_name crash" > /jffs/wave_fw_crash_and_reboot
+	# reboot
 }
 
 handle_fw_recovery_end()

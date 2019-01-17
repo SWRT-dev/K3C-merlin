@@ -18,7 +18,7 @@ version="1.5.1"
 includedir="${prefix}/include"
 libdir="${exec_prefix}/lib"
 gpg_error_libs="-lgpg-error"
-gpg_error_cflags="-I/home/paldier/384/release/src-lantiq/router/libgpg-error-1.10/src"
+gpg_error_cflags="-I/home/paldier/asuswrt/release/src-lantiq/router/libgpg-error-1.10/src"
 
 # libgcrypt values.
 libs="-lgcrypt"

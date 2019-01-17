@@ -32,6 +32,18 @@
 #endif
 #include <rtconfig.h>
 
+/* DEBUG DEFINE */
+#define HTTPD_DEBUG             "/tmp/HTTPD_DEBUG"
+
+/* DEBUG FUNCTION */
+
+#define HTTPD_DBG(fmt,args...) \
+        if(f_exists(HTTPD_DEBUG) > 0) { \
+                char info[1024]; \
+                snprintf(info, sizeof(info), "echo \"[HTTPD][%s:(%d)]"fmt"\" >> /tmp/HTTPD_DEBUG.log", __FUNCTION__, __LINE__, ##args); \
+                system(info); \
+        }
+
 /* Basic authorization userid and passwd limit */
 #define AUTH_MAX 64
 
@@ -302,7 +314,7 @@ extern int check_lang_support(char *lang);
 extern int load_dictionary (char *lang, pkw_t pkw);
 extern void release_dictionary (pkw_t pkw);
 extern char* search_desc (pkw_t pkw, char *name);
-extern int change_preferred_lang();
+extern int change_preferred_lang(int finish);
 extern int get_lang_num();
 //extern char Accept_Language[16];
 #else
@@ -324,6 +336,7 @@ extern int web_read(void *buffer, int len);
 extern void set_cgi(char *name, char *value);
 
 /* httpd.c */
+extern int json_support;
 extern void start_ssl(void);
 extern char *gethost(void);
 extern void http_logout(unsigned int ip, char *cookies, int fromapp_flag);
@@ -395,7 +408,6 @@ extern void ifttt_log(char* url, char* file);
 extern int alexa_block_internet(int block);
 #endif
 
-extern unsigned int MAX_login;
 extern int cur_login_ip_type;
 extern time_t login_timestamp_tmp; // the timestamp of the current session.
 extern time_t last_login_timestamp; // the timestamp of the current session.
@@ -424,5 +436,8 @@ extern void page_default_redirect(int fromapp_flag, char* url);
 extern int wave_app_flag;
 extern int wave_handle_app_flag(char *name, int wave_app_flag);
 #endif
-extern int auto_set_lang;
+#ifdef RTCONFIG_TCODE
+extern int change_location(char *lang);
+#endif
+extern void update_wlan_log(int sig);
 #endif /* _httpd_h_ */

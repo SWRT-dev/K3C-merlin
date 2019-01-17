@@ -2046,7 +2046,7 @@ function onDropBoxLogin(_parm){
 
     					<tr>
       					<th width="10%"><#Provider#></th>
-    					<th width="25%"><#HSDPAConfig_Username_itemname#></a></th>
+    					<th width="25%"><#Username#></a></th>
       					<th width="10%"><#Cloudsync_Rule#></a></th>
       					<th width="30%"><#FolderName#></th>
       					<th width="15%"><#PPPConnection_x_WANLink_itemname#></th>

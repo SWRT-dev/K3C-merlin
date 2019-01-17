@@ -479,12 +479,12 @@ obj-y += wireless_tools
 
 obj-y += $(if $(RTN65U),rt2880_app,flash)
 ifeq ($(RTN65U),)
-obj-y += $(if $(or $(RTN14U),$(RTAC52U),$(RTAC51U),$(RTN11P),$(RTN300),$(RTN54U),$(RTAC1200HP),$(RTN56UB1),$(RTN56UB2),$(RTAC54U),$(RTAC51UP),$(RTAC53),$(RTAC1200),$(RTAC1200GA1),$(RTAC1200GU),$(RTN600),$(RTN11PB1),$(RPAC87),$(RTAC85U),$(RTN800HP)),reg,hw_nat)
+obj-y += $(if $(or $(RTN14U),$(RTAC52U),$(RTAC51U),$(RTN11P),$(RTN300),$(RTN54U),$(RTAC1200HP),$(RTN56UB1),$(RTN56UB2),$(RTAC54U),$(RTAC51UP),$(RTAC53),$(RTAC1200),$(RTAC1200GA1),$(RTAC1200GU),$(RTN600),$(RTN11PB1),$(RPAC87),$(RTAC85U),$(RTAC85P),$(RTN800HP)),reg,hw_nat)
 obj-y += $(if $(RTCONFIG_ATED122),ated_1.2.2,ated)
 endif
 obj-y += $(if $(RTCONFIG_MII_MGR),mii_mgr)
 
-ifeq ($(RTN800HP),y)
+ifeq ($(or $(RTAC85P),$(RTN800HP)),y)
 obj-y += switch
 endif
 
@@ -599,7 +599,6 @@ obj-$(RTCONFIG_SOC_IPQ40XX) += qca-hyctl.ipq40xx
 obj-$(RTCONFIG_SOC_IPQ40XX) += qca-hyd.ipq40xx
 endif
 
-obj-$(RTCONFIG_NOTIFICATION_CENTER) += qca-wifi-assoc-eventd
 obj-$(PLC_UTILS) += plc-utils
 
 #################################################################################
@@ -627,34 +626,22 @@ LIBBLUETOOTH_VER=3.18.13
 ifeq ($(RTCONFIG_REALTEK)$(RTCONFIG_ALPINE),y)
 obj-$(RTCONFIG_BT_CONN) += rtk_hciattach
 obj-$(RTCONFIG_BT_CONN) += rtk_bluetooth_firmware
-obj-$(RTCONFIG_BT_CONN) += ncurses-6.0
-obj-$(RTCONFIG_BT_CONN) += libical-2.0.0
-obj-$(RTCONFIG_BT_CONN) += udev-173
-obj-$(RTCONFIG_BT_CONN) += readline-6.2
-obj-$(RTCONFIG_BT_CONN) += libffi-3.0.11
+endif
 obj-$(RTCONFIG_BT_CONN) += libiconv-1.14
-obj-$(RTCONFIG_BT_CONN) += zlib
-obj-$(RTCONFIG_BT_CONN) += glib-2.37.7
 obj-$(RTCONFIG_BT_CONN) += expat-2.0.1
 obj-$(RTCONFIG_BT_CONN) += dbus-1.8.8
-obj-$(RTCONFIG_BT_CONN) += bluez-5.41
-else
-obj-$(RTCONFIG_BT_CONN) += bluez-5.41
-obj-$(RTCONFIG_BT_CONN) += glib-2.37.7
 obj-$(RTCONFIG_BT_CONN) += libffi-3.0.11
-obj-$(RTCONFIG_BT_CONN) += dbus-1.8.8
-obj-$(RTCONFIG_BT_CONN) += libiconv-1.14
 obj-$(RTCONFIG_BT_CONN) += zlib
-obj-$(RTCONFIG_BT_CONN) += expat-2.0.1
+obj-$(RTCONFIG_BT_CONN) += glib-2.37.7
 obj-$(RTCONFIG_BT_CONN) += udev-173
 obj-$(RTCONFIG_BT_CONN) += libical-2.0.0
 obj-$(RTCONFIG_BT_CONN) += ncurses-6.0
 obj-$(RTCONFIG_BT_CONN) += readline-6.2
+obj-$(RTCONFIG_BT_CONN) += bluez-5.41
 ifneq ($(RTCONFIG_LANTIQ),y)
 obj-$(RTCONFIG_BT_CONN) += i2c-tools-2013-12-15
 endif
 obj-$(RTCONFIG_BT_CONN) += qca-ar3k-fw
-endif
 
 obj-$(RTCONFIG_I2CTOOLS) += i2c-tools-3.1.2
 obj-$(RTCONFIG_RGBLED) += aura_sw
@@ -692,6 +679,12 @@ obj-y += iptables-1.4.21
 obj-y += iproute2-3.15.0
 endif
 
+obj-$(RTCONFIG_CONNTRACK) += conntrack
+obj-$(RTCONFIG_CONNTRACK) += libnfnetlink-1.0.1
+obj-$(RTCONFIG_CONNTRACK) += libmnl-1.0.4
+obj-$(RTCONFIG_CONNTRACK) += libnetfilter_conntrack-1.0.7
+obj-$(RTCONFIG_CONNTRACK) += libnetfilter_cttimeout-1.0.0
+
 obj-$(RTCONFIG_PERMISSION_MANAGEMENT) += sqlite
 obj-$(RTCONFIG_PERMISSION_MANAGEMENT) += sqlCipher
 obj-$(RTCONFIG_PERMISSION_MANAGEMENT) += PMS_DBapis
@@ -719,7 +712,7 @@ obj-$(RTCONFIG_OPENVPN) += libvpn
 obj-y += rc
 obj-y += rom
 obj-y += others
-obj-y += k3c libev-4.22 skipdbv2 dbus-1.8.8
+obj-y += softcenter libev-4.22 skipdbv2 dbus-1.8.8 libpcap
 obj-y += readline-6.2
 obj-y += libpasswd
 obj-y += httpd json-c
@@ -1000,7 +993,9 @@ obj-$(RTCONFIG_IPV6) += odhcp6c
 obj-$(RTCONFIG_6RELAYD) += 6relayd
 #obj-$(RTCONFIG_IPV6) += ecmh
 
+ifeq ($(FFMPEG_ZLIB_REQD),y)
 obj-$(RTCONFIG_MEDIA_SERVER) += zlib
+endif
 obj-$(RTCONFIG_MEDIA_SERVER) += sqlite
 obj-$(RTCONFIG_MEDIA_SERVER) += ffmpeg
 obj-$(RTCONFIG_MEDIA_SERVER) += libogg
@@ -1059,7 +1054,7 @@ obj-$(RTCONFIG_TIMEMACHINE) += netatalk-3.0.5
 ifeq ($(or $(RTCONFIG_TIMEMACHINE),$(RTCONFIG_MDNS)),y)
 obj-y += libdaemon
 obj-y += expat-2.0.1
-obj-y += avahi-0.6.31
+obj-y += avahi
 else
 ifeq ($(or $(RTCONFIG_MEDIA_SERVER),$(RTCONFIG_BWDPI)),y)
 obj-y += mDNSResponder
@@ -1222,6 +1217,8 @@ endif
 
 obj-$(RTCONFIG_TCPDUMP) += libpcap
 obj-$(RTCONFIG_TCPDUMP) += tcpdump-4.4.0
+obj-$(RTCONFIG_DUMP4000) += libpcap
+obj-$(RTCONFIG_DUMP4000) += tcpdump-4.4.0
 obj-$(RTCONFIG_TRACEROUTE) += traceroute-2.1.0
 
 obj-$(RTCONFIG_BLINK_LED) += bled
@@ -1797,7 +1794,7 @@ endif
 
 ifeq ($(RTCONFIG_QCA),y)
 	#FIXME
-ifeq ($(MAPAC1300)$(MAPAC2200)$(VZWAC1300)$(MAPAC3000),y)
+ifeq ($(MAPAC1300)$(MAPAC2200)$(VZWAC1300)$(RTAC92U),y)
 	cd $(TARGETDIR)/usr/lib && \
 		ln -sf ../../lib/ld-uClibc.so.0 ld-uClibc.so.1 && \
 		ln -sf ../../lib/libc.so.0 libc.so.1 && \
@@ -2037,9 +2034,7 @@ endif
 	install -D rom_lantiq/usr/lib/libnl-3.so.200 $(TARGETDIR)/usr/lib/
 	install -D rom_lantiq/usr/lib/libnl-genl-3.so.200.20.0 $(TARGETDIR)/usr/lib/
 	install -D rom_lantiq/usr/lib/libnl-genl-3.so.200 $(TARGETDIR)/usr/lib/
-	#k3c
-	install -D rom_lantiq/usr/lib/libpcap.so.1.3.0 $(TARGETDIR)/usr/lib/
-	cd $(TARGETDIR)/usr/lib && ln -sf libpcap.so.1.3.0 libpcap.so.1.3 && ln -sf libpcap.so.1.3 libpcap.so
+
 	mkdir -p $(TARGETDIR)/usr/lib/crda/
 	install -D rom_lantiq/usr/lib/crda/regulatory.bin $(TARGETDIR)/usr/lib/crda/
 	# install -D rom_lantiq/usr/lib/libfapiwlancommon.so $(TARGETDIR)/usr/lib/
@@ -2354,6 +2349,131 @@ bonnie-clean:
 	[ ! -f bonnie/Makefile ] || $(MAKE) -C bonnie clean
 	@rm -f bonnie/Makefile
 
+conntrack: libnfnetlink-1.0.1 libmnl-1.0.4 libnetfilter_conntrack-1.0.7 libnetfilter_cttimeout-1.0.0 conntrack/Makefile
+	$(MAKE) -C conntrack
+
+conntrack/Makefile:
+	(cd conntrack && touch aclocal.m4  configure Makefile.in m4)
+	$(MAKE) conntrack-configure
+
+conntrack-configure:
+	( cd conntrack ; \
+		LIBNFNETLINK_CFLAGS="-L$(TOP)/libnfnetlink-1.0.1/src/.libs" \
+		LIBNFNETLINK_LIBS="-lnfnetlink" \
+		LIBMNL_CFLAGS="-L$(TOP)/libmnl-1.0.4/src/.libs" \
+		LIBMNL_LIBS="-lmnl" \
+		LIBNETFILTER_CONNTRACK_CFLAGS="-L$(TOP)/libnetfilter_conntrack-1.0.7/src/.libs" \
+		LIBNETFILTER_CONNTRACK_LIBS="-lnetfilter_conntrack" \
+		LIBNETFILTER_CTTIMEOUT_CFLAGS="-L$(TOP)/libnetfilter_cttimeout-1.0.0/src/.libs" \
+		LIBNETFILTER_CTTIMEOUT_LIBS="-lnetfilter_cttimeout" \
+		CFLAGS="$(CFLAGS) -I$(TOP)/libnfnetlink-1.0.1/include/ -I$(TOP)/libmnl-1.0.4/include -I$(TOP)/libnfnetlink-1.0.1/include/ -I$(TOP)/libnetfilter_conntrack-1.0.7/include/ -I$(TOP)/libnetfilter_cttimeout-1.0.0/include/ -L$(TOP)/libnfnetlink-1.0.1/src/.libs -lnfnetlink -L$(TOP)/libmnl-1.0.4/src/.libs -lmnl" \
+		$(CONFIGURE) \
+		--disable-cthelper \
+		--prefix=/usr \
+		--bindir=/usr/sbin \
+		--libdir=/usr/lib \
+	)
+
+conntrack-install:
+	install -D conntrack/src/.libs/conntrack $(INSTALLDIR)/conntrack/usr/sbin/conntrack
+	$(STRIP) $(INSTALLDIR)/conntrack/usr/sbin/conntrack
+
+conntrack-clean:
+	-@$(MAKE) -C conntrack clean
+
+libnfnetlink-1.0.1: libnfnetlink-1.0.1/Makefile
+	$(MAKE) -C libnfnetlink-1.0.1
+
+libnfnetlink-1.0.1/Makefile:
+	$(MAKE) libnfnetlink-1.0.1-configure
+
+libnfnetlink-1.0.1-configure:
+	( cd libnfnetlink-1.0.1 ; \
+		$(CONFIGURE) \
+		--prefix=/usr \
+		--bindir=/usr/sbin \
+		--libdir=/usr/lib \
+	)
+
+libnfnetlink-1.0.1-install:
+	install -D libnfnetlink-1.0.1/src/.libs/libnfnetlink.so $(INSTALLDIR)/libnfnetlink-1.0.1/usr/lib/libnfnetlink.so.0
+	$(STRIP) $(INSTALLDIR)/libnfnetlink-1.0.1/usr/lib/libnfnetlink.so.0
+
+libnfnetlink-1.0.1-clean:
+	-@$(MAKE) -C  libnfnetlink-1.0.1 clean
+
+libmnl-1.0.4: libmnl-1.0.4/Makefile
+	$(MAKE) -C libmnl-1.0.4
+
+libmnl-1.0.4/Makefile:
+	$(MAKE) libmnl-1.0.4-configure
+
+libmnl-1.0.4-configure:
+	( cd libmnl-1.0.4 ; \
+		$(CONFIGURE) \
+		--prefix=/usr \
+		--bindir=/usr/sbin \
+		--libdir=/usr/lib \
+	)
+
+libmnl-1.0.4-install:
+	install -D libmnl-1.0.4/src/.libs/libmnl.so $(INSTALLDIR)/libmnl-1.0.4/usr/lib/libmnl.so.0
+	$(STRIP) $(INSTALLDIR)/libmnl-1.0.4/usr/lib/libmnl.so.0
+
+libmnl-1.0.4-clean:
+	-@$(MAKE) -C libmnl-1.0.4 clean
+
+libnetfilter_conntrack-1.0.7: libnfnetlink-1.0.1 libmnl-1.0.4 libnetfilter_conntrack-1.0.7/Makefile
+	$(MAKE) -C libnetfilter_conntrack-1.0.7
+
+libnetfilter_conntrack-1.0.7/Makefile:
+	(cd libnetfilter_conntrack-1.0.7 && touch configure aclocal.m4  m4 Makefile.in config.h.in)
+	$(MAKE) libnetfilter_conntrack-1.0.7-configure
+
+libnetfilter_conntrack-1.0.7-configure:
+	( cd libnetfilter_conntrack-1.0.7 ; \
+		LIBNFNETLINK_CFLAGS="-L$(TOP)/libnfnetlink-1.0.1/src/.libs" \
+		LIBNFNETLINK_LIBS="-lnfnetlink" \
+		LIBMNL_CFLAGS="-L$(TOP)/libmnl-1.0.4/src/.libs" \
+		LIBMNL_LIBS="-lmnl" \
+		CFLAGS="$(CFLAGS) -I$(TOP)/libnfnetlink-1.0.1/include/ -I$(TOP)/libmnl-1.0.4/include -L$(TOP)/libnfnetlink-1.0.1/src/.libs -lnfnetlink -L$(TOP)/libmnl-1.0.4/src/.libs -lmnl" \
+		$(CONFIGURE) \
+		--prefix=/usr \
+		--bindir=/usr/sbin \
+		--libdir=/usr/lib \
+	)
+
+libnetfilter_conntrack-1.0.7-install:
+	install -D libnetfilter_conntrack-1.0.7/src/.libs/libnetfilter_conntrack.so $(INSTALLDIR)/libnetfilter_conntrack-1.0.7/usr/lib/libnetfilter_conntrack.so.3
+	$(STRIP) $(INSTALLDIR)/libnetfilter_conntrack-1.0.7/usr/lib/libnetfilter_conntrack.so.3
+
+libnetfilter_conntrack-1.0.7-clean:
+	-@$(MAKE) -C libnetfilter_conntrack-1.0.7 clean
+
+libnetfilter_cttimeout-1.0.0: libnetfilter_cttimeout-1.0.0/Makefile
+	$(MAKE) -C libnetfilter_cttimeout-1.0.0
+
+libnetfilter_cttimeout-1.0.0/Makefile:
+	$(MAKE) libnetfilter_cttimeout-1.0.0-configure
+
+libnetfilter_cttimeout-1.0.0-configure:
+	( cd libnetfilter_cttimeout-1.0.0 ; \
+		LIBMNL_CFLAGS="-L$(TOP)/libmnl-1.0.4/src/.libs" \
+		LIBMNL_LIBS="-lmnl" \
+		CFLAGS="$(CFLAGS) -I$(TOP)/libmnl-1.0.4/include -L$(TOP)/libmnl-1.0.4/src/.libs -lmnl" \
+		$(CONFIGURE) \
+		--prefix=/usr \
+		--bindir=/usr/sbin \
+		--libdir=/usr/lib \
+	)
+
+libnetfilter_cttimeout-1.0.0-install:
+	install -D libnetfilter_cttimeout-1.0.0/src/.libs/libnetfilter_cttimeout.so $(INSTALLDIR)/libnetfilter_cttimeout-1.0.0/usr/lib/libnetfilter_cttimeout.so.1
+	$(STRIP) $(INSTALLDIR)/libnetfilter_cttimeout-1.0.0/usr/lib/libnetfilter_cttimeout.so.1
+
+libnetfilter_cttimeout-1.0.0-clean:
+	-@$(MAKE) -C libnetfilter_cttimeout-1.0.0 clean
+
 stress-1.x: stress-1.x/Makefile
 	$(MAKE) -C stress-1.x
 
@@ -2468,7 +2588,8 @@ openssl/Makefile:
 #	no-zlib no-engine no-engines no-sse2 no-perlasm \
 #	no-dtls1 no-store no-psk no-md2 no-mdc2 no-ts
 
-	-@$(MAKE) -C openssl clean
+	@$(MAKE) -C openssl depend
+	@$(MAKE) -C openssl clean
 	@touch $@
 
 fsbuild:
@@ -3532,6 +3653,8 @@ ifeq ($(RTCONFIG_L2TP),y)
 	$(STRIP) $(INSTALLDIR)/pppd/usr/lib/pppd/*.so
 endif
 
+ez-ipupdate: openssl mssl
+
 ez-ipupdate-install:
 	install -D ez-ipupdate/ez-ipupdate $(INSTALLDIR)/ez-ipupdate/usr/sbin/ez-ipupdate
 	$(STRIP) $(INSTALLDIR)/ez-ipupdate/usr/sbin/ez-ipupdate
@@ -3750,9 +3873,9 @@ libpcap: libpcap/stamp-h1
 
 libpcap-install: libpcap
 	@echo "do nothing"
-	#install -D libpcap/libpcap.so.1.4.0 $(INSTALLDIR)/libpcap/usr/lib/libpcap.so.1.4.0
-	#$(STRIP) $(INSTALLDIR)/libpcap/usr/lib/libpcap.so.1.4.0
-	#cd $(INSTALLDIR)/libpcap/usr/lib && ln -sf libpcap.so.1.4.0 libpcap.so
+	install -D libpcap/libpcap.so.1.5.3 $(INSTALLDIR)/libpcap/usr/lib/libpcap.so.1.5.3
+	$(STRIP) $(INSTALLDIR)/libpcap/usr/lib/libpcap.so.1.5.3
+	cd $(INSTALLDIR)/libpcap/usr/lib && ln -sf libpcap.so.1.5.3 libpcap.so
 
 libpcap-clean:
 	[ ! -f libpcap/Makefile ] || $(MAKE) -C libpcap clean
@@ -4091,7 +4214,7 @@ endif
 
 FFMPEG_FILTER_CONFIG= $(foreach c, $(2), --$(1)="$(c)")
 
-FFMPEG_DECODERS:=aac ac3 atrac3 h264 jpegls mp3 mpeg1video mpeg2video mpeg4 mpeg4aac mpegvideo png wmav1 wmav2
+FFMPEG_DECODERS:=aac ac3 atrac3 h264 jpegls mp3 mpeg1video mpeg2video mpeg4 mpegvideo png wmav1 wmav2
 FFMPEG_CONFIGURE_DECODERS:=$(call FFMPEG_FILTER_CONFIG,enable-decoder,$(FFMPEG_DECODERS))
 
 FFMPEG_PARSERS:=aac ac3 h264 mpeg4video mpegaudio mpegvideo
@@ -4100,28 +4223,34 @@ FFMPEG_CONFIGURE_PARSERS:=$(call FFMPEG_FILTER_CONFIG,enable-parser,$(FFMPEG_PAR
 FFMPEG_PROTOCOLS:=file
 FFMPEG_CONFIGURE_PROTOCOLS:=$(call FFMPEG_FILTER_CONFIG,enable-protocol,$(FFMPEG_PROTOCOLS))
 
-FFMPEG_DISABLED_DEMUXERS:=amr apc ape ass bethsoftvid bfi c93 daud dnxhd dsicin dxa ffm gsm gxf idcin iff image2 image2pipe ingenient ipmovie lmlm4 mm mmf msnwc_tcp mtv mxf nsv nut oma pva rawvideo rl2 roq rpl segafilm shorten siff smacker sol str thp tiertexseq tta txd vmd voc wc3 wsaud wsvqa xa yuv4mpegpipe
+FFMPEG_DISABLED_DEMUXERS:=aa acm act adf adp ads adx afc aix amr amrnb amrwb apc ape apng aptx aptx_hd aqtitle asf_o ass ast avr bethsoftvid bfi bfstm bit bmv boa brstm c93 cdxl cine codec2 codec2raw concat data daud dcstr dfa dirac dnxhd dsf dsicin dss dtshd dvbsub dvbtxt dxa epaf ffmetadata fits frm fsb g722 g723_1 g726 g726le g729 gdv genh gif gsm gxf hevc hls hnm ico idcin idf iff ilbc image2 image2pipe image_bmp_pipe image_dds_pipe image_dpx_pipe image_exr_pipe image_j2k_pipe image_jpeg_pipe image_jpegls_pipe image_pam_pipe image_pbm_pipe image_pcx_pipe image_pgm_pipe image_pgmyuv_pipe image_pictor_pipe image_png_pipe image_ppm_pipe image_psd_pipe image_qdraw_pipe image_sgi_pipe image_sunrast_pipe image_svg_pipe image_tiff_pipe image_webp_pipe image_xpm_pipe ingenient ipmovie ircam ivf ivr jacosub jv live_flv lmlm4 loas lrc lvf lxf mgsts microdvd mjpeg_2000 mlv mm mmf mpjpeg mpl2 mpsub msf msnwc_tcp mtaf mtv musx mv mxf mxg nistsphere nsp nsv nut oma paf pjs pmp pva pvf rawvideo realtext redspark rl2 roq rpl rsd rso s337m sami sbc sbg scc sdr2 sds sdx segafilm shorten siff sln smacker smjpeg smush sol spdif srt stl str subviewer subviewer1 sup svag tak tedcaptions thp threedostr tiertexseq tta tty txd ty v210 v210x vag vivo vmd vobsub voc vpk vplayer wc3 webm_dash_manifest webvtt wsaud wsd wsvqa wtv wve xa xbin xmv xvag xwma yuv4mpegpipe
 FFMPEG_CONFIGURE_DEMUXERS:=$(call FFMPEG_FILTER_CONFIG,disable-demuxer,$(FFMPEG_DISABLED_DEMUXERS))
 
-ffmpeg/stamp-h1: zlib
+ffmpeg/stamp-h1: $(if $(FFMPEG_ZLIB_REQD),zlib,)
 	cd ffmpeg && symver_asm_label=no symver_gnu_asm=no symver=no CC=$(CC) LDFLAGS="-ldl"\
 		./configure --enable-cross-compile --arch=$(ARCH) --target_os=linux \
-		--cross-prefix=$(CROSS_COMPILE) --enable-shared --enable-gpl --disable-doc \
-		--enable-pthreads --enable-small --disable-encoders --disable-filters \
-		--disable-muxers --disable-devices --disable-ffmpeg --disable-ffplay \
-		--disable-ffserver --disable-ffprobe --disable-avdevice --disable-swscale \
-		--disable-hwaccels --disable-network --disable-bsfs --disable-mpegaudio-hp \
-		--enable-demuxers $(FFMPEG_CONFIGURE_DEMUXERS) \
+		--cross-prefix=$(CROSS_COMPILE) --enable-gpl \
+		$(if $(MEDIA_SERVER_STATIC),,--disable-static --enable-shared) --enable-small \
+		--disable-runtime-cpudetect --disable-mipsfpu --disable-mipsdsp --disable-mipsdspr2 \
+		--disable-programs --disable-doc \
+		--disable-avdevice --disable-swresample --disable-swscale --disable-postproc \
+		--disable-avfilter --enable-pthreads --disable-network \
+		--disable-encoders \
 		--disable-decoders $(FFMPEG_CONFIGURE_DECODERS) \
+		--disable-hwaccels \
+		--disable-muxers \
+		--enable-demuxers $(FFMPEG_CONFIGURE_DEMUXERS) \
 		--disable-parsers $(FFMPEG_CONFIGURE_PARSERS) \
+		--disable-bsfs \
 		--disable-protocols $(FFMPEG_CONFIGURE_PROTOCOLS) \
-		--extra-cflags="-Os $(EXTRACFLAGSx) -ffunction-sections -fdata-sections -fPIC -I$(TOP)/zlib" \
+		--disable-devices --disable-filters \
+		--extra-cflags="-Os $(EXTRACFLAGSx) -ffunction-sections -fdata-sections -fPIC $(if $(FFMPEG_ZLIB_REQD),-I$(TOP)/zlib,)" \
 		--extra-ldflags="-ffunction-sections -fdata-sections -Wl,--gc-sections -fPIC" \
-		--extra-libs="-L$(TOP)/zlib -lz" \
-		--enable-zlib --disable-debug --prefix=''
+		$(if $(FFMPEG_ZLIB_REQD),--extra-libs="-L$(TOP)/zlib -lz" --enable-zlib,--disable-zlib) \
+		--disable-debug --prefix=''
 	touch $@
 
-ffmpeg: ffmpeg/stamp-h1 zlib
+ffmpeg: ffmpeg/stamp-h1 $(if $(FFMPEG_ZLIB_REQD),zlib,)
 	$(MAKE) -C ffmpeg all
 
 ffmpeg-clean:
@@ -4131,12 +4260,12 @@ ffmpeg-clean:
 ffmpeg-install: ffmpeg
 	@$(SEP)
 ifneq ($(MEDIA_SERVER_STATIC),y)
-	install -D ffmpeg/libavformat/libavformat.so.52 $(INSTALLDIR)/ffmpeg/usr/lib/libavformat.so.52
-	install -D ffmpeg/libavcodec/libavcodec.so.52 $(INSTALLDIR)/ffmpeg/usr/lib/libavcodec.so.52
-	install -D ffmpeg/libavutil/libavutil.so.50 $(INSTALLDIR)/ffmpeg/usr/lib/libavutil.so.50
-	$(STRIP) $(INSTALLDIR)/ffmpeg/usr/lib/libavformat.so.52
-	$(STRIP) $(INSTALLDIR)/ffmpeg/usr/lib/libavcodec.so.52
-	$(STRIP) $(INSTALLDIR)/ffmpeg/usr/lib/libavutil.so.50
+	install -D ffmpeg/libavformat/libavformat.so.58 $(INSTALLDIR)/ffmpeg/usr/lib/libavformat.so.58
+	install -D ffmpeg/libavcodec/libavcodec.so.58 $(INSTALLDIR)/ffmpeg/usr/lib/libavcodec.so.58
+	install -D ffmpeg/libavutil/libavutil.so.56 $(INSTALLDIR)/ffmpeg/usr/lib/libavutil.so.56
+	$(STRIP) $(INSTALLDIR)/ffmpeg/usr/lib/libavformat.so.58
+	$(STRIP) $(INSTALLDIR)/ffmpeg/usr/lib/libavcodec.so.58
+	$(STRIP) $(INSTALLDIR)/ffmpeg/usr/lib/libavutil.so.56
 endif
 
 .PHONY: ffmpeg
@@ -5570,6 +5699,47 @@ expat-2.0.1-clean:
 	-@$(MAKE) -C expat-2.0.1 clean
 	@rm -f expat-2.0.1/stamp-h1
 
+avahi: expat-2.0.1 libdaemon avahi/Makefile
+	@$(SEP)
+	@$(MAKE) -j 8 -C $@
+
+avahi/Makefile: avahi/configure
+	cd avahi && $(CONFIGURE) \
+		LDFLAGS="$(LDFLAGS) -L$(STAGEDIR)/usr/lib -ldl -lpthread $(EXTRA_LDFLAGS)" \
+		CFLAGS="-Os $(CFLAGS) -I$(STAGEDIR)/usr/include" \
+		--prefix=/usr --sysconfdir=/tmp localstatedir=/var --with-distro=none \
+		--disable-nls --disable-glib --disable-gobject \
+		--enable-introspection=no \
+		--disable-qt3 --disable-qt4 --disable-gtk --disable-gtk3 \
+		--disable-dbus \
+		--disable-gdbm \
+		--disable-python --disable-pygtk --disable-python-dbus \
+		--disable-mono --disable-monodoc \
+		--disable-autoipd \
+		--disable-doxygen-doc --disable-manpages --disable-xmltoman \
+		--with-xml=expat \
+		--with-avahi-user="admin" --with-avahi-group="root" \
+		--disable-dependency-tracking \
+		--disable-stack-protector \
+		avahi_runtime_dir=/var/run \
+		servicedir=/tmp/avahi/services \
+		LIBDAEMON_LIBS="-L$(STAGEDIR)/usr/lib -ldaemon" \
+		LIBDAEMON_CFLAGS="-I$(STAGEDIR)/usr/include"
+
+avahi-install: avahi
+	install -D avahi/avahi-daemon/.libs/avahi-daemon $(INSTALLDIR)/avahi/usr/sbin/avahi-daemon
+	install -D avahi/avahi-common/.libs/libavahi-common.so.3.5.3 $(INSTALLDIR)/avahi/usr/lib/libavahi-common.so.3.5.3
+	install -D avahi/avahi-core/.libs/libavahi-core.so.7.0.2 $(INSTALLDIR)/avahi/usr/lib/libavahi-core.so.7.0.2
+	$(STRIP) $(INSTALLDIR)/avahi/usr/sbin/avahi-daemon
+	$(STRIP) $(INSTALLDIR)/avahi/usr/lib/libavahi-common.so.3.5.3
+	$(STRIP) $(INSTALLDIR)/avahi/usr/lib/libavahi-core.so.7.0.2
+	cd $(INSTALLDIR)/avahi/usr/lib && ln -sf libavahi-common.so.3.5.3 libavahi-common.so.3
+	cd $(INSTALLDIR)/avahi/usr/lib && ln -sf libavahi-core.so.7.0.2 libavahi-core.so.7
+
+avahi-clean:
+	[ ! -f avahi/Makefile ] || $(MAKE) -C avahi distclean
+	@rm -f avahi/Makefile
+
 #avahi-0.6.31
 avahi-0.6.31: shared nvram$(BCMEX)$(EX7) expat-2.0.1 libdaemon avahi-0.6.31/Makefile
 	@$(SEP)
@@ -6445,7 +6615,7 @@ libfapi-0.1-install:
 	cd libfapi-0.1; make clean; make
 	install -D libfapi-0.1/libfapi.so $(TARGETDIR)/usr/lib/
 
-fapi_wlan_common-05.04.00.131: readline-6.2 libhelper-1.4.0.2
+fapi_wlan_common-05.04.00.131: ncurses-6.0 readline-6.2 libhelper-1.4.0.2
 	cd fapi_wlan_common-05.04.00.131; make clean; make
 
 fapi_wlan_common-05.04.00.131-install:
@@ -6476,36 +6646,22 @@ endif
 lm-sensors-master:
 	cd lm-sensors-master; make clean; make all
 
-ifeq ($(wildcard bluez-5.41/prebuild),)
-EXTAQIS=--enable-extaqis
-BLUEDPATH=src
-else
-EXTAQIS=
-BLUEDPATH=prebuild
-endif
+
+AQIS = --enable-extaqis
 
 bluez-5.41/stamp-h1:
+ifeq ($(wildcard bluez-5.41/prebuild),)
 	cd bluez-5.41 && ./autogen.sh --no-configure
-ifeq ($(RTCONFIG_REALTEK),y)
 	cd bluez-5.41 && $(CONFIGURE) \
 		--enable-library --program-prefix= --program-suffix= --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc\
 		--datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --disable-systemd --with-udevdir=$(STAGEDIR)/usr/lib/udev\
-		--enable-experimental --enable-maintainer-mode --enable-extaqis ${EXTAQIS} \
+		--enable-experimental --enable-maintainer-mode $(AQIS) \
 		UDEV_CFLAGS="-I$(STAGEDIR)/usr/include" UDEV_LIBS="$(STAGEDIR)/usr/lib/libudev.so" \
-		CFLAGS="-I$(STAGEDIR)/usr/local/include -I$(STAGEDIR)/usr/include -I$(TOP)/bluez-5.41/src/bleencrypt/include -DENCRYPT -I$(TOP)/shared -I$(SRCBASE)/include -I$(STAGEDIR)/usr/local/include/glib-2.0 -I$(STAGEDIR)/usr/local/lib/glib-2.0/include" \
-		LDFLAGS="-L$(STAGEDIR)/lib -L$(STAGEDIR)/usr/lib -ldbus-1 -L$(TOP)/libiconv-1.14/lib/.libs -liconv -ldl -lpthread -L$(STAGEDIR)/usr/local/lib -lglib-2.0 -lglib-2.0 -lical -licalvcal -L$(TOP)/openssl -lssl -lcrypto -L$(TOP)/nvram -L$(INSTALLDIR)/nvram/usr/lib -lnvram -L$(TOP)/shared -L$(INSTALLDIR)/shared/usr/lib -lshared"
-	touch $@
-else
-	cd bluez-5.41 && $(CONFIGURE) \
-		--enable-library --program-prefix= --program-suffix= --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc\
-		--datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --disable-systemd --with-udevdir=$(STAGEDIR)/usr/lib/udev\
-		--enable-experimental --enable-maintainer-mode ${EXTAQIS} \
-		UDEV_CFLAGS="-I$(STAGEDIR)/usr/include" UDEV_LIBS="$(STAGEDIR)/usr/lib/libudev.so" \
-		CFLAGS="$(EXTRA_BLUEZ_CFLAGS) -I$(STAGEDIR)/usr/local/include -I$(STAGEDIR)/usr/local/include/glib-2.0 -I$(STAGEDIR)/usr/local/lib/glib-2.0/include -I$(STAGEDIR)/usr/include -I$(TOP)/shared -I$(SRCBASE)/include -I$(TOP)/bluez-5.41/src/bleencrypt/include -DENCRYPT -D$(MODEL)" \
-		LDFLAGS="$(EXTRA_BLUEZ_LDFLAGS) -L$(STAGEDIR)/lib -L$(STAGEDIR)/usr/lib -ldbus-1 -liconv -ldl -lpthread -L$(STAGEDIR)/usr/local/lib -lglib-2.0 -lglib-2.0 -lical -licalvcal -L$(TOP)/openssl -lssl -lcrypto -L$(TOP)/nvram -L$(INSTALLDIR)/nvram/usr/lib -lnvram -L$(TOP)/shared -L$(INSTALLDIR)/shared/usr/lib -lshared"
-	touch $@
+		CFLAGS="-I$(STAGEDIR)/usr/include -I$(STAGEDIR)/usr/local/include -I$(SRCBASE)/include -I$(STAGEDIR)/usr/local/include/glib-2.0 -I$(STAGEDIR)/usr/local/lib/glib-2.0/include -I$(TOP)/shared -DENCRYPT -D$(MODEL)" \
+		LDFLAGS="-L$(STAGEDIR)/lib -L$(STAGEDIR)/usr/lib -ldbus-1 -liconv -ldl -lpthread -L$(STAGEDIR)/usr/local/lib -lglib-2.0 -lical -licalvcal -L$(TOP)/openssl -lssl -lcrypto -L$(TOP)/nvram -L$(INSTALLDIR)/nvram/usr/lib -lnvram -L$(TOP)/shared -L$(INSTALLDIR)/shared/usr/lib -lshared -L$(INSTALLDIR)/zlib/usr/lib -lz"
+		touch $@
 endif
-bluez-5.41: libiconv-1.14 glib-2.37.7 udev-173 libical-2.0.0 readline-6.2 bluez-5.41/stamp-h1
+bluez-5.41: bluez-5.41/stamp-h1
 	$(MAKE) -C $@ && $(MAKE) $@-stage
 
 bluez-5.41-clean:
@@ -6534,6 +6690,7 @@ endif
 	install -D bluez-5.41/tools/rctest $(INSTALLDIR)/bluez-5.41/usr/bin/rctest
 	install -D bluez-5.41/tools/rfcomm $(INSTALLDIR)/bluez-5.41/usr/bin/rfcomm
 	install -D bluez-5.41/tools/sdptool $(INSTALLDIR)/bluez-5.41/usr/bin/sdptool
+	install -D bluez-5.41/tools/btmgmt $(INSTALLDIR)/bluez-5.41/usr/bin/btmgmt
 ifeq ($(RTCONFIG_SOC_IPQ40XX),y)
 	install -D bluez-5.41/btconfig_1.16 $(INSTALLDIR)/bluez-5.41/usr/bin/btconfig
 	install -D bluez-5.41/btchk.sh $(INSTALLDIR)/bluez-5.41/usr/bin/btchk.sh
@@ -6543,7 +6700,7 @@ else ifeq ($(RTCONFIG_LANTIQ),y)
 	install -D btconfig/btconfig $(TARGETDIR)/usr/bin/btconfig
 endif
 	install -D bluez-5.41/lib/.libs/libbluetooth.so.$(LIBBLUETOOTH_VER) $(TARGETDIR)/usr/lib/libbluetooth.so.$(LIBBLUETOOTH_VER)
-	install -D bluez-5.41/${BLUEDPATH}/bluetoothd $(INSTALLDIR)/bluez-5.41/usr/bin/bluetoothd
+	install -D bluez-5.41/src/bluetoothd $(INSTALLDIR)/bluez-5.41/usr/bin/bluetoothd
 	install -D bluez-5.41/attrib/gatttool $(INSTALLDIR)/bluez-5.41/usr/bin/gatttool
 ifeq ($(BUILD_NAME), $(filter $(BUILD_NAME), MAP-AC3000))
 	install -D bluez-5.41/3000000.psr $(TARGETDIR)/rom/etc/3000000.psr
@@ -6563,6 +6720,7 @@ endif
 	$(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/rctest
 	$(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/rfcomm
 	$(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/sdptool
+	$(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/btmgmt
 	$(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/bluetoothd
 	$(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/gatttool
 	# $(STRIP) $(INSTALLDIR)/bluez-5.41/usr/bin/btconfig
@@ -6764,7 +6922,7 @@ readline-6.2/Makefile: readline-6.2/configure
 		CFLAGS="-I$(STAGEDIR)/usr/local/include"\
 		LDFLAGS="-L$(STAGEDIR)/usr/local/lib -L$(STAGEDIR)/usr/lib -L$(TOP)/ncurese-2.0/lib -ldl -lpthread" \
 
-readline-6.2: ncurses-6.0 readline-6.2/Makefile
+readline-6.2: readline-6.2/Makefile
 	$(MAKE) SHLIB_LIBS="-lncurses" -C $@ && $(MAKE) $@-stage
 
 readline-6.2-clean:
@@ -6793,7 +6951,7 @@ dbus-1.8.8/stamp-h1:
 		LDFLAGS="-L$(STAGEDIR)/usr/lib -ldl -lpthread -L$(STAGEDIR)/usr/local/lib -ldl -lpthread"
 	touch $@
 
-dbus-1.8.8: expat-2.0.1 dbus-1.8.8/stamp-h1
+dbus-1.8.8: dbus-1.8.8/stamp-h1
 	$(MAKE) -C $@ && $(MAKE) $@-stage
 
 dbus-1.8.8-clean:
@@ -6815,24 +6973,20 @@ dbus-1.8.8-install: dbus-1.8.8
 		ln -sf libdbus-1.so.3.8.7 libdbus-1.so.3 && \
 		ln -sf libdbus-1.so.3.8.7 libdbus-1.so
 
+GLIB_2.37.7_CONF=
+ifeq ($(RTCONFIG_REALTEK),y)
+GLIB_2.37.7_CONF=--enable-iconv=no --with-libiconv=gnu
+endif
+
 glib-2.37.7/configure:
 	cd glib-2.37.7 && ./autogen.sh
 
-glib-2.37.7/Makefile: dbus-1.8.8 libffi-3.0.11 zlib glib-2.37.7/configure
-ifeq ($(RTCONFIG_REALTEK),y)
-	cd glib-2.37.7 && $(CONFIGURE) --disable-nls --enable-debug=no --disable-selinux --disable-fam\
-		--enable-iconv=no --with-libiconv=gnu\
+glib-2.37.7/Makefile: glib-2.37.7/configure
+	cd glib-2.37.7 && $(CONFIGURE) --disable-nls --enable-debug=no --disable-selinux --disable-fam $(GLIB_2.37.7_CONF)\
 		LIBFFI_CFLAGS="-I$(STAGEDIR)/usr/local/lib/libffi-3.0.11/include" \
 		LIBFFI_LIBS="$(STAGEDIR)/usr/local/lib/libffi.so" \
 		CFLAGS="-I$(TOP)/libiconv-1.14/include -I$(TOP)/glib-2.37.7 -I$(STAGEDIR)/usr/include" \
 		LDFLAGS="-L$(TOP)/libiconv-1.14/lib/.libs -liconv -L$(STAGEDIR)/usr/lib -ldl -lpthread -lz -L$(STAGEDIR)/usr/local/lib -lffi"
-else
-	cd glib-2.37.7 && $(CONFIGURE) --disable-nls --enable-debug=no --disable-selinux --disable-fam\
-		LIBFFI_CFLAGS="-I$(STAGEDIR)/usr/local/lib/libffi-3.0.11/include" \
-		LIBFFI_LIBS="$(STAGEDIR)/usr/local/lib/libffi.so" \
-		CFLAGS="-I$(TOP)/libiconv-1.14/include -I$(TOP)/glib-2.37.7 -I$(STAGEDIR)/usr/include" \
-		LDFLAGS="-L$(TOP)/libiconv-1.14/lib/.libs -liconv -L$(STAGEDIR)/usr/lib -ldl -lpthread -lz -L$(STAGEDIR)/usr/local/lib -lffi"
-endif
 
 glib-2.37.7: glib-2.37.7/Makefile
 	$(MAKE) -C $@ && $(MAKE) $@-stage
@@ -6955,6 +7109,8 @@ aaews-install:
 	$(STRIP) -s $(INSTALLDIR)/wb/usr/lib/libws.so
 	install -D aaews/aaews $(INSTALLDIR)/wb/usr/sbin/aaews
 	$(STRIP) -s $(INSTALLDIR)/wb/usr/sbin/aaews
+	install -D aaews/mastiff $(INSTALLDIR)/wb/usr/sbin/mastiff
+	$(STRIP) -s $(INSTALLDIR)/wb/usr/sbin/mastiff
 ifeq ($(RTCONFIG_BCMARM),y)
 ifeq ($(HND_ROUTER),y)
 	install -D $(TOOLCHAIN)/arm-buildroot-linux-gnueabi/lib/libstdc++.so.6 $(INSTALLDIR)/ftpclient/usr/lib/libstdc++.so.6
@@ -6988,10 +7144,8 @@ amas-utils-install:
 	install -d $(INSTALLDIR)/amas-utils/usr/lib/
 	install -D amas-utils/libamas-utils.so $(INSTALLDIR)/amas-utils/usr/lib/libamas-utils.so
 	$(STRIP) -s $(INSTALLDIR)/amas-utils/usr/lib/libamas-utils.so
-ifneq ($(wildcard $(TOP)/amas-utils/*.c),)
 	install -D amas-utils/amas-utils-cli $(INSTALLDIR)/amas-utils/usr/sbin/amas-utils-cli
 	$(STRIP) -s $(INSTALLDIR)/amas-utils/usr/sbin/amas-utils-cli
-endif
 
 json-c/stamp-h1:
 ifeq ($(RTCONFIG_LANTIQ),y)
@@ -7625,4 +7779,5 @@ $(obj-y) $(obj-n) $(obj-clean) $(obj-install): dummy
 .PHONY: all clean distclean mrproper install package image
 .PHONY: conf mconf oldconf kconf kmconf config menuconfig oldconfig
 .PHONY: dummy libnet libpcap
+
 

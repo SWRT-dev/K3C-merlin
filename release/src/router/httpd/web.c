@@ -15553,37 +15553,55 @@ do_dbconf(char *url, FILE *stream)
 	char dbvar[2048];
 	char dbval[2048];
 	FILE *fp;
-	//int firstRow = 1;
-	//char *substr = NULL;
 	char *name = NULL;
-	char * delim = "&";
+	char * delim = ",";
 	char *pattern = websGetVar(wp, "p","");
 	char *dup_pattern = strdup(pattern);
 	char *sepstr = dup_pattern;
-	if(strstr(sepstr,delim))
-		name = strsep(&sepstr, delim);
-	else
-		name= strdup(pattern);
-	free(dup_pattern);
-	websWrite(stream,"var db_%s=(function() {\nvar o={};\n", name);
-	doSystem("dbus list %s > /tmp/dbusxxx", name);
-	if((fp = fopen("/tmp/dbusxxx", "r")) == NULL)
-		printf("No \"name\"!\n");
-	while(fgets(substr, sizeof(substr),fp) != NULL)
-	{
-		char *result = NULL;
-		result = strtok( substr, "=" );
-		strcpy (dbvar, result);
-		while( result != NULL ) {
-			strcpy(dbval, result);
-			dbval[strlen(dbval)-1]='\0';
-			result = strtok(NULL,"***");
+	if(strstr(sepstr,delim)) {
+		for(name = strsep(&sepstr, delim); name != NULL; name = strsep(&sepstr, delim)) {
+			//logmessage("HTTPD", "dbconf: %s name: %s", pattern, name);
+			websWrite(stream,"var db_%s=(function() {\nvar o={};\n", name);
+			doSystem("dbus list %s > /tmp/dbusxxx", name);
+			if((fp = fopen("/tmp/dbusxxx", "r")) == NULL)
+				printf("No \"name\"!\n");
+			while(fgets(substr, sizeof(substr),fp) != NULL)
+			{
+				char *result = NULL;
+				result = strtok( substr, "=" );
+				strcpy (dbvar, result);
+				while( result != NULL ) {
+					strcpy(dbval, result);
+					dbval[strlen(dbval)-1]='\0';
+					result = strtok(NULL,"***");
+				}
+				websWrite(stream,"o['%s']='%s';\n", dbvar, dbval );
+			}
+			fclose(fp);
+			websWrite(stream,"return o;\n})();\n" );
 		}
-		websWrite(stream,"o['%s']='%s';\n", dbvar, dbval );
+	} else {
+		name= strdup(pattern);
+		websWrite(stream,"var db_%s=(function() {\nvar o={};\n", name);
+		doSystem("dbus list %s > /tmp/dbusxxx", name);
+		if((fp = fopen("/tmp/dbusxxx", "r")) == NULL)
+			printf("No \"name\"!\n");
+		while(fgets(substr, sizeof(substr),fp) != NULL)
+		{
+			char *result = NULL;
+			result = strtok( substr, "=" );
+			strcpy (dbvar, result);
+			while( result != NULL ) {
+				strcpy(dbval, result);
+				dbval[strlen(dbval)-1]='\0';
+				result = strtok(NULL,"***");
+			}
+			websWrite(stream,"o['%s']='%s';\n", dbvar, dbval );
+		}
+		fclose(fp);
+		websWrite(stream,"return o;\n})();\n" );
 	}
-	fclose(fp);
-	
-	websWrite(stream,"return o;\n})();\n" );
+	free(dup_pattern);
 }
 
 static void

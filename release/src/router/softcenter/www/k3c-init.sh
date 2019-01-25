@@ -31,7 +31,7 @@ if [ "$kenable" == "1" ];then
 /usr/sbin/k3c_frpc.sh &
 /usr/sbin/k3c_adbyby.sh &
 /usr/sbin/softcenter_v2ray.sh &
-/usr/sbin/k3cex-start.sh &
+/usr/sbin/k3cex_start.sh &
 else
   logger -t "软件中心" "jffs扩展挂载未开启！"
 fi

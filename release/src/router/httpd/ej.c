@@ -227,7 +227,7 @@ translate_lang (char *s, char *e, FILE *f, kw_t *pkw)
 extern char Accept_Language[];
 extern int is_firsttime(void);
 #endif
-extern char softcenter_web[];
+
 // This translation engine can not process <%...%> interlace with <#...#>
 void
 do_ej(char *path, FILE *stream)
@@ -245,13 +245,9 @@ do_ej(char *path, FILE *stream)
 	size_t ret, read_len, len;
 	int no_translate = 1;
 	static kw_t kw = {0, 0, NULL, NULL};
-	//char scpath[100];
-	//snprintf(scpath, sizeof(scpath), "%s/%s", softcenter_web, path);
-	//if ( strncasecmp(path, "Main_S", 6) && strncasecmp(path, "Module_", 7) || (fp = fopen(scpath, "r") == NULL))
-	//{
+
 	if (!(fp = fopen(path, "r")))
 		return;
-	//}
 
 #ifdef TRANSLATE_ON_FLY
 	// Load dictionary file

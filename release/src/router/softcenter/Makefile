@@ -17,12 +17,40 @@ install:
 	install -d $(INSTALLDIR)/usr/kool
 	install -d $(INSTALLDIR)/www
 	install -d $(INSTALLDIR)/usr/kms
+	install -d $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -d $(INSTALLDIR)/rom/etc/softcenter/res
+	install -d $(INSTALLDIR)/rom/etc/softcenter/webs
+	install -d $(INSTALLDIR)/rom/etc/softcenter/perp
+	install -d $(INSTALLDIR)/rom/etc/softcenter/scripts
+	install -d $(INSTALLDIR)/rom/etc/softcenter/perp/.boot
+	install -d $(INSTALLDIR)/rom/etc/softcenter/perp/.control
 
 # K3C versioncmp
-	#install -m 0755 versioncmp $(INSTALLDIR)/usr/sbin
+	install -m 0755 versioncmp $(INSTALLDIR)/usr/sbin
 # K3C softcenter
 	install -m 0755 www/Softcenter.asp $(INSTALLDIR)/www
-	install -m 0755 www/softcenter.xml $(INSTALLDIR)/usr/sbin
+	install -m 0755 softcenter/bin/perpboot $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/perpctl $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/perpd $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/perphup $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/perpls $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/perpok $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/perpstat $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/sissylog $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/tinylog $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/res/icon-default.png $(INSTALLDIR)/rom/etc/softcenter/res
+	install -m 0755 softcenter/res/softcenter.js $(INSTALLDIR)/rom/etc/softcenter/res
+	install -m 0755 softcenter/webs/Main_Soft_center.asp $(INSTALLDIR)/rom/etc/softcenter/webs
+	install -m 0755 softcenter/webs/Main_Soft_setting.asp $(INSTALLDIR)/rom/etc/softcenter/webs
+	install -m 0755 softcenter/perp/perp.sh $(INSTALLDIR)/rom/etc/softcenter/perp
+	install -m 0755 softcenter/perp/.boot/rc.log $(INSTALLDIR)/rom/etc/softcenter/perp/.boot
+	install -m 0755 softcenter/perp/.boot/rc.perp $(INSTALLDIR)/rom/etc/softcenter/perp/.boot
+	install -m 0755 softcenter/perp/.control/perpd.pid $(INSTALLDIR)/rom/etc/softcenter/perp/.control
+	install -m 0755 softcenter/scripts/base.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
+	install -m 0755 softcenter/scripts/ks_app_install.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
+	install -m 0755 softcenter/scripts/ks_tar_intall.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
+	install -m 0755 softcenter/scripts/pluginbase.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
+	#install -m 0755 www/softcenter.xml $(INSTALLDIR)/usr/sbin
 # K3C update uboot&ubootconfig tool
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
@@ -38,7 +66,7 @@ install:
 	install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
 	install -m 0755 www/k3c-init.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 usr/phic_fac $(INSTALLDIR)/usr/sbin
+	#install -m 0755 usr/phic_fac $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_Adbyby.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_adbyby.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/user.txt $(INSTALLDIR)/usr/kool
@@ -110,8 +138,6 @@ install:
 	install -m 0755 www/k3c_script.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/k3c_script_ch.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_Script.asp $(INSTALLDIR)/www
-# K3C aimesh
-	#install -m 0755 www/Tools_aimesh.asp $(INSTALLDIR)/www
 # K3C helper
 	install -m 0755 www/helper.sh $(INSTALLDIR)/usr/sbin
 

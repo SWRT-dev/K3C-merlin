@@ -6476,11 +6476,16 @@ release/src-lantiq/linux/linux-3.10.104/mm/modules.order
 rrelease/src-lantiq/linux/linux-3.10.104/modules.builtin
 release/src-lantiq/linux/linux-3.10.104/modules.order
 release/src-lantiq/linux/linux-3.10.104/net/.*.o.cmd
+release/src-lantiq/linux/linux-3.10.104/net/*.o
 release/src-lantiq/linux/linux-3.10.104/net/*/.*.o.cmd
+release/src-lantiq/linux/linux-3.10.104/net/*/*/.*.mod.o.cmd
+release/src-lantiq/linux/linux-3.10.104/net/*/*/.*.o.cmd
+release/src-lantiq/linux/linux-3.10.104/net/*/.*.ko.cmd
 release/src-lantiq/linux/linux-3.10.104/net/*/*.mod.c
 release/src-lantiq/linux/linux-3.10.104/net/*/*.o
 release/src-lantiq/linux/linux-3.10.104/net/*/modules.builtin
 release/src-lantiq/linux/linux-3.10.104/net/*/modules.order
+release/src-lantiq/linux/linux-3.10.104/net/*/*/.*.ko.cmd
 release/src-lantiq/linux/linux-3.10.104/scripts/.*.cmd
 release/src-lantiq/linux/linux-3.10.104/scripts/*/.*.cmd
 release/src-lantiq/linux/linux-3.10.104/scripts/*/fixdep

@@ -69,10 +69,11 @@
         mdev, mkdir, mke2fs, mkfs.ext2, mkfs.ext3, mknod, mkswap, modprobe,
         more, mount, mv, netstat, nice, nohup, nslookup, pidof, ping, ping6,
         printf, ps, pwd, readlink, renice, rm, rmdir, rmmod, route, sed,
-        setconsole, sh, sleep, sort, strings, swapoff, swapon, sync,
-        syslogd, tail, tar, telnetd, test, tftp, top, touch, tr, traceroute,
-        traceroute6, true, tune2fs, udhcpc, umount, uname, unzip, uptime,
-        usleep, vconfig, vi, watch, wc, which, xargs, zcat, zcip</code></pre>
+        setconsole, sh, sleep, sort, start-stop-daemon, strings, swapoff,
+        swapon, sync, syslogd, tail, tar, telnetd, test, tftp, top, touch,
+        tr, traceroute, traceroute6, true, tune2fs, udhcpc, umount, uname,
+        unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs, zcat,
+        zcip</code></pre>
 
 <h1 id="COMMAND-DESCRIPTIONS">COMMAND DESCRIPTIONS</h1>
 
@@ -1415,6 +1416,39 @@ TYPEs include:
         -u      Suppress duplicate lines
         -z      Lines are terminated by NUL, not newline
         -mST    Ignored for GNU compatibility</code></pre>
+
+</dd>
+<dt id="start-stop-daemon"><b>start-stop-daemon</b></dt>
+<dd>
+
+<p>start-stop-daemon [OPTIONS] [-S|-K] ... [-- ARGS...]</p>
+
+<p>Search for matching processes, and then -K: stop all matching processes. -S: start a process unless a matching process is found.</p>
+
+<p>Process matching:</p>
+
+<pre><code>        -u,--user USERNAME|UID  Match only this user&#39;s processes
+        -n,--name NAME          Match processes with NAME
+                                in comm field in /proc/PID/stat
+        -x,--exec EXECUTABLE    Match processes with this command
+                                in /proc/PID/cmdline
+        -p,--pidfile FILE       Match a process with PID from the file
+        All specified conditions must match
+-S only:
+        -x,--exec EXECUTABLE    Program to run
+        -a,--startas NAME       Zeroth argument
+        -b,--background         Background
+        -N,--nicelevel N        Change nice level
+        -c,--chuid USER[:[GRP]] Change to user/group
+        -m,--make-pidfile       Write PID to the pidfile specified by -p
+-K only:
+        -s,--signal SIG         Signal to send
+        -t,--test               Match only, exit with 0 if a process is found
+Other:
+
+        -o,--oknodo             Exit with status 0 if nothing is done
+        -v,--verbose            Verbose
+        -q,--quiet              Quiet</code></pre>
 
 </dd>
 <dt id="strings"><b>strings</b></dt>

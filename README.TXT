@@ -1,8 +1,9 @@
 uboot  https://k3c.paldier.com/uboot/beta/
 RAM: (512M √ 256M ×)
 NAND: (samsung √ others √)
-hw_version: (A1 √ B1 √ B1G √ B2 x C1 x)
+hw_version: (A1 x B1 √ B1G √ B2 x C1 √)
 ![image](http://github.com/paldier/K3C-merlin/raw/master/merlin.png)
+a special PCIe x1 single daughter board is required, you can buy it from taobao.com
 
 The GPL source is created for ASUS wireless router related products. Please visit the ASUS support site (http://support.asus.com) to get the latest GPL tarball.It has a lot in common with many wireless router open source projects, including Oleg/Tomato/DD-WRT/OpenWRT. Thanks the developers of those projects for making the source code available.
 

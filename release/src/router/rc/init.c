@@ -10564,7 +10564,7 @@ int init_main(int argc, char *argv[])
 #ifdef RTN65U
 		asm1042_upgrade(1);	// check whether upgrade firmware of ASM1042
 #endif
-		run_custom_script("init-start", NULL);
+		run_custom_script("init-start", 0, NULL, NULL);
 
 		state = SIGUSR2;	/* START */
 

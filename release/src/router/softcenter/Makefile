@@ -1,11 +1,13 @@
 include ../common.mak
 
-all: versioncmp base64_encode
+all: versioncmp base64_encode resolvip
 
 versioncmp:
 	$(CC) versioncmp.c -o versioncmp
 base64_encode:
 	$(CC) base64.c -o base64_encode
+resolvip:
+	$(CC) resolvip.c -o resolvip
 install:
 	install -d $(INSTALLDIR)/sbin
 	install -d $(INSTALLDIR)/usr/sbin

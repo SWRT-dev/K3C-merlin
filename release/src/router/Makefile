@@ -6857,9 +6857,9 @@ ifeq ($(RTCONFIG_SOFTCENTER_EXT),y)
 httpdb/Makefile: httpdb/CMakeLists.txt
 	cd httpdb && cmake -DCMAKE_INSTALL_PREFIX=/usr \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_EXE_LINKER_FLAGS="-L$(STAGEDIR)/usr/lib -lev" 
+	-DCMAKE_EXE_LINKER_FLAGS="-L$(STAGEDIR)/usr/lib" 
 
-httpdb: libev-4.22 httpdb/Makefile
+httpdb: httpdb/Makefile
 	$(MAKE) -C $@
 
 httpdb-clean:

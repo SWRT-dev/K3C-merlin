@@ -57,17 +57,17 @@ install:
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
 	install -m 0755 base64 $(INSTALLDIR)/usr/bin
-	install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
-	install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
-	install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
-	install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
-	install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/ignore.user $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
+	#install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/ignore.user $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
 	install -m 0755 www/k3c-init.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
 	#install -m 0755 usr/phic_fac $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_Adbyby.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_adbyby.sh $(INSTALLDIR)/usr/sbin
@@ -125,10 +125,10 @@ install:
 	install -m 0755 www/frp_mon.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/k3c_frpc.sh $(INSTALLDIR)/usr/sbin
 # K3C v2ray
-	install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
-	install -m 0755 www/softcenter_v2ray.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/v2ray_mon.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/v2ray-rules $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
+	#install -m 0755 www/softcenter_v2ray.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/v2ray_mon.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/v2ray-rules $(INSTALLDIR)/usr/sbin
 # K3C swap
 	install -m 0755 www/Tools_swap.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_swap.sh $(INSTALLDIR)/usr/sbin

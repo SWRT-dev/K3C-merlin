@@ -45,7 +45,7 @@
 
 #define QUAGGA_COPYRIGHT "Copyright 1996-2005 Kunihiro Ishiguro, et al."
 
-#define QUAGGA_CONFIG_ARGS "--host=mips-linux --build= --enable-shared=lib --disable-ripngd --disable-ospfd --disable-doc --disable-ospfclient --disable-ospf6d --disable-bgpd --disable-bgp-announce --disable-babeld --disable-silent-rules --disable-isisd"
+#define QUAGGA_CONFIG_ARGS "--host=mips-linux --build= --prefix=/usr --sysconfdir=/etc --enable-shared --disable-static --disable-ripngd --disable-ospfd --disable-doc --disable-ospfclient --disable-ospf6d --disable-bgpd --disable-bgp-announce --disable-babeld --disable-silent-rules --disable-isisd"
 
 pid_t pid_output (const char *);
 

@@ -92,7 +92,7 @@ AUTOMAKE = automake-1.11
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -I/home/paldier/bluecave/release/src-lantiq/include -I/home/paldier/bluecave/release/src-lantiq/router/shared -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/bluecave/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+CFLAGS = -Os -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src-lantiq/router/shared -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
 CXX = mips-openwrt-linux-uclibc-g++
@@ -112,7 +112,7 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LDFLAGS = -L/home/paldier/bluecave/release/src-lantiq/router/nvram -L/home/paldier/bluecave/release/src-lantiq/router/shared  --sysroot=/home/paldier/bluecave/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+LDFLAGS = -L/home/paldier/asuswrt/release/src-lantiq/router/nvram -L/home/paldier/asuswrt/release/src-lantiq/router/shared  --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 LIBOBJS = 
 LIBS = -lnvram -lshared 
 LTLIBOBJS = 
@@ -132,10 +132,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = mips-openwrt-linux-uclibc-strip -R .note -R .comment
 VERSION = 2.0.6.32828
-abs_builddir = /home/paldier/bluecave/release/src/router/phddns/src
-abs_srcdir = /home/paldier/bluecave/release/src/router/phddns/src
-abs_top_builddir = /home/paldier/bluecave/release/src/router/phddns
-abs_top_srcdir = /home/paldier/bluecave/release/src/router/phddns
+abs_builddir = /home/paldier/asuswrt/release/src/router/phddns/src
+abs_srcdir = /home/paldier/asuswrt/release/src/router/phddns/src
+abs_top_builddir = /home/paldier/asuswrt/release/src/router/phddns
+abs_top_srcdir = /home/paldier/asuswrt/release/src/router/phddns
 ac_ct_CC = 
 ac_ct_CXX = 
 am__include = include
@@ -155,7 +155,7 @@ host_alias = mips-linux
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/bluecave/release/src/router/phddns/install-sh
+install_sh = ${SHELL} /home/paldier/asuswrt/release/src/router/phddns/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

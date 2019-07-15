@@ -23,7 +23,7 @@ export TEST_OBJS +=	main.o
 #
 # Additional LDFLAGS for pjlib-test
 #
-export TEST_LDFLAGS += -L/home/paldier/384/release/src-lantiq/router/openssl    -L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib  -ldl -lc -lgcc_s -lm -lnsl -lrt -lpthread  -lssl -lcrypto    -lstdc++ -lcrypto -lssl
+export TEST_LDFLAGS += -L/home/paldier/asuswrt/release/src-lantiq/router/openssl    -L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib  -ldl -lc -lgcc_s -lm -lnsl -lrt -lpthread  -lssl -lcrypto -lpthread    -lstdc++ -lcrypto -lssl
 
 #
 # TARGETS are make targets in the Makefile, to be executed for this given

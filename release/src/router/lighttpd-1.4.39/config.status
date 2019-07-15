@@ -427,7 +427,7 @@ $config_commands
 
 Report bugs to <contact@lighttpd.net>."
 
-ac_cs_config="'--host=mips-linux' '--build=' '--prefix=/home/paldier/384/release/src/router/lighttpd-1.4.39/_inst' '--with-pcre' 'PCRECONFIG=/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31/pcre-config' '--with-smbdav-props' '--with-openssl=/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl' '--with-openssl-includes=/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl/include/openssl' '--with-openssl-libs=/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl/' '--with-smbdav-locks=yes' '--with-libsmbclient=/home/paldier/384/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3' '--without-zlib' '--without-bzip2' '--enable-shared' '--disable-static' 'build_alias=' 'host_alias=mips-linux' 'CC=mips-openwrt-linux-uclibc-gcc' 'CFLAGS=-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/384/release/src-lantiq/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1' 'LDFLAGS=-L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm' 'LIBS=-L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -lshared -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt' 'PKG_CONFIG_PATH=/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/local/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'XML_CFLAGS=-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/include' 'XML_LIBS=-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lm' 'SQLITE_CFLAGS=-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite' 'SQLITE_LIBS=-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite/.libs -lsqlite3'"
+ac_cs_config="'--host=mips-linux' '--build=' '--prefix=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/_inst' '--with-pcre' 'PCRECONFIG=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/pcre-config' '--with-smbdav-props' '--with-openssl=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl' '--with-openssl-includes=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/include/openssl' '--with-openssl-libs=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/' '--with-smbdav-locks=yes' '--with-libsmbclient=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3' '--without-zlib' '--without-bzip2' '--enable-shared' '--disable-static' 'build_alias=' 'host_alias=mips-linux' 'CC=mips-openwrt-linux-uclibc-gcc' 'CFLAGS=-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1' 'LDFLAGS=-L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm' 'LIBS=-L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -lshared -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt' 'PKG_CONFIG_PATH=/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/local/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'XML_CFLAGS=-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/include' 'XML_LIBS=-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lm' 'SQLITE_CFLAGS=-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite' 'SQLITE_LIBS=-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite/.libs -lsqlite3'"
 ac_cs_version="\
 lighttpd config.status 1.4.39
 configured by ./configure, generated by GNU Autoconf 2.69,
@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/paldier/384/release/src/router/lighttpd-1.4.39'
+ac_pwd='/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -519,7 +519,7 @@ if $ac_cs_silent; then
 fi
 
 if $ac_cs_recheck; then
-  set X /bin/bash './configure'  '--host=mips-linux' '--build=' '--prefix=/home/paldier/384/release/src/router/lighttpd-1.4.39/_inst' '--with-pcre' 'PCRECONFIG=/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31/pcre-config' '--with-smbdav-props' '--with-openssl=/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl' '--with-openssl-includes=/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl/include/openssl' '--with-openssl-libs=/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl/' '--with-smbdav-locks=yes' '--with-libsmbclient=/home/paldier/384/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3' '--without-zlib' '--without-bzip2' '--enable-shared' '--disable-static' 'build_alias=' 'host_alias=mips-linux' 'CC=mips-openwrt-linux-uclibc-gcc' 'CFLAGS=-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/384/release/src-lantiq/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1' 'LDFLAGS=-L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm' 'LIBS=-L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -lshared -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt' 'PKG_CONFIG_PATH=/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/local/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'XML_CFLAGS=-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/include' 'XML_LIBS=-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lm' 'SQLITE_CFLAGS=-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite' 'SQLITE_LIBS=-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite/.libs -lsqlite3' $ac_configure_extra_args --no-create --no-recursion
+  set X /bin/bash './configure'  '--host=mips-linux' '--build=' '--prefix=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/_inst' '--with-pcre' 'PCRECONFIG=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/pcre-config' '--with-smbdav-props' '--with-openssl=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl' '--with-openssl-includes=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/include/openssl' '--with-openssl-libs=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/' '--with-smbdav-locks=yes' '--with-libsmbclient=/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3' '--without-zlib' '--without-bzip2' '--enable-shared' '--disable-static' 'build_alias=' 'host_alias=mips-linux' 'CC=mips-openwrt-linux-uclibc-gcc' 'CFLAGS=-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1' 'LDFLAGS=-L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm' 'LIBS=-L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -lshared -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt' 'PKG_CONFIG_PATH=/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/local/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig' 'XML_CFLAGS=-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/include' 'XML_LIBS=-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lm' 'SQLITE_CFLAGS=-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite' 'SQLITE_LIBS=-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite/.libs -lsqlite3' $ac_configure_extra_args --no-create --no-recursion
   shift
   $as_echo "running CONFIG_SHELL=/bin/bash $*" >&6
   CONFIG_SHELL='/bin/bash'
@@ -599,7 +599,7 @@ old_postuninstall_cmds=''
 old_archive_cmds='$AR $AR_FLAGS $oldlib$oldobjs~$RANLIB $tool_oldlib'
 lock_old_archive_extraction='no'
 CC='mips-openwrt-linux-uclibc-gcc'
-CFLAGS='-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/384/release/src-lantiq/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1 -Wall -W -Wshadow -pedantic -std=gnu99'
+CFLAGS='-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1 -Wall -W -Wshadow -pedantic -std=gnu99'
 compiler='mips-openwrt-linux-uclibc-gcc'
 GCC='yes'
 lt_cv_sys_global_symbol_pipe='sed -n -e '\''s/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p'\'' | sed '\''/ __gnu_lto/d'\'''
@@ -674,7 +674,7 @@ postuninstall_cmds=''
 finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
-sys_lib_search_path_spec='/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3 /home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc /home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/mips-openwrt-linux-uclibc/lib '
+sys_lib_search_path_spec='/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/mips-openwrt-linux-uclibc/lib '
 sys_lib_dlsearch_path_spec='/lib /usr/lib /var/lib/VBoxGuestAdditions/lib /usr/lib/x86_64-linux-gnu/libfakeroot /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa /lib32 /usr/lib32 /libx32 /usr/libx32 '
 hardcode_action='immediate'
 enable_dlopen='yes'
@@ -684,7 +684,7 @@ old_striplib='mips-openwrt-linux-uclibc-strip -R .note -R .comment --strip-debug
 striplib='mips-openwrt-linux-uclibc-strip -R .note -R .comment --strip-unneeded'
 
 LTCC='mips-openwrt-linux-uclibc-gcc'
-LTCFLAGS='-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/384/release/src-lantiq/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1'
+LTCFLAGS='-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1'
 compiler='mips-openwrt-linux-uclibc-gcc'
 
 # A function that is used when there is no print builtin or printf.
@@ -831,16 +831,16 @@ S["LUA_CFLAGS"]=""
 S["MEMCACHE_LIB"]=""
 S["GDBM_LIB"]=""
 S["UUID_LIBS"]=""
-S["SQLITE_LIBS"]="-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite/.libs -lsqlite3"
-S["SQLITE_CFLAGS"]="-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite"
-S["XML_LIBS"]="-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lm"
-S["XML_CFLAGS"]="-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/include"
+S["SQLITE_LIBS"]="-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite/.libs -lsqlite3"
+S["SQLITE_CFLAGS"]="-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite"
+S["XML_LIBS"]="-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lm"
+S["XML_CFLAGS"]="-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/include"
 S["FAM_LIBS"]=""
 S["FAM_CFLAGS"]=""
 S["BZ_LIB"]=""
 S["Z_LIB"]=""
 S["PCRE_LIB"]="-lpcre"
-S["PCRECONFIG"]="/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31/pcre-config"
+S["PCRECONFIG"]="/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31/pcre-config"
 S["SSL_LIB"]="-lssl -lcrypto"
 S["LIBUNWIND_LIBS"]=""
 S["LIBUNWIND_CFLAGS"]=""
@@ -851,14 +851,14 @@ S["LDAP_LIB"]=""
 S["MYSQL_INCLUDE"]=""
 S["MYSQL_LIBS"]=""
 S["MYSQL_CONFIG"]=""
-S["LIBSMBCLIENT_LIBS"]="-L/home/paldier/384/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3/bin -lsmbclient"
-S["LIBSMBCLIENT_CFLAGS"]="-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3/include"
+S["LIBSMBCLIENT_LIBS"]="-L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3/bin -lsmbclient"
+S["LIBSMBCLIENT_CFLAGS"]="-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../samba-3.5.8/source3/include"
 S["LIBEV_LIBS"]=""
 S["LIBEV_CFLAGS"]=""
-S["PKG_CONFIG_LIBDIR"]="/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/us"\
-"r/local/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig"
-S["PKG_CONFIG_PATH"]="/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/384/release/src-lantiq/router/mipsel-uclibc/stage/et"\
-"c/lib/pkgconfig"
+S["PKG_CONFIG_LIBDIR"]="/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/"\
+"stage/usr/local/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/etc/lib/pkgconfig"
+S["PKG_CONFIG_PATH"]="/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/lib/pkgconfig:/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/"\
+"stage/etc/lib/pkgconfig"
 S["PKG_CONFIG"]="/usr/bin/pkg-config"
 S["LIBOBJS"]=" ${LIBOBJDIR}lstat$U.o ${LIBOBJDIR}stat$U.o"
 S["OTOOL64"]=""
@@ -898,17 +898,18 @@ S["DEPDIR"]=".deps"
 S["OBJEXT"]="o"
 S["EXEEXT"]=""
 S["ac_ct_CC"]=""
-S["CPPFLAGS"]=" -D_REENTRANT -D__EXTENSIONS__ -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl/include -I/home/paldier/384/release/src/router/ligh"\
-"ttpd-1.4.39/../openssl/include/openssl -DOPENSSL_NO_KRB5  -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES"
-S["LDFLAGS"]="-L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/384/release/src/router/lighttp"\
-"d-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/384/release/src/ro"\
-"uter/lighttpd-1.4.39/../openssl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm -L/home/paldier/384/release"\
-"/src/router/lighttpd-1.4.39/../openssl/lib -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../openssl/"
-S["CFLAGS"]="-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linar"\
-"o_uClibc-0.9.33.2/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/384/release/src/router/lighttpd-1.4.39/.."\
-"/curl-7.21.7/include -I/home/paldier/384/release/src-lantiq/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/"\
-"384/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/384/release/src/r"\
-"outer/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1 -Wall -W -Wshadow -pedantic -std=gnu99"
+S["CPPFLAGS"]=" -D_REENTRANT -D__EXTENSIONS__ -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/include -I/home/paldier/asuswrt/release/src/rou"\
+"ter/lighttpd-1.4.39/../openssl/include/openssl  -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES"
+S["LDFLAGS"]="-L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router"\
+"/lighttpd-1.4.39/../pcre-8.31/.libs -lpcre -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -L/home/paldier/asuswr"\
+"t/release/src/router/lighttpd-1.4.39/../openssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -ldl -lm -L/home"\
+"/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/lib -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../openssl/"
+S["CFLAGS"]="-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4"\
+".8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/li"\
+"ghttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/."\
+"./nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -"\
+"I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1 -Wall -W -Wshadow "\
+"-pedantic -std=gnu99"
 S["CC"]="mips-openwrt-linux-uclibc-gcc"
 S["AM_BACKSLASH"]="\\"
 S["AM_DEFAULT_VERBOSITY"]="1"
@@ -924,12 +925,12 @@ S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="mips-openwrt-linux-uclibc-strip -R .note -R .comment"
-S["install_sh"]="${SHELL} /home/paldier/384/release/src/router/lighttpd-1.4.39/install-sh"
-S["MAKEINFO"]="${SHELL} /home/paldier/384/release/src/router/lighttpd-1.4.39/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/paldier/384/release/src/router/lighttpd-1.4.39/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /home/paldier/384/release/src/router/lighttpd-1.4.39/missing automake-1.14"
-S["AUTOCONF"]="${SHELL} /home/paldier/384/release/src/router/lighttpd-1.4.39/missing autoconf"
-S["ACLOCAL"]="${SHELL} /home/paldier/384/release/src/router/lighttpd-1.4.39/missing aclocal-1.14"
+S["install_sh"]="${SHELL} /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/install-sh"
+S["MAKEINFO"]="${SHELL} /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/missing automake-1.14"
+S["AUTOCONF"]="${SHELL} /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/missing autoconf"
+S["ACLOCAL"]="${SHELL} /home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/missing aclocal-1.14"
 S["VERSION"]="1.4.39"
 S["PACKAGE"]="lighttpd"
 S["CYGPATH_W"]="echo"
@@ -952,11 +953,11 @@ S["build"]="x86_64-unknown-linux-uclibc"
 S["target_alias"]=""
 S["host_alias"]="mips-linux"
 S["build_alias"]=""
-S["LIBS"]="-L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/384/release/src/router/lighttp"\
-"d-1.4.39/../shared -lshared -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/384/release/src/router/lighttpd-"\
-"1.4.39/../libdisk -ldisk -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/384/release/src/rout"\
-"er/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/.libs -lcurl -L/home/paldier/"\
-"384/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt"
+S["LIBS"]="-L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib -L/home/paldier/asuswrt/release/src/router"\
+"/lighttpd-1.4.39/../shared -lshared -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -lnvram -L/home/paldier/asuswrt/release/src/"\
+"router/lighttpd-1.4.39/../libdisk -ldisk -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -lpasswd -lpthread -L/home/paldier/"\
+"asuswrt/release/src/router/lighttpd-1.4.39/../openssl -lcrypto -lssl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/lib/."\
+"libs -lcurl -L/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libxml2/.libs -lxml2 -lpthread -lcrypt"
 S["ECHO_T"]=""
 S["ECHO_N"]="-n"
 S["ECHO_C"]=""
@@ -981,7 +982,7 @@ S["libexecdir"]="${exec_prefix}/libexec"
 S["sbindir"]="${exec_prefix}/sbin"
 S["bindir"]="${exec_prefix}/bin"
 S["program_transform_name"]="s,x,x,"
-S["prefix"]="/home/paldier/384/release/src/router/lighttpd-1.4.39/_inst"
+S["prefix"]="/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/_inst"
 S["exec_prefix"]="${prefix}"
 S["PACKAGE_URL"]=""
 S["PACKAGE_BUGREPORT"]="contact@lighttpd.net"

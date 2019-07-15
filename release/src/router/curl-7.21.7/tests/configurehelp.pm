@@ -18,6 +18,6 @@ use vars qw(
     $Cpreprocessor
     );
 
-$Cpreprocessor = 'mips-openwrt-linux-uclibc-gcc -E -I/home/paldier/384/release/src-lantiq/router/openssl/include -I/home/paldier/384/release/src-lantiq/router/openssl/include/openssl';
+$Cpreprocessor = 'mips-openwrt-linux-uclibc-gcc -E -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include -I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include/openssl';
 
 1;

@@ -1,7 +1,7 @@
 uboot  https://k3c.paldier.com/uboot/beta/
 RAM: (512M √ 256M ×)
 NAND: (samsung √ others √)
-hw_version: (A1 x B1 √ B1G √ B2 x C1 √)
+hw_version: (A1 x B1 √ B1G √ B2 x C1 √ S1 √)
 ![image](http://github.com/paldier/K3C-merlin/raw/master/merlin.png)
 a special PCIe x1 single daughter board is required, you can buy it from taobao.com
 

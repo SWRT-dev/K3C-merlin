@@ -23,13 +23,14 @@ insmod /lib/modules/3.10.104/kernel/net/netfilter/xt_TPROXY.ko
 /usr/sbin/k3c_xunlei.sh &
 /usr/sbin/k3c_kms.sh &
 /usr/sbin/k3c_tools.sh &
+/usr/sbin/k3c_ssr.sh &
 kenable=`nvram get k3c_enable`
 if [ "$kenable" == "1" ];then
 /usr/sbin/k3c_swap.sh &
 /usr/sbin/k3c_ngrok.sh &
 /usr/sbin/k3c_frpc.sh &
 /usr/sbin/k3c_adbyby.sh &
-/usr/sbin/k3cex_start.sh &
+/usr/sbin/softcenter_v2ray.sh &
 else
   logger -t "软件中心" "jffs扩展挂载未开启！"
 fi

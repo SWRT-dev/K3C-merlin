@@ -21,6 +21,11 @@ install:
 	install -d $(INSTALLDIR)/usr/kms
 	install -d $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -d $(INSTALLDIR)/rom/etc/softcenter/res
+	install -d $(INSTALLDIR)/rom/etc/softcenter/res/layer
+	install -d $(INSTALLDIR)/rom/etc/softcenter/res/layer/mobile
+	install -d $(INSTALLDIR)/rom/etc/softcenter/res/layer/mobile/need
+	install -d $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme
+	install -d $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
 	install -d $(INSTALLDIR)/rom/etc/softcenter/webs
 	install -d $(INSTALLDIR)/rom/etc/softcenter/perp
 	install -d $(INSTALLDIR)/rom/etc/softcenter/scripts
@@ -31,6 +36,11 @@ install:
 	install -m 0755 versioncmp $(INSTALLDIR)/usr/sbin
 # K3C softcenter
 	install -m 0755 www/Softcenter.asp $(INSTALLDIR)/www
+	install -m 0755 softcenter/bin/jq $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/softcenter.sh $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/softcenter-mount.sh $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/softcenter-net.sh $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/softcenter-wan.sh $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/perpboot $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/perpctl $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/perpd $(INSTALLDIR)/rom/etc/softcenter/bin
@@ -41,7 +51,19 @@ install:
 	install -m 0755 softcenter/bin/sissylog $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/tinylog $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/res/icon-default.png $(INSTALLDIR)/rom/etc/softcenter/res
+	install -m 0755 softcenter/res/upgrade.png $(INSTALLDIR)/rom/etc/softcenter/res
 	install -m 0755 softcenter/res/softcenter.js $(INSTALLDIR)/rom/etc/softcenter/res
+	install -m 0755 softcenter/res/softcenter.css $(INSTALLDIR)/rom/etc/softcenter/res
+	install -m 0755 softcenter/res/proceding.gif $(INSTALLDIR)/rom/etc/softcenter/res
+	install -m 0755 softcenter/res/layer/layer.js $(INSTALLDIR)/rom/etc/softcenter/res/layer
+	install -m 0755 softcenter/res/layer/mobile/layer.js $(INSTALLDIR)/rom/etc/softcenter/res/layer/mobile
+	install -m 0755 softcenter/res/layer/mobile/need/layer.css $(INSTALLDIR)/rom/etc/softcenter/res/layer/mobile/need
+	install -m 0755 softcenter/res/layer/theme/default/icon.png $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
+	install -m 0755 softcenter/res/layer/theme/default/icon-ext.png $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
+	install -m 0755 softcenter/res/layer/theme/default/layer.css $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
+	install -m 0755 softcenter/res/layer/theme/default/loading-0.gif $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
+	install -m 0755 softcenter/res/layer/theme/default/loading-1.gif $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
+	install -m 0755 softcenter/res/layer/theme/default/loading-2.gif $(INSTALLDIR)/rom/etc/softcenter/res/layer/theme/default
 	install -m 0755 softcenter/webs/Main_Soft_center.asp $(INSTALLDIR)/rom/etc/softcenter/webs
 	install -m 0755 softcenter/webs/Main_Soft_setting.asp $(INSTALLDIR)/rom/etc/softcenter/webs
 	install -m 0755 softcenter/perp/perp.sh $(INSTALLDIR)/rom/etc/softcenter/perp
@@ -51,23 +73,24 @@ install:
 	install -m 0755 softcenter/scripts/base.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
 	install -m 0755 softcenter/scripts/ks_app_install.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
 	install -m 0755 softcenter/scripts/ks_tar_intall.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
-	install -m 0755 softcenter/scripts/pluginbase.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
+	install -m 0755 plugin.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 softcenter/scripts/pluginbase.sh $(INSTALLDIR)/rom/etc/softcenter/scripts
 	#install -m 0755 www/softcenter.xml $(INSTALLDIR)/usr/sbin
 # K3C update uboot&ubootconfig tool
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
 	install -m 0755 base64 $(INSTALLDIR)/usr/bin
-	#install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
-	#install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
-	#install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
-	#install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
-	#install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
-	#install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
-	#install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
-	#install -m 0755 usr/ssr/ignore.user $(INSTALLDIR)/usr/sbin/ssr
-	#install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
+	install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
+	install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
+	install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
+	install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
+	install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
+	install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
+	install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
+	install -m 0755 usr/ssr/ignore.user $(INSTALLDIR)/usr/sbin/ssr
+	install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
 	install -m 0755 www/k3c-init.sh $(INSTALLDIR)/usr/sbin
-	#install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
+	install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
 	#install -m 0755 usr/phic_fac $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_Adbyby.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_adbyby.sh $(INSTALLDIR)/usr/sbin
@@ -125,21 +148,23 @@ install:
 	install -m 0755 www/frp_mon.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/k3c_frpc.sh $(INSTALLDIR)/usr/sbin
 # K3C v2ray
-	#install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
-	#install -m 0755 www/softcenter_v2ray.sh $(INSTALLDIR)/usr/sbin
-	#install -m 0755 www/v2ray_mon.sh $(INSTALLDIR)/usr/sbin
-	#install -m 0755 www/v2ray-rules $(INSTALLDIR)/usr/sbin
+	install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
+	install -m 0755 www/softcenter_v2ray.sh $(INSTALLDIR)/usr/sbin
+	install -m 0755 www/v2ray_mon.sh $(INSTALLDIR)/usr/sbin
+	install -m 0755 www/v2ray-rules $(INSTALLDIR)/usr/sbin
 # K3C swap
 	install -m 0755 www/Tools_swap.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_swap.sh $(INSTALLDIR)/usr/sbin
 # K3C swap
 	install -m 0755 www/Tools_K3C.asp $(INSTALLDIR)/www
 	install -m 0755 www/k3c_tools.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/k3cex_start.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/softcenter_start.sh $(INSTALLDIR)/usr/sbin
 # K3C script
 	install -m 0755 www/k3c_script.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/k3c_script_ch.sh $(INSTALLDIR)/usr/sbin
 	install -m 0755 www/Tools_Script.asp $(INSTALLDIR)/www
+# K3C aimesh
+	install -m 0755 www/Tools_aimesh.asp $(INSTALLDIR)/www
 # K3C helper
 	install -m 0755 www/helper.sh $(INSTALLDIR)/usr/sbin
 

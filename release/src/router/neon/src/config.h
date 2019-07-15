@@ -1,5 +1,5 @@
 /* config.h.  Generated from config.h.in by configure.  */
-/* config.h.in.  Generated from configure.in by autoheader.  */
+/* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -67,17 +67,24 @@
 /* Define if GnuTLS support is enabled */
 /* #undef HAVE_GNUTLS */
 
+/* Define to 1 if you have the `gnutls_certificate_get_issuer' function. */
+/* #undef HAVE_GNUTLS_CERTIFICATE_GET_ISSUER */
+
 /* Define to 1 if you have the `gnutls_certificate_get_x509_cas' function. */
 /* #undef HAVE_GNUTLS_CERTIFICATE_GET_X509_CAS */
 
-/* Define to 1 if you have the `gnutls_certificate_verify_peers2' function. */
-/* #undef HAVE_GNUTLS_CERTIFICATE_VERIFY_PEERS2 */
+/* Define to 1 if you have the `gnutls_certificate_set_retrieve_function2'
+   function. */
+/* #undef HAVE_GNUTLS_CERTIFICATE_SET_RETRIEVE_FUNCTION2 */
+
+/* Define to 1 if you have the `gnutls_privkey_import_ext' function. */
+/* #undef HAVE_GNUTLS_PRIVKEY_IMPORT_EXT */
 
 /* Define to 1 if you have the `gnutls_session_get_data2' function. */
 /* #undef HAVE_GNUTLS_SESSION_GET_DATA2 */
 
-/* Define to 1 if you have the `gnutls_sign_callback_set' function. */
-/* #undef HAVE_GNUTLS_SIGN_CALLBACK_SET */
+/* Define to 1 if you have the `gnutls_x509_crt_sign2' function. */
+/* #undef HAVE_GNUTLS_X509_CRT_SIGN2 */
 
 /* Define to 1 if you have the `gnutls_x509_dn_get_rdn_ava' function. */
 /* #undef HAVE_GNUTLS_X509_DN_GET_RDN_AVA */
@@ -104,7 +111,7 @@
 /* #undef HAVE_ICONV */
 
 /* Define to 1 if you have the <iconv.h> header file. */
-/* #undef HAVE_ICONV_H */
+#define HAVE_ICONV_H 1
 
 /* Define to 1 if you have the `inet_ntop' function. */
 #define HAVE_INET_NTOP 1
@@ -265,6 +272,9 @@
 /* Define to 1 if you have the <sys/types.h> header file. */
 #define HAVE_SYS_TYPES_H 1
 
+/* Define to 1 if you have the <sys/uio.h> header file. */
+#define HAVE_SYS_UIO_H 1
+
 /* Define if the timezone global is available */
 #define HAVE_TIMEZONE 1
 
@@ -286,15 +296,14 @@
 /* Define to be location of localedir */
 /* #undef LOCALEDIR */
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"
 
 /* Defined when neon is built as a library */
 #define NEON_IS_LIBRARY 1
 
 /* Define to be the neon version string */
-#define NEON_VERSION "0.29.6"
+#define NEON_VERSION "0.30.2"
 
 /* Define to enable debugging */
 #define NE_DEBUGGING 1
@@ -342,7 +351,7 @@
 /* #undef NE_HAVE_TS_SSL */
 
 /* Defined if ZLIB is supported */
-/* #undef NE_HAVE_ZLIB */
+#define NE_HAVE_ZLIB 1
 
 /* Define to be filename of an SSL CA root bundle */
 /* #undef NE_SSL_CA_BUNDLE */
@@ -354,10 +363,10 @@
 #define NE_VERSION_MAJOR (0)
 
 /* Define to be neon library minor version */
-#define NE_VERSION_MINOR (29)
+#define NE_VERSION_MINOR (30)
 
 /* Define to be neon library patch version */
-#define NE_VERSION_PATCH (6)
+#define NE_VERSION_PATCH (2)
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "neon@lists.manyfish.co.uk"
@@ -366,7 +375,7 @@
 #define PACKAGE_NAME "neon"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "neon 0.29.6"
+#define PACKAGE_STRING "neon 0.30.2"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "neon"
@@ -375,7 +384,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.29.6"
+#define PACKAGE_VERSION "0.30.2"
 
 /* The size of `int', as computed by sizeof. */
 #define SIZEOF_INT 4

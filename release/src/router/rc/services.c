@@ -1105,7 +1105,7 @@ void gen_apmode_dnsmasq(void)
 	fprintf(fp,"servers-file=/tmp/resolv.dnsmasq\n");
 	fprintf(fp,"no-poll\n");
 	fprintf(fp,"no-negcache\n");
-	fprintf(fp,"cache-size=5000\n");
+	fprintf(fp,"cache-size=1500\n");
 	fprintf(fp,"min-port=4096\n");
 	fprintf(fp,"dhcp-range=guest,%s2,%s254,%s,%ds\n",
 		glan,glan, nvram_safe_get("lan_netmask_rt"), 86400);
@@ -1236,13 +1236,12 @@ void start_dnsmasq(void)
 								dhcp_end,
 								lan_netmask,
 								nvram_safe_get("dhcp_lease"));
-				fprintf(fp, "dhcp-leasefile=/tmp/dnsmasq.leases\n");
 				/* Gateway */
 				fprintf(fp, "dhcp-option=lan,3,%s\n", lan_ipaddr);
 				/* Faster for moving clients, if authoritative */
 				fprintf(fp, "dhcp-authoritative\n");
 				/* caching */
-				fprintf(fp, "cache-size=5000\n"
+				fprintf(fp, "cache-size=1500\n"
 					    "no-negcache\n");
 				fclose(fp);
 			}
@@ -1350,7 +1349,7 @@ void start_dnsmasq(void)
 		    "no-negcache\n"		// don't cace nxdomain
 		    "cache-size=%u\n"		// dns cache size
 		    "min-port=%u\n",		// min port used for random src port
-		dmservers, 5000, nvram_get_int("dns_minport") ? : 4096);
+		dmservers, 1500, nvram_get_int("dns_minport") ? : 4096);
 
 	/* limit number of outstanding requests */
 	{
@@ -4162,16 +4161,29 @@ stop_telnetd(void)
 }
 
 #ifdef RTCONFIG_SOFTCENTER
-int
+void
 start_skipd(void)
 {
-	logmessage(LOGNAME, "start skipd");
-	doSystem("/usr/sbin/skipd");
+	char *skipd_argv[] = { "skipd", NULL };
+	pid_t pid;
+	if (getpid() != 1) {
+		notify_rc("start_skipd");
+		return;
+	}
+	if (pids("skipd"))
+		killall_tk("skipd");
+	logmessage(LOGNAME, "start skipd:%d", pid);
+	_eval(skipd_argv, NULL, 0, &pid);
+
 }
 
 void
 stop_skipd(void)
 {
+	if (getpid() != 1) {
+		notify_rc("stop_skipd");
+		return;
+	}
 	if (pids("skipd"))
 		killall_tk("skipd");
 }
@@ -7616,6 +7628,9 @@ stop_netool(void)
 int
 start_services(void)
 {
+#ifdef RTCONFIG_SOFTCENTER
+	start_skipd();
+#endif
 #ifdef RTCONFIG_LANTIQ
 	start_wave_monitor();
 #endif
@@ -7924,9 +7939,6 @@ start_services(void)
 #if defined(RTCONFIG_AMAS)
 	start_amas_lib();
 #endif
-#ifdef RTCONFIG_SOFTCENTER
-	start_skipd();
-#endif
 	doSystem("/usr/sbin/k3c-init.sh");
 	run_custom_script("services-start", 0, NULL, NULL);
 	
@@ -8167,6 +8179,9 @@ stop_services(void)
 #endif
 #ifdef RTCONFIG_NEW_USER_LOW_RSSI
 	stop_roamast();
+#endif
+#if defined(RTCONFIG_QCA_LBD)
+	stop_qca_lbd();
 #endif
 }
 
@@ -8563,7 +8578,6 @@ start_sw_devled(void)
 	pid_t whpid;
 
 	if (pidof("sw_devled") > 0) return -1;
-	if (!nvram_match("x_Setting", "1")) return -1;
 
 	return _eval(sw_devled_argv, NULL, 0, &whpid);
 }
@@ -9053,7 +9067,8 @@ void check_services(void)
 #endif
 #ifdef RTCONFIG_AMAS
 	if(init_x_Setting == 0 && nvram_get_int("x_Setting") == 1) {
-		notify_rc("restart_amas_lldpd");
+		// To avoid deadlock, no need to use notify_rc("restart_amas_lldpd") here because the current function is called by process "init".
+		start_amas_lldpd();
 		init_x_Setting = 1;
 	}
 #endif
@@ -9154,7 +9169,7 @@ void factory_reset(void)
 void handle_notifications(void)
 {
 	char nv[256], nvtmp[32], *cmd[8], *script;
-	char *nvp, *b, *nvptr, *actionstr;;
+	char *nvp, *b, *nvptr, *actionstr;
 	int action = 0;
 	int count;
 	int i;
@@ -9314,6 +9329,13 @@ again:
 		int ate_upgrade_reboot;
 		int ate_upgrade_reset;
 		char upgrade_file[64] = "/tmp/linux.trx";
+
+		int stop_commit;
+		stop_commit = nvram_get_int(ASUS_STOP_COMMIT);
+		if(stop_commit == 0) {
+			nvram_set(ASUS_STOP_COMMIT, "1");	/* NOT TO COMMIT when FW Writting */
+			wait_action_idle(10);
+		}
 
 #ifdef RTCONFIG_SMALL_FW_UPDATE
 		snprintf(upgrade_file,sizeof(upgrade_file),"/tmp/mytmpfs/linux.trx");
@@ -9544,6 +9566,7 @@ again:
 						system(command_buf);
 						unlink(upgrade_file);
 						eval("mtd-write", "-i", upgrade_file2, "-d", "linux");
+						strcpy(upgrade_file, upgrade_file2);
 					}
 #else
 					eval("mtd-write", "-i", upgrade_file, "-d", "linux");
@@ -9566,6 +9589,7 @@ again:
 #ifndef HND_ROUTER
 					nvram_set("restore_defaults", "1");
 					nvram_set(ASUS_STOP_COMMIT, "1");
+					stop_commit = 1;
 #endif
 					ResetDefault();
 				}
@@ -9586,6 +9610,8 @@ again:
 						kill(1, SIGTERM);
 					}
 				}
+				if(stop_commit == 0)
+					nvram_unset(ASUS_STOP_COMMIT);		/* FINISH FW Writting */
 			}
 			else {
 				// recover? or reboot directly
@@ -9602,13 +9628,31 @@ again:
 		}
 	}
 	else if(strcmp(script, "upgrade") == 0) {
+//we must make sure that usb can umount and do not start skipd again
+#if defined(RTCONFIG_SOFTCENTER)
+#if defined(RTCONFIG_LANTIQ)
+	if(nvram_get_int("k3c_enable"))
+		doSystem("/usr/sbin/softcenter_start.sh stop");
+#elif defined(RTCONFIG_BCMARM)
+	doSystem("/usr/sbin/plugin.sh stop");
+#elif defined(RTCONFIG_QCA)
+	doSystem("/usr/sbin/plugin.sh stop");
+#elif defined(RTCONFIG_MTK)
+	doSystem("/usr/sbin/plugin.sh stop");
+#endif
+#endif
+		int stop_commit;
+		stop_commit = nvram_get_int(ASUS_STOP_COMMIT);
+		if(stop_commit == 0) {
+			nvram_set(ASUS_STOP_COMMIT, "1");	/* NOT TO COMMIT when FW Writting */
+			wait_action_idle(10);
+		}
 		if(action&RC_SERVICE_STOP) {
 			g_upgrade = 1;
 #ifdef RTCONFIG_WIRELESSREPEATER
 			if(sw_mode() == SW_MODE_REPEATER)
 			stop_wlcconnect();
 #endif
-
 			stop_hour_monitor_service();
 #if defined(RTCONFIG_USB_MODEM) && (defined(RTCONFIG_JFFS2) || defined(RTCONFIG_BRCM_NAND_JFFS2) || defined(RTCONFIG_UBIFS))
 			_dprintf("modem data: save the data during upgrading\n");
@@ -9832,6 +9876,8 @@ again:
 				kill(1, SIGTERM);
 			}
 		}
+		if(stop_commit == 0)
+			nvram_unset(ASUS_STOP_COMMIT);	/* FINISH FW Writting */
 	}
 	else if(strcmp(script, "mfgmode") == 0) {
 		nvram_set("asus_mfg", "2");
@@ -11872,6 +11918,13 @@ check_ddr_done:
 		if(action & RC_SERVICE_STOP) stop_dnsmasq();
 		if(action & RC_SERVICE_START) start_dnsmasq();
 	}
+#ifdef RTCONFIG_SOFTCENTER
+	else if (strcmp(script, "skipd") == 0)
+	{
+		if(action & RC_SERVICE_STOP) stop_skipd();
+		if(action & RC_SERVICE_START) start_skipd();
+	}
+#endif
 #ifdef RTCONFIG_DHCP_OVERRIDE
 	else if (strcmp(script, "dhcpd") == 0)
 	{
@@ -11939,12 +11992,10 @@ check_ddr_done:
 	{
 		if(action & RC_SERVICE_START){
 			char *sig_update_argv[] = {"sig_update.sh", NULL};
-			pid_t pid;
-			_eval(sig_update_argv, NULL, 0, &pid);
+			_eval(sig_update_argv, NULL, 0, NULL);
 			if(nvram_get_int("sig_state_flag")){
 				char *sig_upgrade_argv[] = {"sig_upgrade.sh", NULL};
-				pid_t pid1;
-				_eval(sig_upgrade_argv, NULL, 0, &pid1);
+				_eval(sig_upgrade_argv, NULL, 0, NULL);
 			}
 			stop_dpi_engine_service(0);
 			start_dpi_engine_service();
@@ -12968,6 +13019,10 @@ _dprintf("test 2. turn off the USB power during %d seconds.\n", reset_seconds[re
 		if(action&RC_SERVICE_START) start_conn_diag();
 	}
 #endif
+	else if (strcmp(script, "apply_amaslib") == 0)
+	{
+		AMAS_EVENT_TRIGGER(NULL, NULL, 0);
+	}
 #endif
 #ifdef RTCONFIG_HD_SPINDOWN
 #ifdef LINUX26
@@ -12978,12 +13033,14 @@ _dprintf("test 2. turn off the USB power during %d seconds.\n", reset_seconds[re
 	}
 #endif
 #endif
-#ifdef BLUECAVE
 	else if (strcmp(script, "reset_led") == 0)
 	{
+#if defined(BLUECAVE)
 		reset_led();
-	}
+#elif defined(RTCONFIG_LP5523)
+		lp55xx_leds_proc(LP55XX_ALL_LEDS_OFF, LP55XX_PREVIOUS_STATE);
 #endif
+	}
 #if defined(BCM_BSD) || defined(LANTIQ_BSD)
 	else if (strcmp(script,"bsd") == 0)
 	{
@@ -13003,6 +13060,13 @@ _dprintf("test 2. turn off the USB power during %d seconds.\n", reset_seconds[re
 	{
 		// TODO : add path here
 	}
+#if defined(RTCONFIG_QCA_LBD)
+	else if (strcmp(script, "qca_lbd") == 0)
+	{
+		if(action & RC_SERVICE_STOP) stop_qca_lbd();
+		if(action & RC_SERVICE_START) start_qca_lbd();
+	}
+#endif
 	else
 	{
 		fprintf(stderr,
@@ -13236,86 +13300,84 @@ void gen_lldpd_if(char *bind_ifnames)
 	char *eth_ifnames =nvram_safe_get("eth_ifnames");
 	/* prepare binding interface list */
 
-	if (nvram_get_int("re_mode") == 1)
-	{
-		/* for lan_ifnames */
-		foreach (word, nvram_safe_get("lan_ifnames"), next) {
-
-#ifdef HND_ROUTER
-			if(lacp_ifs && strstr(lacp_ifs, word))
-				continue;
-#endif
-#ifdef RTCONFIG_QCA
-			/* only use Ethernet interface for QCA platform */
-			if (strncmp(word, "eth", 3) && strncmp(word, "vlan", 4))
-				continue;
-#endif
-
-			if (i == 0)
-				i = 1;
-			else
-				bind_ifnames += sprintf(bind_ifnames, ",");
-
-			bind_ifnames += sprintf(bind_ifnames, "%s", word);
-		}
-
-#ifndef RTCONFIG_QCA
-		/* for sta_phy_ifnames */
-		foreach (word, nvram_safe_get("sta_phy_ifnames"), next) {
-			if (i == 0)
-				i = 1;
-			else
-				bind_ifnames += sprintf(bind_ifnames, ",");
-
-			bind_ifnames += sprintf(bind_ifnames, "%s", word);
-		}
-#endif
-	}
-	else
-	{
-		/* for lan_ifnames */
-		foreach (word, nvram_safe_get("lan_ifnames"), next) {
-#ifdef HND_ROUTER
-			if(lacp_ifs && strstr(lacp_ifs, word))
-				continue;
-#endif
-#ifdef RTCONFIG_QCA
-			/* only use Ethernet interface for QCA platform */
-			if (strncmp(word, "eth", 3) && strncmp(word, "vlan", 4))
-				continue;
-#endif
-			if (i == 0)
-				i = 1;
-			else
-				bind_ifnames += sprintf(bind_ifnames, ",");
-			bind_ifnames += sprintf(bind_ifnames, "%s", word);
-		}
-	}
 
 	if (nvram_get_int("x_Setting") == 0)
 	{
 		if(wan_ifname != NULL) {
-			if (i == 1)
-				bind_ifnames += sprintf(bind_ifnames, ",");
-			bind_ifnames += sprintf(bind_ifnames, "%s", wan_ifname);
+			if (i == 0){
+				bind_ifnames += sprintf(bind_ifnames, "%s", wan_ifname);
+				i = 1;
+			}else{
+				bind_ifnames += sprintf(bind_ifnames, ",%s", wan_ifname);
+			}
 		}
-
 		if (wan_ifname != NULL && eth_ifnames != NULL && strcmp(wan_ifname, eth_ifnames)) {
-			if (i == 1)
-				bind_ifnames += sprintf(bind_ifnames, ",");
-			bind_ifnames += sprintf(bind_ifnames, "%s", eth_ifnames);
+			if (i == 0){
+				bind_ifnames += sprintf(bind_ifnames, "%s", eth_ifnames);
+				i = 1;
+			}
+			else{
+				bind_ifnames += sprintf(bind_ifnames, ",%s", eth_ifnames);
+			}
 		}
 	}
+	else
+	{
+		if (nvram_get_int("re_mode") == 1)
+		{
+			/* for lan_ifnames */
+			foreach (word, nvram_safe_get("lan_ifnames"), next) {
 
-#if defined(RTCONFIG_BCMARM) && defined(RTCONFIG_PROXYSTA) && defined(RTCONFIG_DPSTA)
-	if (i == 1)
-		bind_ifnames += sprintf(bind_ifnames, ",");
-#if defined(HND_ROUTER)
-	bind_ifnames += sprintf(bind_ifnames, "wds0.*.*,wds1.*.*,wds2.*.*");
-#else
-	bind_ifnames += sprintf(bind_ifnames, "wds0.*,wds1.*,wds2.*");
-#endif
-#endif
+	#ifdef HND_ROUTER
+				if(lacp_ifs && strstr(lacp_ifs, word))
+					continue;
+	#endif
+
+				if (i == 0)
+					i = 1;
+				else
+					bind_ifnames += sprintf(bind_ifnames, ",");
+
+				bind_ifnames += sprintf(bind_ifnames, "%s", word);
+			}
+
+			/* for sta_phy_ifnames */
+			foreach (word, nvram_safe_get("sta_phy_ifnames"), next) {
+				if (i == 0)
+					i = 1;
+				else
+					bind_ifnames += sprintf(bind_ifnames, ",");
+
+				bind_ifnames += sprintf(bind_ifnames, "%s", word);
+			}
+		}
+		else
+		{
+			/* for lan_ifnames */
+			foreach (word, nvram_safe_get("lan_ifnames"), next) {
+	#ifdef HND_ROUTER
+				if(lacp_ifs && strstr(lacp_ifs, word))
+					continue;
+	#endif
+				if (i == 0)
+					i = 1;
+				else
+					bind_ifnames += sprintf(bind_ifnames, ",");
+				bind_ifnames += sprintf(bind_ifnames, "%s", word);
+			}
+		}
+
+
+		#if defined(RTCONFIG_BCMARM) && defined(RTCONFIG_PROXYSTA) && defined(RTCONFIG_DPSTA)
+			if (i == 1)
+				bind_ifnames += sprintf(bind_ifnames, ",");
+		#if defined(HND_ROUTER)
+			bind_ifnames += sprintf(bind_ifnames, "wds0.*.*,wds1.*.*,wds2.*.*");
+		#else
+			bind_ifnames += sprintf(bind_ifnames, "wds0.*,wds1.*,wds2.*");
+		#endif
+		#endif
+	}
 }
 
 void gen_lldpd_desc(char *bind_desc)
@@ -13372,6 +13434,11 @@ void start_amas_lldpd(void)
 
 	if(nvram_match("stop_amas_lldpd", "1")) {
 		_dprintf("stop_amas_lldpd = 1, don't start amas lldpd.\n");
+		return;
+	}
+
+	if(getpid()!=1) {
+		notify_rc("start_amas_lldpd");
 		return;
 	}
 
@@ -13980,7 +14047,7 @@ int check_rsasign(char *fname)
 {
 	RSA *rsa_pkey = NULL;
 	EVP_PKEY *pkey = NULL;
-	EVP_MD_CTX ctx;
+	EVP_MD_CTX *ctx = NULL;
 	unsigned char buffer[16*1024];
 	size_t len;
 	unsigned char *sig = NULL;
@@ -14034,21 +14101,24 @@ int check_rsasign(char *fname)
 	}
 	if (sigFileFP) fclose(sigFileFP);
 
-	EVP_MD_CTX_init(&ctx);
-	if (!EVP_VerifyInit(&ctx, EVP_sha1())) {
+	if ((ctx = EVP_MD_CTX_create()) == NULL) {
+		_dprintf("EVP_MD_CTX_create: failed.\n");
+		goto exit;
+	}
+
+	if (!EVP_VerifyInit(ctx, EVP_sha1())) {
 		_dprintf("EVP_SignInit: failed.\n");
-		EVP_PKEY_free(pkey);
-		return 0;
+		goto exit;
 	}
 
 	/* check file */
 	if ((dataFileFP = fopen(fname, "r")) == NULL) {
 		_dprintf("Open dataFileFP failure\n");
-		return 0;
+		goto exit;
 	}
 
 	while ((len = fread(buffer, 1, sizeof(buffer), dataFileFP)) > 0) {
-		if (!EVP_VerifyUpdate(&ctx, buffer, len)) {
+		if (!EVP_VerifyUpdate(ctx, buffer, len)) {
 			_dprintf("EVP_SignUpdate: failed.\n");
 			goto exit;
 		}
@@ -14060,7 +14130,7 @@ int check_rsasign(char *fname)
 	}
 	if (dataFileFP) fclose(dataFileFP);
 
-	if (!EVP_VerifyFinal(&ctx, sig, siglen, pkey)) {
+	if (!EVP_VerifyFinal(ctx, sig, siglen, pkey)) {
 		_dprintf("EVP_VerifyFinal: failed.\n");
 		goto exit;
 	}
@@ -14068,12 +14138,14 @@ int check_rsasign(char *fname)
 		_dprintf("EVP_VerifyFinal: ok.\n");
 	}
 
+	if (ctx) EVP_MD_CTX_destroy(ctx);
 	if (pkey) EVP_PKEY_free(pkey);
 	if (sig) free(sig);
 	return 1;
 
 exit:
 	/* safe to leave */
+	if (ctx) EVP_MD_CTX_destroy(ctx);
 	if (pkey) EVP_PKEY_free(pkey);
 	if (dataFileFP) fclose(dataFileFP);
 	if (sig) free(sig);
@@ -15874,5 +15946,42 @@ void reset_led(void)
 	else {
 		led_control(LED_INDICATOR_SIG3, LED_ON);
 	}
+}
+#endif
+
+#if defined(RTCONFIG_QCA_LBD)
+void start_qca_lbd(void)
+{
+	pid_t pid;
+	char *lbd_argv[]= { "lbd", "-C", "/tmp/lbd.conf", NULL, NULL };
+	int dbg = nvram_get_int("qca_lbd_dbg");
+
+	if (!nvram_get_int("qca_lbd_enable") && (!nvram_get_int("x_Setting")
+#if defined(RTCONFIG_WIRELESSREPEATER)
+		|| repeater_mode()
+#endif
+#if defined(RTCONFIG_WIFI_SON)
+		|| nvram_get_int("wifison_ready")
+#endif
+	)) {
+		return;
+	}
+
+	if (dbg) lbd_argv[3] = "-d";
+	if (pids("lbd")) killall_tk("lbd");
+
+	if (gen_lbd_config_file()) {
+		logmessage("QCA LBD", "Generate configuration file failed.");
+	}
+	else {
+		_eval(lbd_argv, dbg?"/dev/console":NULL, 0, &pid);
+		sleep(1);
+		logmessage("QCA LBD", "daemon is started");
+	}
+}
+
+void stop_qca_lbd(void)
+{
+	killall_tk("lbd");
 }
 #endif

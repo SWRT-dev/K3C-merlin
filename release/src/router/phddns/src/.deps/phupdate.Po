@@ -81,8 +81,8 @@ phupdate.o: phupdate.c \
  blowfish.h generate.h lutil.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/stdlib.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/alloca.h \
- /home/paldier/bluecave/release/src-lantiq/include/bcmnvram.h \
- /home/paldier/bluecave/release/src-lantiq/router/shared/rtconfig.h \
+ /home/paldier/asuswrt/release/src-lantiq/include/bcmnvram.h \
+ /home/paldier/asuswrt/release/src-lantiq/router/shared/rtconfig.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/byteorder.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/linux/byteorder/big_endian.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/linux/types.h \
@@ -97,8 +97,8 @@ phupdate.o: phupdate.c \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm-generic/posix_types.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/linux/swab.h \
  /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/swab.h \
- /home/paldier/bluecave/release/src-lantiq/include/typedefs.h \
- /home/paldier/bluecave/release/src-lantiq/include/bcmdefs.h
+ /home/paldier/asuswrt/release/src-lantiq/include/typedefs.h \
+ /home/paldier/asuswrt/release/src-lantiq/include/bcmdefs.h
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/time.h:
 
@@ -272,9 +272,9 @@ lutil.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/alloca.h:
 
-/home/paldier/bluecave/release/src-lantiq/include/bcmnvram.h:
+/home/paldier/asuswrt/release/src-lantiq/include/bcmnvram.h:
 
-/home/paldier/bluecave/release/src-lantiq/router/shared/rtconfig.h:
+/home/paldier/asuswrt/release/src-lantiq/router/shared/rtconfig.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/byteorder.h:
 
@@ -304,6 +304,6 @@ lutil.h:
 
 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include/asm/swab.h:
 
-/home/paldier/bluecave/release/src-lantiq/include/typedefs.h:
+/home/paldier/asuswrt/release/src-lantiq/include/typedefs.h:
 
-/home/paldier/bluecave/release/src-lantiq/include/bcmdefs.h:
+/home/paldier/asuswrt/release/src-lantiq/include/bcmdefs.h:

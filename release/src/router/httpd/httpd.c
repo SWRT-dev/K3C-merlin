@@ -729,6 +729,7 @@ void do_file(char *path, FILE *stream)
 	FILE *fp;
 	char buf[1024];
 	int nr;
+
 	if ((fp = fopen(path, "r")) != NULL) {
 		while ((nr = fread(buf, 1, sizeof(buf), fp)) > 0)
 			do_fwrite(buf, nr, stream);
@@ -1948,12 +1949,6 @@ search_desc (pkw_t pkw, char *name)
 #endif
 #endif //TRANSLATE_ON_FLY
 
-void reapchild()	// 0527 add
-{
-	signal(SIGCHLD, reapchild);
-	wait(NULL);
-}
-
 int main(int argc, char **argv)
 {
 	usockaddr usa;
@@ -2018,7 +2013,7 @@ int main(int argc, char **argv)
 
 	/* Ignore broken pipes */
 	signal(SIGPIPE, SIG_IGN);
-	signal(SIGCHLD, reapchild);	// 0527 add
+	signal(SIGCHLD, chld_reap);
 	signal(SIGUSR1, update_wlan_log);
 
 #ifdef RTCONFIG_HTTPS

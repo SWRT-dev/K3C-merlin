@@ -164,7 +164,7 @@ lock_old_archive_extraction=no
 LTCC="mips-openwrt-linux-uclibc-gcc"
 
 # LTCC compiler flags.
-LTCFLAGS="-I/home/paldier/384/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/384/release/src-lantiq/include -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/384/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1 -Wall -W -Wshadow -pedantic -std=gnu99"
+LTCFLAGS="-I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../pcre-8.31 -I/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../sqlite -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../curl-7.21.7/include -I/home/paldier/asuswrt/release/src-lantiq/include -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../nvram -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../shared -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libdisk -I/home/paldier/asuswrt/release/src/router/lighttpd-1.4.39/../libpasswd -DHAVE_OPENSSL_SSL_H=1 -DHAVE_LIBSSL=1 -DEMBEDDED_EANBLE=1 -Wall -W -Wshadow -pedantic -std=gnu99"
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"
@@ -272,7 +272,7 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3 /home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc /home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/mips-openwrt-linux-uclibc/lib "
+sys_lib_search_path_spec="/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc/mips-openwrt-linux-uclibc/4.8.3 /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib/gcc /home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/mips-openwrt-linux-uclibc/lib "
 
 # Run-time system search path for libraries.
 sys_lib_dlsearch_path_spec="/lib /usr/lib /var/lib/VBoxGuestAdditions/lib /usr/lib/x86_64-linux-gnu/libfakeroot /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa /lib32 /usr/lib32 /libx32 /usr/libx32 "

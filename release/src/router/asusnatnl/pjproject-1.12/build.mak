@@ -7,7 +7,7 @@ export TARGET_NAME := mips-unknown-linux-gnu
 export CROSS_COMPILE := mips-linux-
 export LINUX_POLL := select 
 
-export ac_prefix := /home/paldier/384/release/src/router/asusnatnl/pjproject-1.12/_inst
+export ac_prefix := /home/paldier/asuswrt/release/src/router/asusnatnl/pjproject-1.12/_inst
 
 LIB_SUFFIX = $(TARGET_NAME).a
 
@@ -73,11 +73,11 @@ endif
 
 
 # CFLAGS, LDFLAGS, and LIBS to be used by applications
-export PJDIR := /home/paldier/384/release/src/router/asusnatnl/pjproject-1.12
+export PJDIR := /home/paldier/asuswrt/release/src/router/asusnatnl/pjproject-1.12
 export APP_CC := mips-openwrt-linux-uclibc-gcc
 export APP_CXX := mips-openwrt-linux-uclibc-g++
 export APP_CFLAGS := -DPJ_AUTOCONF=1\
-	-I/home/paldier/384/release/src-lantiq/router/openssl/include  -g -O2 -fPIC -DROUTER=1  -DPJ_IS_BIG_ENDIAN=1 -DPJ_IS_LITTLE_ENDIAN=0\
+	-I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include  -g -O2 -fPIC -DROUTER=1  -DPJ_IS_BIG_ENDIAN=1 -DPJ_IS_LITTLE_ENDIAN=0\
 	-I$(PJDIR)/pjlib/include\
 	-I$(PJDIR)/pjlib-util/include\
 	-I$(PJDIR)/pjnath/include\
@@ -90,7 +90,7 @@ export APP_LDFLAGS := -L$(PJDIR)/pjlib/lib\
 	-L$(PJDIR)/pjmedia/lib\
 	-L$(PJDIR)/pjsip/lib\
 	-L$(PJDIR)/third_party/lib\
-	-L/home/paldier/384/release/src-lantiq/router/openssl    -L/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib  -ldl -lc -lgcc_s
+	-L/home/paldier/asuswrt/release/src-lantiq/router/openssl    -L/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2/lib  -ldl -lc -lgcc_s
 export APP_LDLIBS := -lpjsua-$(TARGET_NAME)\
 	-lpjsip-ua-$(TARGET_NAME)\
 	-lpjsip-simple-$(TARGET_NAME)\
@@ -103,7 +103,7 @@ export APP_LDLIBS := -lpjsua-$(TARGET_NAME)\
 	$(APP_THIRD_PARTY_LIBS)\
 	$(APP_THIRD_PARTY_EXT)\
 	-lpj-$(TARGET_NAME)\
-	-lm -lnsl -lrt -lpthread  -lssl -lcrypto    -lstdc++ -lcrypto -lssl
+	-lm -lnsl -lrt -lpthread  -lssl -lcrypto -lpthread    -lstdc++ -lcrypto -lssl
 export APP_LIB_FILES = $(PJ_DIR)/pjsip/lib/libpjsua-$(LIB_SUFFIX) \
 	$(PJ_DIR)/pjsip/lib/libpjsip-ua-$(LIB_SUFFIX) \
 	$(PJ_DIR)/pjsip/lib/libpjsip-simple-$(LIB_SUFFIX) \
@@ -129,9 +129,9 @@ export PJ_LIB_FILES := $(APP_LIB_FILES)
 
 # And here are the variables to use if application is using the
 # library from the install location (i.e. --prefix)
-export PJ_INSTALL_DIR := /home/paldier/384/release/src/router/asusnatnl/pjproject-1.12/_inst
+export PJ_INSTALL_DIR := /home/paldier/asuswrt/release/src/router/asusnatnl/pjproject-1.12/_inst
 export PJ_INSTALL_INC_DIR := $(PJ_INSTALL_DIR)/include
 export PJ_INSTALL_LIB_DIR := $(PJ_INSTALL_DIR)/lib
-export PJ_INSTALL_CFLAGS := -I$(PJ_INSTALL_INC_DIR) -DPJ_AUTOCONF=1	-I/home/paldier/384/release/src-lantiq/router/openssl/include  -g -O2 -fPIC -DROUTER=1  -DPJ_IS_BIG_ENDIAN=1 -DPJ_IS_LITTLE_ENDIAN=0
+export PJ_INSTALL_CFLAGS := -I$(PJ_INSTALL_INC_DIR) -DPJ_AUTOCONF=1	-I/home/paldier/asuswrt/release/src-lantiq/router/openssl/include  -g -O2 -fPIC -DROUTER=1  -DPJ_IS_BIG_ENDIAN=1 -DPJ_IS_LITTLE_ENDIAN=0
 export PJ_INSTALL_CXXFLAGS := $(PJ_INSTALL_CFLAGS)
 export PJ_INSTALL_LDFLAGS := -L$(PJ_INSTALL_LIB_DIR) $(APP_LDLIBS)

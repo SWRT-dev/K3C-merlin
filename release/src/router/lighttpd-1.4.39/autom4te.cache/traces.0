@@ -2974,6 +2974,7 @@ configure.ac:378: the top level])
 m4trace:configure.ac:383: -2- _m4_warn([obsolete], [The macro `AC_HELP_STRING' is obsolete.
 You should run autoupdate.], [../../lib/autoconf/general.m4:207: AC_HELP_STRING is expanded from...
 configure.ac:383: the top level])
+m4trace:configure.ac:389: -1- m4_pattern_allow([^USE_OPENSSL_KERBEROS$])
 m4trace:configure.ac:392: -1- m4_pattern_allow([^HAVE_OPENSSL_SSL_H$])
 m4trace:configure.ac:394: -1- m4_pattern_allow([^HAVE_LIBSSL$])
 m4trace:configure.ac:399: -1- m4_pattern_allow([^SSL_LIB$])

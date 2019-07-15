@@ -792,6 +792,7 @@ static const applets_t applets[] = {
 	{ "usbled",			usbled_main			},
 #endif
 	{ "ddns_updated", 		ddns_updated_main		},
+	{ "ddns_custom_updated",	ddns_custom_updated_main	},
 	{ "radio",			radio_main			},
 	{ "udhcpc",			udhcpc_wan			},
 	{ "udhcpc_lan",			udhcpc_lan			},
@@ -1556,12 +1557,15 @@ int main(int argc, char **argv)
 	}
 #endif
 	else if (!strcmp(base, "ATE")) {
+		int ret;
 		if ( argc == 2 || argc == 3 || argc == 4) {
-			asus_ate_command(argv[1], argv[2], argv[3]);
+			ret = asus_ate_command(argv[1], argv[2], argv[3]);
 		}
-		else
+		else {
+			ret = -1;
 			printf("ATE_ERROR\n");
-		return 0;
+		}
+		return ret;
 	}
 #if defined(RTCONFIG_DSL)
 	else if (!strcmp(base, "asustest")) {

@@ -82,7 +82,7 @@ int main(int argc,char **argv)
 	char *base;
 	if (argc < 2 )
 	{
-		char string[1024];
+		char string[4096];
 		gets(string);
 		base = strrchr(argv[0], '/');
 		base = base ? base + 1 : argv[0];

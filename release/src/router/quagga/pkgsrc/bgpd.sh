@@ -6,7 +6,7 @@
 # REQUIRE: zebra
 ##
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/sbin:/usr/bin
 export PATH
 
 if [ -f /etc/rc.subr ]
@@ -16,8 +16,8 @@ fi
 
 name="bgpd"
 rcvar=$name
-required_files="${prefix}/etc/${name}.conf"
-command="/usr/local/sbin/${name}"
+required_files="/etc/${name}.conf"
+command="/usr/sbin/${name}"
 command_args="-d"
 
 start_precmd="zebra_precmd"

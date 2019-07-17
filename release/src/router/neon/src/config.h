@@ -111,7 +111,7 @@
 /* #undef HAVE_ICONV */
 
 /* Define to 1 if you have the <iconv.h> header file. */
-#define HAVE_ICONV_H 1
+/* #undef HAVE_ICONV_H */
 
 /* Define to 1 if you have the `inet_ntop' function. */
 #define HAVE_INET_NTOP 1
@@ -351,7 +351,7 @@
 /* #undef NE_HAVE_TS_SSL */
 
 /* Defined if ZLIB is supported */
-#define NE_HAVE_ZLIB 1
+/* #undef NE_HAVE_ZLIB */
 
 /* Define to be filename of an SSL CA root bundle */
 /* #undef NE_SSL_CA_BUNDLE */

@@ -250,7 +250,7 @@ function appPostScript(moduleInfo, script) {
 
     //currState.name = moduleInfo.name;
     //TODO auto choose for home_url
-    data["softcenter_home_url"] = "https://sc.paldier.com";
+    data["softcenter_home_url"] = "http://update.wifi.com.cn/mips";
     data["softcenter_installing_todo"] = moduleInfo.name;
     if(script == "ks_app_install.sh") {
     data["softcenter_installing_tar_url"] = moduleInfo.tar_url;
@@ -290,7 +290,7 @@ function appUninstallModule(moduleInfo) {
 </script>
 <script>
     //TODO auto detect home url
-    db_softcenter_["softcenter_home_url"] = "https://sc.paldier.com";
+    db_softcenter_["softcenter_home_url"] = "http://update.wifi.com.cn/mips";
     
     // 安装信息更新策略:
     // 当软件安装的时候,安装进程内部会有超时时间. 超过超时时间 没安装成功,则认为失败.
@@ -533,7 +533,7 @@ function softceterInitData(data) {
                 // TODO 如果因为一些错误导致没有图标, 有可能显示一张默认图标吗?
                 item.icon = parseInt(item.install, 10) !== 0
                     ? ('/res/icon-' + item.name + '.png')
-                    : ('https://sc.paldier.com' + new Array(3).join('/softcenter') + '/res/icon-' + item.name + '.png');
+                    : ('http://update.wifi.com.cn/mips' + new Array(3).join('/softcenter') + '/res/icon-' + item.name + '.png');
             });
             return result;
         };

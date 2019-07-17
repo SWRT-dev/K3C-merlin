@@ -18,13 +18,13 @@
 
 CC=mips-openwrt-linux-uclibc-gcc
 
-CFLAGS=-Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -D_LARGEFILE64_SOURCE=1
+CFLAGS=-Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -D_LARGEFILE64_SOURCE=1
 #CFLAGS=-O -DMAX_WBITS=14 -DMAX_MEM_LEVEL=7
 #CFLAGS=-g -DDEBUG
 #CFLAGS=-O3 -Wall -Wwrite-strings -Wpointer-arith -Wconversion \
 #           -Wstrict-prototypes -Wmissing-prototypes
 
-SFLAGS=-Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -fPIC -D_LARGEFILE64_SOURCE=1
+SFLAGS=-Os -Wall -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -fPIC -fPIC -D_LARGEFILE64_SOURCE=1
 LDFLAGS= -L. libz.a
 TEST_LDFLAGS=-L. libz.a
 LDSHARED=mips-openwrt-linux-uclibc-gcc -shared -Wl,-soname,libz.so.1,--version-script,zlib.map
@@ -39,7 +39,7 @@ LIBS=$(STATICLIB) $(SHAREDLIBV)
 AR=ar rc rc
 RANLIB=mips-openwrt-linux-uclibc-ranlib
 LDCONFIG=ldconfig
-LDSHAREDLIBC=--sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+LDSHAREDLIBC=--sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 TAR=tar
 SHELL=/bin/sh
 EXE=

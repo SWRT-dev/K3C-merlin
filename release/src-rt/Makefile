@@ -67,7 +67,11 @@ export SRCBASEDIR := $(shell pwd | sed 's/.*release\///g')
 RELEASEDIR := $(shell (cd $(SRC_ROOT)/.. && pwd -P))
 export PATH := $(RELEASEDIR)/tools:$(SRCBASE)/ctools:$(PATH)
 
-export MERLINVER := K3C_B20
+#K3C/K3/SBRAC1900P/SBRAC3200P/R7000/R8000/R7900P/R8000P
+export MERLINR_NAME := K3C
+export MERLINR_VER := B20
+export MERLINRVER := $(MERLINR_NAME)_$(MERLINR_VER)
+
 # tmp depend on busybox
 E2FSPROGS := $(if $(filter $(BUSYBOX),busybox-1.17.4),n,y)
 
@@ -106,11 +110,11 @@ EXSTRING="-$(EXTENDTYPE)"
 else
 EXSTRING=
 endif
-export EXTENDNO := $(MERLINVER)-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")$(EXSTRING)
+export EXTENDNO := $(MERLINRVER)-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")$(EXSTRING)
 endif
 
 ifeq ($(EXTENDNO),)
-export EXTENDNO := $(MERLINVER)-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")
+export EXTENDNO := $(MERLINRVER)-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")
 endif
 
 export SWPJNAME := $(shell git branch | grep "*" | grep "swpj-" | sed 's/.*swpj-//g')
@@ -128,7 +132,7 @@ export SWPJEXTENDNO := $(shell git describe --match swpj_$(SWPJNAME)_$(SWPJVERNO
 ifneq ($(SWPJEXTENDNO),)
 export EXTENDNO := $(SWPJEXTENDNO)
 else
-export EXTENDNO := $(MERLINVER)-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")
+export EXTENDNO := $(MERLINRVER)-g$(shell git log --pretty=format:'%h' -n 1|sed -e "s,\([0-9a-z]\{7\}\)[0-9a-z]*,\1,")
 endif
 endif
 
@@ -176,6 +180,8 @@ endif
 export MODEL
 export CFLAGS += -D$(MODEL)
 export $(MODEL):=y
+export CFLAGS += -D$(MERLINR_NAME)
+export $(MERLINR_NAME)=y
 endif
 
 EXTRA_KERNEL_YES_CONFIGS_1 := $(filter %=y %=Y,$(EXTRA_KERNEL_CONFIGS))

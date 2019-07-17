@@ -225,18 +225,18 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/paldier/384/release/src/router/sqlite/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src/router/sqlite/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = mips-openwrt-linux-uclibc-ar
-AUTOCONF = ${SHELL} /home/paldier/384/release/src/router/sqlite/missing autoconf
-AUTOHEADER = ${SHELL} /home/paldier/384/release/src/router/sqlite/missing autoheader
-AUTOMAKE = ${SHELL} /home/paldier/384/release/src/router/sqlite/missing automake-1.14
+AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src/router/sqlite/missing autoconf
+AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src/router/sqlite/missing autoheader
+AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src/router/sqlite/missing automake-1.14
 AWK = gawk
 BUILD_CFLAGS = 
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=none
-CFLAGS = -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -ffunction-sections -fdata-sections -fPIC
+CFLAGS = -Os -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -ffunction-sections -fdata-sections -fPIC
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -267,7 +267,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /home/paldier/384/release/src/router/sqlite/missing makeinfo
+MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src/router/sqlite/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = mips-openwrt-linux-uclibc-nm
@@ -292,10 +292,10 @@ SHELL = /bin/bash
 STRIP = mips-openwrt-linux-uclibc-strip -R .note -R .comment
 THREADSAFE_FLAGS = -DSQLITE_THREADSAFE=1
 VERSION = 3.7.2
-abs_builddir = /home/paldier/384/release/src/router/sqlite
-abs_srcdir = /home/paldier/384/release/src/router/sqlite
-abs_top_builddir = /home/paldier/384/release/src/router/sqlite
-abs_top_srcdir = /home/paldier/384/release/src/router/sqlite
+abs_builddir = /home/paldier/asuswrt/release/src/router/sqlite
+abs_srcdir = /home/paldier/asuswrt/release/src/router/sqlite
+abs_top_builddir = /home/paldier/asuswrt/release/src/router/sqlite
+abs_top_srcdir = /home/paldier/asuswrt/release/src/router/sqlite
 ac_ct_AR = 
 ac_ct_CC = 
 ac_ct_DUMPBIN = 
@@ -324,7 +324,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/384/release/src/router/sqlite/install-sh
+install_sh = ${SHELL} /home/paldier/asuswrt/release/src/router/sqlite/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

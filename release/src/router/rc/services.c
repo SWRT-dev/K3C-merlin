@@ -9632,7 +9632,7 @@ again:
 #if defined(RTCONFIG_SOFTCENTER)
 #if defined(RTCONFIG_LANTIQ)
 	if(nvram_get_int("k3c_enable"))
-		doSystem("/usr/sbin/softcenter_start.sh stop");
+		doSystem("/usr/sbin/plugin.sh stop");
 #elif defined(RTCONFIG_BCMARM)
 	doSystem("/usr/sbin/plugin.sh stop");
 #elif defined(RTCONFIG_QCA)

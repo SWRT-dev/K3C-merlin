@@ -9641,7 +9641,7 @@ again:
 	doSystem("/usr/sbin/plugin.sh stop");
 #elif defined(RTCONFIG_QCA)
 	doSystem("/usr/sbin/plugin.sh stop");
-#elif defined(RTCONFIG_MTK)
+#elif defined(RTCONFIG_RALINK)
 	doSystem("/usr/sbin/plugin.sh stop");
 #endif
 #endif

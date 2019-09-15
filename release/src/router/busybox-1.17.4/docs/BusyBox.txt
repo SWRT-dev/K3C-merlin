@@ -88,8 +88,8 @@ COMMANDS
             setconsole, sh, sleep, sort, start-stop-daemon, strings, swapoff,
             swapon, sync, syslogd, tail, tar, telnetd, test, tftp, top, touch,
             tr, traceroute, traceroute6, true, tune2fs, udhcpc, umount, uname,
-            unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs, zcat,
-            zcip
+            uniq, unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs,
+            zcat, zcip
 
 COMMAND DESCRIPTIONS
     arp arp [-vn] [-H HWTYPE] [-i IF] -a [HOSTNAME] [-v] [-i IF] -d HOSTNAME
@@ -1512,6 +1512,20 @@ COMMAND DESCRIPTIONS
                 -s      OS name (default)
                 -p      Processor type
                 -v      OS version
+
+    uniq
+        uniq [-cdu][-f,s,w N] [INPUT [OUTPUT]]
+
+        Discard duplicate lines
+
+        Options:
+
+                -c      Prefix lines by the number of occurrences
+                -d      Only print duplicate lines
+                -u      Only print unique lines
+                -f N    Skip first N fields
+                -s N    Skip first N chars (after any skipped fields)
+                -w N    Compare N characters in line
 
     unzip
         unzip [-opts[modifiers]] FILE[.zip] [LIST] [-x XLIST] [-d DIR]

@@ -72,8 +72,8 @@
         setconsole, sh, sleep, sort, start-stop-daemon, strings, swapoff,
         swapon, sync, syslogd, tail, tar, telnetd, test, tftp, top, touch,
         tr, traceroute, traceroute6, true, tune2fs, udhcpc, umount, uname,
-        unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs, zcat,
-        zcip</code></pre>
+        uniq, unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs,
+        zcat, zcip</code></pre>
 
 <h1 id="COMMAND-DESCRIPTIONS">COMMAND DESCRIPTIONS</h1>
 
@@ -1770,6 +1770,23 @@ Signals:
         -s      OS name (default)
         -p      Processor type
         -v      OS version</code></pre>
+
+</dd>
+<dt id="uniq"><b>uniq</b></dt>
+<dd>
+
+<p>uniq [-cdu][-f,s,w N] [INPUT [OUTPUT]]</p>
+
+<p>Discard duplicate lines</p>
+
+<p>Options:</p>
+
+<pre><code>        -c      Prefix lines by the number of occurrences
+        -d      Only print duplicate lines
+        -u      Only print unique lines
+        -f N    Skip first N fields
+        -s N    Skip first N chars (after any skipped fields)
+        -w N    Compare N characters in line</code></pre>
 
 </dd>
 <dt id="unzip"><b>unzip</b></dt>

@@ -157,7 +157,12 @@ static const struct itimerval zombie_tv = { {0,0}, {307, 0} };
 static const char dmhosts[] = "/etc/hosts.dnsmasq";
 static const char dmresolv[] = "/tmp/resolv.conf";
 #if defined(RTCONFIG_SMARTDNS)
-static const char dmservers[] = "/tmp/resolv.smartdns";
+#if !defined(K3) && !defined(K3C) && !defined(SBRAC1900P) && !defined(SBRAC3200P) && !defined(R7900P) && !defined(R8000P) && !defined(RTACRH17)
+if(strncmp(nvram_get("territory_code"), "CN",2))
+	static const char dmservers[] = "/tmp/resolv.dnsmasq";
+else
+#endif
+	static const char dmservers[] = "/tmp/resolv.smartdns";
 #else
 static const char dmservers[] = "/tmp/resolv.dnsmasq";
 #endif

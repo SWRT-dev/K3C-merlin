@@ -93,8 +93,8 @@ Currently available applets include:
 	setconsole, sh, sleep, sort, start-stop-daemon, strings, swapoff,
 	swapon, sync, syslogd, tail, tar, telnetd, test, tftp, top, touch,
 	tr, traceroute, traceroute6, true, tune2fs, udhcpc, umount, uname,
-	unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs, zcat,
-	zcip
+	uniq, unzip, uptime, usleep, vconfig, vi, watch, wc, which, xargs,
+	zcat, zcip
 
 =head1 COMMAND DESCRIPTIONS
 
@@ -1624,6 +1624,21 @@ Options:
 	-s	OS name (default)
 	-p	Processor type
 	-v	OS version
+
+=item B<uniq>
+
+uniq [-cdu][-f,s,w N] [INPUT [OUTPUT]]
+
+Discard duplicate lines
+
+Options:
+
+	-c	Prefix lines by the number of occurrences
+	-d	Only print duplicate lines
+	-u	Only print unique lines
+	-f N	Skip first N fields
+	-s N	Skip first N chars (after any skipped fields)
+	-w N	Compare N characters in line
 
 =item B<unzip>
 

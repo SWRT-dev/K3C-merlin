@@ -1977,10 +1977,7 @@ int update_resolvconf(void)
 		fclose(fp_servers);
 		goto error;
 	}
-	if(strncmp(nvram_get("territory_code"), "CN",2))
-		fprintf(fp_smartdns, "server=127.0.0.1#53\n");
-	else
-		fprintf(fp_smartdns, "server=127.0.0.1#9053\n");
+	fprintf(fp_smartdns, "server=127.0.0.1#9053\n");
 	fclose(fp_smartdns);
 	start_smartdns();
 #endif

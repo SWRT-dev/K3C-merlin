@@ -5403,6 +5403,18 @@ void dnsmasq_check()
 #endif
 	}
 }
+
+#if defined(RTCONFIG_SMARTDNS)
+extern void start_smartdns();
+void smartdns_check()
+{
+	if (!pids("smartdns")) {
+		start_smartdns();
+		logmessage("watchdog", "restart smartdns");
+	}
+}
+#endif
+
 #if defined(K3)
 void k3screen_check()
 {
@@ -7399,6 +7411,9 @@ wdp:
 	ddns_check();
 	networkmap_check();
 	httpd_check();
+#if defined(RTCONFIG_SMARTDNS)
+	smartdns_check();
+#endif
 	dnsmasq_check();
 #if defined(K3)
 	k3screen_check();

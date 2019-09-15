@@ -1969,6 +1969,21 @@ int update_resolvconf(void)
 		fclose(fp);
 		goto error;
 	}
+#if defined(RTCONFIG_SMARTDNS)
+	FILE *fp_smartdns;
+	if (!(fp_smartdns = fopen("/tmp/resolv.smartdns", "w+"))) {
+		perror("/tmp/resolv.smartdns");
+		fclose(fp);
+		fclose(fp_servers);
+		goto error;
+	}
+	if(strncmp(nvram_get("territory_code"), "CN",2))
+		fprintf(fp_smartdns, "server=127.0.0.1#53\n");
+	else
+		fprintf(fp_smartdns, "server=127.0.0.1#9053\n");
+	fclose(fp_smartdns);
+	start_smartdns();
+#endif
 
 #ifdef RTCONFIG_OPENVPN
 	if (!write_ovpn_resolv(fp, fp_servers))

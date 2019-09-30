@@ -16079,8 +16079,8 @@ void reset_led(void)
 	else {
 		led_control(LED_INDICATOR_SIG3, LED_ON);
 	}
-}
 #endif
+}
 #endif
 
 #if defined(RTCONFIG_QCA_LBD)

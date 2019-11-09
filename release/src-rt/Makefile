@@ -67,9 +67,9 @@ export SRCBASEDIR := $(shell pwd | sed 's/.*release\///g')
 RELEASEDIR := $(shell (cd $(SRC_ROOT)/.. && pwd -P))
 export PATH := $(RELEASEDIR)/tools:$(SRCBASE)/ctools:$(PATH)
 
-#K3C/K3/SBRAC1900P/SBRAC3200P/R7000/R8000/R7900P/R8000P/RTACRH17/RTAC85P/GTAC2900/GTAC5300/RTAC86U/RTAC68U/RTAC3100/RTAC3200/RTAC68P/BLUECAVE/RTAX58U/RTAX82U
+#K3C/K3/SBRAC1900P/SBRAC3200P/R7000/R8000/R7900P/R8000P/RTACRH17/RTAC85P/GTAC2900/GTAC5300/RTAC86U/RTAC68U/RTAC3100/RTAC3200/RTAC68P/BLUECAVE
 export MERLINR_NAME := K3C
-export MERLINR_VER := B22.2
+export MERLINR_VER := B22.3
 export MERLINRVER := $(MERLINR_NAME)_$(MERLINR_VER)
 
 # tmp depend on busybox
@@ -1361,6 +1361,12 @@ define RouterOptions
 	if [ "$(HW_DUALWAN)" = "y" ]; then \
 		sed -i "/RTCONFIG_HW_DUALWAN/d" $(1); \
 		echo "RTCONFIG_HW_DUALWAN=y" >>$(1); \
+	fi; \
+	if [ "$(FRS_FEEDBACK)" = "y" ]; then \
+		sed -i "/RTCONFIG_FRS_FEEDBACK/d" $(1); \
+		echo "RTCONFIG_FRS_FEEDBACK=y" >>$(1); \
+		sed -i "/RTCONFIG_HTTPS/d" $(1); \
+		echo "RTCONFIG_HTTPS=y" >>$(1); \
 	fi; \
 	if [ "$(EMAIL)" = "y" ]; then \
 		sed -i "/RTCONFIG_PUSH_EMAIL/d" $(1); \
@@ -2663,6 +2669,14 @@ define RouterOptions
 	if [ "$(DWB)" = "y" ]; then \
 		sed -i "/RTCONFIG_DWB/d" $(1); \
 		echo "RTCONFIG_DWB=y" >>$(1); \
+	fi; \
+	if [ "$(FRS_LIVE_UPDATE)" = "y" ]; then \
+		sed -i "/RTCONFIG_FRS_LIVE_UPDATE/d" $(1); \
+		echo "RTCONFIG_FRS_LIVE_UPDATE=y" >>$(1); \
+	fi; \
+	if [ "$(UUPLUGIN)" = "y" ]; then \
+		sed -i "/RTCONFIG_UUPLUGIN/d" $(1); \
+		echo "RTCONFIG_UUPLUGIN=y" >>$(1); \
 	fi; \
 	if [ "$(NO_TRY_DWB_PROFILE)" = "y" ]; then \
 		sed -i "/RTCONFIG_NO_TRY_DWB_PROFILE/d" $(1); \

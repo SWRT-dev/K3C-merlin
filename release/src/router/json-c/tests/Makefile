@@ -439,17 +439,17 @@ am__set_b = \
 am__DIST_COMMON = $(srcdir)/../Makefile.am.inc $(srcdir)/Makefile.in \
 	$(top_srcdir)/depcomp $(top_srcdir)/test-driver
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/paldier/384/release/src-lantiq/router/json-c/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/json-c/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = mips-openwrt-linux-uclibc-ar
-AUTOCONF = ${SHELL} /home/paldier/384/release/src-lantiq/router/json-c/missing autoconf
-AUTOHEADER = ${SHELL} /home/paldier/384/release/src-lantiq/router/json-c/missing autoheader
-AUTOMAKE = ${SHELL} /home/paldier/384/release/src-lantiq/router/json-c/missing automake-1.15
+AUTOCONF = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/json-c/missing autoconf
+AUTOHEADER = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/json-c/missing autoheader
+AUTOMAKE = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/json-c/missing automake-1.15
 AWK = gawk
 CC = mips-openwrt-linux-uclibc-gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -Wno-error -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
+CFLAGS = -Os -Wno-error -DCONFIG_LANTIQ -DDEBUG_NOISY -DDEBUG_RCTEST -pipe -funit-at-a-time -Wno-pointer-sign -mips32r2 -mno-branch-likely -mtune=1004kc -DLINUX30 -DLINUX26 -DLINUX_KERNEL_VERSION=199272 --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2
 CPP = mips-openwrt-linux-uclibc-gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -472,7 +472,7 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 JSON_BSYMBOLIC_LDFLAGS = -Wl,-Bsymbolic-functions
 LD = mips-openwrt-linux-uclibc-ld
-LDFLAGS = --sysroot=/home/paldier/384/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -Wl,--as-needed -lm
+LDFLAGS = --sysroot=/home/paldier/asuswrt/release/src-lantiq/tools/toolchain-mips_mips32_gcc-4.8-linaro_uClibc-0.9.33.2 -Wl,--as-needed -lm
 LIBOBJS =  ${LIBOBJDIR}memcmp$U.o
 LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
@@ -480,7 +480,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS =  ${LIBOBJDIR}memcmp$U.lo
 MAINT = #
-MAKEINFO = ${SHELL} /home/paldier/384/release/src-lantiq/router/json-c/missing makeinfo
+MAKEINFO = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/json-c/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = mips-openwrt-linux-uclibc-nm
@@ -503,10 +503,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = mips-openwrt-linux-uclibc-strip -R .note -R .comment
 VERSION = 0.12.1
-abs_builddir = /home/paldier/384/release/src-lantiq/router/json-c/tests
-abs_srcdir = /home/paldier/384/release/src-lantiq/router/json-c/tests
-abs_top_builddir = /home/paldier/384/release/src-lantiq/router/json-c
-abs_top_srcdir = /home/paldier/384/release/src-lantiq/router/json-c
+abs_builddir = /home/paldier/asuswrt/release/src-lantiq/router/json-c/tests
+abs_srcdir = /home/paldier/asuswrt/release/src-lantiq/router/json-c/tests
+abs_top_builddir = /home/paldier/asuswrt/release/src-lantiq/router/json-c
+abs_top_srcdir = /home/paldier/asuswrt/release/src-lantiq/router/json-c
 ac_ct_AR = 
 ac_ct_CC = 
 ac_ct_DUMPBIN = 
@@ -535,7 +535,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/paldier/384/release/src-lantiq/router/json-c/install-sh
+install_sh = ${SHELL} /home/paldier/asuswrt/release/src-lantiq/router/json-c/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

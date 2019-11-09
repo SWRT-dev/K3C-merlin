@@ -24,6 +24,16 @@
 #include <lp5523led.h>
 #endif
 
+#if defined(K3)
+#include <k3.h>
+#elif defined(R7900P)
+#include <r7900p.h>
+#elif defined(K3C)
+#include <k3c.h>
+#elif defined(SBRAC1900P)
+#include <1900p.h>
+#endif
+
 #ifndef ARRAYSIZE
 #define ARRAYSIZE(a) (sizeof(a) / sizeof(a[0]))
 #endif /* ARRAYSIZE */
@@ -259,6 +269,11 @@ static int rctest_main(int argc, char *argv[])
 	else if (strcmp(argv[1], "rc_service")==0) {
 		notify_rc(argv[2]);
 	}
+#if defined(RTCONFIG_FRS_FEEDBACK)
+	else if (strcmp(argv[1], "sendfeedback")==0) {
+		start_sendfeedback();
+	}
+#endif
 #if defined(RTCONFIG_HTTPS) && defined(RTCONFIG_PUSH_EMAIL)
 	else if (strcmp(argv[1], "sendmail")==0) {
 		start_DSLsendmail();
@@ -857,6 +872,13 @@ static const applets_t applets[] = {
 	{ "disk_remove",		diskremove_main			},
 #endif
 	{ "firmware_check",		firmware_check_main		},
+#if defined(RTCONFIG_FRS_LIVE_UPDATE)
+#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(R7900P)
+	{ "firmware_check_update",	merlinr_firmware_check_update_main	},
+#else
+	{ "firmware_check_update",	firmware_check_update_main	},
+#endif
+#endif
 #ifdef RTAC68U
 	{ "firmware_enc_crc",		firmware_enc_crc_main		},
 	{ "fw_check",			fw_check_main			},

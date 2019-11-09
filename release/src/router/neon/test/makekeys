@@ -3,7 +3,7 @@
 
 srcdir=${1-.}
 
-OPENSSL=/home/paldier/asuswrt/release/src-lantiq/router/mipsel-uclibc/stage/usr/bin/openssl
+OPENSSL=/home/paldier/asuswrt/release/src-lantiq/router/mips-uclibc/stage/usr/bin/openssl
 CONF=${srcdir}/openssl.conf
 REQ="${OPENSSL} req -config ${CONF}"
 CA="${OPENSSL} ca -config ${CONF} -batch"

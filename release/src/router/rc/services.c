@@ -157,12 +157,7 @@ static const struct itimerval zombie_tv = { {0,0}, {307, 0} };
 static const char dmhosts[] = "/etc/hosts.dnsmasq";
 static const char dmresolv[] = "/tmp/resolv.conf";
 #if defined(RTCONFIG_SMARTDNS)
-#if !defined(K3) && !defined(K3C) && !defined(SBRAC1900P) && !defined(SBRAC3200P) && !defined(R7900P) && !defined(R8000P) && !defined(RTACRH17)
-if(strncmp(nvram_get("territory_code"), "CN",2))
-	static const char dmservers[] = "/tmp/resolv.dnsmasq";
-else
-#endif
-	static const char dmservers[] = "/tmp/resolv.smartdns";
+static const char dmservers[] = "/tmp/resolv.smartdns";
 #else
 static const char dmservers[] = "/tmp/resolv.dnsmasq";
 #endif
@@ -447,9 +442,9 @@ static int build_temp_rootfs(const char *newroot)
 #ifdef RTCONFIG_USB_SMS_MODEM
 			     " libsmspdu.so"
 #endif
-#if defined(RTCONFIG_HTTPS) || defined(RTCONFIG_PUSH_EMAIL)
+#if defined(RTCONFIG_HTTPS) || defined(RTCONFIG_PUSH_EMAIL) || defined(RTCONFIG_FRS_FEEDBACK)
 			     " libssl* libmssl*"
-#if defined(RTCONFIG_PUSH_EMAIL)
+#if defined(RTCONFIG_PUSH_EMAIL) || defined(RTCONFIG_FRS_FEEDBACK)
 			     " libcurl* libxml2*"
 #endif
 #endif
@@ -4277,7 +4272,7 @@ start_skipd(void)
 	}
 	if (pids("skipd"))
 		killall_tk("skipd");
-	logmessage(LOGNAME, "start skipd:%d", pid);
+	logmessage(LOGNAME, "start skipd");
 	_eval(skipd_argv, NULL, 0, &pid);
 
 }
@@ -9747,11 +9742,7 @@ again:
 #if defined(RTCONFIG_LANTIQ)
 	if(nvram_get_int("k3c_enable"))
 		doSystem("/usr/sbin/plugin.sh stop");
-#elif defined(RTCONFIG_BCMARM)
-	doSystem("/usr/sbin/plugin.sh stop");
-#elif defined(RTCONFIG_QCA)
-	doSystem("/usr/sbin/plugin.sh stop");
-#elif defined(RTCONFIG_RALINK)
+#elif defined(RTCONFIG_BCMARM) || defined(HND_ROUTER) || defined(RTCONFIG_QCA) || defined(RTCONFIG_RALINK)
 	doSystem("/usr/sbin/plugin.sh stop");
 #endif
 #endif
@@ -12602,7 +12593,12 @@ retry_wps_enr:
 		if(action & RC_SERVICE_START) start_mdns();
 	}
 #endif
-
+#ifdef RTCONFIG_FRS_FEEDBACK
+	else if (strcmp(script, "sendfeedback") == 0)
+	{
+		start_sendfeedback();
+	}
+#endif
 #ifdef RTCONFIG_PUSH_EMAIL
 	else if (strcmp(script, "sendmail") == 0)
 	{
@@ -16119,3 +16115,4 @@ void stop_qca_lbd(void)
 	killall_tk("lbd");
 }
 #endif
+

@@ -80,7 +80,7 @@ install:
 # K3C update uboot&ubootconfig tool
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
-	install -m 0755 base64 $(INSTALLDIR)/usr/bin
+	#install -m 0755 base64 $(INSTALLDIR)/usr/bin
 	install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
 	install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
 	install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
@@ -107,13 +107,13 @@ install:
 	install -m 0755 usr/pdnsd $(INSTALLDIR)/usr/sbin
 
 # K3C ipset
-	install -m 0755 ipset $(INSTALLDIR)/usr/sbin
-	install -m 0755 libipset.so.3.6.0 $(INSTALLDIR)/usr/lib
-	install -m 0755 libcares.so.2.2.0 $(INSTALLDIR)/usr/lib
-	install -m 0755 libmbedcrypto.so.2.6.0 $(INSTALLDIR)/usr/lib
-	install -m 0755 libmnl.so.0.1.0 $(INSTALLDIR)/usr/lib
-	install -m 0755 libsodium.so.18.2.0 $(INSTALLDIR)/usr/lib
-	cd $(INSTALLDIR)/usr/lib && ln -sf libipset.so.3.6.0 libipset.so.3 && ln -sf libipset.so.3 libipset.so && ln -sf libmnl.so.0.1.0 libmnl.so.0 && ln -sf libcares.so.2.2.0 libcares.so.2 && ln -sf libmbedcrypto.so.2.6.0 libmbedcrypto.so.0 && ln -sf libmbedcrypto.so.0 libmbedcrypto.so && ln -sf libsodium.so.18.2.0 libsodium.so.18
+	#install -m 0755 ipset $(INSTALLDIR)/usr/sbin
+	#install -m 0755 libipset.so.3.6.0 $(INSTALLDIR)/usr/lib
+	#install -m 0755 libcares.so.2.2.0 $(INSTALLDIR)/usr/lib
+	#install -m 0755 libmbedcrypto.so.2.6.0 $(INSTALLDIR)/usr/lib
+	#install -m 0755 libmnl.so.0.1.0 $(INSTALLDIR)/usr/lib
+	#install -m 0755 libsodium.so.18.2.0 $(INSTALLDIR)/usr/lib
+	#cd $(INSTALLDIR)/usr/lib && ln -sf libipset.so.3.6.0 libipset.so.3 && ln -sf libipset.so.3 libipset.so && ln -sf libmnl.so.0.1.0 libmnl.so.0 && ln -sf libcares.so.2.2.0 libcares.so.2 && ln -sf libmbedcrypto.so.2.6.0 libmbedcrypto.so.0 && ln -sf libmbedcrypto.so.0 libmbedcrypto.so && ln -sf libsodium.so.18.2.0 libsodium.so.18
 
 # K3C Entware setup script
 	#install -m 0755 entware-setup.sh $(INSTALLDIR)/usr/sbin

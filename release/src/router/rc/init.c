@@ -8867,7 +8867,9 @@ int init_nvram(void)
 NO_USB_CAP:
 #endif
 #endif // RTCONFIG_USB
-
+#ifdef RTCONFIG_FRS_FEEDBACK
+	add_rc_support("frs_feedback");
+#endif
 #ifdef RTCONFIG_PUSH_EMAIL
 	add_rc_support("feedback");
 	add_rc_support("email");
@@ -11221,4 +11223,5 @@ int reboothalt_main(int argc, char *argv[])
 
 	return 0;
 }
+
 

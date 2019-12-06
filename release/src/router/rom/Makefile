@@ -158,7 +158,6 @@ ifeq ($(MERLINR_NAME), $(filter $(MERLINR_NAME), K3 K3C R7900P))
 else
 	cp -f webs_scripts/ssl_webs_upgrade.sh $(INSTALLDIR)/usr/sbin/webs_upgrade.sh
 endif
-	cp -f webs_scripts/ssl_webs_upgrade.sh $(INSTALLDIR)/usr/sbin/webs_upgrade.sh
 ifeq ($(RTCONFIG_CFGSYNC),y)
 ifeq ($(MERLINR_NAME), $(filter $(MERLINR_NAME), K3 K3C R7900P))
 	cp -f webs_scripts/merlinr_webs_download.sh $(INSTALLDIR)/usr/sbin/webs_download.sh

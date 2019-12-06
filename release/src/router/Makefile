@@ -92,6 +92,8 @@ export CFLAGS += -D$(MODEL)
 export $(MODEL)=y
 export CFLAGS += -D$(MERLINR_NAME)
 export $(MERLINR_NAME)=y
+export CFLAGS += -DMERLINR_VER_MAJOR_$(MERLINR_VER_MAJOR)
+export MERLINR_VER_MAJOR_$(MERLINR_VER_MAJOR)=y
 
 export OLD_SRC=$(SRCBASE)/../src
 ifeq ($(RTCONFIG_REALTEK),y)
@@ -417,10 +419,10 @@ SEP=echo "\033[41;1m   $@   \033[0m"
 # standard packages
 #
 ifeq ($(HND_ROUTER),y)
-export BUSYBOX ?= busybox-1.24.1
-export BUSYBOX_DIR := busybox-1.24.1/busybox-1.24.1
+export BUSYBOX ?= busybox
+export BUSYBOX_DIR := $(BUSYBOX)
 else
-export BUSYBOX ?= busybox-1.17.4
+export BUSYBOX ?= busybox
 export BUSYBOX_DIR := $(BUSYBOX)
 endif
 obj-y += $(BUSYBOX)

@@ -4092,7 +4092,7 @@ void fake_etlan_led(void)
 	}
 	allstatus = 1;
 #endif
-#ifdef defined(K3)
+#if defined(K3)
 	if (!GetPhyStatusk3(0)) {
 #else
 	if (!GetPhyStatus(0)) {
@@ -7485,7 +7485,9 @@ wdp:
 	amas_ctl_check();
 #endif
 #ifdef RTCONFIG_CFGSYNC
-	//cfgsync_check();
+#if !defined(MERLINR_VER_MAJOR_B)
+	cfgsync_check();
+#endif
 #endif
 #ifdef RTCONFIG_TUNNEL
 	mastiff_check();

@@ -8,7 +8,7 @@
 <meta HTTP-EQUIV="Expires" CONTENT="-1">
 <link rel="shortcut icon" href="images/favicon.png">
 <link rel="icon" href="images/favicon.png">
-<title>梅林软件中心</title>
+<title sclang>Software Center</title>
 <link rel="stylesheet" type="text/css" href="index_style.css">
 <link rel="stylesheet" type="text/css" href="form_style.css">
 <script type="text/javascript" src="/state.js"></script>
@@ -21,6 +21,7 @@
 <script type="text/javascript" src="/general.js"></script>
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
 <script type="text/javascript" src="/form.js"></script>
+<script type="text/javascript" src="/js/i18n.js"></script>
 <style>
 .cloud_main_radius_left{
     -webkit-border-radius: 10px 0 0 10px;
@@ -210,9 +211,9 @@
 <script>
 function initial(){
 show_menu();
+sc_load_lang("sc");
 hide_ss(1);
 show_footer();
-loadxml();
 }
 function hide_ss(_value) {
 if(_value==null)
@@ -230,41 +231,6 @@ $('.show-uninstall-btn').addClass('active');
 function applyRule(_on){
 showLoading();
 document.form.submit();
-}
-
-//加载并显示xml元素内容
-function loadxml() {
-    $.ajax({  
-        url : '/k3c/web/softcenter.xml',  
-        cache:false,  
-        dataType:"xml",  
-        type:'GET',  
-        timeout:4000,  
-        error:function(data) {  
-        setTimeout("loadxml();", 1000);
-    },  
-    success: function(data) {  
-         //$('body #out').remove();  
-         $(data).find('bs').each(function(i) {  
-        //var bid = $(this).attr('id');
-        var btitle = $(this).children('title').text();
-        var bname = $(this).children('name').text();  
-        var bdescription = $(this).children('description').text();  
-        var burl = $(this).children('home_url').text();  
-        var bicon = $(this).children('icon').text();  
-        var html = '<dl class="icon install-status-'+bname+'" data-name="'+bname+'">'
-                      +'<dd class="icon-pic">'
-                      +'<img src="'+bicon+'">'
-                      +'</dd>'  
-                      +'<dt class="icon-title">'+btitle+'</dt>'
-                      +'<dd class="icon-desc">'
-                      +'<a class="text" href="'+burl+'">'
-                      +bdescription+'</a></dd>'
-                +'</dl>';  
-         document.getElementById("scout").innerHTML += html;
-     });  
-    }  
-});  
 }
 </script>
 </head>
@@ -302,7 +268,7 @@ function loadxml() {
                                     <tr>
                                         <td bgcolor="#4D595D" colspan="3" valign="top">
                                             <div>&nbsp;</div>
-                                            <div class="formfonttitle">软件中心</div>
+                                            <div class="formfonttitle" sclang>Software Center</div>
                                             <div style="margin-left:5px;margin-top:5px;margin-bottom:5px"><img src="/images/New_ui/export/line_export.png"></div>
                                                 <table width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable" >
                                                 </table>
@@ -316,16 +282,16 @@ function loadxml() {
                                                                         <td>
                                                                             <ul style="margin-top:-50px;padding-left:15px;" >
                                                                                 <li style="margin-top:-5px;">
-                                                                                    <h2 id="push_titile"><em>欢迎</em></h2>
+                                                                                    <h2 id="push_titile" sclang><em>Welcome</em></h2>
                                                                                 </li>
                                                                                 <li style="margin-top:-5px;">
-                                                                                    <h4 id="push_content1" >欢迎来到插件中心，目前正在紧张开发中，各种插件酝酿中！</h4>
+                                                                                    <h4 id="push_content1" sclang>Most plugins are only for Chinese users.</h4>
                                                                                 </li>
                                                                                 <li  style="margin-top:-5px;">
-                                                                                    <h4 id="push_content2">部分插件需要插入U盘或移动硬盘才能启用！</h4>
+                                                                                    <h4 id="push_content2" sclang>Plug in a USB flash drive to enable softcenter.</h4>
                                                                                 </li>
                                                                                 <li  style="margin-top:-5px;">
-                                                                                    <h4 id="push_content3">为保证正常运行，U盘或移动硬盘至少需分配1G空间留给系统使用！</h4>
+                                                                                    <h4 id="push_content3" sclang>Enable/Disable softcenter in jffs extended settings.</h4>
                                                                                 </li>
                                                                                 </li>
                                                                             </ul>
@@ -350,12 +316,6 @@ function loadxml() {
                                                     <tr height="10px">
                                                         <td colspan="3"></td>
                                                     </tr>
-                                                    <tr width="235px">
-                                                        <td colspan="4" cellpadding="0" cellspacing="0" style="padding:0">
-                                                            <input class="show-install-btn" type="button" value="内置插件" onclick="hide_ss(1);"/>
-							<input class="show-uninstall-btn" type="button" value="外置插件" onclick="hide_ss(0);"/>
-                                                    </tr>
-
                                                     <tr bgcolor="#444f53" width="235px" id="sc2">
 							<td colspan="4" id="IconContainer1">
                                                             <div style="text-align:center; line-height: 4em;" id="scout">
@@ -365,130 +325,16 @@ function loadxml() {
                                                      <tr bgcolor="#444f53" width="235px" id="sc1">
                                                         <td colspan="4" id="IconContainer">
                                                             <div style="text-align:center; line-height: 4em;">
-                                                                <dl class="icon install-status-k3c" data-name="k3c">
+                                                                <dl class="icon install-status-mount" data-name="mount">
                                                                         <dd class="icon-pic">
                                                                                 <img src="/images/New_ui/tools.png">
                                                                         </dd>
-                                                                         <dt class="icon-title">jffs扩展设置</dt>
+                                                                         <dt class="icon-title" sclang>jffs extended settings</dt>
                                                                          <dd class="icon-desc">
-                                                                                <a class="text" href="/Tools_K3C.asp">
-                                                                                        jffs扩展设置
-                                                                                </a>
+                                                                                <a class="text" href="/Softcenter_mount.asp" sclang>jffs extended settings</a>
                                                                         </dd>
                                                                 </dl>
-                                                                <!--模板：下面添加插件-->
-                                                                <dl class="icon install-status-ssr" data-name="ssr">
-                                                                        <dd class="icon-pic">
-                                                                                <img src="/images/New_ui/ssr.png">
-                                                                        </dd>
-                                                                         <dt class="icon-title">科学上网</dt>
-                                                                         <dd class="icon-desc">
-                                                                                <a class="text" href="/Tools_SSR.asp">
-                                                                                        科学上网
-                                                                                </a>
-                                                                        </dd>
-                                                                </dl>
-                                                                <!--模板：添加结束-->
-                                                                <dl class="icon install-status-kp" data-name="kp">
-                                                                        <dd class="icon-pic">
-                                                                                <img src="/images/New_ui/koolproxy.png">
-                                                                        </dd>
-                                                                        <dt class="icon-title">广告屏蔽</dt>
-                                                                        <dd class="icon-desc">
-                                                                                <a class="text" href="/Tools_Adbyby.asp">
-                                                                                        广告屏蔽大师
-                                                                                </a>
-                                                                        </dd>
-                                                                </dl>
-                                                                <dl class="icon install-status-kms" data-name="kms">
-                                                                        <dd class="icon-pic">
-                                                                                <img src="/images/New_ui/microsoft.png">
-                                                                        </dd>
-                                                                        <dt class="icon-title">KMS服务</dt>
-                                                                        <dd class="icon-desc">
-                                                                                <a class="text" href="/Tools_Kms.asp">
-                                                                                        KMS服务
-                                                                                </a>
-                                                                        </dd>
-                                                                </dl>
-                                                                <dl class="icon install-status-ngrok" data-name="ngrok">
-                                                                        <dd class="icon-pic">
-                                                                                <img src="/images/New_ui/ngrok.png">
-                                                                        </dd>
-                                                                        <dt class="icon-title">内网穿透Ngrok</dt>
-                                                                        <dd class="icon-desc">
-                                                                                <a class="text" href="/Tools_ngrok.asp">
-                                                                                        内网穿透Ngrok
-                                                                                </a>
-                                                                        </dd>
-                                                                </dl>
-																	<dl class="icon install-status-frp" data-name="frp">
-																	<dd class="icon-pic">
-																		<img src="/images/New_ui/frpc.png">
-																	</dd>
-																	<dt class="icon-title">内网穿透Frpc</dt>
-																	<dd class="icon-desc">
-																		<a class="text" href="/Tools_frpc.asp">
-																			内网穿透Frpc
-																		</a>
-																	</dd>
-																	</dl>
-																	<dl class="icon install-status-webshell" data-name="webshell">
-																	<dd class="icon-pic">
-																		<img src="/images/New_ui/webshell.png">
-																	</dd>
-																	<dt class="icon-title">Webshell</dt>
-																	<dd class="icon-desc">
-																		<a class="text" href="/Tools_webshell.asp">
-																			超强的SSH网页客户端~
-																		</a>
-																	</dd>
-																	</dl>
-																	<dl class="icon install-status-xunlei" data-name="xunlei">
-																	<dd class="icon-pic">
-																		<img src="/images/New_ui/xunlei.png">
-																	</dd>
-																	<dt class="icon-title">迅雷远程</dt>
-																	<dd class="icon-desc">
-																		<a class="text" href="/Tools_xunlei.asp">
-																			迅雷远程
-																		</a>
-																	</dd>
-																	</dl>
-																	<dl class="icon install-status-swap" data-name="swap">
-																	<dd class="icon-pic">
-																		<img src="/images/New_ui/swap.png">
-																	</dd>
-																	<dt class="icon-title">虚拟内存</dt>
-																	<dd class="icon-desc">
-																		<a class="text" href="/Tools_swap.asp">
-																			老板，来一斤虚拟内存~
-																		</a>
-																	</dd>
-																	</dl>
-																	<dl class="icon install-status-script" data-name="script">
-																	<dd class="icon-pic">
-																		<img src="/images/New_ui/tools.png">
-																	</dd>
-																	<dt class="icon-title">自定义脚本</dt>
-																	<dd class="icon-desc">
-																		<a class="text" href="/Tools_Script.asp">
-																			自定义脚本
-																		</a>
-																	</dd>
-																	</dl>
-																	<dl class="icon install-status-v2ray" data-name="v2ray">
-																	<dd class="icon-pic">
-																		<img src="/images/New_ui/ssr.png">
-																	</dd>
-																	<dt class="icon-title">v2ray</dt>
-																	<dd class="icon-desc">
-																		<a class="text" href="/Tools_v2ray.asp">
-																			v2ray
-																		</a>
-																	</dd>
-																	</dl>
-                                                            </div>
+                                                             </div>
                                                         </td>
                                                     </tr>
                                                     <tr height="10px">
@@ -496,10 +342,6 @@ function loadxml() {
                                                     </tr>
 
                                                 </table>
-                                            <div class="KoolshareBottom">论坛技术支持： <a href="http://www.koolshare.cn" target="_blank"> <i><u>www.koolshare.cn</u></i> </a>
-                                                <br/>Github项目： <a href="https://github.com/koolshare/koolshare.github.io" target="_blank"> <i><u>github.com/koolshare</u></i> </a>
-                                            	<br/>K3C修改版 by： <a href="https://k3c.paldier.com/merlin" target="_blank"><i><u>paldier</u></i></a>
-											</div>
                                         </td>
                                     </tr>
                             </table>

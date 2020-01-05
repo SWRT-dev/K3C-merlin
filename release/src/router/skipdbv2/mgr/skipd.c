@@ -1191,7 +1191,6 @@ static void server_switch(skipd_server* server) {
 
     server->db = other;
     server->curr_db = n2;
-    skipd_log(SKIPD_DEBUG, "switch|use path:%s db:%d",server->db_path,server->curr_db);
     SkipDB_delete(tmp);
     SkipDB_free(tmp);
 }
@@ -1415,11 +1414,6 @@ int main(int argc, char **argv)
     //struct ev_periodic every_few_seconds;
     ev_timer init_watcher = {0};
     EV_P  = ev_default_loop(0);
-	FILE *fplock;
-	if ((fplock = fopen("/var/run/skipd.lock", "r")) != NULL) {
-   		printf("don't start second skipd\n");
-		return -1;
-	}
 
     global_server = (skipd_server*)calloc(1, sizeof(skipd_server));
     server = global_server;

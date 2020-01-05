@@ -39,7 +39,7 @@ if [ "$model" == "RT-AC68U" ] && [ "$fw_check" == "1" ]; then
 else
 
 #openssl support rsa check
-rsa_enabled=`nvram show | grep rc_support | grep HTTPS`
+rsa_enabled=""
 
 touch /tmp/update_url
 update_url=`cat /tmp/update_url`

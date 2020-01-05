@@ -1208,6 +1208,11 @@ void start_dnsmasq(void)
 			}
 		}
 #endif
+#if defined(RTCONFIG_SOFTCENTER)
+//anti dns hijacking
+		fprintf(fp, "121.40.153.145 wufan.softcenter.site\n");
+		fprintf(fp, "123.56.45.194 sc.softcenter.site\n");
+#endif
 		fclose(fp);
 	} else
 		perror("/etc/hosts");
@@ -8041,13 +8046,6 @@ start_services(void)
 
 #if defined(RTCONFIG_AMAS)
 	start_amas_lib();
-#endif
-#if defined(BLUECAVE)
-#if defined(K3C)
-	doSystem("/usr/sbin/k3c-init.sh");
-#else
-	doSystem("/usr/sbin/softcenter-init.sh");
-#endif
 #endif
 	run_custom_script("services-start", 0, NULL, NULL);
 	

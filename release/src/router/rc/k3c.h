@@ -24,17 +24,28 @@
  *
  */
 
-
+#ifndef __MERLINR_H__
+#define __MERLINR_H__
 extern void k3c_lan_led(void);
 extern void k3c_init_led(void);
 extern void k3c_init(void);
 extern void k3c_init_done(void);
-#ifdef RTCONFIG_UUPLUGIN
-extern void exec_uu(void);
+#if defined(RTCONFIG_UUPLUGIN)
+extern void exec_uu_merlinr(void);
 #endif
-#ifdef RTCONFIG_FRS_LIVE_UPDATE
-#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(R7900P)
+#if defined(RTCONFIG_FRS_LIVE_UPDATE) 
+#if defined(RTCONFIG_BCMARM) || defined(RTCONFIG_LANTIQ) || defined(RTCONFIG_QCA) || defined(RTCONFIG_HND_ROUTER) || defined(RTCONFIG_RALINK)
 extern int merlinr_firmware_check_update_main(int argc, char *argv[]);
+#endif
+#endif
+
+#if defined(RTCONFIG_SOFTCENTER)
+enum {
+	SOFTCENTER_WAN=1,
+	SOFTCENTER_NAT,
+	SOFTCENTER_MOUNT
+};
+extern void softcenter_eval(int sig);
 #endif
 #endif
 

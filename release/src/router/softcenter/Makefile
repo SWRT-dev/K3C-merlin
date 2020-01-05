@@ -18,6 +18,8 @@ install:
 	install -d $(INSTALLDIR)/usr/sbin/webshell
 	install -d $(INSTALLDIR)/usr/kool
 	install -d $(INSTALLDIR)/www
+	install -d $(INSTALLDIR)/www/js
+	install -d $(INSTALLDIR)/www/res
 	install -d $(INSTALLDIR)/usr/kms
 	install -d $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -d $(INSTALLDIR)/rom/etc/softcenter/res
@@ -31,13 +33,16 @@ install:
 	install -d $(INSTALLDIR)/rom/etc/softcenter/scripts
 	install -d $(INSTALLDIR)/rom/etc/softcenter/perp/.boot
 	install -d $(INSTALLDIR)/rom/etc/softcenter/perp/.control
-
+ifeq ($(BUILD_NAME), $(filter $(BUILD_NAME), GT-AC2900 GT-AC5300))
+	install -d $(INSTALLDIR)/rom/etc/softcenter/ROG/res
+	install -d $(INSTALLDIR)/rom/etc/softcenter/ROG/webs
+endif
 # K3C versioncmp
 	install -m 0755 versioncmp $(INSTALLDIR)/usr/sbin
 # K3C softcenter
 	install -m 0755 www/Softcenter.asp $(INSTALLDIR)/www
-	install -m 0755 softcenter/bin/base64_encode $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/jq $(INSTALLDIR)/rom/etc/softcenter/bin
+	install -m 0755 softcenter/bin/base64_encode $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/softcenter.sh $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/softcenter-mount.sh $(INSTALLDIR)/rom/etc/softcenter/bin
 	install -m 0755 softcenter/bin/softcenter-net.sh $(INSTALLDIR)/rom/etc/softcenter/bin
@@ -81,30 +86,30 @@ install:
 	install -m 0755 mtd $(INSTALLDIR)/sbin
 # K3C SSR and adbyby plus
 	#install -m 0755 base64 $(INSTALLDIR)/usr/bin
-	install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
-	install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
-	install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
-	install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
-	install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/ignore.user $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
-	install -m 0755 www/k3c-init.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ssr-redir $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ss-redir $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ssr-rules $(INSTALLDIR)/usr/sbin
+	#install -m 0755 ssr-state $(INSTALLDIR)/usr/sbin
+	#install -m 0755 usr/ssr/gfw_addr.conf $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/gfw_list.conf $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/ignore.list $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/ignore.user $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 usr/ssr/ssr_mon.sh $(INSTALLDIR)/usr/sbin/ssr
+	#install -m 0755 www/k3c-init.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/k3c_ssr.sh $(INSTALLDIR)/usr/sbin
 	#install -m 0755 usr/phic_fac $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/Tools_Adbyby.asp $(INSTALLDIR)/www
-	install -m 0755 www/k3c_adbyby.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/user.txt $(INSTALLDIR)/usr/kool
-	install -m 0755 www/openssl.cnf $(INSTALLDIR)/usr/kool
-	install -m 0755 www/kool_mon.sh $(INSTALLDIR)/usr/kool
-	install -m 0755 www/kool.sh $(INSTALLDIR)/usr/kool
-	install -m 0755 www/gen_ca.sh $(INSTALLDIR)/usr/kool
-	install -m 0755 www/adblock.conf $(INSTALLDIR)/usr/kool
+	#install -m 0755 www/Tools_Adbyby.asp $(INSTALLDIR)/www
+	#install -m 0755 www/k3c_adbyby.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/user.txt $(INSTALLDIR)/usr/kool
+	#install -m 0755 www/openssl.cnf $(INSTALLDIR)/usr/kool
+	#install -m 0755 www/kool_mon.sh $(INSTALLDIR)/usr/kool
+	#install -m 0755 www/kool.sh $(INSTALLDIR)/usr/kool
+	#install -m 0755 www/gen_ca.sh $(INSTALLDIR)/usr/kool
+	#install -m 0755 www/adblock.conf $(INSTALLDIR)/usr/kool
 	install -m 0755 nohup $(INSTALLDIR)/usr/bin
 
 # K3C dns
-	install -m 0755 usr/pdnsd $(INSTALLDIR)/usr/sbin
+	#install -m 0755 usr/pdnsd $(INSTALLDIR)/usr/sbin
 
 # K3C ipset
 	#install -m 0755 ipset $(INSTALLDIR)/usr/sbin
@@ -119,24 +124,24 @@ install:
 	#install -m 0755 entware-setup.sh $(INSTALLDIR)/usr/sbin
 
 # K3C webshell
-	install -m 0755 www/k3c_webshell.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/shellinaboxd $(INSTALLDIR)/usr/sbin/webshell
-	install -m 0755 www/white-on-black.css $(INSTALLDIR)/usr/sbin/webshell
-	install -m 0755 www/Tools_webshell.asp $(INSTALLDIR)/www
-	install -m 0755 www/certificate.pem $(INSTALLDIR)/usr/sbin/webshell
+	#install -m 0755 www/k3c_webshell.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/shellinaboxd $(INSTALLDIR)/usr/sbin/webshell
+	#install -m 0755 www/white-on-black.css $(INSTALLDIR)/usr/sbin/webshell
+	#install -m 0755 www/Tools_webshell.asp $(INSTALLDIR)/www
+	#install -m 0755 www/certificate.pem $(INSTALLDIR)/usr/sbin/webshell
 # K3C ngrok
-	install -m 0755 www/k3c_ngrok.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/k3c_ngrok.sh $(INSTALLDIR)/usr/sbin
 	#install -m 0755 www/ngrokc $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/Tools_ngrok.asp $(INSTALLDIR)/www
+	#install -m 0755 www/Tools_ngrok.asp $(INSTALLDIR)/www
 # K3C xunlei
-	install -m 0755 www/k3c_xunlei.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/Tools_xunlei.asp $(INSTALLDIR)/www
+	#install -m 0755 www/k3c_xunlei.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/Tools_xunlei.asp $(INSTALLDIR)/www
 # K3C kms
-	install -m 0755 www/vlmcsd.ini $(INSTALLDIR)/usr/kms
-	install -m 0755 www/kms_dns.conf $(INSTALLDIR)/usr/kms
-	install -m 0755 www/k3c_kms.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/vlmcsd $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/Tools_Kms.asp $(INSTALLDIR)/www
+	#install -m 0755 www/vlmcsd.ini $(INSTALLDIR)/usr/kms
+	#install -m 0755 www/kms_dns.conf $(INSTALLDIR)/usr/kms
+	#install -m 0755 www/k3c_kms.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/vlmcsd $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/Tools_Kms.asp $(INSTALLDIR)/www
 # K3C aria2
 	#install -m 0755 www/Tools_aria2.asp $(INSTALLDIR)/www
 	#install -m 0755 www/aria2c $(INSTALLDIR)/usr/sbin
@@ -144,29 +149,39 @@ install:
 	install -m 0755 libssh2.so.1.0.1 $(INSTALLDIR)/usr/lib
 	cd $(INSTALLDIR)/usr/lib && ln -sf libssh2.so.1.0.1 libssh2.so.1 && ln -sf libssh2.so.1 libssh2.so
 # K3C frp
-	install -m 0755 www/Tools_frpc.asp $(INSTALLDIR)/www
+	#install -m 0755 www/Tools_frpc.asp $(INSTALLDIR)/www
 	#install -m 0755 www/frpc $(INSTALLDIR)/usr/sbin/frp
-	install -m 0755 www/frp_mon.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/k3c_frpc.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/frp_mon.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/k3c_frpc.sh $(INSTALLDIR)/usr/sbin
 # K3C v2ray
-	install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
-	install -m 0755 www/softcenter_v2ray.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/v2ray_mon.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/v2ray-rules $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/Tools_v2ray.asp $(INSTALLDIR)/www
+	#install -m 0755 www/softcenter_v2ray.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/v2ray_mon.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/v2ray-rules $(INSTALLDIR)/usr/sbin
 # K3C swap
-	install -m 0755 www/Tools_swap.asp $(INSTALLDIR)/www
-	install -m 0755 www/k3c_swap.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/Tools_swap.asp $(INSTALLDIR)/www
+	#install -m 0755 www/k3c_swap.sh $(INSTALLDIR)/usr/sbin
 # K3C swap
-	install -m 0755 www/Tools_K3C.asp $(INSTALLDIR)/www
-	install -m 0755 www/k3c_tools.sh $(INSTALLDIR)/usr/sbin
+	install -m 0755 www/Softcenter_mount.asp $(INSTALLDIR)/www
+	#install -m 0755 www/k3c_tools.sh $(INSTALLDIR)/usr/sbin
 	#install -m 0755 www/softcenter_start.sh $(INSTALLDIR)/usr/sbin
 # K3C script
-	install -m 0755 www/k3c_script.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/k3c_script_ch.sh $(INSTALLDIR)/usr/sbin
-	install -m 0755 www/Tools_Script.asp $(INSTALLDIR)/www
+	#install -m 0755 www/k3c_script.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/k3c_script_ch.sh $(INSTALLDIR)/usr/sbin
+	#install -m 0755 www/Tools_Script.asp $(INSTALLDIR)/www
 # K3C aimesh
-	install -m 0755 www/Tools_aimesh.asp $(INSTALLDIR)/www
+	#install -m 0755 www/Tools_aimesh.asp $(INSTALLDIR)/www
 # K3C helper
 	install -m 0755 www/helper.sh $(INSTALLDIR)/usr/sbin
+ifeq ($(BUILD_NAME), $(filter $(BUILD_NAME), GT-AC2900 GT-AC5300))
+	install -m 0755 softcenter/ROG/res/softcenter.css $(INSTALLDIR)/rom/etc/softcenter/ROG/res
+	install -m 0755 softcenter/ROG/webs/Main_Soft_center.asp $(INSTALLDIR)/rom/etc/softcenter/ROG/webs
+	install -m 0755 softcenter/ROG/webs/Main_Soft_setting.asp $(INSTALLDIR)/rom/etc/softcenter/ROG/webs
+endif
+	install -m 0755 jffsinit.sh $(INSTALLDIR)/usr/sbin
+	install -m 0755 i18n.js $(INSTALLDIR)/www/js
+	install -m 0755 scCN.json $(INSTALLDIR)/www/res
+	install -m 0755 scEN.json $(INSTALLDIR)/www/res
+	install -m 0755 scTW.json $(INSTALLDIR)/www/res
 
 clean:

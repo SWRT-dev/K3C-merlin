@@ -317,6 +317,7 @@ GSW_API_HANDLE gsw_api_kopen(char *name)
 	/* process /dev/switch/minor string */
 	char *needle = "/";
 	char *buf = strstr(name, needle);
+	char gr[] = "1";
 
 	if (!ioctlwrapctx) {
 		pr_err("ioctlwrapctx not initilized\n");
@@ -341,7 +342,8 @@ GSW_API_HANDLE gsw_api_kopen(char *name)
 			pr_err("\nNot support internal switch\n\n");
 			return 0;
 		}
-	} else if (!strcmp(name, "1")) {
+	} else if (!strcmp(name, gr)) {//Not support external switch number = 1,bug?
+	//} else if (!strcmp(name, "1")) {
 		pLlHandle = pdev->pEthSWDev[1];
 	} else {
 		pr_err("\nNot support external switch number = %s\n\n", name);

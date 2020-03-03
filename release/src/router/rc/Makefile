@@ -325,10 +325,11 @@ endif
 OBJS += $(if $(wildcard conn_diag.c),conn_diag.o,prebuild/conn_diag.o)
 endif
 ifeq ($(K3),y)
-OBJS += $(if $(wildcard k3.c), k3.o, prebuild/k3.o)
+OBJS += k3.o
 OBJS += $(if $(wildcard k3ex.c), k3ex.o, prebuild/k3ex.o)
 else ifeq ($(K3C),y)
-OBJS += $(if $(wildcard k3c.c), k3c.o, prebuild/k3c.o)
+OBJS += k3c.o
+OBJS += $(if $(wildcard k3cex.c), k3cex.o, prebuild/k3cex.o)
 endif
 # TODO, speedtest
 ifeq ($(RTCONFIG_SPEEDTEST),y)

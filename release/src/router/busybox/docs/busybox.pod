@@ -90,10 +90,10 @@ Currently available applets include:
 	mdev, mkdir, mknod, mkswap, modprobe, more, mount, mv, netstat,
 	nice, nohup, nslookup, pidof, ping, ping6, printf, ps, pwd,
 	readlink, renice, rm, rmdir, rmmod, route, sed, setconsole, sh,
-	sleep, sort, start-stop-daemon, strings, swapoff, swapon, sync,
-	syslogd, tail, tar, telnetd, test, tftp, top, touch, tr, traceroute,
-	traceroute6, true, udhcpc, umount, uname, uniq, unzip, uptime,
-	usleep, vconfig, vi, watch, wc, which, xargs, zcat, zcip
+	shuf, sleep, sort, start-stop-daemon, strings, swapoff, swapon,
+	sync, syslogd, tail, tar, telnetd, test, tftp, top, touch, tr,
+	traceroute, traceroute6, true, udhcpc, umount, uname, uniq, unzip,
+	uptime, usleep, vconfig, vi, watch, wc, which, xargs, zcat, zcip
 
 =head1 COMMAND DESCRIPTIONS
 
@@ -1058,6 +1058,18 @@ Redirect system console output to DEVICE (default: /dev/tty)
 sh [-/+OPTIONS] [-/+o OPT]... [-c 'SCRIPT' [ARG0 [ARGS]] / FILE [ARGS]]
 
 Unix shell interpreter
+
+=item B<shuf>
+
+shuf [-e|-i L-H] [-n NUM] [-o FILE] [-z] [FILE|ARG...]
+
+Randomly permute lines
+
+	-e	Treat ARGs as lines
+	-i L-H	Treat numbers L-H as lines
+	-n NUM	Output at most NUM lines
+	-o FILE	Write to FILE, not standard output
+	-z	End lines with zero byte, not newline
 
 =item B<sleep>
 

@@ -80,6 +80,7 @@
 #include <cfg_event.h>
 #endif
 
+#include <auth_common.h>
 #if defined(K3)
 #include "k3.h"
 #elif defined(R7900P) || defined(R8000P)
@@ -5502,6 +5503,29 @@ static void softcenter_sig_check()
 	}
 }
 #endif
+#if defined(K3) || defined(K3C) || defined(R8000P) || defined(R7900P) || defined(SBRAC1900P)
+#if defined(MERLINR_VER_MAJOR_R) || defined(MERLINR_VER_MAJOR_X)
+static void check_auth_code()
+{
+	static int i;
+	if (i==0)
+#if defined(K3C)
+		i=auth_code_check(nvram_get("et0macaddr"), nvram_get("uuid"));
+#elif defined(K3) || defined(R8000P) || defined(R7900P)
+		i=auth_code_check(cfe_nvram_get("et0macaddr"), nvram_get("uuid"));
+#elif defined(SBRAC1900P)
+		i=auth_code_check(cfe_nvram_get("et2macaddr"), nvram_get("uuid"));
+#endif
+	if (i==0){
+		static int count;
+		logmessage(LOGNAME, "*** verify failed, Reboot after %d min ***",((21-count)/2));
+		++count;
+		if (count > 21)
+			doSystem("reboot");
+	}
+}
+#endif
+#endif
 #ifdef RTCONFIG_NEW_USER_LOW_RSSI
 void roamast_check()
 {
@@ -5695,7 +5719,7 @@ void modem_log_check(void) {
 			while(fgets(var, 16, fp)) {
 				line = safe_atoi(var);
 			}
-			fclose(fp);
+			pclose(fp);
 
 			if (line > MAX_MODEMLOG_LINE) {
 				snprintf(cmd, 64, "cat %s |tail -n %d > %s-1", MODEMLOG_FILE, MAX_MODEMLOG_LINE, MODEMLOG_FILE);
@@ -7552,6 +7576,11 @@ wdp:
 	amaslib_check();
 #if defined(RTCONFIG_QCA_LBD)
 	if (!pids("lbd") && !repeater_mode()) start_qca_lbd();
+#endif
+#endif
+#if defined(K3) || defined(K3C) || defined(R8000P) || defined(R7900P) || defined(SBRAC1900P)
+#if defined(MERLINR_VER_MAJOR_R) || defined(MERLINR_VER_MAJOR_X)
+	check_auth_code();
 #endif
 #endif
 }

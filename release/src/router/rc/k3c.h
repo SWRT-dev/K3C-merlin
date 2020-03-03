@@ -26,10 +26,14 @@
 
 #ifndef __MERLINR_H__
 #define __MERLINR_H__
+#if defined(K3C)
+#define DEFUUID "74d916d8-7c69-4a44-acda-71a8feba2903"
 extern void k3c_lan_led(void);
 extern void k3c_init_led(void);
 extern void k3c_init(void);
 extern void k3c_init_done(void);
+extern void k3c_uuid(void);
+#endif
 #if defined(RTCONFIG_UUPLUGIN)
 extern void exec_uu_merlinr(void);
 #endif

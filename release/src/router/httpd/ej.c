@@ -39,9 +39,13 @@
 #include <shared.h>
 
 #ifdef RTCONFIG_ODMPID
-struct REPLACE_ODMPID_S replace_odmpid_t[] =
+struct REPLACE_PRODUCTID_S replace_productid_t[] =
 {
 	{"LYRA_VOICE", "LYRA VOICE"},
+	{"RT-AC57U_V2", "RT-AC57U V2"},
+	{"RT-AC58U_V2", "RT-AC58U V2"},
+	{"RT-AC1300G_PLUS_V2", "RT-AC1300G PLUS V2"},
+	{"RT-AC1500G_PLUS", "RT-AC1500G PLUS"},
 	{NULL, NULL}
 };
 #endif
@@ -51,18 +55,18 @@ static void call(char *func, FILE *stream);
 
 /* Look for unquoted character within a string */
 static char *
-unqstrstr(const char *haystack, const char *needle)
+unqstrstr(char *haystack, char *needle)
 {
 	char *cur;
 	int q;
 
 	for (cur = haystack, q = 0;
-	     cur < (haystack + strlen(haystack)) && !(!q && !strncmp(needle, cur, strlen(needle)));
+	     cur < &haystack[strlen(haystack)] && !(!q && !strncmp(needle, cur, strlen(needle)));
 	     cur++) {
 		if (*cur == '"')
 			q ? q-- : q++;
 	}
-	return (cur < (haystack + strlen(haystack))) ? cur : NULL;
+	return (cur < &haystack[strlen(haystack)]) ? cur : NULL;
 }
 
 static char *
@@ -145,17 +149,24 @@ process_asp (char *s, char *e, FILE *f)
 }
 
 #ifdef RTCONFIG_ODMPID
-static void replace_odmpid(char *ODM_PID_STR, char *RP_ODM_PID_STR, int len){
+static void replace_productid(char *GET_PID_STR, char *RP_PID_STR, int len){
 
-	struct REPLACE_ODMPID_S *p;
+	struct REPLACE_PRODUCTID_S *p;
 
-	for(p = &replace_odmpid_t[0]; p->org_name; p++){
-		if(!strcmp(ODM_PID_STR, p->org_name)){
-			strlcpy(RP_ODM_PID_STR, p->replace_name, len);
+	for(p = &replace_productid_t[0]; p->org_name; p++){
+		if(!strcmp(GET_PID_STR, p->org_name)){
+			strlcpy(RP_PID_STR, p->replace_name, len);
 			return;
 		}
 	}
-	strlcpy(RP_ODM_PID_STR, ODM_PID_STR, len);
+
+	/* general  replace underscore with space */
+	strlcpy(RP_PID_STR, GET_PID_STR, len);
+	for (; *RP_PID_STR; ++RP_PID_STR)
+	{
+		if (*RP_PID_STR == '_')
+			*RP_PID_STR = ' ';
+	}
 }
 #endif
 
@@ -180,33 +191,29 @@ translate_lang (char *s, char *e, FILE *f, kw_t *pkw)
 		if (desc != NULL) {
 #ifdef RTCONFIG_ODMPID
 			static char pattern1[2048];
-			char RP_ODM_PID_STR[32];
+			char RP_PID_STR[32];
+			char GET_PID_STR[32]={0};
 			char *p_PID_STR = NULL;
 			char *PID_STR = nvram_safe_get("productid");
-			char *ODM_PID_STR = nvram_safe_get("odmpid");
-#if defined(R7900P) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(K3) || defined(K3C)
-#if defined(R7900P) 
-			char *modelname = "R8000P";
-#else
+#if defined(R7900P) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(K3) || defined(K3C) || defined(R8000P) || defined(RAX20)
 			char *modelname = nvram_safe_get("modelname");
-#endif
 			int merlinr_len;
 #endif
 			char *pSrc, *pDest;
-			int pid_len, odm_len;
+			int pid_len, get_pid_len;
 
+			strlcpy(GET_PID_STR, get_productid(), sizeof(GET_PID_STR));
 			pid_len = strlen(PID_STR);
-			odm_len = strlen(ODM_PID_STR);
-#if defined(R7900P) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(K3) || defined(K3C)
-			//char *modelname = nvram_safe_get("modelname");
+			get_pid_len = strlen(GET_PID_STR);
+#if defined(R7900P) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(K3) || defined(K3C) || defined(R8000P) || defined(RAX20)
 			merlinr_len = strlen(modelname);
 			if (merlinr_len && strcmp(PID_STR, modelname) != 0) {
-				strlcpy(RP_ODM_PID_STR, modelname, merlinr_len+1);
+				strlcpy(RP_PID_STR, modelname, merlinr_len+1);
 #else 
-			if (odm_len && strcmp(PID_STR, ODM_PID_STR) != 0) {
-				replace_odmpid(ODM_PID_STR, RP_ODM_PID_STR, sizeof(RP_ODM_PID_STR));
+			if (get_pid_len && strcmp(PID_STR, GET_PID_STR) != 0) {
+				replace_productid(GET_PID_STR, RP_PID_STR, sizeof(RP_PID_STR));
 #endif
-				odm_len = strlen(RP_ODM_PID_STR);
+				get_pid_len = strlen(RP_PID_STR);
 				pSrc  = desc;
 				pDest = pattern1;
 				while((p_PID_STR = strstr(pSrc, PID_STR)))
@@ -215,8 +222,8 @@ translate_lang (char *s, char *e, FILE *f, kw_t *pkw)
 					pDest += (p_PID_STR - pSrc);
 					pSrc   =  p_PID_STR + pid_len;
 
-					memcpy(pDest, RP_ODM_PID_STR, odm_len);
-					pDest += odm_len;
+					memcpy(pDest, RP_PID_STR, get_pid_len);
+					pDest += get_pid_len;
 				}
 				if(pDest != pattern1)
 				{
@@ -265,7 +272,7 @@ do_ej(char *path, FILE *stream)
 #ifdef TRANSLATE_ON_FLY
 	// Load dictionary file
 	lang = nvram_safe_get("preferred_lang");
-	if(!check_lang_support(lang)){
+	if(!check_lang_support_merlinr(lang)){
 		lang = nvram_default_get("preferred_lang");
 		nvram_set("preferred_lang", lang);
 	}
@@ -285,12 +292,10 @@ do_ej(char *path, FILE *stream)
 		if (((pattern + pattern_size) - end_pat) < frag_size)
 		{
 			len = end_pat - start_pat;
-			if(len < pattern_size){
-				memcpy (pattern, start_pat, len);
-				start_pat = pattern;
-				end_pat = start_pat + len;
-				*end_pat = '\0';
-			}
+			memcpy (pattern, start_pat, len);
+			start_pat = pattern;
+			end_pat = start_pat + len;
+			*end_pat = '\0';
 		}
 
 		read_len = (pattern + pattern_size) - end_pat;
@@ -442,3 +447,4 @@ ejArgs(int argc, char **argv, char *fmt, ...)
 
 	return arg;
 }
+

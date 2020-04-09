@@ -13228,7 +13228,7 @@ do_ssupload_post(char *url, FILE *stream, int len, char *boundary)
 	strcpy(upload_fifo, name);
 	FILE *fifo = NULL;
 	char buf[4096];
-	int ch, ret = EINVAL;
+	int ch;
 	int count, cnt;
 	long filelen;
 	int offset;
@@ -24571,7 +24571,7 @@ struct ej_handler ej_handlers[] = {
 #ifdef RTCONFIG_FANCTRL
 	{ "get_fanctrl_info", get_fanctrl_info},
 #endif
-#ifdef RTCONFIG_BCMARM
+#if defined(RTCONFIG_BCMARM) || defined(RTCONFIG_LANTIQ)// || defined(RTCONFIG_QCA)
 	{ "get_cpu_temperature", get_cpu_temperature},
 #endif
 	{ "get_machine_name" , get_machine_name},

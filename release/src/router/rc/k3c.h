@@ -33,16 +33,16 @@ extern void k3c_uuid(void);
 extern void exec_uu_merlinr(void);
 #endif
 #if defined(RTCONFIG_FRS_LIVE_UPDATE) 
-#if defined(RTCONFIG_BCMARM) || defined(RTCONFIG_LANTIQ) || defined(RTCONFIG_QCA) || defined(RTCONFIG_HND_ROUTER) || defined(RTCONFIG_RALINK)
 extern int merlinr_firmware_check_update_main(int argc, char *argv[]);
-#endif
 #endif
 
 #if defined(RTCONFIG_SOFTCENTER)
 enum {
 	SOFTCENTER_WAN=1,
 	SOFTCENTER_NAT,
-	SOFTCENTER_MOUNT
+	SOFTCENTER_MOUNT,
+	SOFTCENTER_SERVICES,
+	SOFTCENTER_UNMOUNT
 };
 extern void softcenter_eval(int sig);
 #endif

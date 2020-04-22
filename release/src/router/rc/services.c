@@ -1,4 +1,3 @@
-
 /*
  * Miscellaneous services
  *
@@ -4200,9 +4199,6 @@ start_smartdns(void)
 		killall_tk("smartdns");
 	if (f_exists("/etc/smartdns.conf"))
 		unlink("/etc/smartdns.conf");
-	//doSystem("cp /rom/etc/smartdns.conf /etc/smartdns.conf");
-	//doSystem("echo server $(nvram get wan_dns1_x) >> /etc/smartdns.conf");
-	//doSystem("echo server $(nvram get wan_dns2_x) >> /etc/smartdns.conf");
 	if ((fp = fopen("/etc/smartdns.conf", "w")) == NULL){
 		logmessage(LOGNAME, "start smartdns failed\n");
 		return;
@@ -4211,7 +4207,7 @@ start_smartdns(void)
 	fprintf(fp, "conf-file /etc/blacklist-ip.conf\n");
 	fprintf(fp, "conf-file /etc/whitelist-ip.conf\n");
 	//fprintf(fp, "conf-file /etc/seconddns.conf\n");
-	fprintf(fp, "bind [::]:9053 -no-speed-check\n");
+	fprintf(fp, "bind [::]:9053\n");
 	//fprintf(fp, "bind-tcp [::]:5353\n");
 	fprintf(fp, "cache-size 9999\n");
 	//fprintf(fp, "prefetch-domain yes\n");
@@ -4228,9 +4224,19 @@ start_smartdns(void)
 	//fprintf(fp, "log-file /var/log/smartdns.log\n");
 	//fprintf(fp, "log-size 128k\n");
 	//fprintf(fp, "log-num 2\n");
-	fprintf(fp, "server 114.114.114.114\n");
-	fprintf(fp, "server 119.29.29.29\n");
-	fprintf(fp, "server 223.5.5.5\n");
+#if defined(BLUECAVE) && !defined(K3C)
+	if(!strncmp(nvram_get("territory_code"), "CN",2)){
+#endif
+		fprintf(fp, "server 114.114.114.114\n");
+		fprintf(fp, "server 119.29.29.29\n");
+		fprintf(fp, "server 223.5.5.5\n");
+#if defined(BLUECAVE) && !defined(K3C)
+	} else {
+		fprintf(fp, "server 8.8.8.8\n");
+		fprintf(fp, "server 208.67.222.222\n");
+		fprintf(fp, "server 1.1.1.1\n");
+	}
+#endif
 	for (unit = WAN_UNIT_FIRST; unit < WAN_UNIT_MAX; unit++) {
 		char *wan_xdns;
 		char wan_xdns_buf[sizeof("255.255.255.255 ")*2];
@@ -4250,10 +4256,10 @@ start_smartdns(void)
 	}
 	//fprintf(fp, "server %s\n", nvram_get("wan_dns1_x"));
 	//fprintf(fp, "server %s\n", nvram_get("wan_dns2_x"));
-	fprintf(fp, "server-tcp 8.8.8.8\n");
-	fprintf(fp, "server-tcp 8.8.4.4\n");
-	fprintf(fp, "tcp-idle-time 120\n");
-	fprintf(fp, "server-tls 8.8.8.8:853\n");
+	//fprintf(fp, "server-tcp 8.8.8.8\n");
+	//fprintf(fp, "server-tcp 8.8.4.4\n");
+	//fprintf(fp, "tcp-idle-time 120\n");
+	//fprintf(fp, "server-tls 8.8.8.8:853\n");
 	//fprintf(fp, "server-https https://cloudflare-dns.com/dns-query\n");
 	//fprintf(fp, "speed-check-mode none\n");
 	//fprintf(fp, "dualstack-ip-selection no\n");
@@ -6330,7 +6336,7 @@ void chilli_config(void)
 		int declen2 = pw_dec_len(chilli_macpasswd);
 		char dec_passwd2[declen2];
 		memset(dec_passwd2, 0, sizeof(dec_passwd2));
-		pw_dec(chilli_macpasswd, dec_passwd2;);
+		pw_dec(chilli_macpasswd, dec_passwd2);
 		chilli_macpasswd = dec_passwd2;
 #endif
 		if (strlen(chilli_macpasswd) > 0)
@@ -8053,7 +8059,7 @@ start_services(void)
 	start_amas_lib();
 #endif
 	run_custom_script("services-start", 0, NULL, NULL);
-	
+	nvram_set_int("sc_services_sig", 1);
 	return 0;
 }
 
@@ -15908,7 +15914,9 @@ int start_cfgsync(void)
 	char *cfg_client_argv[] = {"cfg_client", NULL};
 	pid_t pid;
 	int ret = 0;
-
+#if defined(MERLINR_VER_MAJOR_B)
+	return 0;
+#endif
 #ifdef RTCONFIG_MASTER_DET
 	if (nvram_match("cfg_master", "1") && (is_router_mode() || access_point_mode()))
 #else

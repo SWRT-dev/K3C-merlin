@@ -121,12 +121,10 @@ struct iptv_profile {
         char *ttl_inc_enable;
 };
 
-#ifdef RTCONFIG_ODMPID
 struct REPLACE_PRODUCTID_S {
         char *org_name;
         char *replace_name;
 };
-#endif
 
 #define MIME_EXCEPTION_NOAUTH_ALL 	1<<0
 #define MIME_EXCEPTION_NOAUTH_FIRST	1<<1

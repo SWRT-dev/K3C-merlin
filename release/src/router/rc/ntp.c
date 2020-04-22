@@ -70,8 +70,20 @@ static void ntp_service()
 
 		setup_timezone();
 
+#ifdef RTCONFIG_DNSPRIVACY
+		if (nvram_get_int("dnspriv_enable"))
+			notify_rc("restart_stubby");
+#endif
 #ifdef RTCONFIG_DISK_MONITOR
 		notify_rc("restart_diskmon");
+#endif
+#ifdef RTCONFIG_UUPLUGIN
+		if(nvram_get_int("uu_enable"))
+#if defined(R8000P) || defined(R7900P) || defined(K3) || defined(SBRAC3200P) || defined(RTAC3100) || defined(RTAC3200) || defined(EA6700) || defined(RAX20) || defined(SBRAC1900P)
+		exec_uu_merlinr();
+#else
+		exec_uu();
+#endif
 #endif
 	}
 }
@@ -244,3 +256,4 @@ int ntp_main(int argc, char *argv[])
 		pause();
 	}
 }
+

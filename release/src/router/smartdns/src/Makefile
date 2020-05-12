@@ -14,7 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 BIN=smartdns 
 OBJS_LIB=lib/rbtree.o lib/art.o lib/bitops.o lib/radix.o lib/conf.o
 OBJS=smartdns.o fast_ping.o dns_client.o dns_server.o dns.o util.o tlog.o dns_conf.o dns_cache.o http_parse.o $(OBJS_LIB)
@@ -31,7 +30,7 @@ CXXFLAGS +=-Iinclude
 LDFLAGS += -lssl -lcrypto -lpthread 
 #endif
 
-.PHONY: all
+.PHONY: all clean
 
 all: $(BIN)
  

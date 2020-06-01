@@ -15,6 +15,8 @@
  * MA 02111-1307 USA
  */
 
+#define _GNU_SOURCE
+
 #include <rc.h>
 #include <wanduck.h>
 
@@ -156,7 +158,7 @@ static int update_wan_led_and_wanred_led(int wan_unit)
 				l = get_wanports_status(wan_unit);
 
 			if (l == CONNED && state == WAN_STATE_CONNECTED) {
-#ifdef BLUECAVE
+#ifdef K3C
 			if (nvram_get_int("bc_ledLv") != 0)
 				led_control(LED_INDICATOR_SIG2, LED_ON); //turn on BLUE led
 				led_control(LED_INDICATOR_SIG1, LED_OFF);
@@ -166,7 +168,7 @@ static int update_wan_led_and_wanred_led(int wan_unit)
 				led_control(LED_WAN, LED_ON);
 #endif
 			} else {
-#ifdef BLUECAVE
+#ifdef K3C
 			if (nvram_get_int("bc_ledLv") != 0)
 				led_control(LED_INDICATOR_SIG3, LED_ON); //turn on yellow led
 				led_control(LED_INDICATOR_SIG1, LED_OFF);
@@ -181,7 +183,7 @@ static int update_wan_led_and_wanred_led(int wan_unit)
 	case SW_MODE_REPEATER:	/* fallthrough */
 	case SW_MODE_AP:
 		wan_red_led_control(LED_OFF);
-#ifdef BLUECAVE
+#ifdef K3C
 			if (nvram_get_int("bc_ledLv") != 0)
 				led_control(LED_INDICATOR_SIG3, LED_ON); //turn on yellow led
 #endif
@@ -1003,13 +1005,8 @@ int detect_internet(int wan_unit)
 #ifdef RTCONFIG_DUALWAN
 			strcmp(dualwan_mode, "lb") &&
 #endif
-			!found_default_route(wan_unit)){
+			!found_default_route(wan_unit))
 		link_internet = DISCONN;
-
-		// fix the missed gateway sometimes.
-		if(is_wan_connect(wan_unit))
-			add_multi_routes();
-	}
 #ifdef DETECT_INTERNET_MORE
 	else if(!get_packets_of_net_dev(wan_ifname, &rx_packets, &tx_packets) || rx_packets <= RX_THRESHOLD)
 		link_internet = DISCONN;
@@ -2369,6 +2366,7 @@ void handle_dns_req(int sfd, unsigned char *request, int maxlen, struct sockaddr
 	};
 #endif
 	unsigned char reply_content[MAXLINE], *ptr, *end;
+	char *nptr, *nend;
 	dns_header *d_req, *d_reply;
 	dns_queries queries;
 	dns_answer answer;
@@ -2386,6 +2384,8 @@ void handle_dns_req(int sfd, unsigned char *request, int maxlen, struct sockaddr
 
 	/* query, only first so far */
 	memset(&queries, 0, sizeof(queries));
+	nptr = queries.name;
+	nend = queries.name + sizeof(queries.name) - 1;
 	while (ptr < end) {
 		size_t len = *ptr++;
 		if (len > 63 || end - ptr < (len ? : 4))
@@ -2396,9 +2396,10 @@ void handle_dns_req(int sfd, unsigned char *request, int maxlen, struct sockaddr
 			ptr += 4;
 			break;
 		}
-		if (*queries.name)
-			strcat(queries.name, ".");
-		strncat(queries.name, (char *)ptr, len);
+		if (nptr < nend && *queries.name)
+			*nptr++ = '.';
+		if (nptr < nend)
+			nptr = stpncpy(nptr, (char *)ptr, min(len, nend - nptr));
 		ptr += len;
 	}
 	if (queries.type == 0 || queries.ip_class == 0 || strlen(queries.name) > 1025)
@@ -4636,3 +4637,4 @@ WANDUCK_SELECT:
 	_dprintf("# wanduck exit error\n");
 	exit(1);
 }
+

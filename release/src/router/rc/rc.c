@@ -26,17 +26,25 @@
 
 #if defined(K3)
 #include <k3.h>
-#elif defined(R7900P)
+#elif defined(R7900P) || defined(R8000P)
 #include <r7900p.h>
 #elif defined(K3C)
 #include <k3c.h>
 #elif defined(SBRAC1900P)
-#include <1900p.h>
+#include "ac1900p.h"
+#elif defined(SBRAC3200P)
+#include "ac3200p.h"
+#else
+#include "merlinr.h"
 #endif
 
 #ifndef ARRAYSIZE
 #define ARRAYSIZE(a) (sizeof(a) / sizeof(a[0]))
 #endif /* ARRAYSIZE */
+
+#if defined(RTCONFIG_PTHSAFE_POPEN)
+void PS_pod_main(void);
+#endif
 
 #ifdef  __CONFIG_WBD__
 static void
@@ -272,11 +280,6 @@ static int rctest_main(int argc, char *argv[])
 #if defined(RTCONFIG_FRS_FEEDBACK)
 	else if (strcmp(argv[1], "sendfeedback")==0) {
 		start_sendfeedback();
-	}
-#endif
-#if defined(RTCONFIG_HTTPS) && defined(RTCONFIG_PUSH_EMAIL)
-	else if (strcmp(argv[1], "sendmail")==0) {
-		start_DSLsendmail();
 	}
 #endif
 #ifdef RTCONFIG_BCM_7114
@@ -873,7 +876,7 @@ static const applets_t applets[] = {
 #endif
 	{ "firmware_check",		firmware_check_main		},
 #if defined(RTCONFIG_FRS_LIVE_UPDATE)
-#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(R7900P)
+#if defined(RTCONFIG_BCMARM) || defined(RTCONFIG_LANTIQ) || defined(HND_ROUTER) || defined(RTCONFIG_QCA) || defined(RTCONFIG_RALINK)
 	{ "firmware_check_update",	merlinr_firmware_check_update_main	},
 #else
 	{ "firmware_check_update",	firmware_check_update_main	},
@@ -1027,6 +1030,12 @@ int main(int argc, char **argv)
 		}
 	}
 
+#if defined(RTCONFIG_PTHSAFE_POPEN)
+	if(!strcmp(base, "PS_pod")){
+		PS_pod_main();
+		return 0;
+	}
+#endif
 
 #ifdef RTCONFIG_WIFI_SON
         if(!strcmp(base, "hive_cap")){
@@ -1708,6 +1717,12 @@ int main(int argc, char **argv)
 		return 0;
 	}
 #endif
+#ifdef RTCONFIG_INTERNETCTRL
+	else if (!strcmp(base, "ic")) {
+		ic_main(argc, argv);
+		return 0;
+	}
+#endif
 #if defined(CONFIG_BCMWL5) \
 		|| (defined(RTCONFIG_RALINK) && defined(RTCONFIG_WIRELESSREPEATER)) \
 		|| defined(RTCONFIG_QCA) || defined(RTCONFIG_REALTEK) \
@@ -2016,3 +2031,4 @@ int main(int argc, char **argv)
 	printf("Unknown applet: %s\n", base);
 	return 0;
 }
+

@@ -1,3 +1,0 @@
-compat-inet_pton.lo: compat-inet_pton.c ../../config.h
-
-../../config.h:

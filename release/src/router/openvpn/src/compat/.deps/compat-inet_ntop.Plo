@@ -1,3 +1,0 @@
-compat-inet_ntop.lo: compat-inet_ntop.c ../../config.h
-
-../../config.h:

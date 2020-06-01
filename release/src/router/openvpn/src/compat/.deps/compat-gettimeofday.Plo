@@ -1,3 +1,0 @@
-compat-gettimeofday.lo: compat-gettimeofday.c ../../config.h
-
-../../config.h:

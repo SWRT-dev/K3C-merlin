@@ -2,6 +2,7 @@
 extern void libipt_CLUSTERIP_init(void);
 extern void libipt_DNAT_init(void);
 extern void libipt_ECN_init(void);
+extern void libipt_FULLCONENAT_init(void);
 extern void libipt_LOG_init(void);
 extern void libipt_MASQUERADE_init(void);
 extern void libipt_MIRROR_init(void);
@@ -27,6 +28,7 @@ void init_extensions4(void)
  libipt_CLUSTERIP_init();
  libipt_DNAT_init();
  libipt_ECN_init();
+ libipt_FULLCONENAT_init();
  libipt_LOG_init();
  libipt_MASQUERADE_init();
  libipt_MIRROR_init();

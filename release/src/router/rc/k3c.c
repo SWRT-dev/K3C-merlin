@@ -233,6 +233,7 @@ void k3c_init_done()
 		doSystem("sed -i '/softcenter-net.sh/d' /jffs/scripts/nat-start");
 		doSystem("sed -i '/softcenter-mount.sh/d' /jffs/scripts/post-mount");
 	}
+	doSystem("dbus set softcenter_firmware_version=`nvram get extendno|cut -d \"_\" -f2|cut -d \"-\" -f1|cut -c2-6`");
 #endif
 }
 

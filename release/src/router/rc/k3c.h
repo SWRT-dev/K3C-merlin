@@ -28,6 +28,7 @@ extern void k3c_init_led(void);
 extern void k3c_init(void);
 extern void k3c_init_done(void);
 extern void k3c_uuid(void);
+extern int merlinr_toolbox(int argc, char **argv);
 #endif
 #if defined(RTCONFIG_UUPLUGIN)
 extern void exec_uu_merlinr(void);

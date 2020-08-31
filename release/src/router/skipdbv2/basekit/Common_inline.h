@@ -31,6 +31,7 @@ Kudos to Daniel A. Koepke
 	#define NON_EXTERN_INLINES
 #else
 	#if defined __GNUC__ && __GNUC__ >= 4
+		//TODO?
 		//#define NON_EXTERN_INLINES
 	#endif
 #endif
@@ -56,11 +57,7 @@ Kudos to Daniel A. Koepke
 #else
 	// in .h 
 	#define IO_DECLARE_INLINES
-#ifdef HND_ROUTER
-	#define IOINLINE inline
-#else
 	#define IOINLINE extern inline
-#endif 
 #endif 
 
 #endif

@@ -3,11 +3,16 @@
  * All rights reserved
  */
 
-#include "mongoose.h"
+#include <mongoose.h>
+#include <json.h>
 #include <sys/queue.h>
 #include <getopt.h>
-#include "dbapi.h"
-#include "khash.h"
+#include <syslog.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <dbapi.h>
+#include <khash.h>
 
 #define MAX_IDLE_CONNS 5
 #define CONN_IDLE_TIMEOUT 30
@@ -22,6 +27,10 @@
 #define PREFIX_RESP_LEN (7)
 #define PREFIX_RESULT "/_result/"
 #define PREFIX_RESULT_LEN (9)
+#define UPLOAD_API "/_upload"
+#define PREFIX_PATH "/jffs/softcenter"
+
+//#define DEBUG
 
 // 106.186.20.48
 // gcc -o http ../../mongoose.c  http.c
@@ -68,6 +77,11 @@ struct peer {
     } flags;
 };
 
+struct file_writer_data {
+    FILE *fp;
+    size_t bytes_written;
+};
+
 struct conn_data {
     struct be_conn *be_conn; /* Chosen backend */
     struct peer client;      /* Client peer */
@@ -75,9 +89,11 @@ struct conn_data {
     time_t last_activity;
     int https;
     int id;
+
+    struct file_writer_data *file_data;
 };
 
-#define DEFAULT_RESP_LEN (127)
+#define DEFAULT_RESP_LEN (4095)
 struct json_req {
     STAILQ_ENTRY(json_req) reqs;
 
@@ -109,16 +125,39 @@ struct dblist_ctx {
     int index;
 };
 
+struct global_cfg_t {
+    pid_t ppid;
+    int daemon;
+    int log_level;
+
+    char http_port[64];
+    char https_port[64];
+    char www[128];
+    char reverse[128];
+    char cert[256];
+};
+
 static const char *s_error_500 = "HTTP/1.1 500 Failed\r\n";
 static const char *s_content_len_0 = "Content-Length: 0\r\n";
 static const char *s_connection_close = "Connection: close\r\n";
 static struct http_backend s_vhost_backends[100], s_default_backends[100];
 static int s_num_vhost_backends = 0, s_num_default_backends = 0;
-static int s_sig_num = 0;
 static int s_backend_keepalive = 0;
 static FILE *s_log_file = NULL;
 static struct mg_serve_http_opts s_http_server_opts = {0};
 static struct mg_serve_http_opts s_http_tmp_opts = {0};
+static struct global_cfg_t gcfg = {0};
+static int start_main(void);
+
+enum
+{
+    APP_DBG = 0,
+    APP_INFO,
+    APP_WRN,
+    APP_ERR,
+    APP_COUNT
+};
+#define app_log(_level, _fmt, _args...) do {if(_level >= gcfg.log_level){ if(gcfg.daemon) {syslog(LOG_NOTICE, _fmt, ##_args);} else { fprintf(stdout, _fmt, ##_args); }}} while(0)
 
 static void init_req_mgr(struct json_req_mgr* mgr) {
     mgr->req_map = kh_init(32);
@@ -274,11 +313,6 @@ static void ev_handler_https(struct mg_connection *nc, int ev, void *ev_data);
 static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int https);
 static void write_log(const char *fmt, ...);
 
-static void signal_handler(int sig_num) {
-    signal(sig_num, signal_handler);
-    s_sig_num = sig_num;
-}
-
 static void send_http_err(struct mg_connection *nc, const char *err_line) {
     mg_printf(nc, "%s%s%s\r\n", err_line, s_content_len_0, s_connection_close);
 }
@@ -295,11 +329,6 @@ static void respond_with_error(struct conn_data *conn, const char *err_line) {
         conn->client.flags.headers_sent = 1;
     }
     nc->flags |= MG_F_SEND_AND_CLOSE;
-}
-
-static int has_prefix(const struct mg_str *uri, const char *prefix) {
-    size_t prefix_len = strlen(prefix);
-    return uri->len >= prefix_len && memcmp(uri->p, prefix, prefix_len) == 0;
 }
 
 static int matches_vhost(const struct mg_str *host, const char *vhost) {
@@ -340,7 +369,7 @@ static struct http_backend *choose_backend_from_list(
     for (i = 0; i < num_backends; i++) {
         struct http_backend *be = &backends[i];
         //printf("be->vhost=%s hm->uri=%s prefix=%s\n", be->vhost, hm->uri.p, be->uri_prefix);
-        if (has_prefix(&hm->uri, be->uri_prefix) &&
+        if (mg_has_prefix(&hm->uri, be->uri_prefix) &&
                 matches_vhost(&vhost, be->vhost) &&
                 (chosen == NULL ||
                  /* Prefer most specific URI prefixes */
@@ -656,7 +685,7 @@ static int dblist_prefix(struct mg_connection *nc, dbclient* client, char* prefi
         } else {
             mg_printf_http_chunk(nc, ",{");
         }
-        dbclient_list(client, prefix, &db_ctx, print_json);
+        dbclient_list(client, p, &db_ctx, print_json);
         mg_printf_http_chunk(nc, "}\n");
 
         p = strtok(NULL, ",");
@@ -668,10 +697,10 @@ static int dblist_prefix(struct mg_connection *nc, dbclient* client, char* prefi
 }
 
 static int process_json(struct conn_data* conn, struct http_message *hm) {
-#define DST_LEN (510)
-    int i, n, ok, dst_len = DST_LEN-9;
-    struct json_token tokens[200] = {{0}};
-    char *buf, dst[DST_LEN+50];
+#define DST_LEN (4096)
+    int i, n, dst_len = DST_LEN;
+    struct json_token tokens[2048] = {{0}};
+    char *buf, dst[DST_LEN+128];
     struct json_token *method, *params, *fields;
     struct mg_connection *nc = conn->client.nc;
     dbclient client;
@@ -686,40 +715,48 @@ static int process_json(struct conn_data* conn, struct http_message *hm) {
             return -1;
         }
 
+        dst[0] = '\0';
+        buf = dst;
+        method = find_json_token(tokens, "method");
+        if(method != NULL && JSON_TYPE_STRING == method[0].type && dst_len > method[0].len) {
+            n = sprintf(buf, "%s/", PREFIX_PATH"/scripts");
+            memcpy(buf+n, method[0].ptr, method[0].len);
+            n += method[0].len;
+            buf[n] = '\0';
+            if(-1 == access(buf, X_OK)) {
+                return -2;
+            }
+
+            buf[0] = '\0';//reset the buffer
+        } else {
+            return -3;
+        }
+
         fields = find_json_token(tokens, "fields");
         if (fields != NULL && JSON_TYPE_OBJECT == fields[0].type && fields[0].num_desc > 0) {
             n = fields[0].num_desc/2;
-            dbclient_start(&client);
+            if( 0 != dbclient_start(&client)) {
+                return -5;
+            }
             //printf("n=%d origin=%d\n", n, fields[0].num_desc);
 
             for(i = 0; i <= n; i++) {
-                if(fields[i*2+1].len > 0 && fields[i*2+2].len > 0) {
-                    //printf("o1=%d o2=%d\n", fields[i*2+1].len, fields[i*2+2].len);
-                    dbclient_bulk(&client, "set", fields[i*2+1].ptr, fields[i*2+1].len, fields[i*2+2].ptr, fields[i*2+2].len);
+                if(fields[i*2+1].len > 0) {
+                    if(fields[i*2+2].len > 0) {
+                        //printf("o1=%d o2=%d\n", fields[i*2+1].len, fields[i*2+2].len);
+                        dbclient_bulk(&client, "set", fields[i*2+1].ptr, fields[i*2+1].len, fields[i*2+2].ptr, fields[i*2+2].len);
+                    } else {
+                        dbclient_bulk(&client, "set", fields[i*2+1].ptr, fields[i*2+1].len, "", 0);
+                    }
                 }
             }
 
             dbclient_end(&client);
         }
 
-        dst[0] = '\0';
-        buf = dst;
-        ok = 1;
-        if(method != NULL && JSON_TYPE_STRING == method[0].type && dst_len > method[0].len) {
-            n = sprintf(buf, "%s/%s", "/jffs/softcenter/scripts", method[0].ptr);
-            buf[n] = '\0';
-            if(-1 == access(buf, X_OK)) {
-                ok = 0;
-            }
-
-            buf[0] = '\0';
-        } else {
-            ok = 0;
-        }
-
+        //reused fields
         fields = find_json_token(tokens, "id");
-        method = find_json_token(tokens, "method");
-        if(ok && fields != NULL && JSON_TYPE_NUMBER == fields[0].type && fields[0].len < 9) {
+        if(fields != NULL && JSON_TYPE_NUMBER == fields[0].type && fields[0].len < 9) {
             n = method[0].len;
             memcpy(buf, method[0].ptr, n);
             buf[n] = ' ';
@@ -743,7 +780,7 @@ static int process_json(struct conn_data* conn, struct http_message *hm) {
                     }
                     n = params[i].len;
 
-                    if(JSON_TYPE_NUMBER == params[i].type) {
+                    if(JSON_TYPE_NUMBER == params[i].type || JSON_TYPE_STRING == params[i].type) {
                         memcpy(buf, params[i].ptr, n);
                         buf[n] = ' ';
                         buf[n+1] = '\0';
@@ -754,11 +791,15 @@ static int process_json(struct conn_data* conn, struct http_message *hm) {
             }
 
             //TODO assess for check if xxx.sh is exists
-            n = sprintf(buf, "%s", " > /dev/null 2>&1 &");
+            i = dst_len - (buf - dst);
+            n = snprintf(buf, i, "%s", " > /dev/null 2>&1 &");
+            if(n > i) {
+                return -6;
+            }
             buf[n] = '\0';
 
             n = strtol(fields[0].ptr, NULL, 10);
-            //printf("set id=%d flen=%d dst=%s\n", n, fields[0].len, dst);
+            app_log(APP_DBG, "set id=%d flen=%d dst=%s\n", n, fields[0].len, dst);
             system(dst);
 
             new_json_request(&sreq_mgr, nc, n, time(NULL));
@@ -772,16 +813,17 @@ static int process_json(struct conn_data* conn, struct http_message *hm) {
     } else if(0 == mg_vcasecmp(&hm->method, "GET")) {
         dst[0] = '\0';
         if(dst_len < hm->uri.len || hm->uri.len <= PREFIX_API_LEN) {
-            mg_printf_http_chunk(nc, "{ \"result\": %d }", -3);
-            mg_send_http_chunk(nc, "", 0);
-            return -3;
+            return -4;
         }
         n = hm->uri.len - PREFIX_API_LEN;
         memcpy(dst, hm->uri.p + PREFIX_API_LEN, n);
         dst[n] = '\0';
         //printf("get dst=%s\n", dst);
 
-        dbclient_start(&client);
+        if(0 != dbclient_start(&client)) {
+            return -6;
+        }
+
         dblist_prefix(nc, &client, dst);
         dbclient_end(&client);
 
@@ -828,7 +870,7 @@ static int process_result(struct mg_connection *nc, struct http_message *hm) {
 
     n = strtol(dst, NULL, 10);
 
-    mg_printf_http_chunk(nc, "%s", "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\nContent-Type: application/json\r\n\r\n");
+    mg_printf(nc, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\nContent-Type: application/json\r\n\r\n");
     if(0 != show_shell_resp(&sreq_mgr, n, nc)) {
         mg_printf_http_chunk(nc, "%d", -1);
     }
@@ -874,15 +916,27 @@ static int check_path_exists(const char *url, int len) {
     return 0;
 }
 
+#if 0
+static struct mg_str upload_cb(struct mg_connection *c, struct mg_str file_name) {
+    struct mg_str new_file = {0};
+    char *path = malloc(256);
+    size_t n = sprintf(path, "%s/%s", s_http_tmp_opts.document_root, file_name.p);
+    new_file.len = n;
+    new_file.p = path;
+    //printf("filename=%.*s\n", (int)new_file.len, new_file.p);
+    return new_file;
+}
+#endif
+
 static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int https) {
     struct conn_data *conn = (struct conn_data *) nc->user_data;
     const time_t now = time(NULL);
     int result, id;
 
 #ifdef DEBUG
-    write_log("%d conn=%p nc=%p ev=%d ev_data=%p bec=%p bec_nc=%p\n", now, conn,
-            nc, ev, ev_data, conn != NULL ? conn->be_conn : NULL,
-            conn != NULL && conn->be_conn != NULL ? conn->be_conn->nc : NULL);
+    //write_log("%d conn=%p nc=%p ev=%d ev_data=%p bec=%p bec_nc=%p\n", now, conn,
+    //        nc, ev, ev_data, conn != NULL ? conn->be_conn : NULL,
+    //        conn != NULL && conn->be_conn != NULL ? conn->be_conn->nc : NULL);
 #endif
 
     if (conn == NULL) {
@@ -911,7 +965,9 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
 
     conn->https = https;
 
-    if (ev != MG_EV_POLL) conn->last_activity = now;
+    if (ev != MG_EV_POLL) {
+        conn->last_activity = now;
+    }
 
     switch (ev) {
         case MG_EV_HTTP_REQUEST:
@@ -921,21 +977,20 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
                 struct http_message *hm = (struct http_message *) ev_data;
 
                 check_timeout(&sreq_mgr, time(NULL));
+                //printf("url=%.*s\n", hm->uri.len, hm->uri.p);
 
-                if(hm != NULL && has_prefix(&hm->uri, PREFIX_API)) {
-                    //printf("json connected\n");
-                    //mg_printf(nc, "HTTP/1.0 200 OK\r\nContent-Length: 2\r\n"
-                    //          "Content-Type: application/json\r\n\r\n{}");
-
+                if(hm != NULL && mg_has_prefix(&hm->uri, PREFIX_API)) {
                     result = process_json(conn, hm);
-                    //printf("result=%d\n", result);
                     if(result != 0) {
+                        mg_printf_http_chunk(nc, "{ \"result\": %d }", result);
+                        mg_send_http_chunk(nc, "", 0);
+
                         nc->flags |= MG_F_SEND_AND_CLOSE;
                         conn->client.nc = NULL;
                     }
 
                     break;
-                } else if(hm != NULL && has_prefix(&hm->uri, PREFIX_ROOT)) {
+                } else if(hm != NULL && mg_has_prefix(&hm->uri, PREFIX_ROOT)) {
                     //rewrite uri
                     hm->uri.p += PREFIX_ROOT_LEN-1;
                     hm->uri.len -= PREFIX_ROOT_LEN-1;
@@ -944,7 +999,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
                     nc->flags |= MG_F_SEND_AND_CLOSE;
                     conn->client.nc = NULL;
                     break;
-                } else if(hm != NULL && has_prefix(&hm->uri, PREFIX_TEMP)) {
+                } else if(hm != NULL && mg_has_prefix(&hm->uri, PREFIX_TEMP)) {
                     //rewrite uri
                     hm->uri.p += PREFIX_TEMP_LEN-1;
                     hm->uri.len -= PREFIX_TEMP_LEN-1;
@@ -953,12 +1008,13 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
                     nc->flags |= MG_F_SEND_AND_CLOSE;
                     conn->client.nc = NULL;
                     break;
-                } else if(hm != NULL && has_prefix(&hm->uri, PREFIX_RESP)) {
+                } else if(hm != NULL && mg_has_prefix(&hm->uri, PREFIX_RESP)) {
 
                     id = 0;
                     result = process_resp(nc, hm, &id);
-                    mg_printf_http_chunk(nc, "%s{\"result\":%d}\n", "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n"
-                            "Content-Type: application/json\r\n\r\n", result);
+                    mg_printf(nc, "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n"
+                            "Content-Type: application/json\r\n\r\n");
+                    mg_printf_http_chunk(nc, "{\"result\":%d}\n", result);
                     mg_send_http_chunk(nc, "", 0); /* Send empty chunk, the end of response */
                     nc->flags |= MG_F_SEND_AND_CLOSE;
                     conn->client.nc = NULL;
@@ -968,7 +1024,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
                     }
 
                     break;
-                } else if(hm != NULL && has_prefix(&hm->uri, PREFIX_RESULT)) {
+                } else if(hm != NULL && mg_has_prefix(&hm->uri, PREFIX_RESULT)) {
 
                     process_result(nc, hm);
 
@@ -1022,17 +1078,26 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
                 assert(conn != NULL);
                 struct http_message *hm = (struct http_message *) ev_data;
                 conn->backend.flags.keep_alive = s_backend_keepalive && is_keep_alive(hm);
-                forward(conn, hm, &conn->backend, &conn->client);
+                //printf("resp_code=%d\n", hm->resp_code);
+                if(!conn->backend.flags.keep_alive) {
+                    //tt bug: if the backend connection closed, close the client too
+                    conn->client.flags.keep_alive = 0;
+                }
+                if(conn->client.nc != NULL) {
+                    forward(conn, hm, &conn->backend, &conn->client);
+                }
                 release_backend(conn);
-                if (!conn->client.flags.keep_alive) {
+                if (!conn->client.flags.keep_alive && conn->client.nc != NULL) {
                     conn->client.nc->flags |= MG_F_SEND_AND_CLOSE;
-                } else {
-#ifdef DEBUG
-                    write_log("conn=%p remains open\n", conn);
-#endif
                 }
                 break;
             }
+
+        /* case MG_EV_HTTP_PART_BEGIN:
+        case MG_EV_HTTP_PART_DATA:
+        case MG_EV_HTTP_PART_END:
+            mg_file_upload_handler(nc, ev, ev_data, upload_cb);
+            break; */
 
         case MG_EV_POLL:
             {
@@ -1089,6 +1154,246 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data, int http
     }
 }
 
+//https://github.com/cesanta/mongoose/blob/master/examples/big_upload/big_upload.c
+static void handle_upload(struct mg_connection *nc, int ev, void *p) {
+    struct conn_data *conn = (struct conn_data *) nc->user_data;
+    struct file_writer_data *data = (struct file_writer_data *) conn->file_data;
+    struct mg_http_multipart_part *mp = (struct mg_http_multipart_part *) p;
+    char filepath[512];
+
+    //printf("handle_upload\n");
+    switch (ev) {
+    case MG_EV_HTTP_PART_BEGIN: {
+      if (data == NULL) {
+        data = calloc(1, sizeof(struct file_writer_data));
+        if(mp->var_name != NULL) {
+            snprintf(filepath, 511, "%s/%s", s_http_tmp_opts.document_root, mp->var_name);
+            data->fp = fopen(filepath, "wb");
+            data->bytes_written = 0;
+        }
+
+        if (data->fp == NULL) {
+          mg_printf(nc, "%s",
+                    "HTTP/1.1 500 Failed to open a file\r\n"
+                    "Content-Length: 0\r\n\r\n");
+          nc->flags |= MG_F_SEND_AND_CLOSE;
+          free(data);
+          conn->file_data = NULL;
+          return;
+        }
+        conn->file_data = (void *) data;
+      }
+      break;
+    }
+    case MG_EV_HTTP_PART_DATA: {
+      if (fwrite(mp->data.p, 1, mp->data.len, data->fp) != mp->data.len) {
+        mg_printf(nc, "%s",
+                  "HTTP/1.1 500 Failed to write to a file\r\n"
+                  "Content-Length: 0\r\n\r\n");
+        nc->flags |= MG_F_SEND_AND_CLOSE;
+
+        fclose(data->fp);
+        free(data);
+        conn->file_data = NULL;
+        return;
+      }
+      data->bytes_written += mp->data.len;
+      break;
+    }
+    case MG_EV_HTTP_PART_END: {
+      mg_printf(nc,
+                "HTTP/1.1 200 OK\r\n"
+                "Content-Type: application/json\r\n"
+                "Connection: close\r\n\r\n"
+                "{\"filepath\":\"%s/%s\", \"filelength\":%ld}\n"
+                , s_http_tmp_opts.document_root, mp->var_name, (long) ftell(data->fp));
+      nc->flags |= MG_F_SEND_AND_CLOSE;
+      fclose(data->fp);
+      free(data);
+      conn->file_data = NULL;
+      break;
+    }
+  }
+}
+
+int markas_exit = 0;
+static void child_sig(int sig)
+{
+    if (sig == SIGUSR1) {
+        markas_exit = 1;
+    }
+}
+
+static void ppkill(void)
+{
+    pid_t pid = gcfg.ppid;
+    if(pid > 0) {
+        kill(pid, SIGUSR1);
+    }
+}
+
+static void daemonize(void)
+{
+    /* Fork off the parent process */
+    pid_t pid = fork();
+    if (pid < 0) exit(1);
+
+    /* If we got a good PID, then
+       we can exit the parent process. */
+    if (pid > 0) exit(0);
+
+    /* Cancel certain signals */
+    signal(SIGCHLD, SIG_DFL); /* A child process dies */
+    signal(SIGTSTP, SIG_IGN); /* Various TTY signals */
+    signal(SIGTTOU, SIG_IGN);
+    signal(SIGTTIN, SIG_IGN);
+    signal(SIGPIPE, SIG_IGN);
+    signal(SIGABRT, SIG_IGN);
+    signal(SIGHUP, SIG_IGN); /* Ignore hangup signal */
+    signal(SIGUSR1, child_sig);
+
+    /* Create a new SID for the child process */
+    pid_t sid = setsid();
+    if (sid < 0) exit(1);
+
+    /* Redirect standard files to /dev/null */
+    FILE *funused = freopen("/dev/null", "r", stdin);
+    funused = freopen("/dev/null", "r", stdout);
+    funused = freopen("/dev/null", "r", stderr);
+    (void)&funused;
+
+    /* Open the log file */
+    openlog("httpdb", LOG_PID, LOG_DAEMON);
+
+    /* init env */
+    gcfg.ppid = getpid();
+
+    pid_t pc = 0, pr = 0, refork = 1;
+    for(;;)
+    {
+        if(markas_exit)
+        {
+            exit(1);
+        }
+        else if(refork)
+        {
+            pc = fork();
+            refork = 0;
+        }
+        if(pc < 0)
+        {
+            exit(1);
+        }
+        else if(pc == 0)
+        {
+            start_main();
+            exit(0);
+        }
+        else
+        {
+            pr = waitpid(pc, NULL, 0);
+            if (pr == -1)
+            {
+                exit(1);
+            }
+            else if (pr == pc)
+            {
+                refork = 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    closelog();
+}
+
+static int start_main(void) {
+    struct mg_mgr mgr;
+    struct mg_connection *nc_http = NULL, *nc_https = NULL;
+    struct http_backend *be = NULL;
+
+    signal(SIGPIPE, SIG_IGN);
+    mg_mgr_init(&mgr, NULL);
+
+    if(gcfg.reverse[0] != '\0') {
+        be = &s_default_backends[s_num_default_backends++];
+        STAILQ_INIT(&be->conns);
+
+        be->vhost = NULL;
+        be->uri_prefix = "/";
+        be->host_port = gcfg.reverse;
+        be->redirect = 0;
+        be->uri_prefix_replacement = be->uri_prefix;
+    }
+
+    init_req_mgr(&sreq_mgr);
+
+    if (strlen(gcfg.http_port) > 0) {
+        if ((nc_http = mg_bind(&mgr, gcfg.http_port, ev_handler_http)) == NULL) {
+            app_log(APP_ERR, "mg_bind(%s) failed\n", gcfg.http_port);
+            ppkill();
+            exit(EXIT_FAILURE);
+        }
+        mg_register_http_endpoint(nc_http, UPLOAD_API, handle_upload);
+    }
+
+    if (strlen(gcfg.https_port) > 0) {
+        if ((nc_https = mg_bind(&mgr, gcfg.https_port, ev_handler_https)) == NULL) {
+            app_log(APP_ERR, "mg_bind(%s) failed\n", gcfg.https_port);
+            ppkill();
+            exit(EXIT_FAILURE);
+        }
+        mg_register_http_endpoint(nc_https, UPLOAD_API, handle_upload);
+    }
+
+#if MG_ENABLE_SSL
+    if (nc_https != NULL) {
+        const char *err_str = mg_set_ssl(nc_https, gcfg.cert, NULL);
+        if (err_str != NULL) {
+            app_log(APP_ERR, "Error loading SSL cert: %s\n", err_str);
+            ppkill();
+            exit(1);
+        }
+    }
+#endif
+
+    /* if (s_num_vhost_backends + s_num_default_backends == 0) {
+        fprintf(stderr,  "not http or https found\n");
+        print_usage_and_exit(argv[0]);
+    }
+
+    if(NULL == nc_http && NULL == nc_https) {
+        fprintf(stderr,  "not http or https found\n");
+        exit(1);
+    } */
+
+    if(nc_http != NULL) {
+        mg_set_protocol_http_websocket(nc_http);
+    }
+
+    if(nc_https != NULL) {
+        mg_set_protocol_http_websocket(nc_https);
+    }
+
+    if(gcfg.http_port[0] != '\0') {
+        app_log(APP_ERR, "Http on addr %s\n", gcfg.http_port);
+    }
+    if(gcfg.https_port[0] != '\0') {
+        app_log(APP_ERR, "Https on addr %s\n", gcfg.http_port);
+    }
+    app_log(APP_ERR, "root=%s\nupload=/tmp/upload\n", gcfg.www);
+    for(;;) {
+        mg_mgr_poll(&mgr, 1000);
+    }
+
+    /* Cleanup */
+    mg_mgr_free(&mgr);
+
+    return EXIT_SUCCESS;
+}
+
 static void print_usage_and_exit(const char *prog_name) {
     fprintf(stderr,
             "Usage: %s [-p http_port] [-s https_port] [-l log] [-r reverse_host]"
@@ -1111,144 +1416,61 @@ const struct option long_options[] = {
 };
 
 int main(int argc, char *argv[]) {
-    struct mg_mgr mgr;
-    struct mg_connection *nc_http = NULL, *nc_https = NULL;
-    struct http_backend *be;
-    char http_port[64], https_port[64], www[128], reverse[128];
-    char *vhost = NULL, *cert = NULL, *log = NULL;
-    int c = 0;//IMPORTANT use int
+    int c = 0;
+    static char* mime_types = ".txt=application/octet-stream;.sh=application/octet-stream;.log=text/html; charset=utf-8";
 
-    mg_mgr_init(&mgr, NULL);
+    memset(&gcfg, 0, sizeof(gcfg));
+    strcpy(gcfg.www, PREFIX_PATH"/webs/");
+    strcpy(gcfg.cert, PREFIX_PATH"/lib/ssl.pem");
+    gcfg.log_level = APP_ERR;
 
     s_backend_keepalive = 1;
     s_log_file = stdout;
-    vhost = NULL;
+    s_http_server_opts.custom_mime_types = mime_types;
+    s_http_server_opts.document_root = gcfg.www;
 
-    //cert = "../tests/ssl.pem";
-    //s_http_server_opts.document_root = "../tests/web_root";
-    //s_http_server_opts.enable_directory_listing = "no";
-    //s_http_server_opts.url_rewrites = "/_root=/web_root";
-
-    s_http_tmp_opts.document_root = "/tmp/info";
+    s_http_tmp_opts.document_root = "/tmp/upload/";
     s_http_tmp_opts.enable_directory_listing = "no";
-
-    http_port[0] = '\0';
-    https_port[0] = '\0';
-    www[0] = '\0';
-    reverse[0] = '\0';
+    s_http_tmp_opts.custom_mime_types = mime_types;
 
     while (c >= 0) {
-        c = getopt_long(argc, argv, "p:s:c:r:w:l:h", long_options, NULL);
+        c = getopt_long(argc, argv, "p:s:c:r:w:h:l:d", long_options, NULL);
         switch(c) {
-            case 'p':
-                strncpy(http_port, optarg, 63);
-                break;
-            case 's':
-                strncpy(https_port, optarg, 63);
-                break;
-            case 'c':
-                cert = optarg;
-                break;
-            case 'r':
-                strncpy(reverse, optarg, 127);
-            case 'w':
-                strncpy(www, optarg, 127);
+            case 'd':
+                gcfg.daemon = 1;
                 break;
             case 'l':
-                log = optarg;
+                gcfg.log_level = atoi(optarg);
+                break;
+            case 'p':
+                strncpy(gcfg.http_port, optarg, 63);
+                break;
+            case 's':
+                strncpy(gcfg.https_port, optarg, 63);
+                break;
+            case 'c':
+                strncpy(gcfg.cert, optarg, 255);
+                break;
+            case 'r':
+                strncpy(gcfg.reverse, optarg, 127);
+                break;
+            case 'w':
+                strncpy(gcfg.www, optarg, 127);
                 break;
             case 'h':
                 print_usage_and_exit(argv[0]);
-                break;
             default:
                 // Bug in netgear. c === 0xFF
-                printf("got c=%x\n", c);
                 c = -1;
-                break;
         }
     }
 
-    s_http_server_opts.document_root = www;
-
-    be =
-        vhost != NULL ? &s_vhost_backends[s_num_vhost_backends++]
-        : &s_default_backends[s_num_default_backends++];
-    STAILQ_INIT(&be->conns);
-
-    be->vhost = vhost;
-    be->uri_prefix = "/";
-    be->host_port = reverse;
-    be->redirect = 0;
-    be->uri_prefix_replacement = be->uri_prefix;
-
-    /* if ((r = strchr(be->uri_prefix, '=')) != NULL) {
-     *r = '\0';
-     be->uri_prefix_replacement = r + 1;
-     } */
-
-    printf(
-            "Adding backend for %s%s : %s "
-            "[redirect=%d,prefix_replacement=%s]\n",
-            be->vhost == NULL ? "" : be->vhost, be->uri_prefix, be->host_port,
-            be->redirect, be->uri_prefix_replacement);
-
-    init_req_mgr(&sreq_mgr);
-
-    if (strlen(http_port) > 0) {
-        if ((nc_http = mg_bind(&mgr, http_port, ev_handler_http)) == NULL) {
-            fprintf(stderr, "mg_bind(%s) failed\n", http_port);
-            exit(EXIT_FAILURE);
-        }
+    if(gcfg.daemon > 0) {
+        daemonize();
+    } else {
+        start_main();
     }
 
-    if (strlen(https_port) > 0) {
-        if ((nc_https = mg_bind(&mgr, https_port, ev_handler_https)) == NULL) {
-            fprintf(stderr, "mg_bind(%s) failed\n", https_port);
-            exit(EXIT_FAILURE);
-        }
-    }
-
-#if MG_ENABLE_SSL
-    if (cert != NULL && nc_https != NULL) {
-        const char *err_str = mg_set_ssl(nc_https, cert, NULL);
-        if (err_str != NULL) {
-            fprintf(stderr, "Error loading SSL cert: %s\n", err_str);
-            exit(1);
-        }
-    }
-#endif
-
-    if (s_num_vhost_backends + s_num_default_backends == 0) {
-        print_usage_and_exit(argv[0]);
-    }
-
-    if(NULL == nc_http && NULL == nc_https) {
-        fprintf(stderr,  "not http or https found\n");
-        exit(1);
-    }
-
-    if(nc_http != NULL) {
-        mg_set_protocol_http_websocket(nc_http);
-    }
-
-    if(nc_https != NULL) {
-        mg_set_protocol_http_websocket(nc_https);
-    }
-
-    signal(SIGINT, signal_handler);
-    signal(SIGTERM, signal_handler);
-
-    /* Run event loop until signal is received */
-    printf("Starting http on port %s\nhttps on port %s\n", http_port, https_port);
-    while (s_sig_num == 0) {
-        mg_mgr_poll(&mgr, 1000);
-    }
-
-    /* Cleanup */
-    mg_mgr_free(&mgr);
-
-    printf("Exiting on signal %d\n", s_sig_num);
-
-    return EXIT_SUCCESS;
+    return 0;
 }
 

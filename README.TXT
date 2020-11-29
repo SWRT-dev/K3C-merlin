@@ -1,3 +1,4 @@
+move to closed code
 uboot  https://k3c.paldier.com/uboot/beta/
 RAM: (512M √ 256M ×)
 NAND: (samsung √ others √)
